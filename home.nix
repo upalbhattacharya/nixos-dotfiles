@@ -28,9 +28,7 @@ in
 
 		};
 		packages = [];
-		file = {
-		wallpaper.source = "/home/workboots/.dotfiles/catppuccin-hashtags-black.png";
-		};
+		file = {};
 	};
 	programs.home-manager.enable = true;
 

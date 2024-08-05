@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 let
 	modifier = config.wayland.windowManager.sway.config.modifier;
+	menu = config.wayland.windowManager.sway.config.menu;
 	left = "h";
 	right = "l";
 	up = "k";
@@ -16,6 +17,7 @@ in
 
 		# Applications
 		"${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
+		"${modifier}+d" = "exec ${menu}";
 		"${modifier}+q" = "exec ${pkgs.brave}/bin/brave";
 
 		"${modifier}+${left}" = "focus left";

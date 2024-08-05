@@ -1,8 +1,6 @@
 { config, lib, pkgs, ... }:
+
 {
-	imports = [
-		./keybindings.nix
-	];
 	wayland.windowManager.sway = {
 		enable = true;
 		extraOptions = [
@@ -19,7 +17,7 @@
 			up = "k";
 			down = "j";
 			terminal = "alacritty";
-			## menu = "wofi --show run";
+			menu = "tofi-drun | xargs swaymsg exec --";
 
 			# Fonts
 			fonts = {	
@@ -29,9 +27,7 @@
 
 			# Status bar(s)
 			bars = [{
-				fonts.size = 15.0;
-				# command = "waybar"; You can change it if you want
-				position = "top";
+				command = "waybar";
 			}];
 
 			# Window
@@ -50,7 +46,15 @@
 			# Startup
 			startup = [
 				{
-					command = "autotiling";
+					command = "${pkgs.autotiling}/bin/autotiling";
+					always = true;
+				}
+				{
+					command = "${pkgs.wpaperd}/bin/wpaperd";
+					always = true;
+				}
+				{
+					command = "systemctl --user restart kanshi.service";
 					always = true;
 				}
 			];

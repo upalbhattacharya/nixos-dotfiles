@@ -146,6 +146,7 @@
   # system.copySystemConfiguration = true;
 
   system.stateVersion = "24.05"; # Did you read the comment?
+
 	programs.zsh.enable = true;
 
 	xdg = {
@@ -159,10 +160,10 @@
 	};    
 
 	programs.sway = {
-  	enable = true;
-  	wrapperFeatures.gtk = true;
-  	extraOptions = [
-    	"--unsupported-gpu"
-  	];
+  		enable = true;
+  		wrapperFeatures.gtk = true;
+  		extraOptions = [
+			"--unsupported-gpu"
+  		];
 	};
 }
