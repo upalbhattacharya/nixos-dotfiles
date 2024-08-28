@@ -3,7 +3,10 @@
 {
 	programs.zsh = {
   	enable = true;
-  	syntaxHighlighting.enable = true;
+  	syntaxHighlighting = {
+		enable = true;
+		catppuccin.enable = true;
+	};
   	autosuggestion.enable = true;
   	enableCompletion = true;
   	oh-my-zsh = {

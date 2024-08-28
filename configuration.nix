@@ -14,6 +14,7 @@
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
 	boot.loader.efi.canTouchEfiVariables = true;
 
 	# Shell
@@ -30,6 +31,10 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+	# Networking
+	networking.firewall.allowedTCPPorts = [ 8384 22000 ];
+   	networking.firewall.allowedUDPPorts = [ 22000 21027 ];
 
   # Select internationalisation properties.
 	i18n.defaultLocale = "en_US.UTF-8";
@@ -115,10 +120,15 @@
 	environment.systemPackages = with pkgs; [
 		vim
 		wget
-		alacritty
+		htop
+		kitty
 		lshw
 		git
 		pulsemixer
+		discord
+		obsidian
+		libnotify
+    gcc
 	];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -159,11 +169,19 @@
 		};
 	};    
 
+	fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "Inconsolata" ]; }) ];
+
 	programs.sway = {
   		enable = true;
   		wrapperFeatures.gtk = true;
   		extraOptions = [
 			"--unsupported-gpu"
   		];
+	};
+	programs.steam = {
+  		enable = true;
+  		remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  		dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  		localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
 	};
 }

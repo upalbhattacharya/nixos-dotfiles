@@ -16,9 +16,11 @@ in
 		"${modifier}+Shift+r" = "reload";
 
 		# Applications
-		"${modifier}+Return" = "exec ${pkgs.alacritty}/bin/alacritty";
-		"${modifier}+d" = "exec ${menu}";
+		"${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty";
+		"${modifier}+r" = "exec ${pkgs.fuzzel}/bin/fuzzel";
 		"${modifier}+q" = "exec ${pkgs.brave}/bin/brave";
+		"Ctrl+Alt+l" = "exec ${pkgs.swaylock}/bin/swaylock";
+		"Ctrl+Space" = "exec ${pkgs.mako}/bin/makoctl dismiss -a";
 
 		"${modifier}+${left}" = "focus left";
 		"${modifier}+${right}" = "focus right";

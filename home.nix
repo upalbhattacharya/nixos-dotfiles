@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: let
+{ config, pkgs, catppuccin, ... }: let
 	name = "workboots";
 	version = "24.05";
 in
@@ -7,13 +7,15 @@ in
 		./home
 	];
 
+  	nixpkgs.config.allowUnfree = true;
+
 	home = {
 		username = "${name}";
 		homeDirectory = "/home/${name}";
 		stateVersion = "${version}";
 		sessionVariables = {
-			EDITOR = "vim";
- 			# session.
+ 			
+			# session.
           		XDG_CURRENT_DESKTOP = "sway";
           		XDG_SESSION_DESKTOP = "sway";
           		XDG_SESSION_TYPE = "wayland";
@@ -27,9 +29,17 @@ in
           		_JAVA_AWT_WM_NONREPARENTING=1;
 
 		};
-		packages = [];
+		packages = [
+			pkgs.localsend
+			pkgs.zotero
+      pkgs.anki-bin
+      pkgs.wl-clipboard-rs
+      pkgs.ripgrep
+		];
 		file = {};
 	};
+	catppuccin.flavor = "mocha";
+	catppuccin.enable = true;
 	programs.home-manager.enable = true;
 
 }

@@ -16,7 +16,7 @@
 			right = "l";
 			up = "k";
 			down = "j";
-			terminal = "alacritty";
+			terminal = "kitty";
 			menu = "tofi-drun | xargs swaymsg exec --";
 
 			# Fonts
@@ -56,6 +56,10 @@
 				{
 					command = "systemctl --user restart kanshi.service";
 					always = true;
+				}
+				{
+					command = "${pkgs.mako}/bin/mako";
+					always = true;	
 				}
 			];
 		};
