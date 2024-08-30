@@ -54,7 +54,13 @@
 			# loaded_netrwPlugin = 1;
 		};
 		plugins = {
-			lualine.enable = true;
+			lualine = {
+        enable = true;
+        componentSeparators = {
+          right = "|";
+          left = "|";
+        };
+      };
       coq-nvim = {
         enable = true;
         settings = {

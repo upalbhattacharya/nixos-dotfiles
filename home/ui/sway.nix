@@ -22,7 +22,7 @@
 			# Fonts
 			fonts = {	
 				names = [ "Inconsolata Nerd Font Mono" ];
-				size = 12.0;
+				size = 18.0;
 			};
 
 			# Status bar(s)

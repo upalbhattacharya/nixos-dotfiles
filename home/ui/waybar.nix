@@ -7,7 +7,7 @@
 			mainBar = {
 				layer = "top";
 				position = "top";
-				height = 28;
+				height = 34;
 				# width = 1280;
 				# spacing = 4;
 				fixed-center = false;
@@ -22,21 +22,21 @@
 	  		];
 	  		modules-right = [
 	    		"tray"
-	    		"custom/separatorleft"
+          "custom/separator"
 	    		"pulseaudio"
-	    		"custom/separatorleft2"
+          "custom/separator"
 	    		"custom/memory"
-	    		"custom/separatorleft3"
+          "custom/separator"
 	    		"cpu"
-	    		"custom/separatorleft4"
+          "custom/separator"
 	    		"temperature"
-	    		"custom/separatorleft5"
+          "custom/separator"
 	    		"battery"
-	    		"custom/separatorleft6"
+          "custom/separator"
 	    		"network"
-	    		"custom/separatorleft7"
+          "custom/separator"
 	    		"backlight"
-	    		"custom/separatorleft8"
+          "custom/separator"
 	    		"custom/clock"
 	  	];
 	  	# Modules configuration
@@ -94,30 +94,11 @@
 				free -h | awk 'FNR == 2 {print $6}'
 				'';
 	  	};
-	  	"custom/separatorleft" = {
-	    	format = "";
-	  	};
-	  	"custom/separatorleft2" = {
-	    	format = "";
-	  	};
-	  	"custom/separatorleft3" = {
-	    	format = "";
-	  	};
-	  	"custom/separatorleft4" = {
-	    	format = "";
-	  	};
-	  	"custom/separatorleft5" = {
-	    	format = "";
-	  	};
-	  	"custom/separatorleft6" = {
-	    	format = "";
-	  	};
-	  	"custom/separatorleft7" = {
-	    	format = "";
-	  	};
-	  	"custom/separatorleft8" = {
-	    	format = "";
-	  	};
+      "custom/separator"= {
+          "format"= "|";
+          "interval"= "once";
+          "tooltip"= false;
+      };
 		};
 	};
 	style = ''
@@ -156,7 +137,7 @@
 	  border-radius: 0;
 	  font-family: Inconsolata Nerd Font Mono;
 	  font-weight: 600;
-	  font-size: 22px;
+	  font-size: 30px;
 	  min-height: 0;
 	}
 	
@@ -228,81 +209,45 @@
 	  padding-right: 8px;
 	  min-width: 40px;
 	}
-	
+
 	#pulseaudio {
-	  background-color: @rosewater;
-	  color: @mantle;
+	  color: @rosewater;
+	  background-color: @mantle;
 	}
 	
 	#custom-memory {
-	  background-color: @pink;
-	  color: @mantle;
+	  color: @pink;
+	  background-color: @mantle;
 	}
 	
 	#cpu {
-	  background-color: @mauve;
-	  color: @mantle;
+	  color: @mauve;
+	  background-color: @mantle;
 	}
 	#temperature {
-	  background-color: @red;
-	  color: @mantle;
+	  color: @red;
+	  background-color: @mantle;
 	}
 	#battery {
-	  background-color: @peach;
-	  color: @mantle;
+	  color: @peach;
+	  background-color: @mantle;
 	}
 	#network {
-	  background-color: @yellow;
-	  color: @mantle;
+	  color: @yellow;
+	  background-color: @mantle;
 	}
 	#backlight {
-	  background-color: @green;
-	  color: @mantle;
+	  color: @green;
+	  background-color: @mantle;
 	}
 	#custom-clock {
-	  background-color: @lavender;
-	  color: @mantle;
-	}
-	#custom-separatorleft {
-	  font-size: 30px;
-	  background-color: transparent;
-	  color: @rosewater;
-	}
-	#custom-separatorleft2 {
-	  font-size: 30px;
-	  background-color: @rosewater;
-	  color: @pink;
-	}
-	#custom-separatorleft3 {
-	  font-size: 30px;
-	  background-color: @pink;
-	  color: @mauve;
-	}
-	#custom-separatorleft4 {
-	  font-size: 30px;
-	  background-color: @mauve;
-	  color: @red;
-	}
-	#custom-separatorleft5 {
-	  font-size: 30px;
-	  background-color: @red;
-	  color: @peach;
-	}
-	#custom-separatorleft6 {
-	  font-size: 30px;
-	  background-color: @peach;
-	  color: @yellow;
-	}
-	#custom-separatorleft7 {
-	  font-size: 30px;
-	  background-color: @yellow;
-	  color: @green;
-	}
-	#custom-separatorleft8 {
-	  font-size: 30px;
-	  background-color: @green;
 	  color: @lavender;
+	  background-color: @mantle;
 	}
+  #custom-separator {
+    color: @surface1;
+    margin: 0 5px;
+  }
 	@keyframes scroll {
 	  from {
 	    background-position: -33.941125497px 0;

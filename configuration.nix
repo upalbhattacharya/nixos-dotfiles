@@ -100,7 +100,8 @@
 	};
 	services.blueman.enable = true;
 
-
+  # TLP
+  services.tlp.enable = true;
 
 	# Users
 
