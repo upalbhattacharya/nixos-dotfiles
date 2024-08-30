@@ -35,7 +35,6 @@ in
       pkgs.anki-bin
       pkgs.wl-clipboard-rs
       pkgs.ripgrep
-      pkgs.xautolock
 		];
 		file = {};
 	};
