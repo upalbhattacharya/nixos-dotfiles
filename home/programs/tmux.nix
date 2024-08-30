@@ -16,18 +16,18 @@
     set-option -g status-keys vi
     set-option -g status-position top
     set-option -g status-right ""
-    set-option -g status-left " #{session_name} #[bg="#1E2030",fg="#EE99A0"]"
-    set-option -g status-left-style bg="#EE99A0",fg="#1E2030"
+    set-option -g status-left " #{session_name} |#[bg="#1E2030",fg="#EE99A0"]"
+    set-option -g status-left-style fg="#EE99A0",bg="#1E2030"
     set-option -g status-bg "#1E2030"
     set-option -g status-fg "#CAD3F5"
 
-    set-window-option -g window-status-separator ""
+    set-window-option -g window-status-separator "#[fg="#363A4F"]|"
 
     set-window-option -g window-status-format " #I: #W #[bg="#1E2030",fg="#363A4F"]"
-    set-window-option -g window-status-style bg="#363A4F",fg="#1E2030"
+    set-window-option -g window-status-style fg="#363A4F",bg="#1E2030"
 
     set-window-option -g window-status-current-format " #I: #W #[bg="#1E2030",fg="#A6DA95"]"
-    set-window-option -g window-status-current-style bg="#A6DA95",fg="#1E2030"
+    set-window-option -g window-status-current-style fg="#A6DA95",bg="#1E2030"
 
     %if #{TMUX}
     set -g status-bg red

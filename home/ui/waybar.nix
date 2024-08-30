@@ -54,46 +54,60 @@
 	  	};
 	  	"custom/clock" = {
 	    	interval = 1;
-	    	format = "{}";
+	    	format = "{} ";
 	    	exec = pkgs.writeShellScript "clock" ''
-					date +"%Y-%m-%d %T"
+					date +"%T"
 				'';
 	  	};
 	  	"cpu" = {
 	    	interval = 10;
-	    	format = "CPU: {usage:3}%";
+	    	format = "{icon} {usage:3}%";
+        format-icons = [ "" ];
 	    	tooltip =  false;
 	  	};
 	  	"temperature" = {
 	    	thermal-zone = 0;
 	    	critical-threshold = 100;
-	    	format = "TEMP: {temperatureC}°C";
+	    	format = "{icon} {temperatureC}°C";
+        format-icons = [ "" ];
 	  	};
 	  	"backlight" = {
 	    	device = "acpi_video1";
-	    	format = "BCKL: {percent:3}%";
+	    	format = "{icon} {percent:3}%";
+        format-icons = [ "󰃠" ];
 	  	};
 	  	"battery" = {
-	    	format = "BAT: {capacity}%";
-	    	format-charging = "CHG: {capacity}%";
-	    	format-plugged = "PWR: {capacity}%";
+	    	format = "{icon} {capacity}%";
+        interval = 5;
         states = {
-          warning = 18;
+          warning = 15;
           critical = 10;
+        };
+        format-icons = {
+          charging = [ "󱐋" ];
+          discharging = [ "󰂁" ];
+          plugged = [ "" ];
         };
 	  	};
 	  	"network" = {
-	    	format-wifi = "NET: {signalStrength:3}%";
-	    	format-ethernet = "NET:  eth";
-	    	format-disconnected = "NET: Disc";
+	    	format-wifi = "{icon} {signalStrength:3}%";
+	    	format-ethernet = "{icon}  eth";
+	    	format-disconnected = "{icon} Disc";
+        format-icons = {
+          wifi = [ "󰖩" ];
+          ethernet = [ "󰌗" ];
+          disconnected = [ "󰖪" ];
+        };
 	  	};
 	  	"pulseaudio" = {
-	    	format = "VOL: {volume:3}%";
-	    	format-muted = "VOL: MUTE";
+	    	format = "{icon} {volume:3}%";
+	    	format-muted = "{icon} MUTE";
+        format-icons = [ "" ];
 	  	};
 	  	"custom/memory" = {
 	    	interval = 10;
-	    	format = "MEM: {}";
+	    	format = "{icon} {}";
+        format-icons = [ "" ];
 	    	exec = pkgs.writeShellScript "memory" ''
 				free -h | awk 'FNR == 2 {print $6}'
 				'';
@@ -141,7 +155,7 @@
 	  border-radius: 0;
 	  font-family: Inconsolata Nerd Font Mono;
 	  font-weight: 600;
-	  font-size: 30px;
+	  font-size: 32px;
 	  min-height: 0;
 	}
 	
@@ -236,7 +250,7 @@
 	  color: @peach;
 	  background-color: @mantle;
 	}
-	#battery.dischargin.warning {
+	#battery.discharging.warning {
 	  background-color: @peach;
 	  color: @mantle;
 	}
