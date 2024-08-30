@@ -4,7 +4,7 @@
   imports = [
     ./formatters.nix
     ./linters.nix
-    ./extraPlugins.nix
+    # ./extraPlugins.nix
     ./keybindings.nix
   ];
 	programs.nixvim = {
@@ -48,6 +48,7 @@
 			smartindent = true;
 			undolevels = 1000;
 			undofile = true;
+      spell = true;
 			# undodir = vim.fn.expand("~/.vim/undodir");
 			# loaded_netrw = 1;
 			# loaded_netrwPlugin = 1;
@@ -129,7 +130,7 @@
 			undotree = {
 				enable = true;
 			};
-			gitgutter = {
+			gitsigns = {
 				enable = true;
 			};
 			fugitive = {
