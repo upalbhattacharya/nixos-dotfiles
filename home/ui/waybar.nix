@@ -77,6 +77,10 @@
 	    	format = "BAT: {capacity}%";
 	    	format-charging = "CHG: {capacity}%";
 	    	format-plugged = "PWR: {capacity}%";
+        states = {
+          warning = 18;
+          critical = 10;
+        };
 	  	};
 	  	"network" = {
 	    	format-wifi = "NET: {signalStrength:3}%";
@@ -231,6 +235,14 @@
 	#battery {
 	  color: @peach;
 	  background-color: @mantle;
+	}
+	#battery.dischargin.warning {
+	  background-color: @peach;
+	  color: @mantle;
+	}
+	#battery.discharging.critical {
+	  background-color: @red;
+	  color: @mantle;
 	}
 	#network {
 	  color: @yellow;

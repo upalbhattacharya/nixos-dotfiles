@@ -1,6 +1,14 @@
 { config, lib, pkgs, ... }:
-
-
+let 
+  lowBatteryNotifier = pkgs.writeScript "lowBatteryNotifier"
+    ''
+      BAT_PCT=`cat /sys/class/power_supply/BAT0/capacity`
+      BAT_STA=`cat /sys/class/power_supply/BAT0/status`
+      echo "`date` battery status:$BAT_STA percentage:$BAT_PCT"
+      test $BAT_PCT -gt 10 && test $BAT_PCT -gt 5 && test $BAT_STA = "Discharging" && DISPLAY=:0.0 ${pkgs.libnotify}/bin/notify-send -u normal   "Low Battery" "Would be wise to keep my charger nearby."
+      test $BAT_PCT -le 5 && test $BAT_STA = "Discharging" && DISPLAY=:0.0 ${pkgs.libnotify}/bin/notify-send -u critical "Low Battery" "Charge me or watch me die!"
+    '';
+in
 {
   imports = [
 		./hardware-configuration.nix
@@ -102,6 +110,18 @@
 
   # TLP
   services.tlp.enable = true;
+
+  # Cron
+  services.cron = {
+      enable = true;
+      systemCronJobs =
+        let 
+          username = "workboots";
+        in
+      [
+          "* * * * * ${username} sh -x ${lowBatteryNotifier} > /tmp/cron.batt.log 2>&1"
+      ];
+  };
 
 	# Users
 
