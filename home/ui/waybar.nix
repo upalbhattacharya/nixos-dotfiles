@@ -7,7 +7,7 @@
 			mainBar = {
 				layer = "top";
 				position = "top";
-				height = 34;
+				height = 40;
 				# width = 1280;
 				# spacing = 4;
 				fixed-center = false;
@@ -15,10 +15,10 @@
 
 	  		# Choose the order of the modules
 	  		modules-left = [
-	    		"sway/workspaces"
+	    		"hyprland/workspaces"
 	  		];
 	  		modules-center = [
-	    		"sway/window"
+	    		"hyprland/window"
 	  		];
 	  		modules-right = [
 	    		"tray"
@@ -40,12 +40,12 @@
 	    		"custom/clock"
 	  	];
 	  	# Modules configuration
-	  	"sway/workspaces" = {
+	  	"hyprland/workspaces" = {
 	  		all-outputs = false;
 	  		disable-scroll = true;
 	  		format = "{icon}";
 			};
-	  	"sway/window" = {
+	  	"hyprland/window" = {
 	    	separate-outputs = true;
 	  	};
 	  	"tray" = {
@@ -87,6 +87,7 @@
           charging = [ "󱐋" ];
           discharging = [ "󰂁" ];
           plugged = [ "" ];
+          full = [ "" ];
         };
 	  	};
 	  	"network" = {
@@ -155,7 +156,7 @@
 	  border-radius: 0;
 	  font-family: Inconsolata Nerd Font Mono;
 	  font-weight: 600;
-	  font-size: 32px;
+	  font-size: 36px;
 	  min-height: 0;
 	}
 	
@@ -192,9 +193,8 @@
 	  background-color: @mantle;
 	  color: @text;
 	  font-weight: 600;
-	}
-	
-	#workspaces button.focused {
+  }
+	#workspaces button.active {
 	  background-color: @surface0;
 	  color: @green;
 	}

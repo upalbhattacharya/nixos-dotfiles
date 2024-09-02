@@ -27,6 +27,9 @@ in
 
           		# apps stuff.
           		_JAVA_AWT_WM_NONREPARENTING=1;
+              WLR_RENDERER="vulkan";
+              WLR_NO_HARDWARE_CURSORS=1;
+              XWAYLAND_NO_GLAMOR=1;
 
 		};
 		packages = [

@@ -5,8 +5,8 @@ let
       BAT_PCT=`cat /sys/class/power_supply/BAT0/capacity`
       BAT_STA=`cat /sys/class/power_supply/BAT0/status`
       echo "`date` battery status:$BAT_STA percentage:$BAT_PCT"
-      test $BAT_PCT -gt 10 && test $BAT_PCT -gt 5 && test $BAT_STA = "Discharging" && DISPLAY=:0.0 ${pkgs.libnotify}/bin/notify-send -u normal   "Low Battery" "Would be wise to keep my charger nearby."
-      test $BAT_PCT -le 5 && test $BAT_STA = "Discharging" && DISPLAY=:0.0 ${pkgs.libnotify}/bin/notify-send -u critical "Low Battery" "Charge me or watch me die!"
+      test $BAT_PCT -lt 15 && test $BAT_PCT -gt 5 && test $BAT_STA = "Discharging" && DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus" notify-send -u critical "Low Battery" "Would be wise to keep my charger nearby."
+      test $BAT_PCT -lt 5 && test $BAT_STA = "Discharging" && DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus" notify-send -u critical "Low Battery" "Charge me or watch me die!"
     '';
 in
 {
@@ -51,8 +51,10 @@ in
 	
 	# Display Manager
 	services.xserver.displayManager.gdm.enable = true;
-	services.displayManager.defaultSession = "sway";
+  services.xserver.displayManager.gdm.autoSuspend = false;
 
+	services.displayManager.defaultSession = "hyprland";
+  
 	# Nvidia
 	hardware.graphics = {
   	enable = true;
@@ -119,10 +121,16 @@ in
           username = "workboots";
         in
       [
-          "* * * * * ${username} sh -x ${lowBatteryNotifier} > /tmp/cron.batt.log 2>&1"
+          "* * * * * ${username}  sh -x ${lowBatteryNotifier} > /tmp/cron.batt.log 2>&1"
       ];
   };
 
+  # Lid Behaviour
+  services.logind = {
+    lidSwitchExternalPower = "ignore";
+    lidSwitch = "ignore";
+  };
+  
 	# Users
 
 	users.users.workboots = {
@@ -150,6 +158,8 @@ in
 		obsidian
 		libnotify
     gcc
+    kanshi
+    # xdg-desktop-portal-hyprland
 	];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -192,13 +202,20 @@ in
 
 	fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "Inconsolata" ]; }) ];
 
-	programs.sway = {
+	# programs.sway = {
+ #  		enable = true;
+ #  		wrapperFeatures.gtk = true;
+ #  		extraOptions = [
+	# 		"--unsupported-gpu"
+ #  		];
+	# };
+
+	programs.hyprland = {
   		enable = true;
-  		wrapperFeatures.gtk = true;
-  		extraOptions = [
-			"--unsupported-gpu"
-  		];
+      portalPackage = pkgs.xdg-desktop-portal-wlr;
 	};
+  programs.dconf.enable = true;
+
 	programs.steam = {
   		enable = true;
   		remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
