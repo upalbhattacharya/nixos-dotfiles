@@ -13,7 +13,7 @@
 
       background = [
         {
-          path = "$HOME/.dotfiles/assets/wallpapers/catppuccin-rainbow.png";
+          path = "$HOME/.dotfiles/assets/lockscreen-wallpapers/catppuccin-rainbow.png";
           # blur_passes = 1;
           # blur_size = 4;
         }
