@@ -56,13 +56,17 @@
 		plugins = {
 			lualine = {
         enable = true;
-        sectionSeparators = {
-          right = "";
-          left = "";
-        };
-        componentSeparators = {
-          right = "";
-          left = "";
+        settings = {
+          options = {
+            section_separators = {
+              right = "";
+              left = "";
+            };
+            component_separators = {
+              right = "";
+              left = "";
+            };
+          };
         };
       };
       coq-nvim = {
@@ -79,7 +83,7 @@
 					lua-ls.enable = true;
 					pylsp.enable = true;
 					texlab.enable = true;
-					tsserver.enable = true;
+					ts-ls.enable = true;
 				};
 			};
 			conform-nvim = {

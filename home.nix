@@ -16,8 +16,8 @@ in
 		sessionVariables = {
  			
 			# session.
-          		XDG_CURRENT_DESKTOP = "sway";
-          		XDG_SESSION_DESKTOP = "sway";
+          		XDG_CURRENT_DESKTOP = "hyprland";
+          		XDG_SESSION_DESKTOP = "hyprland";
           		XDG_SESSION_TYPE = "wayland";
 
           		# wayland stuff.

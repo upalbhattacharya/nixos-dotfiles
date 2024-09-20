@@ -7,7 +7,7 @@
 			mainBar = {
 				layer = "top";
 				position = "top";
-				height = 40;
+				height = 48;
 				# width = 1280;
 				# spacing = 4;
 				fixed-center = false;
@@ -67,6 +67,7 @@
 	  	};
 	  	"temperature" = {
 	    	thermal-zone = 0;
+        interval = 2;
 	    	critical-threshold = 100;
 	    	format = "{icon} {temperatureC}°C";
         format-icons = [ "" ];
@@ -84,6 +85,7 @@
           critical = 10;
         };
         format-icons = {
+          default = [ "󰂁" ];
           charging = [ "󱐋" ];
           discharging = [ "󰂁" ];
           plugged = [ "" ];

@@ -28,16 +28,23 @@ in
     bind = ${modifier},r,exec,${pkgs.fuzzel}/bin/fuzzel
     bind = ${modifier},q,exec,${pkgs.brave}/bin/brave
 		bindr = Control,SPACE,exec,${pkgs.mako}/bin/makoctl dismiss -a
-    bindr = Control&Alt,l,exec,${pkgs.swaylock}/bin/swaylock
+    bindr = Control&Alt,l,exec,${pkgs.hyprlock}/bin/hyprlock
 
     bind = ${modifier}_SHIFT,c,exec,${pkgs.hyprland}/bin/hyprctl dispatch closewindow
     bind = ${modifier},m,exec,${pkgs.hyprland}/bin/hyprctl dispatch fullscreen 1
-    bind = ${modifier},f,exec,${pkgs.hyprland}/bin/hyprctl dispatch fullscreen 0
+    bind = ${modifier}_SHIFT,m,exec,${pkgs.hyprland}/bin/hyprctl dispatch fullscreen 0
+    bind = ${modifier},f,exec,${pkgs.hyprland}/bin/hyprctl dispatch togglefloating
+    bind = ${modifier},f,exec,${pkgs.hyprland}/bin/hyprctl dispatch resizeactive exact 1280 720
+    bind = ${modifier},f,exec,${pkgs.hyprland}/bin/hyprctl dispatch moveactive exact 0 0
+    bind = ${modifier},s,exec,${pkgs.hyprland}/bin/hyprctl dispatch pin
 
     bind = ${modifier},h,exec,${pkgs.hyprland}/bin/hyprctl dispatch movefocus l
     bind = ${modifier},l,exec,${pkgs.hyprland}/bin/hyprctl dispatch movefocus r
     bind = ${modifier},j,exec,${pkgs.hyprland}/bin/hyprctl dispatch movefocus d
     bind = ${modifier},k,exec,${pkgs.hyprland}/bin/hyprctl dispatch movefocus u
+
+    bindm = ${modifier},mouse:272,movewindow
+    bindm = ${modifier},mouse:273,resizewindow
 
     bind = ${modifier}_SHIFT,h,exec,${pkgs.hyprland}/bin/hyprctl dispatch movewindow l
     bind = ${modifier}_SHIFT,l,exec,${pkgs.hyprland}/bin/hyprctl dispatch movewindow r

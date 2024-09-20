@@ -5,7 +5,6 @@
     enable = true;
     catppuccin.enable = true;
     plugins = [
-    pkgs.tmuxPlugins.continuum
     pkgs.tmuxPlugins.resurrect
     pkgs.tmuxPlugins.sensible
     pkgs.tmuxPlugins.yank

@@ -16,7 +16,6 @@
     			inputs.nixpkgs.follows = "nixpkgs";
   		};
 	};
-
 	outputs = {self, nixpkgs, home-manager, catppuccin, nixvim, ...}:
 	let
 		lib = nixpkgs.lib;

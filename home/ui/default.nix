@@ -7,6 +7,7 @@
 		# ./keybindings.nix
 		# ./sway.nix
     ./hyprland.nix
+    ./hyprlock.nix
 		./swaylock.nix
 		./waybar.nix
 		./wpaperd.nix
