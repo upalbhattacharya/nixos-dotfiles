@@ -23,6 +23,7 @@ in
     exec-once = killall waybar; sleep 2 && ${pkgs.waybar}/bin/waybar
     exec-once = killall wpaperd; sleep 2 && wpaperd -d
     exec-once = systemctl --user restart kanshi.service
+    exec-once = hypridle
 
     bind = ${modifier},Return,exec,${pkgs.kitty}/bin/kitty
     bind = ${modifier},r,exec,${pkgs.fuzzel}/bin/fuzzel

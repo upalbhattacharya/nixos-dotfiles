@@ -53,8 +53,8 @@
         hide_input = false;
         check_color = "rgb(203, 166, 247)";
         fail_color = "rgb(243, 139, 168)";
-        fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
-        capslock_color = "rgb(249, 226, 175)";
+        fail_text = "Authentication Failed";
+        capslock_color = "rgb(250, 179, 135)";
         placeholder_text = "󰌾 Logged in as $USER";
         position = "0, -47";
         halign = "center";
