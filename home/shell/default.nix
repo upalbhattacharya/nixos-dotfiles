@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./zellij.nix
+  ];
 	programs.zsh = {
   	enable = true;
   	syntaxHighlighting = {

@@ -31,7 +31,7 @@ in
 		bindr = Control,SPACE,exec,${pkgs.mako}/bin/makoctl dismiss -a
     bindr = Control&Alt,l,exec,${pkgs.hyprlock}/bin/hyprlock
 
-    bind = ${modifier}_SHIFT,c,exec,${pkgs.hyprland}/bin/hyprctl dispatch closewindow
+    bind = ${modifier}_SHIFT,c,exec,${pkgs.hyprland}/bin/hyprctl dispatch killactive
     bind = ${modifier},m,exec,${pkgs.hyprland}/bin/hyprctl dispatch fullscreen 1
     bind = ${modifier}_SHIFT,m,exec,${pkgs.hyprland}/bin/hyprctl dispatch fullscreen 0
     bind = ${modifier},f,exec,${pkgs.hyprland}/bin/hyprctl dispatch togglefloating

@@ -54,6 +54,9 @@
 			# loaded_netrwPlugin = 1;
 		};
 		plugins = {
+      web-devicons = {
+        enable = true;
+      };
 			lualine = {
         enable = true;
         settings = {
