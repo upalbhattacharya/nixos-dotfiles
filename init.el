@@ -8,6 +8,8 @@
 ;;; Set Font
 (set-face-attribute 'default nil :font "Inconsolata Nerd Font" :height 280)
 
+(global-display-line-numbers-mode)
+
 ;;; MELPA
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
