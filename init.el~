@@ -8,6 +8,8 @@
 ;;; Set Font
 (set-face-attribute 'default nil :font "Inconsolata Nerd Font" :height 280)
 
+(global-display-line-numbers-mode)
+
 ;;; MELPA
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -22,7 +24,7 @@
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
  '(package-selected-packages
-   '(magit git-auto-commit-mode company lsp-mode org-roam-ui spacious-padding org-super-agenda fzf ivy dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
+   '(git-gutter magit git-auto-commit-mode company lsp-mode org-roam-ui spacious-padding org-super-agenda fzf ivy dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -135,6 +137,11 @@
          "* %?"
          :target (file+head "log_%<%Y-%m-%d>.org"
                             "#+title: %<%Y-%m-%d>\n\n* %<%Y-%m-%d>\n\n"))))
+(setq org-roam-mode-sections
+      (list #'org-roam-backlinks-section
+            #'org-roam-reflinks-section
+            ;; #'org-roam-unlinked-references-section
+            ))
 (org-roam-db-autosync-mode)
 ;;; org-superstar
 (require 'org-superstar)
@@ -178,6 +185,7 @@
 (global-set-key (kbd "C-c p") 'org-roam-node-find)
 (global-set-key (kbd "C-c i") 'org-roam-node-insert)
 (global-set-key (kbd "C-c n") 'org-roam-capture)
+(global-set-key (kbd "C-M-r") 'org-roam-buffer-toggle)
 
 ;; org-roam-dailies
 (global-set-key (kbd "C-c M-\\") 'org-roam-dailies-goto-today)
