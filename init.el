@@ -119,7 +119,7 @@
 )
 (org-super-agenda-mode)
 ;; org-roam
-(setq org-roam-directory (file-truename "~/org"))
+(setq org-roam-directory (file-truename "~/org/"))
 (setq org-roam-dailies-directory "~/org/worklogs/")
 
 (setq org-roam-capture-templates
