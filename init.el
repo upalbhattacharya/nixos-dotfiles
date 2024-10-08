@@ -183,7 +183,7 @@
 (global-set-key (kbd "C-c p") 'org-roam-node-find)
 (global-set-key (kbd "C-c i") 'org-roam-node-insert)
 (global-set-key (kbd "C-c n") 'org-roam-capture)
-(global-set-key (kbd "C-c C-t b") 'org-roam-buffer-toggle)
+(global-set-key (kbd "C-M-g") 'org-roam-buffer-toggle)
 
 ;; org-roam-dailies
 (global-set-key (kbd "C-c M-\\") 'org-roam-dailies-goto-today)
