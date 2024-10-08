@@ -174,6 +174,10 @@
 (git-auto-commit-mode)
 (setq gac-automatically-push-p t)
 (add-hook 'after-save-hook 'git-auto-commit-mode)
+
+;;; git-gutter
+(global-git-gutter-mode +1)
+
 ;;; Keybindings
 
 ;; General
