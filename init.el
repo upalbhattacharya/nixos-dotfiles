@@ -135,6 +135,11 @@
          "* %?"
          :target (file+head "log_%<%Y-%m-%d>.org"
                             "#+title: %<%Y-%m-%d>\n\n* %<%Y-%m-%d>\n\n"))))
+(setq org-roam-mode-sections
+      (list #'org-roam-backlinks-section
+            #'org-roam-reflinks-section
+            ;; #'org-roam-unlinked-references-section
+            ))
 (org-roam-db-autosync-mode)
 ;;; org-superstar
 (require 'org-superstar)
@@ -178,6 +183,7 @@
 (global-set-key (kbd "C-c p") 'org-roam-node-find)
 (global-set-key (kbd "C-c i") 'org-roam-node-insert)
 (global-set-key (kbd "C-c n") 'org-roam-capture)
+(global-set-key (kbd "C-c C-i b") 'org-roam-buffer-toggle)
 
 ;; org-roam-dailies
 (global-set-key (kbd "C-c M-\\") 'org-roam-dailies-goto-today)
