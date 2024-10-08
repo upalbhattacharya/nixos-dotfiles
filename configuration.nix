@@ -161,6 +161,7 @@ in
 		libnotify
     gcc
     kanshi
+    graphviz
     # xdg-desktop-portal-hyprland
 	];
 
