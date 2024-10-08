@@ -196,6 +196,9 @@
 ;; org-agenda
 (global-set-key (kbd "C-c a") 'org-agenda)
 
-
 ;; org-journal
 (global-set-key (kbd "C-c M-d") 'org-journal-new-entry)
+
+;; org-transclusion
+(global-set-key (kbd "C-c C-t a") 'org-transclusion-add-all)
+(global-set-key (kbd "C-c C-t r") 'org-transclusion-remove-all)
