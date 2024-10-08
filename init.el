@@ -200,5 +200,5 @@
 (global-set-key (kbd "C-c M-d") 'org-journal-new-entry)
 
 ;; org-transclusion
-(global-set-key (kbd "C-c C-t a") 'org-transclusion-add-all)
-(global-set-key (kbd "C-c C-t r") 'org-transclusion-remove-all)
+(global-set-key (kbd "C-c M-a") 'org-transclusion-add-all)
+(global-set-key (kbd "C-c M-r") 'org-transclusion-remove-all)
