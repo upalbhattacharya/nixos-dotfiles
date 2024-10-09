@@ -24,7 +24,7 @@
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
  '(package-selected-packages
-   '(git-gutter magit git-auto-commit-mode company lsp-mode org-roam-ui spacious-padding org-super-agenda fzf ivy dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
+   '(vertico git-gutter magit git-auto-commit-mode company lsp-mode org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -119,7 +119,7 @@
 )
 (org-super-agenda-mode)
 ;; org-roam
-(setq org-roam-directory (file-truename "~/org/nodes"))
+(setq org-roam-directory (file-truename "~/org/"))
 (setq org-roam-dailies-directory "~/org/worklogs/")
 
 (setq org-roam-capture-templates
@@ -152,10 +152,7 @@
 (dashboard-setup-startup-hook)
 (setq dashboard-startup-banner 3)
 
-;;; Ivy
-(ivy-mode)
-(setq ivy-use-virtual-buffers t)
-(setq enable-recursive-minibuffers t)
+;;; vertico
 
 ;;; babel
 (org-babel-do-load-languages
@@ -166,6 +163,7 @@
 ;;; org-journal
 
 (setq org-journal-dir "~/org/journal")
+(setq org-journal-date-format "%Y-%m-%d")
 
 ;;; company
 (company-mode)
@@ -174,6 +172,10 @@
 (git-auto-commit-mode)
 (setq gac-automatically-push-p t)
 (add-hook 'after-save-hook 'git-auto-commit-mode)
+
+;;; git-gutter
+(global-git-gutter-mode +1)
+
 ;;; Keybindings
 
 ;; General
@@ -192,6 +194,9 @@
 ;; org-agenda
 (global-set-key (kbd "C-c a") 'org-agenda)
 
-
 ;; org-journal
 (global-set-key (kbd "C-c M-d") 'org-journal-new-entry)
+
+;; org-transclusion
+(global-set-key (kbd "C-c M-a") 'org-transclusion-add-all)
+(global-set-key (kbd "C-c M-r") 'org-transclusion-remove-all)
