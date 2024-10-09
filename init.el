@@ -95,10 +95,10 @@
 				       :auto-outline-path t
 				       :todo ("NEXT" "IN PROGRESS" "TODO")
 				       :deadline today)
-				(:name "Overdue"
-				       :auto-outline-path t
-				       :todo ("NEXT" "IN PROGRESS" "TODO")
-				       :deadline past)
+				;(:name "Overdue"
+				;       :auto-outline-path t
+				;       :todo ("NEXT" "IN PROGRESS" "TODO")
+				;       :deadline past)
 				)
 			      )
 		      )
