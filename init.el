@@ -9,6 +9,7 @@
 (set-face-attribute 'default nil :font "Inconsolata Nerd Font" :height 220)
 (set-face-attribute 'org-document-title nil)
 (global-display-line-numbers-mode)
+(setq display-line-numbers 'relative)
 (set-window-dedicated-p (selected-window) 1)
 (tab-bar-mode)
 
@@ -38,8 +39,8 @@
 (load-theme 'catppuccin :no-confirm)
 
 ;;; Evil
-(require 'evil)
-(evil-mode 1)
+;; (require 'evil)
+;;(evil-mode 1)
 
 ;;; org
 (define-key minibuffer-local-completion-map (kbd "?") nil)
