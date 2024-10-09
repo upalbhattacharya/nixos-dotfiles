@@ -34,7 +34,7 @@
   (default ((nil (:font "Iosevka Nerd Font" :height 220))))
   :config
   (setq inhibit-startup-screen t
-	display-line-numbers 'relative)
+	display-line-numbers '((relative)))
     (setq org-hide-emphasis-markers t)
     (menu-bar-mode -1)
     (scroll-bar-mode -1)
