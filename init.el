@@ -79,6 +79,16 @@
   (setq org-agenda-prefix-format '(
 				(agenda . "  %?-2i %t")
 				(todo . "  %?-2i %s %t")))
+
+    (setq org-todo-keywords
+	'((sequence "TODO" "NEXT" "IN PROGRESS" "|" "DONE" "ARCHIVED")))
+    (setq org-todo-keyword-faces
+	'(("TODO" . (:foreground "#f9e2af" :weight bold))
+	    ("NEXT" . (:foreground "#cba6f7" :weight bold))
+	    ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold))
+	    ("DONE" . (:foreground "#a6e3a1" :weight bold))
+	    ("ARCHIVED" . (:foreground "#9399b2"))
+	    ))
   )
 ;; org-agenda using org-super-agenda
 (setq org-agenda-custom-commands '(
@@ -109,18 +119,9 @@
 				    )
 				   ))
 
-(setq org-todo-keywords
-      '((sequence "TODO" "NEXT" "IN PROGRESS" "|" "DONE" "ARCHIVED")))
-(setq org-todo-keyword-faces
-      '(("TODO" . (:foreground "#f9e2af" :weight bold))
-	("NEXT" . (:foreground "#cba6f7" :weight bold))
-	("IN PROGRESS" . (:foreground "#89b4fa" :weight bold))
-	("DONE" . (:foreground "#a6e3a1" :weight bold))
-	("ARCHIVED" . (:foreground "#9399b2"))
-	))
-
-;;; org-super-agenda
 (org-super-agenda-mode)
+
+
 ;; org-roam
 (setq org-roam-directory (file-truename "~/org/"))
 (setq org-roam-dailies-directory "~/org/worklogs/")
