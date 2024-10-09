@@ -43,7 +43,6 @@
   (setq-default fill-column 100)
 )
 
-    (add-hook 'org-mode-hook 'turn-on-auto-fill)
     (setq org-hide-emphasis-markers t)
     (setq org-display-remote-inline-images 'download)
     (setq org-display-inline-images t)
@@ -58,6 +57,8 @@
 (use-package org
   :custom-face
   (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
+  :hook (org-mode-hook . turn-on-auto-fill)
+  :hook (org-mode . org-indent-mode)
   :config
 (define-key minibuffer-local-completion-map (kbd "?") nil)
 (add-hook 'org-mode-hook 'org-indent-mode)
