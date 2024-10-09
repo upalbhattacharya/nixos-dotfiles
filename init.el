@@ -74,16 +74,14 @@
 	org-agenda-skip-scheduled-if-done t
 	org-agenda-skip-scheduled-if-deadline-is-shown t
 	org-agend-skip-timeline-if-deadlin-is-shown t
-      )
+	org-agenda-hide-tags-regexp ".*"
+	org-agenda-prefix-format '(
+				   (agenda . "  %?-2i %t")
+				   (todo . "  %?-2i %s %t"))
+	)
 )
 
 
-(setq org-agenda-hide-tags-regexp ".*")
-(setq org-agenda-prefix-format
-      '((agenda . "  %?-2i %t")
-	(todo . "  %?-2i %s %t")
-	)
-      )
 
 (setq org-todo-keywords
       '((sequence "TODO" "NEXT" "IN PROGRESS" "|" "DONE" "ARCHIVED")))
