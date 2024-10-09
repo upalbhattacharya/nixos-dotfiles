@@ -184,14 +184,8 @@
 (global-git-gutter-mode +1)
 
 ;;; citar
-(use-package citar
-  :custom
-  (citar-bibliography '("~/org/bibliography.bib"))
-  :hook
-  (LaTeX-mode . citar-capf-setup)
-  (org-mode . citar-capf-setup)
-  (citar-notes-paths '("~/org/academic"))
-  )
+(setq citar-bibliography '("~/org/bibliography.bib"))
+(setq citar-notes-paths '("~/org/academic"))
 
 ;;; Helm-bibtex
 (autoload 'helm-bibtex "helm-bibtex" "" t)
