@@ -7,7 +7,7 @@
 		./git.nix
 		./kitty.nix
     # ./alacritty.nix
-		./nixvim
+		#./nixvim
     ./emacs.nix
     ./compression.nix
     ./mpv.nix

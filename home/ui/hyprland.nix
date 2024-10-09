@@ -24,11 +24,13 @@ in
     exec-once = killall wpaperd; sleep 2 && wpaperd -d
     exec-once = systemctl --user restart kanshi.service
     exec-once = hypridle
+    exec-once = emacs --daemon
 
     bind = ${modifier},Return,exec,${pkgs.kitty}/bin/kitty
     bind = ${modifier},r,exec,${pkgs.fuzzel}/bin/fuzzel
     bind = ${modifier},q,exec,${pkgs.brave}/bin/brave
-		bindr = Control,SPACE,exec,${pkgs.mako}/bin/makoctl dismiss -a
+    bind = ${modifier},e,exec,${pkgs.emacs}/bin/emacs
+    bindr = Control,SPACE,exec,${pkgs.mako}/bin/makoctl dismiss -a
     bindr = Control&Alt,l,exec,${pkgs.hyprlock}/bin/hyprlock
 
     bind = ${modifier}_SHIFT,c,exec,${pkgs.hyprland}/bin/hyprctl dispatch killactive
