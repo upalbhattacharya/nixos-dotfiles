@@ -134,6 +134,7 @@
 	("n" "literature note" plain "%?"
 	 :target (file_head "${citar-citekey}.org" "
 #+title: ${citar-citekey}
+#+filetags: :article:
 #+created: %U
 #+last_modified: %U\n\n
 
