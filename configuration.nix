@@ -162,6 +162,7 @@ in
     gcc
     kanshi
     graphviz
+    python-lsp-server
     # xdg-desktop-portal-hyprland
 	];
 

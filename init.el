@@ -23,7 +23,7 @@
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
-   '(latex-extra latexdiff auctex org-view-mode lsp-ui rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company lsp-mode org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
+   '(latex-extra latexdiff auctex org-view-mode lsp-ui rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
 
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
@@ -245,22 +245,6 @@
 (use-package which-key
   :config
   (which-key-mode 1)
-  )
-
-;;; lsp-mode
-(use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-keymap-prefix "C-l")
-  :config
-  (lsp-enable-which-key-integration t)
-  )
-
-;;; lsp-ui
-(use-package lsp-ui
-  :after (lsp-mode)
-  :config
-  (lsp-ui-mode 1)
   )
 
 ;;; auctex
