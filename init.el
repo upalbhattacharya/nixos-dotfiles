@@ -233,13 +233,12 @@
 ;;; emacs
 (use-package emacs
   :custom-face
-  (default ((nil (:font "Iosevka Nerd Font" :height 220))))
+  (default ((nil (:font "Iosevka Nerd Font" :height 280))))
   :config
     (setq inhibit-startup-screen t)
     (menu-bar-mode -1)
     (scroll-bar-mode -1)
     (tool-bar-mode -1)
-    ;(set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 220)
     (set-face-attribute 'org-document-title nil)
     (global-display-line-numbers-mode)
     (setq display-line-numbers 'relative)
