@@ -183,6 +183,14 @@
 ;;; git-gutter
 (global-git-gutter-mode +1)
 
+;;; citar
+(use-package citar
+  :custom
+  (citar-bibliography '("~/bib/references.bib"))
+  :hook
+  (LaTeX-mode . citar-capf-setup)
+  (org-mode . citar-capf-setup))
+
 ;;; Keybindings
 
 ;; General
