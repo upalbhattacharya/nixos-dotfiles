@@ -137,8 +137,7 @@
 #+filetags: :article:
 #+created: %U
 #+last_modified: %U\n\n
-
-* ${title}"
+"
 			    )
 	 :create-file yes
 	 :unnarrowed t)
