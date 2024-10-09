@@ -231,8 +231,7 @@
 
 ;;; flycheck
 (use-package flycheck
-  :config
-  (global-flycheck-mode 1)
+  :hook (after-init . #'global-flycheck-mode)
   )
 
 ;;; rainbow-delimiters
