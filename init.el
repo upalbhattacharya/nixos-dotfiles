@@ -176,7 +176,8 @@
   (vertico-resize t)
   (vertico-cycle nil) ; Go from last to first candidate and first to last (cycle)?
   :config
-  (vertico-mode))
+  (vertico-mode)
+  )
 
 
 ;;; org-journal
