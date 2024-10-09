@@ -132,25 +132,23 @@
   (setq org-roam-dailies-directory "~/org/worklogs/")
   (setq org-roam-capture-templates
 	'(("d" "default" plain "%?"
-	   :target (file+head "node_%<%Y%m%d%H%M%S>.org" 
+	   :target (file+head "node_%<%Y%m%d%H%M%S>.org"
 			      "#+title: ${title}\n#+filetags:\n\n* ${title}\n\n")
 	   :create-file yes
 	   :unnarrowed t)
 	  ("n" "literature note" plain "%?"
            :target (file+head "${citar-citekey}.org" 
-          "#+title: ${citar-citekey}\n#+filetags: :article:\n* ${citar-title}")
-         :unnarrowed t))     )
-(setq org-roam-dailies-capture-templates
-      '(("d" "default" entry
-         "* %?"
+			      "#+title: ${citar-citekey}\n#+filetags: :article:\n* ${citar-title}")
+         :unnarrowed t)))
+  (setq org-roam-dailies-capture-templates
+      '(("d" "default" entry "* %?"
          :target (file+head "log_%<%Y-%m-%d>.org"
                             "#+title: %<%Y-%m-%d>\n\n* %<%Y-%m-%d>\n\n"))))
-(setq org-roam-mode-sections
+  (setq org-roam-mode-sections
       (list #'org-roam-backlinks-section
             #'org-roam-reflinks-section
-            ;; #'org-roam-unlinked-references-section
             ))
-(org-roam-db-autosync-mode)
+  (org-roam-db-autosync-mode 1)
 )
 ;;; org-superstar
 (require 'org-superstar)
