@@ -1,5 +1,3 @@
-
-
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
@@ -249,19 +247,20 @@
   )
 
 ;;; lsp-mode
-;;(use-package lsp-mode
-;;  :after (which-key)
-;;  :config
-;;  (setq lsp-keymap-prefix "C-l")
-;;  (setq lsp-enable-which-key-integration t)
-;;  )
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-l")
+  :config
+  (lsp-enable-which-key-integration t)
+  )
 
 ;;; lsp-ui
-;; (use-package lsp-ui
-;;  :after (lsp-mode)
-;;  :config
-;;  (lsp-ui-mode 1)
-;;  )
+(use-package lsp-ui
+  :after (lsp-mode)
+  :config
+  (lsp-ui-mode 1)
+  )
 
 ;;; auctex
 (use-package auctex
