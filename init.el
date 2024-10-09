@@ -12,7 +12,7 @@
 (setq display-line-numbers 'relative)
 (set-window-dedicated-p (selected-window) 1)
 (tab-bar-mode)
-(auto-fill-mode)
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
 ;;; MELPA
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
