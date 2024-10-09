@@ -190,7 +190,7 @@
   :hook
   (LaTeX-mode . citar-capf-setup)
   (org-mode . citar-capf-setup)
-  (citar-notes-paths '("~/org/academic")
+  (citar-notes-paths '("~/org/academic")))
 
 ;;; Keybindings
 
