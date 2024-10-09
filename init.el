@@ -90,7 +90,8 @@
 	    ("ARCHIVED" . (:foreground "#9399b2"))
 	    ))
   )
-;; org-agenda using org-super-agenda
+;;; org-agenda using org-super-agenda
+;; Outside org because of org-super-agenda usage (?)
 (setq org-agenda-custom-commands '(
 				   ("d" "Daily" ((agenda "" (
 							     (org-agenda-span 1)
