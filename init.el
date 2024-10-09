@@ -208,6 +208,17 @@
 ;;; rainbow-delimiters
 (rainbow-delimiters-mode)
 
+;;; lsp-mode
+(use-package lsp-mode
+  :config
+  (lsp-register-custom-settings
+   '(("pyls.plugins.pyls_mypy.enabled" t t)
+     ("pyls.plugins.pyls_mypy.live_mode" nil t)
+     ("pyls.plugins.pyls_black.enabled" t t)
+     ("pyls.plugins.pyls_isort.enabled" t t)))
+  :hook
+  ((python-mode . lsp)))
+
 ;;; Keybindings
 
 ;; General
