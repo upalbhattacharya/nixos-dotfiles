@@ -203,6 +203,7 @@
 (global-origami-mode)
 
 ;;; flycheck
+(global-flycheck-mode +1)
 
 ;;; Keybindings
 
