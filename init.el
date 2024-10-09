@@ -31,8 +31,11 @@
 (load-theme 'catppuccin :no-confirm)
 
 ;;; Evil
-(require 'evil)
-(evil-mode 1)
+; (require 'evil)
+(use-package evil
+  :config
+  (evil-mode 1)
+  )
 
 ;;; org
 (use-package org
