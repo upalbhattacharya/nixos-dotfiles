@@ -66,6 +66,7 @@
 	org-display-remote-inline-images 'download
 	org-display-inline-images t
 	org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
+
   ;; org-agenda
   (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$")
 	org-agenda-start-day "+0d"
@@ -78,26 +79,9 @@
 	org-agenda-prefix-format '(
 				   (agenda . "  %?-2i %t")
 				   (todo . "  %?-2i %s %t"))
-	)
-)
-
-
-
-(setq org-todo-keywords
-      '((sequence "TODO" "NEXT" "IN PROGRESS" "|" "DONE" "ARCHIVED")))
-(setq org-todo-keyword-faces
-      '(("TODO" . (:foreground "#f9e2af" :weight bold))
-	("NEXT" . (:foreground "#cba6f7" :weight bold))
-	("IN PROGRESS" . (:foreground "#89b4fa" :weight bold))
-	("DONE" . (:foreground "#a6e3a1" :weight bold))
-	("ARCHIVED" . (:foreground "#9399b2"))
-	))
-
-;;; org-super-agenda
-(setq org-agenda-custom-commands
-      '(
-	("d" "Daily"
-         ((agenda "" (
+	setq org-agenda-custom-commands '(
+		    ("d" "Daily"
+		    ((agenda "" (
 		      (org-agenda-span 1)
 		      (org-super-agenda-groups
 			      '(
@@ -136,7 +120,22 @@
 			))
 	 )
        )
+	)
 )
+
+
+
+(setq org-todo-keywords
+      '((sequence "TODO" "NEXT" "IN PROGRESS" "|" "DONE" "ARCHIVED")))
+(setq org-todo-keyword-faces
+      '(("TODO" . (:foreground "#f9e2af" :weight bold))
+	("NEXT" . (:foreground "#cba6f7" :weight bold))
+	("IN PROGRESS" . (:foreground "#89b4fa" :weight bold))
+	("DONE" . (:foreground "#a6e3a1" :weight bold))
+	("ARCHIVED" . (:foreground "#9399b2"))
+	))
+
+;;; org-super-agenda
 (org-super-agenda-mode)
 ;; org-roam
 (setq org-roam-directory (file-truename "~/org/"))
