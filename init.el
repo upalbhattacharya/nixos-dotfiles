@@ -136,7 +136,7 @@
          :target
          (file+head
           "${citar-citekey}.org"
-          "#+title: ${citar-citekey}\n#+created: %U\n#+last_modified: %U\n\n* ${citar-title}")
+          "#+title: ${citar-citekey}\n#+filetags: :article:\n* ${citar-title}")
          :unnarrowed t))     )
 (setq org-roam-dailies-capture-templates
       '(("d" "default" entry
