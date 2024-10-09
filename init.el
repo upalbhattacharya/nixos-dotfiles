@@ -223,17 +223,28 @@
   )
 
 ;;; origami
-(global-origami-mode)
+(use-package origami
+  :config
+  (global-origami-mode 1)
+  )
 
 ;;; flycheck
-(global-flycheck-mode +1)
+(use-package flycheck
+  :config
+  (global-flycheck-mode 1)
+  )
 
 ;;; rainbow-delimiters
-(rainbow-delimiters-mode)
+(use-package rainbow-delimiters
+  :config
+  (rainbow-delimiters-mode 1)
+  )
 
 ;;; which-key
-(which-key-mode)
-
+(use-package which-key
+  :config
+  (which-key-mode 1)
+  )
 
 ;;; lsp-mode
 (use-package lsp-mode
@@ -245,11 +256,17 @@
   )
 
 ;;; lsp-ui
-(lsp-ui-mode)
+(use-package lsp-ui
+  :after (lsp-mode)
+  :config
+  (lsp-ui-mode 1)
+  )
 
 ;;; auctex
-(setq TeX-parse-self t)
-
+(use-package auctex
+  :config
+  (setq TeX-parse-self t)
+  )
 
 ;;; Keybindings
 
