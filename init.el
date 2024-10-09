@@ -138,7 +138,9 @@
 #+last_modified: %U\n\n
 
 * ${title}"
-	 )
+			    )
+	 :create-file yes
+	 :unnarrowed t)
       )
 (setq org-roam-dailies-capture-templates
       '(("d" "default" entry
