@@ -216,9 +216,11 @@
   )
 
 ;;; citar-org-roam
-(setq citar-org-roam-note-title-template "${citekey}")
-(setq citar-org-roam-capture-template-key "n")
-
+(use-package citar-org-roam
+  :config
+  (setq citar-org-roam-note-title-template "${citekey}")
+  (setq citar-org-roam-capture-template-key "n")
+  )
 
 ;;; origami
 (global-origami-mode)
