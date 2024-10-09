@@ -13,7 +13,7 @@
 (set-window-dedicated-p (selected-window) 1)
 (tab-bar-mode)
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
-(setq org-hide-emphasis-markers t)
+
 ;;; MELPA
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -28,7 +28,7 @@
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
  '(package-selected-packages
-   '(org-view-mode lsp-ui rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company lsp-mode org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
+   '(auctex org-view-mode lsp-ui rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company lsp-mode org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -227,6 +227,9 @@
 ;;; lsp-ui
 (lsp-ui-mode)
 
+;;; auctex
+(setq TeX-parse-self t)
+
 ;;; Keybindings
 
 ;; General
@@ -254,3 +257,6 @@
 
 ;; citar-org-roam
 (global-set-key (kbd "C-x M-r") 'citar-open-notes) 
+
+;; org-view-mode
+(global-set-key (kbd "C-c M-e") 'org-view-mode)
