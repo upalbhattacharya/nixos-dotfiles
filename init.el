@@ -60,11 +60,9 @@
   :hook (org-mode-hook . turn-on-auto-fill)
   :hook (org-mode . org-indent-mode)
   :config
-(define-key minibuffer-local-completion-map (kbd "?") nil)
-(add-hook 'org-mode-hook 'org-indent-mode)
-(setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
-(setq org-deadline-warning-days 0)
-
+  (define-key minibuffer-local-completion-map (kbd "?") nil)
+  (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id
+	org-deadline-warning-days 0)
 )
 
 ;; org-agenda
