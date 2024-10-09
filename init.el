@@ -13,6 +13,7 @@
 (set-window-dedicated-p (selected-window) 1)
 (tab-bar-mode)
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
+(setq org-hide-emphasis-markers t)
 ;;; MELPA
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
