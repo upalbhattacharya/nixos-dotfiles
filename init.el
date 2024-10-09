@@ -89,7 +89,15 @@
 	    ("DONE" . (:foreground "#a6e3a1" :weight bold))
 	    ("ARCHIVED" . (:foreground "#9399b2"))
 	    ))
+
+  ;; babel
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (python . t))
+   )
   )
+
 ;;; org-agenda using org-super-agenda
 ;; Outside org because of org-super-agenda usage (?)
 (setq org-agenda-custom-commands '(
@@ -172,11 +180,6 @@
   :config
   (vertico-mode))
 
-;;; babel
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((R . t)
-   (emacs-lisp . t)))
 
 ;;; org-journal
 (use-package org-journal
@@ -191,10 +194,13 @@
   (company-mode 1)
   )
 
-;;; git-auto-commit-mode
-(git-auto-commit-mode)
-(setq gac-automatically-push-p t)
-(add-hook 'after-save-hook 'git-auto-commit-mode)
+;;; git-auto-commit
+(use-package git-auto-commit
+  :hook (after-save . git-auto-commit-mode)
+  :config
+  (setq gac-automatically-push-p t)
+  (git-auto-commit-mode 1)
+  )
 
 ;;; git-gutter
 (global-git-gutter-mode +1)
