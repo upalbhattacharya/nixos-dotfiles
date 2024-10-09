@@ -153,7 +153,7 @@
 (setq dashboard-startup-banner 3)
 
 ;;; vertico
-
+(vertico-mode)
 ;;; babel
 (org-babel-do-load-languages
  'org-babel-load-languages
