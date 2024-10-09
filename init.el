@@ -197,6 +197,10 @@
 (setq citar-bibliography '("~/org/bibliography.bib"))
 (setq citar-notes-paths '("~/org/academic"))
 
+;;; citar-org-roam
+(setq citar-org-roam-note-title-template "${author} - ${title}")
+
+
 ;;; Keybindings
 
 ;; General
