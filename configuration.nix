@@ -203,7 +203,8 @@ in
 		};
 	};    
 
-	fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "Inconsolata" ]; }) ];
+	fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "Inconsolata"
+  "Iosevka"]; }) ];
 
 	# programs.sway = {
  #  		enable = true;

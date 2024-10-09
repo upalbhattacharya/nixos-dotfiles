@@ -6,7 +6,7 @@
 (tool-bar-mode -1)
 
 ;;; UI
-(set-face-attribute 'default nil :font "Iosevka" :height 220)
+(set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 220)
 (set-face-attribute 'org-document-title nil)
 (global-display-line-numbers-mode)
 (setq display-line-numbers 'relative)
