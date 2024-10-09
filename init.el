@@ -40,8 +40,7 @@
   (global-display-line-numbers-mode)
   (setq inhibit-startup-screen t
 	display-line-numbers 'relative)
-    (set-window-dedicated-p (selected-window) 1)
-    (setq-default fill-column 100)
+  (setq-default fill-column 100)
 )
 
     (add-hook 'org-mode-hook 'turn-on-auto-fill)
