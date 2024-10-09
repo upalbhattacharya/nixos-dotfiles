@@ -1,26 +1,15 @@
-;;; Inhibit Startup Splash Screen
-(setq inhibit-startup-screen t)
-;;; Disable Menubar, Toolbar, Scrollbar, Tooltip
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
 
-;;; UI
-(set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 220)
-(set-face-attribute 'org-document-title nil)
-(global-display-line-numbers-mode)
-(setq display-line-numbers 'relative)
-(setq org-hide-emphasis-markers t)
-(set-window-dedicated-p (selected-window) 1)
-(tab-bar-mode)
-(add-hook 'org-mode-hook 'turn-on-auto-fill)
-(setq org-display-remote-inline-images 'download)
-(setq org-display-inline-images t)
 
-;;; MELPA
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-and-compile
+  (setq use-package-always-ensure t
+        use-package-expand-minimally t))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -52,11 +41,14 @@
 (evil-mode 1)
 
 ;;; org
+(use-package org
+  :config
 (define-key minibuffer-local-completion-map (kbd "?") nil)
 (add-hook 'org-mode-hook 'org-indent-mode)
-(setq-default fill-column 100)
 (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
 (setq org-deadline-warning-days 0)
+
+)
 
 ;; org-agenda
 (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
@@ -237,6 +229,28 @@
 
 ;;; auctex
 (setq TeX-parse-self t)
+
+;;; emacs
+(use-package emacs
+  :custom-face
+  (default ((nil (:font "Iosevka Nerd Font" :height 220))))
+  :config
+    (setq inhibit-startup-screen t)
+    (menu-bar-mode -1)
+    (scroll-bar-mode -1)
+    (tool-bar-mode -1)
+    ;(set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 220)
+    (set-face-attribute 'org-document-title nil)
+    (global-display-line-numbers-mode)
+    (setq display-line-numbers 'relative)
+    (setq org-hide-emphasis-markers t)
+    (set-window-dedicated-p (selected-window) 1)
+    (tab-bar-mode)
+    (add-hook 'org-mode-hook 'turn-on-auto-fill)
+    (setq org-display-remote-inline-images 'download)
+    (setq org-display-inline-images t)
+    (setq-default fill-column 100)
+)
 
 ;;; Keybindings
 
