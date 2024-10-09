@@ -24,7 +24,7 @@
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
  '(package-selected-packages
-   '(citar-org-roam citar vertico git-gutter magit git-auto-commit-mode company lsp-mode org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
+   '(helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company lsp-mode org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -131,13 +131,14 @@
 * ${title}")
 	 :create-file yes
 	 :unnarrowed t)
-	("n" "literature note" plain
-		"%?"
-		:target
-		(file+head
-		"${citar-citekey}.org"
-		"#+title: ${citar-citekey} (${citar-date}). ${note-title}.\n#+created: %U\n#+last_modified: %U\n\n")
-		:unnarrowed t))
+	("n" "literature note" plain "%?"
+	 :target (file_head "${citar-citekey}.org" "
+#+title: ${citar-citekey}
+#+created: %U
+#+last_modified: %U\n\n
+
+* ${title}"
+	 )
       )
 (setq org-roam-dailies-capture-templates
       '(("d" "default" entry
@@ -193,11 +194,6 @@
 ;;; citar
 (setq citar-bibliography '("~/org/bibliography.bib"))
 (setq citar-notes-paths '("~/org/academic"))
-
-;;citar-org-roam
-(citar-org-roam-mode)
-(setq citar-org-roam-note-title-template "${citekey}")
-(setq citar-org-roam-capture-template-key "n")
 
 ;;; Keybindings
 
