@@ -186,7 +186,7 @@
 ;;; citar
 (use-package citar
   :custom
-  (citar-bibliography '("~/bib/references.bib"))
+  (citar-bibliography '("~/org/bibliography.bib"))
   :hook
   (LaTeX-mode . citar-capf-setup)
   (org-mode . citar-capf-setup))
