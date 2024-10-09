@@ -35,11 +35,10 @@
   :config
   (setq inhibit-startup-screen t
 	display-line-numbers 'relative)
-    (menu-bar-mode -1)
-    (scroll-bar-mode -1)
-    (tool-bar-mode -1)
-    (tab-bar-mode)
-    ; (global-display-line-numbers-mode)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (tab-bar-mode)
     (set-window-dedicated-p (selected-window) 1)
     (setq-default fill-column 100)
 )
