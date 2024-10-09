@@ -27,6 +27,9 @@
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
+ '(org-format-latex-options
+   '(:foreground default :background default :scale 2.0 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
+		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
    '(latex-extra latexdiff auctex org-view-mode lsp-ui rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company lsp-mode org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
 (custom-set-faces
