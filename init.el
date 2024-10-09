@@ -125,25 +125,19 @@
   (org-super-agenda-mode 1)
   )
 
-
 ;; org-roam
-(setq org-roam-directory (file-truename "~/org/"))
-(setq org-roam-dailies-directory "~/org/worklogs/")
-
-(setq org-roam-capture-templates
-      '(("d" "default" plain "%?"
-         :target (file+head "node_%<%Y%m%d%H%M%S>.org" "
-#+title: ${title}
-#+filetags:
-
-* ${title}")
-	 :create-file yes
-	 :unnarrowed t)
- ("n" "literature note" plain
-         "%?"
-         :target
-         (file+head
-          "${citar-citekey}.org"
+(use-package org-roam
+  :config
+  (setq org-roam-directory (file-truename "~/org/"))
+  (setq org-roam-dailies-directory "~/org/worklogs/")
+  (setq org-roam-capture-templates
+	'(("d" "default" plain "%?"
+	   :target (file+head "node_%<%Y%m%d%H%M%S>.org" 
+			      "#+title: ${title}\n#+filetags:\n\n* ${title}\n\n")
+	   :create-file yes
+	   :unnarrowed t)
+	  ("n" "literature note" plain "%?"
+           :target (file+head "${citar-citekey}.org" 
           "#+title: ${citar-citekey}\n#+filetags: :article:\n* ${citar-title}")
          :unnarrowed t))     )
 (setq org-roam-dailies-capture-templates
@@ -157,6 +151,7 @@
             ;; #'org-roam-unlinked-references-section
             ))
 (org-roam-db-autosync-mode)
+)
 ;;; org-superstar
 (require 'org-superstar)
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
