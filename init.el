@@ -198,7 +198,7 @@
 (setq citar-notes-paths '("~/org/academic"))
 
 ;;; citar-org-roam
-(setq citar-org-roam-note-title-template "${citar-citekey}")
+(setq citar-org-roam-note-title-template "${citekey}")
 (setq citar-org-roam-capture-template-key "n")
 
 ;;; Keybindings
