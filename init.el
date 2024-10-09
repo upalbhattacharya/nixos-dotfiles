@@ -7,6 +7,7 @@
 
 ;;; UI
 (set-face-attribute 'default nil :font "Inconsolata Nerd Font" :height 220)
+(set-face-attribute 'face nil :height 1.0)))
 (global-display-line-numbers-mode)
 (set-window-dedicated-p (selected-window) 1)
 (tab-bar-mode)
@@ -25,13 +26,13 @@
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
  '(package-selected-packages
-   '(rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company lsp-mode org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
+   '(lsp-ui rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company lsp-mode org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-document-title ((t (:foreground "#89b4fa" :weight bold)))))
+ '(org-document-title ((t (:weight bold)))))
 
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
@@ -220,6 +221,9 @@
   :config
   (lsp-enable-which-key-integration t)
   )
+
+;;; lsp-ui
+(lsp-ui-mode)
 
 ;;; Keybindings
 
