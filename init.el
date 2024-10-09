@@ -139,7 +139,6 @@
 #+last_modified: %U\n\n
 "
 			    )
-	 :create-file yes
 	 :unnarrowed t)
       ))
 (setq org-roam-dailies-capture-templates
