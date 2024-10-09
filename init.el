@@ -208,8 +208,8 @@
 ;;; rainbow-delimiters
 (rainbow-delimiters-mode)
 
-;;; lsp-mode
-(lsp-mode)
+;;; which-key
+(which-key-mode)
 
 ;;; Keybindings
 
