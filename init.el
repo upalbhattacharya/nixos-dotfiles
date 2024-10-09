@@ -186,7 +186,10 @@
 )
 
 ;;; company
-(company-mode)
+(use-package company
+  :config
+  (company-mode 1)
+  )
 
 ;;; git-auto-commit-mode
 (git-auto-commit-mode)
