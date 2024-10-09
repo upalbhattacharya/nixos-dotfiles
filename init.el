@@ -197,6 +197,7 @@
 ;;citar-org-roam
 (citar-org-roam-mode)
 (setq citar-org-roam-note-title-template "${citekey}")
+(setq citar-org-roam-capture-template-key "n")
 
 ;;; Keybindings
 
