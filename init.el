@@ -250,6 +250,7 @@
 
 ;;; lsp-mode
 (use-package lsp-mode
+  :after (which-key)
   :config
   (setq lsp-keymap-prefix "C-l")
   (setq lsp-enable-which-key-integration t)
