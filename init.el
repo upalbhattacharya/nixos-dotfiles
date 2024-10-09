@@ -152,13 +152,17 @@
   )
 
 ;;; org-superstar
-(require 'org-superstar)
-(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+(use-package org-superstar
+  :hook (org-mode . org-superstar-mode)
+  )
 
 ;;; Dashboard
-(require 'dashboard)
-(dashboard-setup-startup-hook)
-(setq dashboard-startup-banner 3)
+(use-package dashboard
+  :config
+  (dashboard-setup-startup-hook)
+  (setq dashboard-startup-banner 3)
+  )
+
 
 ;;; vertico
 (use-package vertico
