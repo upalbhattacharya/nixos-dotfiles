@@ -35,7 +35,6 @@
   :config
   (setq inhibit-startup-screen t)
   (setq display-line-numbers 'relative)
-    (setq org-hide-emphasis-markers t)
     (menu-bar-mode -1)
     (scroll-bar-mode -1)
     (tool-bar-mode -1)
@@ -46,6 +45,7 @@
     (setq-default fill-column 100)
 )
 
+    (setq org-hide-emphasis-markers t)
     (setq org-display-remote-inline-images 'download)
     (setq org-display-inline-images t)
 ;;; Evil
