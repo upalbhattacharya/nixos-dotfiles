@@ -217,7 +217,9 @@
 
 ;;; citar-org-roam
 (use-package citar-org-roam
+  :after (citar org-roam)
   :config
+  (citar-org-roam-mode 1))
   (setq citar-org-roam-note-title-template "${citekey}")
   (setq citar-org-roam-capture-template-key "n")
   )
@@ -248,11 +250,9 @@
 
 ;;; lsp-mode
 (use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-keymap-prefix "C-l")
   :config
-  (lsp-enable-which-key-integration t)
+  (setq lsp-keymap-prefix "C-l")
+  (setq lsp-enable-which-key-integration t)
   )
 
 ;;; lsp-ui
