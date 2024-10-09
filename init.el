@@ -8,7 +8,7 @@
 ;;; UI
 (set-face-attribute 'default nil :font "Inconsolata Nerd Font" :height 220)
 (global-display-line-numbers-mode)
-(set-frame-parameter nil 'unsplittable t)
+(set-window-dedicated-p (selected-window) 1)
 
 ;;; MELPA
 (require 'package)
