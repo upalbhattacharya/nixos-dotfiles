@@ -149,7 +149,8 @@
             #'org-roam-reflinks-section
             ))
   (org-roam-db-autosync-mode 1)
-)
+  )
+
 ;;; org-superstar
 (require 'org-superstar)
 (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
