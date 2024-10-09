@@ -130,7 +130,14 @@
 
 * ${title}")
 	 :create-file yes
-	 :unnarrowed t))
+	 :unnarrowed t)
+	("n" "literature note" plain
+		"%?"
+		:target
+		(file+head
+		"${citar-citekey}.org"
+		"#+title: ${citar-citekey} (${citar-date}). ${note-title}.\n#+created: %U\n#+last_modified: %U\n\n")
+		:unnarrowed t))
       )
 (setq org-roam-dailies-capture-templates
       '(("d" "default" entry
