@@ -153,7 +153,14 @@
 (setq dashboard-startup-banner 3)
 
 ;;; vertico
-(vertico-mode)
+(use-package vertico
+  :custom
+  (vertico-count 13)                    ; Number of candidates to display
+  (vertico-resize t)
+  (vertico-cycle nil) ; Go from last to first candidate and first to last (cycle)?
+  :config
+  (vertico-mode))
+
 ;;; babel
 (org-babel-do-load-languages
  'org-babel-load-languages
