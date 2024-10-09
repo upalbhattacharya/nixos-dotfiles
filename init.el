@@ -14,6 +14,7 @@
 (set-window-dedicated-p (selected-window) 1)
 (tab-bar-mode)
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
+(setq org-display-remote-inline-images 'download)
 
 ;;; MELPA
 (require 'package)
