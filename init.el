@@ -163,7 +163,6 @@
   (setq dashboard-startup-banner 3)
   )
 
-
 ;;; vertico
 (use-package vertico
   :custom
@@ -180,9 +179,11 @@
    (emacs-lisp . t)))
 
 ;;; org-journal
-
-(setq org-journal-dir "~/org/journal")
-(setq org-journal-date-format "%Y-%m-%d")
+(use-package org-journal
+  :config
+  (setq org-journal-dir "~/org/journal")
+  (setq org-journal-date-format "%Y-%m-%d")
+)
 
 ;;; company
 (company-mode)
