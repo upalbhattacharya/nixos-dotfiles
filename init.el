@@ -26,12 +26,6 @@
 		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
    '(latex-extra latexdiff auctex org-view-mode lsp-ui rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company lsp-mode org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0)))))
 
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
@@ -42,6 +36,8 @@
 
 ;;; org
 (use-package org
+  :custom-face
+  (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
   :config
 (define-key minibuffer-local-completion-map (kbd "?") nil)
 (add-hook 'org-mode-hook 'org-indent-mode)
@@ -233,13 +229,12 @@
 ;;; emacs
 (use-package emacs
   :custom-face
-  (default ((nil (:font "Iosevka Nerd Font" :height 280))))
+  (default ((nil (:font "Iosevka Nerd Font" :height 220))))
   :config
     (setq inhibit-startup-screen t)
     (menu-bar-mode -1)
     (scroll-bar-mode -1)
     (tool-bar-mode -1)
-    (set-face-attribute 'org-document-title nil)
     (global-display-line-numbers-mode)
     (setq display-line-numbers 'relative)
     (setq org-hide-emphasis-markers t)
