@@ -43,9 +43,6 @@
   (setq-default fill-column 100)
 )
 
-    (setq org-hide-emphasis-markers t)
-    (setq org-display-remote-inline-images 'download)
-    (setq org-display-inline-images t)
 ;;; Evil
 ; (require 'evil)
 (use-package evil
@@ -61,19 +58,23 @@
   :hook (org-mode . org-indent-mode)
   :config
   (define-key minibuffer-local-completion-map (kbd "?") nil)
-  (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id
-	org-deadline-warning-days 0)
+  ;; org
+  (setq org-deadline-warning-days 0
+	org-hide-emphasis-markers t
+	org-display-remote-inline-images 'download
+	org-display-inline-images t
+	org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
+  ;; org-agenda
+  (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$")
+	org-agenda-start-day "+0d"
+	org-agenda-skip-timestamp-if-done t
+	org-agenda-skip-deadline-if-done t
+	org-agenda-skip-scheduled-if-done t
+	org-agenda-skip-scheduled-if-deadline-is-shown t
+	org-agend-skip-timeline-if-deadlin-is-shown t
+      )
 )
 
-;; org-agenda
-(setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
-(setq org-agenda-start-day "+0d"
-      org-agenda-skip-timestamp-if-done t
-      org-agenda-skip-deadline-if-done t
-      org-agenda-skip-scheduled-if-done t
-      org-agenda-skip-scheduled-if-deadline-is-shown t
-      org-agend-skip-timeline-if-deadlin-is-shown t
-      )
 
 (setq org-agenda-hide-tags-regexp ".*")
 (setq org-agenda-prefix-format
