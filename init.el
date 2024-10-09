@@ -205,6 +205,9 @@
 ;;; flycheck
 (global-flycheck-mode +1)
 
+;;; rainbow-delimiters
+(rainbow-delimiters-mode)
+
 ;;; Keybindings
 
 ;; General
