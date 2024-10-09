@@ -38,9 +38,9 @@
   (tool-bar-mode -1)
   (tab-bar-mode 1)
   (global-display-line-numbers-mode 1)
-  (setq inhibit-startup-screen t)
-  (setq-default fill-column 100
-		display-line-numbers-type 'relative)
+  (setq inhibit-startup-screen t
+	display-line-numbers-type 'relative)
+  (setq-default fill-column 100)
 )
 
     (setq org-hide-emphasis-markers t)
