@@ -257,11 +257,11 @@
 ;;  )
 
 ;;; lsp-ui
-(use-package lsp-ui
-  :after (lsp-mode)
-  :config
-  (lsp-ui-mode 1)
-  )
+;; (use-package lsp-ui
+;;  :after (lsp-mode)
+;;  :config
+;;  (lsp-ui-mode 1)
+;;  )
 
 ;;; auctex
 (use-package auctex
