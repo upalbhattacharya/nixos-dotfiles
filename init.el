@@ -40,8 +40,8 @@
   (tool-bar-mode -1)
   (tab-bar-mode 1)
   (global-display-line-numbers-mode 1)
-  (setq inhibit-startup-screen t
-	display-line-numbers-type 'relative)
+  (setq inhibit-startup-screen t)
+  (setq display-line-numbers-type 'relative)
   (setq-default fill-column 100)
 )
 
@@ -60,70 +60,54 @@
   :hook (org-mode . org-indent-mode)
   :config
   (define-key minibuffer-local-completion-map (kbd "?") nil)
-  ;; org
-  (setq org-deadline-warning-days 0
-	org-hide-emphasis-markers t
-	org-display-remote-inline-images 'download
-	org-display-inline-images t
-	org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
+
+  (setq org-deadline-warning-days 0)
+  (setq org-hide-emphasis-markers t)
+  (setq org-display-remote-inline-images 'download)
+  (setq org-display-inline-images t)
+  (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
 
   ;; org-agenda
-  (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$")
-	org-agenda-start-day "+0d"
-	org-agenda-skip-timestamp-if-done t
-	org-agenda-skip-deadline-if-done t
-	org-agenda-skip-scheduled-if-done t
-	org-agenda-skip-scheduled-if-deadline-is-shown t
-	org-agend-skip-timeline-if-deadlin-is-shown t
-	org-agenda-hide-tags-regexp ".*"
-	org-agenda-prefix-format '(
-				   (agenda . "  %?-2i %t")
-				   (todo . "  %?-2i %s %t"))
-	setq org-agenda-custom-commands '(
-		    ("d" "Daily"
-		    ((agenda "" (
-		      (org-agenda-span 1)
-		      (org-super-agenda-groups
-			      '(
-				(:name "Today"
-				       :auto-outline-path t
-				       :todo ("NEXT" "IN PROGRESS" "TODO")
-				       :deadline today)
-				)
-			      )
-		      )
-	   ))
-	  )
-       ("w" "Week"
-        ((agenda "" (
-		     (org-agenda-span 'week)
-		       (org-super-agenda-groups
-			      '(
-				(:name "This Week"
-				       :auto-outline-path t
-				       :todo ("NEXT" "IN PROGRESS" "TODO"))
-				)
-				)
-			      )
-		))
-	)
-       ("qw" "Query-base Week"
-        ((org-ql-block '(or(and (not (done))
-				(or
-			     (deadline auto)
-			     (ts-active :on today)
-			     (scheduled :to today)
-			     ))
-			   (closed :on today)
-			   :sort (todo priority date))
-                        ((org-ql-block-header "This Week"))
-			))
-	 )
-       )
-	)
-)
-
-
+  (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
+  (setq org-agenda-start-day "+0d")
+  (setq org-agenda-skip-timestamp-if-done t)
+  (setq org-agenda-skip-deadline-if-done t)
+  (setq org-agenda-skip-scheduled-if-done t)
+  (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
+  (setq org-agend-skip-timeline-if-deadline-is-shown t)
+  (setq org-agenda-hide-tags-regexp ".*")
+  (setq org-agenda-prefix-format '(
+				(agenda . "  %?-2i %t")
+				(todo . "  %?-2i %s %t")))
+  )
+;; org-agenda using org-super-agenda
+(setq org-agenda-custom-commands '(
+				   ("d" "Daily" ((agenda "" (
+							     (org-agenda-span 1)
+							     (org-super-agenda-groups
+							      '(
+								(:name "Today"
+								       :auto-outline-path t
+								       :todo ("NEXT" "IN PROGRESS" "TODO")
+								       :deadline today)
+								)
+							      )
+							     )
+							 ))
+				    )
+				   ("w" "Week" ((agenda "" (
+							    (org-agenda-span 'week)
+							    (org-super-agenda-groups
+							     '(
+							       (:name "This Week"
+								      :auto-outline-path t
+								      :todo ("NEXT" "IN PROGRESS" "TODO"))
+							       )
+							     )
+							    )
+							))
+				    )
+				   ))
 
 (setq org-todo-keywords
       '((sequence "TODO" "NEXT" "IN PROGRESS" "|" "DONE" "ARCHIVED")))
