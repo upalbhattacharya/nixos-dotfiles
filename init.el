@@ -19,8 +19,6 @@
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
- '(org-agenda-files
-   '("/home/upal/org/nodes/node_20241008180810.org" "/home/upal/org/nodes/node_20241008182909.org" "/home/upal/org/nodes/node_20241008202250.org" "/home/upal/org/worklogs/log_2024-10-08.org" "/home/upal/org/worklogs/log_2024-10-09.org" "/home/upal/org/node_20241009155853.org"))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
@@ -229,25 +227,6 @@
 ;;; auctex
 (setq TeX-parse-self t)
 
-;;; emacs
-(use-package emacs
-  :custom-face
-  (default ((nil (:font "Iosevka Nerd Font" :height 220))))
-  :config
-    (setq inhibit-startup-screen t)
-    (menu-bar-mode -1)
-    (scroll-bar-mode -1)
-    (tool-bar-mode -1)
-    (global-display-line-numbers-mode)
-    (setq display-line-numbers 'relative)
-    (setq org-hide-emphasis-markers t)
-    (set-window-dedicated-p (selected-window) 1)
-    (tab-bar-mode)
-    (add-hook 'org-mode-hook 'turn-on-auto-fill)
-    (setq org-display-remote-inline-images 'download)
-    (setq org-display-inline-images t)
-    (setq-default fill-column 100)
-)
 
 ;;; Keybindings
 
