@@ -7,7 +7,6 @@
 
 ;;; UI
 (set-face-attribute 'default nil :font "Inconsolata Nerd Font" :height 220)
-(set-face-attribute 'face nil :height 1.0)))
 (global-display-line-numbers-mode)
 (set-window-dedicated-p (selected-window) 1)
 (tab-bar-mode)
