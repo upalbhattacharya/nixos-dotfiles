@@ -135,8 +135,8 @@
          "%?"
          :target
          (file+head
-          "%(expand-file-name (or citar-org-roam-subdir \"\") org-roam-directory)/${citar-citekey}.org"
-          "#+title: ${citar-citekey} (${citar-date}). ${note-title}.\n#+created: %U\n#+last_modified: %U\n\n")
+          "${citar-citekey}.org"
+          "#+title: ${citar-citekey}\n#+created: %U\n#+last_modified: %U\n\n")
          :unnarrowed t))     )
 (setq org-roam-dailies-capture-templates
       '(("d" "default" entry
