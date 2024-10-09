@@ -28,6 +28,26 @@
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
 
+;;; emacs
+(use-package emacs
+  :custom-face
+  (default ((nil (:font "Iosevka Nerd Font" :height 220))))
+  :config
+    (setq inhibit-startup-screen t)
+    (menu-bar-mode -1)
+    (scroll-bar-mode -1)
+    (tool-bar-mode -1)
+    (global-display-line-numbers-mode)
+    (setq display-line-numbers 'relative)
+    (setq org-hide-emphasis-markers t)
+    (set-window-dedicated-p (selected-window) 1)
+    (tab-bar-mode)
+    (add-hook 'org-mode-hook 'turn-on-auto-fill)
+    (setq org-display-remote-inline-images 'download)
+    (setq org-display-inline-images t)
+    (setq-default fill-column 100)
+)
+
 ;;; Evil
 ; (require 'evil)
 (use-package evil
