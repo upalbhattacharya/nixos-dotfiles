@@ -33,13 +33,13 @@
   :custom-face
   (default ((nil (:font "Iosevka Nerd Font" :height 220))))
   :config
-    (setq inhibit-startup-screen t)
+  (setq inhibit-startup-screen t
+	display-line-numbers 'relative)
+    (setq org-hide-emphasis-markers t)
     (menu-bar-mode -1)
     (scroll-bar-mode -1)
     (tool-bar-mode -1)
     (global-display-line-numbers-mode)
-    (setq display-line-numbers 'relative)
-    (setq org-hide-emphasis-markers t)
     (set-window-dedicated-p (selected-window) 1)
     (tab-bar-mode)
     (add-hook 'org-mode-hook 'turn-on-auto-fill)
