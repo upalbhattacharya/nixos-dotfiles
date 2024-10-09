@@ -33,12 +33,13 @@
   :custom-face
   (default ((nil (:font "Iosevka Nerd Font" :height 220))))
   :config
-  (setq inhibit-startup-screen t
-	display-line-numbers 'relative)
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
   (tab-bar-mode)
+  (global-display-line-numbers-mode)
+  (setq inhibit-startup-screen t
+	display-line-numbers 'relative)
     (set-window-dedicated-p (selected-window) 1)
     (setq-default fill-column 100)
 )
