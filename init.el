@@ -189,7 +189,7 @@
 
 ;;; Helm-bibtex
 (autoload 'helm-bibtex "helm-bibtex" "" t)
-(setq bibtex-completion-bibliography '(("~/org/bibliography.bib")))
+(setq bibtex-completion-bibliography '("~/org/bibliography.bib"))
 
 ;;; Keybindings
 
