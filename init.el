@@ -33,8 +33,8 @@
   :custom-face
   (default ((nil (:font "Iosevka Nerd Font" :height 220))))
   :config
-  (setq inhibit-startup-screen t)
-  (setq display-line-numbers 'relative)
+  (setq inhibit-startup-screen t
+	display-line-numbers 'relative)
     (menu-bar-mode -1)
     (scroll-bar-mode -1)
     (tool-bar-mode -1)
