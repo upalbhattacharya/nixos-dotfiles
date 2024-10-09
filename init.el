@@ -221,3 +221,6 @@
 ;; org-transclusion
 (global-set-key (kbd "C-c M-a") 'org-transclusion-add-all)
 (global-set-key (kbd "C-c M-r") 'org-transclusion-remove-all)
+
+;; citar-org-roam
+(global-set-key (kbd "C-x M-r") 'citar-open-notes) 
