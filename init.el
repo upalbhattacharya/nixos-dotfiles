@@ -79,10 +79,10 @@
   (setq org-agenda-prefix-format '(
 				(agenda . "  %?-2i %t")
 				(todo . "  %?-2i %s %t")))
-
-    (setq org-todo-keywords
+  ;; org-todo
+  (setq org-todo-keywords
 	'((sequence "TODO" "NEXT" "IN PROGRESS" "|" "DONE" "ARCHIVED")))
-    (setq org-todo-keyword-faces
+  (setq org-todo-keyword-faces
 	'(("TODO" . (:foreground "#f9e2af" :weight bold))
 	    ("NEXT" . (:foreground "#cba6f7" :weight bold))
 	    ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold))
