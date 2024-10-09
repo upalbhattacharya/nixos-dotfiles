@@ -6,7 +6,7 @@
 (tool-bar-mode -1)
 
 ;;; Set Font
-(set-face-attribute 'default nil :font "Inconsolata Nerd Font" :height 280)
+(set-face-attribute 'default nil :font "Inconsolata Nerd Font" :height 220)
 
 (global-display-line-numbers-mode)
 
