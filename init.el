@@ -189,7 +189,8 @@
   (citar-bibliography '("~/org/bibliography.bib"))
   :hook
   (LaTeX-mode . citar-capf-setup)
-  (org-mode . citar-capf-setup))
+  (org-mode . citar-capf-setup)
+  (citar-notes-paths '("~/org/academic")
 
 ;;; Keybindings
 
