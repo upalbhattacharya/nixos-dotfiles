@@ -209,8 +209,11 @@
   )
 
 ;;; citar
-(setq citar-bibliography '("~/org/bibliography.bib"))
-(setq citar-notes-paths '("~/org/academic"))
+(use-package citar
+  :config
+  (setq citar-bibliography '("~/org/bibliography.bib"))
+  (setq citar-notes-paths '("~/org/academic"))
+  )
 
 ;;; citar-org-roam
 (setq citar-org-roam-note-title-template "${citekey}")
