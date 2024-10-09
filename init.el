@@ -187,7 +187,9 @@
 (setq citar-bibliography '("~/org/bibliography.bib"))
 (setq citar-notes-paths '("~/org/academic"))
 
-;;
+;;citar-org-roam
+(citar-org-roam-mode)
+(setq citar-org-roam-note-title-template "${citekey}")
 
 ;;; Keybindings
 
