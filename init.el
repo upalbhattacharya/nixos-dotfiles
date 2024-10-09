@@ -43,11 +43,11 @@
     (set-window-dedicated-p (selected-window) 1)
     (tab-bar-mode)
     (add-hook 'org-mode-hook 'turn-on-auto-fill)
-    (setq org-display-remote-inline-images 'download)
-    (setq org-display-inline-images t)
     (setq-default fill-column 100)
 )
 
+    (setq org-display-remote-inline-images 'download)
+    (setq org-display-inline-images t)
 ;;; Evil
 ; (require 'evil)
 (use-package evil
