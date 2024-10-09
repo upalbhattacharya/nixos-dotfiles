@@ -5,10 +5,10 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 
-;;; Set Font
+;;; UI
 (set-face-attribute 'default nil :font "Inconsolata Nerd Font" :height 220)
-
 (global-display-line-numbers-mode)
+(set-frame-parameter nil 'unsplittable t)
 
 ;;; MELPA
 (require 'package)
