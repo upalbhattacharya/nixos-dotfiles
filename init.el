@@ -192,6 +192,9 @@
   (org-mode . citar-capf-setup)
   (citar-notes-paths '("~/org/academic")))
 
+;;; Helm-bibtex
+(autoload 'helm-bibtex "helm-bibtex" "" t)
+
 ;;; Keybindings
 
 ;; General
