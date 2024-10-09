@@ -40,7 +40,7 @@
   (global-display-line-numbers-mode 1)
   (setq inhibit-startup-screen t)
   (setq-default fill-column 100
-		display-line-numbers 'relative)
+		display-line-numbers-type 'relative)
 )
 
     (setq org-hide-emphasis-markers t)
