@@ -37,7 +37,7 @@
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
   (tab-bar-mode)
-  (global-display-line-numbers-mode)
+  (global-display-line-numbers-mode 1)
   (setq inhibit-startup-screen t)
   (setq-default fill-column 100
 		display-line-numbers 'relative)
