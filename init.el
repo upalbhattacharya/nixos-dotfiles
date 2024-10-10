@@ -267,21 +267,12 @@
 
 ;;; lsp-mode
 (use-package lsp-mode
-  :commands (lsp lsp-deferred)
   :init
-  (setq lsp-keymap-prefix "C-l")
-  :config
-  (setq lsp-enable-which-key-integration t)
-  :commands lsp
-  )
-
-(use-package python-mode
-  :ensure t
-  :hook
-  (python-mode . lsp-deferred)
-  :custom
-  (python-shell-interpreter "python3")
-  )
+  (setq lsp-keymap-prefix "C-c l")
+  :hook (
+         (python-mode . lsp)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
 
 ;;; lsp-ui
 (use-package lsp-ui)
