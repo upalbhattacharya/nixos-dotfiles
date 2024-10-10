@@ -244,8 +244,7 @@
 
 ;;; rainbow-delimiters
 (use-package rainbow-delimiters
-  :config
-  (rainbow-delimiters-mode 1)
+  :hook (after-init . rainbow-delimiter-mode)
   )
 
 ;;; which-key
