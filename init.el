@@ -259,10 +259,6 @@
   (setq TeX-parse-self t)
   )
 
-;;; emojify
-(use-package emojify
-  :hook (after-init . global-emojify-mode))
-
 ;;; Keybindings
 
 ;; General
