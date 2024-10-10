@@ -47,6 +47,7 @@
   (setq-default indent-tabs-mode t)
   (setq-default tab-width 4)
   (setq visible-bell t)
+  (setq truncate-partial-width-windows nil)
 )
 
 ;;; Evil
