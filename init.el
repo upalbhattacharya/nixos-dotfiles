@@ -21,9 +21,9 @@
    '("/home/workboots/org/nodes/node_20241008180810.org" "/home/workboots/org/nodes/node_20241008182909.org" "/home/workboots/org/nodes/node_20241008202250.org" "/home/workboots/org/worklogs/log_2024-10-08.org" "/home/workboots/org/worklogs/log_2024-10-09.org" "/home/workboots/org/node_20241009155853.org"))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
-		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
+				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
-   '(lsp-ui lsp-pyright lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
+   '(python-black lsp-ui lsp-pyright lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
 
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
@@ -286,8 +286,11 @@
 ;;; lsp-ui
 (use-package lsp-ui
   :commands lsp-ui-mode)
+(use-package python-black
+  :demand t
+  :after python
+  :hook (python-mode . python-black-on-save-mode-enable-dwim))
 
-;; if you are helm user
 ;;; Keybindings
 
 ;; General
