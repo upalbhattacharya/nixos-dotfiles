@@ -23,7 +23,7 @@
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
-   '(olivetti latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
+   '(python-mode olivetti latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
 
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
@@ -264,6 +264,24 @@
   :config
   (setq TeX-parse-self t)
   )
+
+;;; lsp-mode
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-l")
+  :config
+  (setq lsp-enable-which-key-integration t)
+  )
+
+(use-package python-mode
+  :ensure t
+  :hook
+  (python-mode . lsp-deferred)
+  :custom
+  (python-shell-interpreter "python3")
+  )
+
 
 ;;; Keybindings
 
