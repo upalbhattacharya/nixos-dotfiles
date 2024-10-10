@@ -265,13 +265,6 @@
   (setq TeX-parse-self t)
   )
 
-;;; lsp-pyright
-(use-package lsp-pyright
-  :ensure t
-  :custom (lsp-pyright-langserver-command "pyright") ;; or basedpyright
-  :hook (python-mode . (lambda ()
-                          (require 'lsp-pyright)
-                          (lsp))))  ; or lsp-deferred
 ;;; lsp-mode
 (use-package lsp-mode
   :init
@@ -286,6 +279,17 @@
 ;;; lsp-ui
 (use-package lsp-ui
   :commands lsp-ui-mode)
+
+;;; Python-specific
+;;; lsp-pyright
+(use-package lsp-pyright
+  :ensure t
+  :custom (lsp-pyright-langserver-command "pyright") ;; or basedpyright
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp))))  ; or lsp-deferred
+
+;;; python-black
 (use-package python-black
   :demand t
   :after python
