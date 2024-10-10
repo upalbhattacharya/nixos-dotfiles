@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
-let 
+let
   lowBatteryNotifier = pkgs.writeScript "lowBatteryNotifier"
     ''
       BAT_PCT=`cat /sys/class/power_supply/BAT0/capacity`
@@ -11,27 +11,27 @@ let
 in
 {
   imports = [
-		./hardware-configuration.nix
-	];
+    ./hardware-configuration.nix
+  ];
 
   # Allow Unfree
   nixpkgs.config.allowUnfree = true;
 
-	# Enable flakes
+  # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 10;
-	boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-	# Shell
-	environment.shells = with pkgs; [ zsh ];
-	users.defaultUserShell = pkgs.zsh;
+  # Shell
+  environment.shells = with pkgs; [ zsh ];
+  users.defaultUserShell = pkgs.zsh;
 
-	# Networking
+  # Networking
   networking.hostName = "nixos-workboots";
-	networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true;
 
   # Timezone
   time.timeZone = "Europe/Amsterdam";
@@ -40,49 +40,49 @@ in
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  security.pam.services.hyprlock = {};
+  security.pam.services.hyprlock = { };
 
-	# Networking
-	networking.firewall.allowedTCPPorts = [ 8384 22000 ];
-   	networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+  # Networking
+  networking.firewall.allowedTCPPorts = [ 8384 22000 ];
+  networking.firewall.allowedUDPPorts = [ 22000 21027 ];
 
   # Select internationalisation properties.
-	i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
 
-	# Graphical Environment
-	
-	# Display Manager
-	services.xserver.displayManager.gdm.enable = true;
+  # Graphical Environment
+
+  # Display Manager
+  services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.autoSuspend = false;
 
-	services.displayManager.defaultSession = "hyprland";
-  
-	# Nvidia
-	hardware.graphics = {
-  	enable = true;
-	};
+  services.displayManager.defaultSession = "hyprland";
 
-	services.xserver.videoDrivers = [ "nvidia" ]; 
+  # Nvidia
+  hardware.graphics = {
+    enable = true;
+  };
 
-	hardware.nvidia = {
-		package = config.boot.kernelPackages.nvidiaPackages.beta;
-		modesetting.enable = true;
-		powerManagement.enable = false;
-		powerManagement.finegrained = false;
-		open = false;
-		nvidiaSettings = true;
-		prime = {
-			offload = {
-				enable = true;
-				enableOffloadCmd = true;
-			};
-			amdgpuBusId = "PCI:7:0:0";
-			nvidiaBusId = "PCI:1:0:0";
-		};
-	};
+  services.xserver.videoDrivers = [ "nvidia" ];
 
-	# Enable the X11 windowing system.
-	services.xserver.enable = true;
+  hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    prime = {
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      amdgpuBusId = "PCI:7:0:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
+  };
+
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
@@ -92,38 +92,38 @@ in
   # services.printing.enable = true;
 
   # Audio
-	security.rtkit.enable = true;
-	services.pipewire = {
-  	enable = true;
-  	alsa.enable = true;
-  	alsa.support32Bit = true;
-  	pulse.enable = true;
-	};
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
 
-	# Bluetooth
-	hardware.bluetooth = {
-		enable = true;
-		powerOnBoot = true;
-		settings = {
-			General = {
-				Enable = "Source,Sink,Media,Socket";
-			};
-		};
-	};
-	services.blueman.enable = true;
+  # Bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        Enable = "Source,Sink,Media,Socket";
+      };
+    };
+  };
+  services.blueman.enable = true;
 
   # TLP
   services.tlp.enable = true;
 
   # Cron
   services.cron = {
-      enable = true;
-      systemCronJobs =
-        let 
-          username = "workboots";
-        in
+    enable = true;
+    systemCronJobs =
+      let
+        username = "workboots";
+      in
       [
-          "* * * * * ${username}  sh -x ${lowBatteryNotifier} > /tmp/cron.batt.log 2>&1"
+        "* * * * * ${username}  sh -x ${lowBatteryNotifier} > /tmp/cron.batt.log 2>&1"
       ];
   };
 
@@ -132,40 +132,42 @@ in
     lidSwitchExternalPower = "ignore";
     lidSwitch = "ignore";
   };
-  
-	# Users
 
-	users.users.workboots = {
-  	isNormalUser = true;
-  	home = "/home/workboots";
-  	extraGroups = [ "wheel" "networkmanager" "power" "video" ];
-  	useDefaultShell = true;
-	};
+  # Users
+
+  users.users.workboots = {
+    isNormalUser = true;
+    home = "/home/workboots";
+    extraGroups = [ "wheel" "networkmanager" "power" "video" ];
+    useDefaultShell = true;
+  };
 
 
-	# Enable users
+  # Enable users
   nix.settings.allowed-users = [
-	  "workboots"
+    "workboots"
   ];
 
-	environment.systemPackages = with pkgs; [
-		vim
-		wget
-		htop
-		kitty
-		lshw
-		git
-		pulsemixer
-		discord
-		obsidian
-		libnotify
-    	gcc
-    	kanshi
-    	graphviz
-	pyright
-	black
-    	# xdg-desktop-portal-hyprland
-	];
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    htop
+    kitty
+    lshw
+    git
+    pulsemixer
+    discord
+    obsidian
+    libnotify
+    gcc
+    kanshi
+    graphviz
+    pyright
+    black
+    nil
+    nixpkgs-fmt
+    # xdg-desktop-portal-hyprland
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -193,39 +195,45 @@ in
 
   system.stateVersion = "24.05"; # Did you read the comment?
 
-	programs.zsh.enable = true;
+  programs.zsh.enable = true;
 
-	xdg = {
-		portal = {
-			enable = true;
-			extraPortals = with pkgs; [
-				xdg-desktop-portal-wlr
-				xdg-desktop-portal-gtk
-			];
-		};
-	};    
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+      ];
+    };
+  };
 
-	fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "Inconsolata"
-  "Iosevka"]; }) ];
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {
+      fonts = [
+        "Inconsolata"
+        "Iosevka"
+      ];
+    })
+  ];
 
-	# programs.sway = {
- #  		enable = true;
- #  		wrapperFeatures.gtk = true;
- #  		extraOptions = [
-	# 		"--unsupported-gpu"
- #  		];
-	# };
+  # programs.sway = {
+  #  		enable = true;
+  #  		wrapperFeatures.gtk = true;
+  #  		extraOptions = [
+  # 		"--unsupported-gpu"
+  #  		];
+  # };
 
-	programs.hyprland = {
-  		enable = true;
-      portalPackage = pkgs.xdg-desktop-portal-wlr;
-	};
+  programs.hyprland = {
+    enable = true;
+    portalPackage = pkgs.xdg-desktop-portal-wlr;
+  };
   programs.dconf.enable = true;
 
-	programs.steam = {
-  		enable = true;
-  		remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  		dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  		localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-	};
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
 }
