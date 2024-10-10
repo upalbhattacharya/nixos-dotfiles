@@ -269,8 +269,7 @@
 (use-package eglot
   :ensure t
   :config
-  (add-to-list 'eglot-server-programs '(python-mode . ("pylsp")))
-
+  add-to-list 'eglot-server-programs '(python-mode . ("pylsp"))
   :hook
   ((python-mode . eglot-ensure)))
 
