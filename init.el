@@ -23,7 +23,7 @@
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
-   '(git-auto-commit python-black lsp-ui lsp-pyright lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
+   '(python-black lsp-ui lsp-pyright lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
 
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
@@ -40,8 +40,8 @@
   (tool-bar-mode -1)
   (tab-bar-mode 1)
   (global-display-line-numbers-mode 1)
-  (auto-save-mode -1)
   (setq inhibit-startup-screen t)
+  (setq auto-save-mode -1)
   (setq make-backup-files nil)
   (setq display-line-numbers-type 'relative)
   (setq-default fill-column 100)
@@ -207,7 +207,7 @@
   )
 
 ;;; git-auto-commit
-(use-package git-auto-commit
+(use-package git-auto-commit-mode
   :hook (after-save . git-auto-commit-mode)
   :config
   (setq gac-automatically-push-p t)
@@ -289,7 +289,7 @@
 (use-package python-black
   :demand t
   :after python
-  :hook (python-mode . python-black-on-save-mode-enable-dwim))
+  :hook (python-mode . python-black-on-save-mode))
 
 ;;; Keybindings
 
