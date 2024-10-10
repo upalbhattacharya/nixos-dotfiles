@@ -17,11 +17,9 @@
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
- '(org-agenda-files
-   '("/home/workboots/org/nodes/node_20241008180810.org" "/home/workboots/org/nodes/node_20241008182909.org" "/home/workboots/org/nodes/node_20241008202250.org" "/home/workboots/org/worklogs/log_2024-10-08.org" "/home/workboots/org/worklogs/log_2024-10-09.org" "/home/workboots/org/node_20241009155853.org"))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
-		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
+				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
    '(latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
 
@@ -147,7 +145,7 @@
 	   :create-file yes
 	   :unnarrowed t)
 	  ("n" "literature note" plain "%?"
-           :target (file+head "${citar-citekey}.org" 
+           :target (file+head "${citar-citekey}.org"
 			      "#+title: ${citar-citekey}\n#+filetags: :article:\n* ${citar-title}")
          :unnarrowed t)))
   (setq org-roam-dailies-capture-templates
@@ -284,7 +282,7 @@
 (global-set-key (kbd "C-c M-r") 'org-transclusion-remove-all)
 
 ;; citar-org-roam
-(global-set-key (kbd "C-x M-r") 'citar-open-notes) 
+(global-set-key (kbd "C-x M-r") 'citar-open-notes)
 
 ;; org-view-mode
 (global-set-key (kbd "C-c M-e") 'org-view-mode)
