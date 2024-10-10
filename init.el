@@ -56,7 +56,7 @@
 (use-package org
   :custom-face
   (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
-  :hook (org-mode-hook . turn-on-auto-fill)
+  :hook (org-mode . turn-on-auto-fill)
   :hook (org-mode . org-indent-mode)
   :config
   (define-key minibuffer-local-completion-map (kbd "?") nil)
