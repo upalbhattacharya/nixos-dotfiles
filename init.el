@@ -33,6 +33,7 @@
   :custom-face
   (default ((nil (:font "Iosevka Nerd Font" :height 220))))
   :hook (text-mode . olivetti-mode)
+  :hook (org-mode . auto-fill-mode)
   :config
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
@@ -47,6 +48,8 @@
   (setq-default indent-tabs-mode t)
   (setq-default tab-width 4)
   (setq visible-bell t)
+  (setq visual-line-mode -1)
+  (setq auto-fill-mode 1)
   (setq truncate-partial-width-windows nil)
 )
 
