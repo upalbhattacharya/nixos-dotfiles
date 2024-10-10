@@ -261,6 +261,7 @@
 (global-set-key (kbd "C-c r") 'eval-buffer)
 (global-set-key (kbd "C-c y") 'clipboard-yank)
 (global-set-key (kbd "C-c M-i") 'org-id-get-create)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; org-roam
 (global-set-key (kbd "C-c p") 'org-roam-node-find)
