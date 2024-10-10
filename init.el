@@ -262,6 +262,8 @@
 (global-set-key (kbd "C-c y") 'clipboard-yank)
 (global-set-key (kbd "C-c M-i") 'org-id-get-create)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-c h") 'tab-previous)
+(global-set-key (kbd "C-c l") 'tab-next)
 
 ;; org-roam
 (global-set-key (kbd "C-c p") 'org-roam-node-find)
