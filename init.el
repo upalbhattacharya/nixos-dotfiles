@@ -296,6 +296,10 @@
   :after python
   :hook (python-mode . python-black-on-save-mode))
 
+;;; Nix-specific
+(use-package nixpkgs-fmt
+  :hook (nix-mode . nixpkgs-fmt-on-save-mode))
+
 ;;; Keybindings
 
 ;; General
