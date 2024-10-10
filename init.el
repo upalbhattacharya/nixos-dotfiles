@@ -32,6 +32,7 @@
 (use-package emacs
   :custom-face
   (default ((nil (:font "Iosevka Nerd Font" :height 220))))
+  :hook (org-mode . auto-fill-mode)
   :config
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
@@ -41,6 +42,7 @@
   (setq inhibit-startup-screen t)
   (setq auto-save-mode -1)
   (setq make-backup-files nil)
+  (setq kill-buffer-delete-auto-save-files t)
   (setq display-line-numbers-type 'relative)
   (setq-default fill-column 100)
   (setq-default indent-tabs-mode t)
