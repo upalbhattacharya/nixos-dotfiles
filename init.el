@@ -34,7 +34,7 @@
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
-  (tab-bar-mode 1)
+  (global-tab-line-mode 1)
   (global-display-line-numbers-mode 1)
   (auto-save-mode -1)
   (setq inhibit-startup-screen t)
