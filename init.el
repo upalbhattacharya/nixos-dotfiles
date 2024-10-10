@@ -21,7 +21,7 @@
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
-   '(latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
+   '(olivetti latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
 
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
@@ -30,6 +30,7 @@
 (use-package emacs
   :custom-face
   (default ((nil (:font "Iosevka Nerd Font" :height 220))))
+  :hook (text-mode . olivetti-mode)
   :config
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
@@ -58,10 +59,14 @@
   (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
   :hook (org-mode . turn-on-auto-fill)
   :hook (org-mode . org-indent-mode)
+  :custom
+  (org-blank-before-new-entry '((heading . nil)(plain-list-item . nil)))
   :config
   (define-key minibuffer-local-completion-map (kbd "?") nil)
 
   (setq org-deadline-warning-days 0)
+  (setq org-cycle-separator-lines 1)
+  (setq org-adapt-indentation nil)
   (setq org-hide-emphasis-markers t)
   (setq org-display-remote-inline-images 'download)
   (setq org-display-inline-images t)
