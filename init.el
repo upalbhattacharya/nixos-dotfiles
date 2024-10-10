@@ -272,6 +272,7 @@
   (setq lsp-keymap-prefix "C-l")
   :config
   (setq lsp-enable-which-key-integration t)
+  :commands lsp
   )
 
 (use-package python-mode
