@@ -272,6 +272,8 @@
   :hook (
          (python-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
+  :config
+  (setq lsp-clients-pylsp-library-directories ("~/.local/bin"))
   :commands lsp)
 
 ;;; lsp-ui
