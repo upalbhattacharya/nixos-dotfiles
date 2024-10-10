@@ -34,6 +34,7 @@
   (default ((nil (:font "Iosevka Nerd Font" :height 220))))
   :hook (text-mode . olivetti-mode)
   :hook (org-mode . auto-fill-mode)
+  :hook (org-agenda-mode . (lambda () (visual-line-mode -1)))
   :config
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
