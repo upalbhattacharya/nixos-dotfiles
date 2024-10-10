@@ -206,7 +206,7 @@
   (company-mode 1)
   )
 
-;;; git-auto-commit
+;;; git-auto-commit-mode
 (use-package git-auto-commit-mode
   :hook (after-save . git-auto-commit-mode)
   :config
