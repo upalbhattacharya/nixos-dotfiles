@@ -283,6 +283,8 @@
   (python-shell-interpreter "python3")
   )
 
+;;; lsp-ui
+(use-package lsp-ui)
 
 ;;; Keybindings
 
