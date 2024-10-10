@@ -44,6 +44,7 @@
   (setq-default fill-column 100)
   (setq-default indent-tabs-mode t)
   (setq-default tab-width 4)
+  (setq visible-bell t)
 )
 
 ;;; Evil
