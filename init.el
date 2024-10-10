@@ -61,7 +61,6 @@
 (use-package org
   :custom-face
   (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
-  :hook (org-mode . turn-on-auto-fill)
   :hook (org-mode . org-indent-mode)
   :custom
   (org-blank-before-new-entry '((heading . nil)(plain-list-item . nil)))
