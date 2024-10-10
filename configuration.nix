@@ -159,10 +159,11 @@ in
 		discord
 		obsidian
 		libnotify
-    gcc
-    kanshi
-    graphviz
-    # xdg-desktop-portal-hyprland
+    	gcc
+    	kanshi
+    	graphviz
+		python-lsp-server
+    	# xdg-desktop-portal-hyprland
 	];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -18,12 +18,12 @@
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
  '(org-agenda-files
-   '("/home/upal/org/nodes/node_20241008180810.org" "/home/upal/org/nodes/node_20241008182909.org" "/home/upal/org/nodes/node_20241008202250.org" "/home/upal/org/worklogs/log_2024-10-08.org" "/home/upal/org/worklogs/log_2024-10-09.org" "/home/upal/org/worklogs/log_2024-10-10.org" "/home/upal/org/node_20241009155853.org"))
+   '("/home/workboots/org/nodes/node_20241008180810.org" "/home/workboots/org/nodes/node_20241008182909.org" "/home/workboots/org/nodes/node_20241008202250.org" "/home/workboots/org/worklogs/log_2024-10-08.org" "/home/workboots/org/worklogs/log_2024-10-09.org" "/home/workboots/org/node_20241009155853.org"))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
-				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
+		 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
-   '(git-auto-commit python-mode olivetti latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
+   '(lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
 
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
@@ -264,14 +264,6 @@
   :config
   (setq TeX-parse-self t)
   )
-
-;;; eglot
-(use-package eglot
-  :ensure t
-  :config
-  (add-to-list 'eglot-server-programs '(python-mode . ("pylsp")))
-  :hook
-  ((python-mode . eglot-ensure)))
 
 ;;; Keybindings
 
