@@ -268,7 +268,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-c h") 'evil-next-buffer)
 (global-set-key (kbd "C-c l") 'evil-prev-buffer)
-(global-set-key (kbd "C-c ") (lambda () (tab-new) (scratch-buffer)))
+(global-set-key (kbd "C-c C-t") (lambda () (tab-new) (scratch-buffer)))
 
 ;; org-roam
 (global-set-key (kbd "C-c p") 'org-roam-node-find)
