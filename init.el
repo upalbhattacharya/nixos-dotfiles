@@ -43,6 +43,8 @@
   (setq make-backup-files nil)
   (setq display-line-numbers-type 'relative)
   (setq-default fill-column 100)
+  (setq-default indent-tabs-mode t)
+  (setq-default tab-width 4)
 )
 
 ;;; Evil
