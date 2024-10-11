@@ -285,7 +285,7 @@
 (require 'reformatter)
 
 ;; isort
-(defvar python-isort--base-args '("--quiet" "--atomic" "--lbt 1")
+(defvar python-isort--base-args '("--quiet" "--lbt 1")
   "Base arguments to pass to isort.")
 
 (defcustom python-isort-extra-args nil
