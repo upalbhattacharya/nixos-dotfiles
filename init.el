@@ -299,7 +299,7 @@
           python-isort-extra-args
           '("-")))
 (reformatter-define python-isort
-  :program isort
+  :program "isort"
   :args (python-isort--make-args beg end)
   :lighter " isort"
   :group 'python-isort)
