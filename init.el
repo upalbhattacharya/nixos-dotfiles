@@ -296,6 +296,9 @@
   :after python
   :hook (python-mode . python-black-on-save-mode))
 
+;;; isortify
+(use-package isortify
+  :hook (python-mode . isortify-mode))
 
 ;;; Nix-specific
 (use-package nixpkgs-fmt
