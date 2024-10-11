@@ -125,7 +125,8 @@ in {
   users.users.workboots = {
     isNormalUser = true;
     home = "/home/workboots";
-    extraGroups = [ "wheel" "networkmanager" "power" "video" ];
+    extraGroups = [
+      "wheel" "networkmanager" "power" "video" ];
     useDefaultShell = true;
   };
 
