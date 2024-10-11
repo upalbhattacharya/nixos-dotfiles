@@ -356,7 +356,6 @@
           python-black-extra-args
           '("-")))
 
-
 ; nixpkgs-fmt
 (defcustom nixpkgs-fmt-command "nixpkgs-fmt"
   "Name of the `nixpkgs-fmt` executable."
