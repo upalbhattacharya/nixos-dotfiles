@@ -282,7 +282,27 @@
   :commands lsp-ui-mode)
 
 ;;; reformatter
+(require 'reformatter)
 
+;; isort
+(defvar python-isort--base-args '("--quiet")
+  "Base arguments to pass to isort.")
+
+(defcustom python-isort-extra-args nil
+  "Extra arguments to pass to isort."
+  :group 'nasy
+  :type '(repeat string))
+
+(defun python-isort--make-args (beg end)
+  "Helper to build the argument list for isort for span BEG to END."
+  (append python-isort--base-args
+          python-isort-extra-args
+          '("-")))
+(reformatter-define python-isort
+  :program isort
+  :args (python-isort--make-args beg end)
+  :lighter " isort"
+  :group 'python-isort)
 
 ;;; Python-specific
 ;;; lsp-pyright

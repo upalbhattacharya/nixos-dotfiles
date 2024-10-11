@@ -164,6 +164,7 @@ in
     graphviz
     pyright
     black
+    isort
     nil
     nixpkgs-fmt
     # xdg-desktop-portal-hyprland
