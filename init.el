@@ -298,7 +298,7 @@
   (append python-isort--base-args
           python-isort-extra-args
           '("-")))
-(reformatter-define python-isort
+(reformatter-define python-isort-testing
   :program "isort"
   :args (python-isort--make-args beg end)
   :lighter " isort"
