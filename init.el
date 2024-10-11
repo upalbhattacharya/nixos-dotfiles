@@ -23,7 +23,7 @@
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
-   '(ruff-format nixpkgs-fmt nix-mode git-auto-commit python-black lsp-ui lsp-pyright lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme))
+   '(ruff-format nixpkgs-fmt nix-mode git-auto-commit lsp-ui lsp-pyright lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme))
  '(python-isort-extra-args nil))
 
 ;;; Theme
@@ -282,6 +282,16 @@
 (use-package lsp-ui
   :commands lsp-ui-mode)
 
+;;; lsp
+; lsp-pyright
+(use-package lsp-pyright
+  :ensure t
+  :custom (lsp-pyright-langserver-command "pyright") ;; or basedpyright
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp))))  ; or lsp-deferred
+
+
 ;;; reformatter
 (require 'reformatter)
 
@@ -303,6 +313,7 @@
 ;;;###autoload (autoload 'python-isort-buffer "python-isort" nil t)
 ;;;###autoload (autoload 'python-isort-region "python-isort" nil t)
 ;;;###autoload (autoload 'python-isort-on-save-mode "python-isort" nil t)
+
 (reformatter-define python-isort
   :program python-isort-command
   :args (python-isort--make-args beg end)
@@ -321,7 +332,7 @@
   :group 'nasy
   :type 'string)
 
-(defvar python-black--base-args '("--quiet" "--atomic" "--fass")
+(defvar python-black--base-args '("--quiet")
   "Base arguments to pass to black.")
 
 (defcustom python-black-extra-args nil
@@ -332,37 +343,53 @@
 ;;;###autoload (autoload 'python-black-buffer "python-black" nil t)
 ;;;###autoload (autoload 'python-black-region "python-black" nil t)
 ;;;###autoload (autoload 'python-black-on-save-mode "python-black" nil t)
+
 (reformatter-define python-black
   :program python-black-command
   :args (python-black--make-args beg end)
   :lighter " black"
   :group 'python-black)
 
-(defun python-isort--make-args (beg end)
+(defun python-black--make-args (beg end)
   "Helper to build the argument list for isort for span BEG to END."
-  (append python-isort--base-args
-          python-isort-extra-args
+  (append python-black--base-args
+          python-black-extra-args
           '("-")))
 
 
-;;; Python-specific
-;;; lsp-pyright
-(use-package lsp-pyright
-  :ensure t
-  :custom (lsp-pyright-langserver-command "pyright") ;; or basedpyright
-  :hook (python-mode . (lambda ()
-                          (require 'lsp-pyright)
-                          (lsp))))  ; or lsp-deferred
+; nixpkgs-fmt
+(defcustom nixpkgs-fmt-command "nixpkgs-fmt"
+  "Name of the `nixpkgs-fmt` executable."
+  :group 'nasy
+  :type 'string)
 
-;;; python-black
-;; (use-package python-black
-;;   :demand t
-;;   :after python
-;;   :hook (python-mode . python-black-on-save-mode))
+(defvar nixpkgs-fmt--base-args '("--quiet")
+  "Base arguments to pass to nixpkgs-fmt.")
+
+(defcustom nixpkgs-fmt-extra-args nil
+  "Extra arguments to pass to nixpkgs-fmt."
+  :group 'nasy
+  :type '(repeat string))
+
+;;;###autoload (autoload 'nixpkgs-fmt-buffer "nixpkgs-fmt" nil t)
+;;;###autoload (autoload 'nixpkgs-fmt-region "nixpkgs-fmt" nil t)
+;;;###autoload (autoload 'nixpkgs-fmt-on-save-mode "nixpkgs-fmt" nil t)
+
+(reformatter-define nixpkgs-fmt
+  :program nixpkgs-fmt-command
+  :args (nixpkgs-fmt--make-args beg end)
+  :lighter " nixpkgs-fmt"
+  :group 'nixpkgs-fmt)
+
+(defun nixpkgs-fmt--make-args (beg end)
+  "Helper to build the argument list for isort for span BEG to END."
+  (append nixpkgs-fmt--base-args
+          nixpkgs-fmt-extra-args
+          '("-")))
 
 ;;; Nix-specific
-(use-package nixpkgs-fmt
-  :hook (nix-mode . nixpkgs-fmt-on-save-mode))
+;; (use-package nixpkgs-fmt
+;;   :hook (nix-mode . nixpkgs-fmt-on-save-mode))
 
 ;;; Keybindings
 
