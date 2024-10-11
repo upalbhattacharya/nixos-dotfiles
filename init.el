@@ -295,9 +295,8 @@
 
 (defun python-isort--make-args (beg end)
   "Helper to build the argument list for isort for span BEG to END."
-  (append python-isort--base-args
-          python-isort-extra-args
-          ))
+  python-isort--base-args)
+
 (reformatter-define python-isort
   :program "isort"
   :args (python-isort--make-args beg end)
