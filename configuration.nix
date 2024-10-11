@@ -146,12 +146,7 @@ in {
     gcc
     kanshi
     graphviz
-    pyright
-    black
-    isort
-    nil
-    nixfmt
-    python3Full
+    poetry
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
