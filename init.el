@@ -23,7 +23,7 @@
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
-   '(nixpkgs-fmt nix-mode git-auto-commit python-black lsp-ui lsp-pyright lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
+   '(py-isort nixpkgs-fmt nix-mode git-auto-commit python-black lsp-ui lsp-pyright lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme)))
 
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
@@ -295,6 +295,11 @@
   :demand t
   :after python
   :hook (python-mode . python-black-on-save-mode))
+
+;;; py-isort
+(use-package py-isort
+  :hook (before-save . py-isort-before-save))
+  
 
 ;;; Nix-specific
 (use-package nixpkgs-fmt
