@@ -364,22 +364,22 @@
 
 (add-hook 'python-mode-hook 'python-black-on-save-mode)
 
-; nixpkgs-fmt
-(defcustom nixpkgs-fmt-command "nixpkgs-fmt"
-  "Name of the `nixpkgs-fmt` executable."
+; nix-nixfmt
+(defcustom nix-nixfmt-command "nixfmt"
+  "Name of the `nix-nixfmt` executable."
   :group 'nasy
   :type 'string)
 
-;;;###autoload (autoload 'nixpkgs-fmt-buffer "nixpkgs-fmt" nil t)
-;;;###autoload (autoload 'nixpkgs-fmt-region "nixpkgs-fmt" nil t)
-;;;###autoload (autoload 'nixpkgs-fmt-on-save-mode "nixpkgs-fmt" nil t)
+;;;###autoload (autoload 'nix-nixfmt-buffer "nix-nixfmt" nil t)
+;;;###autoload (autoload 'nix-nixfmt-region "nix-nixfmt" nil t)
+;;;###autoload (autoload 'nix-nixfmt-on-save-mode "nix-nixfmt" nil t)
 
-(reformatter-define nixpkgs-fmt
-  :program nixpkgs-fmt-command
-  :lighter " nixpkgs-fmt"
-  :group 'nixpkgs-fmt)
+(reformatter-define nix-nixfmt
+  :program nix-nixfmt-command
+  :lighter " nix-nixfmt"
+  :group 'nix-nixfmt)
 
-(add-hook 'nix-mode-hook 'nixpkgs-fmt-on-save-mode)
+(add-hook 'nix-mode-hook 'nix-nixfmt-on-save-mode)
 
 
 ;;; Keybindings
