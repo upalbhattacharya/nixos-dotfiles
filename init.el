@@ -23,7 +23,7 @@
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
-   '(ruff-format nix-mode git-auto-commit lsp-ui lsp-pyright lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme))
+   '(hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-pyright lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme))
  '(python-isort-extra-args nil))
 
 ;;; Theme
@@ -192,6 +192,11 @@
   (vertico-mode)
   )
 
+;;; hotfuzz
+(use-package hotfuzz
+  :config
+  (setq completion-styles '(hotfuzz))
+  )
 
 ;;; org-journal
 (use-package org-journal
@@ -293,7 +298,6 @@
 
 ;;; reformatter
 (require 'reformatter)
-(add-hook 'before-save-hook #'dhall-format-on-save-mode)
 
 ;; python
 ; isort
