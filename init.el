@@ -55,7 +55,6 @@
 )
 
 ;;; Evil
-; (require 'evil)
 (use-package evil
   :config
   (evil-mode 1)
@@ -294,6 +293,7 @@
 
 ;;; reformatter
 (require 'reformatter)
+(add-hook 'before-save-hook #'dhall-format-on-save-mode)
 
 ;; python
 ; isort
