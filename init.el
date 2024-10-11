@@ -285,7 +285,7 @@
 (require 'reformatter)
 
 ;; isort
-(defvar python-isort--base-args '("--quiet" "--atomic" "--lbt 1" "--fass")
+(defvar python-isort--base-args '("--quiet" "--atomic" "--lbt 1")
   "Base arguments to pass to isort.")
 
 (defcustom python-isort-extra-args nil
@@ -295,7 +295,9 @@
 
 (defun python-isort--make-args (beg end)
   "Helper to build the argument list for isort for span BEG to END."
-  python-isort--base-args)
+  (append python-isort--base-args
+		  python-isort--extra-args
+				  '("-")))
 
 (reformatter-define python-isort
   :program "isort"
