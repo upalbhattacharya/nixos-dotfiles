@@ -299,7 +299,7 @@
 ;;; py-isort
 (use-package py-isort
   :hook (before-save . py-isort-before-save))
-  
+
 
 ;;; Nix-specific
 (use-package nixpkgs-fmt
