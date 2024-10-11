@@ -1,18 +1,14 @@
 { config, lib, pkgs, ... }:
 let
-  lowBatteryNotifier = pkgs.writeScript "lowBatteryNotifier"
-    ''
-      BAT_PCT=`cat /sys/class/power_supply/BAT0/capacity`
-      BAT_STA=`cat /sys/class/power_supply/BAT0/status`
-      echo "`date` battery status:$BAT_STA percentage:$BAT_PCT"
-      test $BAT_PCT -lt 15 && test $BAT_PCT -gt 5 && test $BAT_STA = "Discharging" && DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus" notify-send -u critical "Low Battery" "Would be wise to keep my charger nearby."
-      test $BAT_PCT -lt 5 && test $BAT_STA = "Discharging" && DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus" notify-send -u critical "Low Battery" "Charge me or watch me die!"
-    '';
-in
-{
-  imports = [
-    ./hardware-configuration.nix
-  ];
+  lowBatteryNotifier = pkgs.writeScript "lowBatteryNotifier" ''
+    BAT_PCT=`cat /sys/class/power_supply/BAT0/capacity`
+    BAT_STA=`cat /sys/class/power_supply/BAT0/status`
+    echo "`date` battery status:$BAT_STA percentage:$BAT_PCT"
+    test $BAT_PCT -lt 15 && test $BAT_PCT -gt 5 && test $BAT_STA = "Discharging" && DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus" notify-send -u critical "Low Battery" "Would be wise to keep my charger nearby."
+    test $BAT_PCT -lt 5 && test $BAT_STA = "Discharging" && DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus" notify-send -u critical "Low Battery" "Charge me or watch me die!"
+  '';
+in {
+  imports = [ ./hardware-configuration.nix ];
 
   # Allow Unfree
   nixpkgs.config.allowUnfree = true;
@@ -58,9 +54,7 @@ in
   services.displayManager.defaultSession = "hyprland";
 
   # Nvidia
-  hardware.graphics = {
-    enable = true;
-  };
+  hardware.graphics = { enable = true; };
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -104,11 +98,7 @@ in
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
-    settings = {
-      General = {
-        Enable = "Source,Sink,Media,Socket";
-      };
-    };
+    settings = { General = { Enable = "Source,Sink,Media,Socket"; }; };
   };
   services.blueman.enable = true;
 
@@ -118,13 +108,10 @@ in
   # Cron
   services.cron = {
     enable = true;
-    systemCronJobs =
-      let
-        username = "workboots";
-      in
-      [
-        "* * * * * ${username}  sh -x ${lowBatteryNotifier} > /tmp/cron.batt.log 2>&1"
-      ];
+    systemCronJobs = let username = "workboots";
+    in [
+      "* * * * * ${username}  sh -x ${lowBatteryNotifier} > /tmp/cron.batt.log 2>&1"
+    ];
   };
 
   # Lid Behaviour
@@ -142,11 +129,8 @@ in
     useDefaultShell = true;
   };
 
-
   # Enable users
-  nix.settings.allowed-users = [
-    "workboots"
-  ];
+  nix.settings.allowed-users = [ "workboots" ];
 
   environment.systemPackages = with pkgs; [
     vim
@@ -166,7 +150,7 @@ in
     black
     isort
     nil
-    nixpkgs-fmt
+    nixfmt
     # xdg-desktop-portal-hyprland
   ];
 
@@ -208,14 +192,8 @@ in
     };
   };
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = [
-        "Inconsolata"
-        "Iosevka"
-      ];
-    })
-  ];
+  fonts.packages = with pkgs;
+    [ (nerdfonts.override { fonts = [ "Inconsolata" "Iosevka" ]; }) ];
 
   # programs.sway = {
   #  		enable = true;
@@ -233,8 +211,11 @@ in
 
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    remotePlay.openFirewall =
+      true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall =
+      true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall =
+      true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 }
