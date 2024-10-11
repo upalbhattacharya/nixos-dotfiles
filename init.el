@@ -296,10 +296,6 @@
   :after python
   :hook (python-mode . python-black-on-save-mode))
 
-;;; py-isort
-(use-package py-isort
-  :hook (before-save . py-isort-before-save))
-
 
 ;;; Nix-specific
 (use-package nixpkgs-fmt
