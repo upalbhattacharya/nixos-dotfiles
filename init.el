@@ -297,8 +297,8 @@
   "Helper to build the argument list for isort for span BEG to END."
   (append python-isort--base-args
           python-isort-extra-args
-          '("-")))
-(reformatter-define python-isort-testing
+          ))
+(reformatter-define python-isort
   :program "isort"
   :args (python-isort--make-args beg end)
   :lighter " isort"
