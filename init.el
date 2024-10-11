@@ -303,7 +303,7 @@
 (defun python-isort--make-args (beg end)
   "Helper to build the argument list for isort for span BEG to END."
   (append python-isort--base-args
-		  python-isort--extra-args
+		  python-isort-extra-args
 		  '("-")))
 
 ;;; Python-specific
