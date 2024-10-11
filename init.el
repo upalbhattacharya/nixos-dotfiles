@@ -24,7 +24,7 @@
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
    '(ruff-format nixpkgs-fmt nix-mode git-auto-commit python-black lsp-ui lsp-pyright lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex citar vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme))
- '(python-isort-extra-args '("--lbt ")))
+ '(python-isort-extra-args nil))
 
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
@@ -285,6 +285,8 @@
 ;;; reformatter
 (require 'reformatter)
 
+;; python
+; isort
 (defcustom python-isort-command "isort"
   "Name of the `isort` executable."
   :group 'nasy
@@ -313,6 +315,36 @@
           python-isort-extra-args
           '("-")))
 
+; black
+(defcustom python-black-command "black"
+  "Name of the `black` executable."
+  :group 'nasy
+  :type 'string)
+
+(defvar python-black--base-args '("--quiet" "--atomic" "--fass")
+  "Base arguments to pass to black.")
+
+(defcustom python-black-extra-args nil
+  "Extra arguments to pass to black."
+  :group 'nasy
+  :type '(repeat string))
+
+;;;###autoload (autoload 'python-black-buffer "python-black" nil t)
+;;;###autoload (autoload 'python-black-region "python-black" nil t)
+;;;###autoload (autoload 'python-black-on-save-mode "python-black" nil t)
+(reformatter-define python-black
+  :program python-black-command
+  :args (python-black--make-args beg end)
+  :lighter " black"
+  :group 'python-black)
+
+(defun python-isort--make-args (beg end)
+  "Helper to build the argument list for isort for span BEG to END."
+  (append python-isort--base-args
+          python-isort-extra-args
+          '("-")))
+
+
 ;;; Python-specific
 ;;; lsp-pyright
 (use-package lsp-pyright
@@ -323,10 +355,10 @@
                           (lsp))))  ; or lsp-deferred
 
 ;;; python-black
-(use-package python-black
-  :demand t
-  :after python
-  :hook (python-mode . python-black-on-save-mode))
+;; (use-package python-black
+;;   :demand t
+;;   :after python
+;;   :hook (python-mode . python-black-on-save-mode))
 
 ;;; Nix-specific
 (use-package nixpkgs-fmt
