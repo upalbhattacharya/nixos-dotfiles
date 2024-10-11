@@ -330,6 +330,8 @@
           python-isort-extra-args
           '("-")))
 
+(add-hook 'python-mode 'python-isort-on-save-mode)
+
 ; black
 (defcustom python-black-command "black"
   "Name of the `black` executable."
@@ -360,6 +362,8 @@
           python-black-extra-args
           '("-")))
 
+(add-hook 'python-mode 'python-black-on-save-mode)
+
 ; nixpkgs-fmt
 (defcustom nixpkgs-fmt-command "nixpkgs-fmt"
   "Name of the `nixpkgs-fmt` executable."
@@ -374,6 +378,8 @@
   :program nixpkgs-fmt-command
   :lighter " nixpkgs-fmt"
   :group 'nixpkgs-fmt)
+
+(add-hook 'nix-mode 'nixpkgs-fmt-on-save-mode)
 
 
 ;;; Keybindings
