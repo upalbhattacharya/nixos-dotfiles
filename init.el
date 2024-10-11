@@ -41,8 +41,8 @@
   (tab-bar-mode 1)
   (global-display-line-numbers-mode 1)
   (setq inhibit-startup-screen t)
-  (setq auto-save-mode -1)
-  (setq make-backup-files nil)
+  (setq auto-save-file-name-transforms `((".*" "/tmp/" t)))
+  (setq backup-directory-alist '((".*" . "/tmp")))
   (setq kill-buffer-delete-auto-save-files t)
   (setq display-line-numbers-type 'relative)
   (setq-default fill-column 100)
@@ -330,7 +330,7 @@
           python-isort-extra-args
           '("-")))
 
-(add-hook 'python-mode 'python-isort-on-save-mode)
+(add-hook 'python-mode-hook 'python-isort-on-save-mode)
 
 ; black
 (defcustom python-black-command "black"
@@ -362,7 +362,7 @@
           python-black-extra-args
           '("-")))
 
-(add-hook 'python-mode 'python-black-on-save-mode)
+(add-hook 'python-mode-hook 'python-black-on-save-mode)
 
 ; nixpkgs-fmt
 (defcustom nixpkgs-fmt-command "nixpkgs-fmt"
@@ -379,7 +379,7 @@
   :lighter " nixpkgs-fmt"
   :group 'nixpkgs-fmt)
 
-(add-hook 'nix-mode 'nixpkgs-fmt-on-save-mode)
+(add-hook 'nix-mode-hook 'nixpkgs-fmt-on-save-mode)
 
 
 ;;; Keybindings
