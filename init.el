@@ -334,6 +334,9 @@
 (global-set-key (kbd "C-c l") 'evil-prev-buffer)
 (global-set-key (kbd "C-c t") (lambda () (interactive) (tab-new) (scratch-buffer)))
 
+;; magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
 ;; org-roam
 (global-set-key (kbd "C-c p") 'org-roam-node-find)
 (global-set-key (kbd "C-c i") 'org-roam-node-insert)
