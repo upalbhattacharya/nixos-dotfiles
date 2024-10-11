@@ -151,7 +151,7 @@ in {
     isort
     nil
     nixfmt
-    direnv
+    python3Full
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
