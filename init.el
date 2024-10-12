@@ -291,6 +291,15 @@
 (use-package lsp-ui
   :commands lsp-ui-mode)
 
+;;; lsp
+;;lsp-pyright
+(use-package lsp-pyright
+  :ensure t
+  :custom (lsp-pyright-langserver-command "pyright") ;; or basedpyright
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp))))  ; or lsp-deferred
+
 ;;; reformatter
 (require 'reformatter)
 
