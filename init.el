@@ -204,7 +204,8 @@
   :config
   (setq org-journal-dir "~/org/journal")
   (setq org-journal-file-type 'monthly)
-  (setq org-journal-date-format "%Y-%m.org")
+  (setq org-journal-file-format "%Y%m")
+  (setq org-journal-date-format "%Y-%m-%d")
   )
 
 ;;; company
