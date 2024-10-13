@@ -12,6 +12,9 @@
     };
   	autosuggestion.enable = true;
   	enableCompletion = true;
+    shellAliases = {
+      "emc" = "emacsclient";
+    };
 	};
   programs.starship = {
     enable = true;
