@@ -147,7 +147,6 @@ in {
     kanshi
     graphviz
     poetry
-    poetry2nix
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
