@@ -160,9 +160,9 @@
 			      "#+title: ${citar-citekey}\n#+filetags: :article:\n* ${citar-title}")
          :unnarrowed t)))
   (setq org-roam-dailies-capture-templates
-      '(("d" "default" entry "* %?"
+      '(("d" "default" plain "%?"
          :target (file+head+olp "log_%<%Y-%m>.org"
-								"#+title: %<%Y-%m>\n\n* %<%Y-%m-%d>\n\n"
+								"#+title: %<%Y-%m>\n\n* %<%Y-%m>\n\n"
 								("%<%Y-W%W>", "%<%Y-%m-%d>")))))
   (setq org-roam-mode-sections
       (list #'org-roam-backlinks-section
