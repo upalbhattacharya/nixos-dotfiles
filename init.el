@@ -163,7 +163,7 @@
       '(("d" "default" plain "%?"
          :target (file+head+olp "log_%<%Y-%m>.org"
 								"#+title: %<%Y-%m>\n\n* %<%Y-%m>\n\n"
-								"%<%Y-W%W>" "%<%Y-%m-%d>"))))
+								["%<%Y-W%W>" "%<%Y-%m-%d>"]))))
   (setq org-roam-mode-sections
       (list #'org-roam-backlinks-section
             #'org-roam-reflinks-section
