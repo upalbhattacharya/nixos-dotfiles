@@ -161,8 +161,9 @@
          :unnarrowed t)))
   (setq org-roam-dailies-capture-templates
       '(("d" "default" entry "* %?"
-         :target (file+head "log_%<%Y-%m-%d>.org"
-                            "#+title: %<%Y-%m-%d>\n\n* %<%Y-%m-%d>\n\n"))))
+         :target (file+head+olp "log_%<%Y-%m>.org"
+								"#+title: %<%Y-%m>\n\n* %<%Y-%m-%d>\n\n"
+								("%<%Y-W%W>", "%<%Y-%m-%d>")))))
   (setq org-roam-mode-sections
       (list #'org-roam-backlinks-section
             #'org-roam-reflinks-section
