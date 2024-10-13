@@ -147,6 +147,7 @@ in {
     kanshi
     graphviz
     poetry
+    python312Full
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
