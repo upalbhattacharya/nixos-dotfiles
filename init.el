@@ -65,7 +65,7 @@
   :custom-face
   (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
   :hook (org-mode . org-indent-mode)
-  :custom
+  ; :custom
   ; (org-blank-before-new-entry '((heading . t)(plain-list-item . t)))
   :config
   (define-key minibuffer-local-completion-map (kbd "?") nil)
