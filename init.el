@@ -76,6 +76,7 @@
   (setq org-display-remote-inline-images 'download)
   (setq org-display-inline-images t)
   (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
+  (setq org-return-follows-link t)
 
   ;; org-agenda
   (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
