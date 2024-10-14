@@ -166,12 +166,12 @@
   (setq org-roam-capture-templates
 	'(("d" "default" plain "%?"
 	   :target (file+head "node_%<%Y%m%d%H%M%S>.org"
-			      "#+title: ${title}\n#+filetags:\n\n* ${title}\n\n")
+			      "#+TITLE: ${title}\n#+FILETAGS:\n\n* ${title}\n\n")
 	   :create-file yes
 	   :unnarrowed t)
 	  ("n" "literature note" plain "%?"
            :target (file+head "${citar-citekey}.org"
-			      "#+title: ${citar-citekey}\n#+filetags: :article:\n* ${citar-title}")
+			      "#+TITLE: ${citar-citekey}\n#+FILETAGS: :article:\n* ${citar-title}")
          :unnarrowed t)))
   (setq org-roam-dailies-capture-templates
       '(("d" "default" plain "%?"
@@ -434,6 +434,12 @@ exist after each headings's drawers."
 (add-hook 'before-save-hook
           (lambda ()
             (if (eq major-mode 'org-mode) ; Org-mode
+                (let ((current-prefix-arg 4)) ; Emulate C-u
+                  (call-interactively 'unpackaged/org-fix-blank-lines)))))
+
+(add-hook 'before-save-hook
+          (lambda ()
+            (if (eq major-mode 'org-journal-mode) ; Org-journal-mode
                 (let ((current-prefix-arg 4)) ; Emulate C-u
                   (call-interactively 'unpackaged/org-fix-blank-lines)))))
 
