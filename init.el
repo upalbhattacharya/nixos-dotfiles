@@ -126,7 +126,7 @@
 							 ))
 				    )
 
-				   ("o" "Overdue" ((agenda "" (
+				   ("o" "Overdue" ((todo "" (
 							     (org-agenda-span 1)
 							     (org-super-agenda-groups
 							      '(
