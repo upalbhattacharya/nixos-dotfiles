@@ -396,10 +396,12 @@
 
 (add-hook 'nix-mode-hook 'nix-nixfmt-on-save-mode)
 
-
 ;;; org-toc
 (use-package toc-org
   :hook (org-mode . toc-org-mode))
+
+;;; annotate
+(use-package annotate)
 
 ;;; Custom
 ;;;###autoload
