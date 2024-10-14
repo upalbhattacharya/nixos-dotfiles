@@ -494,5 +494,4 @@ exist after each headings's drawers."
  )
 
 ;; unpackaged/org-fix-blank-lines
-
 (global-set-key (kbd "C-c f") 'unpackaged/org-fix-blank-lines)
