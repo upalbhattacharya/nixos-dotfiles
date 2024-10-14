@@ -66,7 +66,7 @@
   (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
   :hook (org-mode . org-indent-mode)
   :custom
-  (org-blank-before-new-entry '((heading . nil)(plain-list-item . nil)))
+  (org-blank-before-new-entry '((heading . t)(plain-list-item . t)))
   :config
   (define-key minibuffer-local-completion-map (kbd "?") nil)
 
@@ -380,6 +380,11 @@
   :group 'nix-nixfmt)
 
 (add-hook 'nix-mode-hook 'nix-nixfmt-on-save-mode)
+
+;;; Custom
+
+(defun org-formatter ()
+  (replace-regex
 
 
 ;;; Keybindings
