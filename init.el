@@ -399,7 +399,7 @@
 
 ;;; org-toc
 (use-package toc-org
-  :hook (org-mode . toc-org-mode)
+  :hook (org-mode . toc-org-mode))
 
 ;;; Custom
 ;;;###autoload
