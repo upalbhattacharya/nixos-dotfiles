@@ -69,7 +69,6 @@
   (org-blank-before-new-entry '((heading . t)(plain-list-item . t)))
   :config
   (define-key minibuffer-local-completion-map (kbd "?") nil)
-
   (setq org-deadline-warning-days 0)
   (setq org-cycle-separator-lines 1)
   (setq org-adapt-indentation nil)
@@ -380,12 +379,6 @@
   :group 'nix-nixfmt)
 
 (add-hook 'nix-mode-hook 'nix-nixfmt-on-save-mode)
-
-;;; Custom
-
-(defun org-formatter ()
-  (replace-regex
-
 
 ;;; Keybindings
 
