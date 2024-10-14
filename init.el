@@ -401,7 +401,10 @@
   :hook (org-mode . toc-org-mode))
 
 ;;; annotate
-(use-package annotate)
+(use-package annotate
+  :hook (
+		 (org-mode . annotate-mode)
+		 (org-journal-mode .annotate-mode)))
 
 ;;; Custom
 ;;;###autoload
