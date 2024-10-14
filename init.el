@@ -215,6 +215,7 @@
 
 ;;; org-journal
 (use-package org-journal
+  :after org
   :config
   (setq org-journal-dir "~/org/journal")
   (setq org-journal-file-type 'monthly)
