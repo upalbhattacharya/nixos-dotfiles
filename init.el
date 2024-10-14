@@ -458,7 +458,7 @@ exist after each headings's drawers."
 (global-set-key (kbd "C-c h") 'evil-next-buffer)
 (global-set-key (kbd "C-c l") 'evil-prev-buffer)
 (global-set-key (kbd "C-c t") (lambda () (interactive) (tab-new) (scratch-buffer)))
-(global-set-key (kbd "C-c w") ('tab-close))
+(global-set-key (kbd "C-c w") 'tab-close)
 
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
