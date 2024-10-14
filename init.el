@@ -397,7 +397,7 @@
 
 ;;; Custom
 ;;;###autoload
-(defun org-fix-blank-lines (&optional prefix)
+(defun unpackaged/org-fix-blank-lines (&optional prefix)
   "Ensure that blank lines exist between headings and between headings and their contents.
 With prefix, operate on whole buffer. Ensures that blank lines
 exist after each headings's drawers."
@@ -430,7 +430,11 @@ exist after each headings's drawers."
                          nil
                        'tree)))
 
-(add-hook 'before-save-hook 'org-fix-blanklines)
+(add-hook 'before-save-hook
+          (lambda ()
+            (if (eq major-mode 'org-mode) ; Org-mode
+                (let ((current-prefix-arg 4)) ; Emulate C-u
+                  (call-interactively 'unpackaged/org-fix-blank-lines)))))
 
 ;;; Keybindings
 
