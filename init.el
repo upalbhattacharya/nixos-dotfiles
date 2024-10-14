@@ -166,7 +166,7 @@
   (setq org-roam-capture-templates
 	'(("d" "default" plain "%?"
 	   :target (file+head "node_%<%Y%m%d%H%M%S>.org"
-			      "#+TITLE: ${title}\n#+FILETAGS:\n\n* ${title}\n\n")
+			      "#+TITLE: ${title}\n#+FILETAGS:\n\n* ${title}\n\n** Table of Contents :TOC_4:\n")
 	   :create-file yes
 	   :unnarrowed t)
 	  ("n" "literature note" plain "%?"
@@ -458,6 +458,7 @@ exist after each headings's drawers."
 (global-set-key (kbd "C-c h") 'evil-next-buffer)
 (global-set-key (kbd "C-c l") 'evil-prev-buffer)
 (global-set-key (kbd "C-c t") (lambda () (interactive) (tab-new) (scratch-buffer)))
+(global-set-key (kbd "C-c w") ('tab-close))
 
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
