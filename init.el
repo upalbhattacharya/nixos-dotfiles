@@ -251,7 +251,7 @@
   (setq org-cite-insert-processor 'citar
       org-cite-follow-processor 'citar
       org-cite-activate-processor 'citar
-	  citar-bibliography '("~/org/bibliography.bib")
+	  citar-bibliography "~/org/bibliography.bib"
 	  citar-notes-paths '("~/org/academic")
   ))
 
