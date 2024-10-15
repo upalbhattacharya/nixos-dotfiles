@@ -23,7 +23,7 @@
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
-   '(org-roam-bibtex org-ref annotate toc-org direnv hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme))
+   '(annotate toc-org direnv hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme))
  '(python-isort-extra-args nil))
 
 ;;; Theme
@@ -248,18 +248,20 @@
   (global-git-gutter-mode 1)
   )
 
-;;; bibtex-completion
-(autoload 'helm-bibtex "helm-bibtex" "" t)
-(setq bibtex-completion-bibliography
-      '("~/org/bibliography.bib"))
-(setq bibtex-completion-notes-path "~/org/academic")
-(setq bibtex-completion-pdf-field "File")
-(setq org-cite-follow-processor 'helm-bibtex-org-cite-follow)
+;;; citar
+(use-package citar
+  :custom
+  (citar-bibliography '("~/org/bibliography.bib"))
+  :hook
+  (LaTeX-mode . citar-capf-setup)
+  (org-mode . citar-capf-setup))
 
-
-;;; org-roam-bibtex
-(use-package org-roam-bibtex
-  :hook (after-init . org-roam-bibtex-mode))
+;;; citar-org-roam
+(use-package citar-org-roam
+  :after (citar org-roam)
+  :config
+  (citar-org-roam-mode 1)
+  (setq citar-org-roam-capture-template-key "n"))
 
 ;;; origami
 (use-package origami
