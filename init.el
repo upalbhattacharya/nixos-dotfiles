@@ -79,7 +79,7 @@
   (setq org-return-follows-link t)
 
   ;;org-cite
-  (setq org-cite-global-bibliography "~/org/bibliography.bib")
+  (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
 
   ;; org-agenda
   (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
