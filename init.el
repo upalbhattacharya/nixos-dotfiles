@@ -253,6 +253,7 @@
 (setq bibtex-completion-bibliography
       '("~/org/bibliography.bib"))
 (setq bibtex-completion-notes-path "~/org/academic")
+(setq bibtex-completion-pdf-field "File")
 (setq org-cite-follow-processor 'helm-bibtex-org-cite-follow)
 
 
