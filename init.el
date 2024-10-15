@@ -255,6 +255,11 @@
 (setq bibtex-completion-notes-path "~/org/academic")
 (setq org-cite-follow-processor 'helm-bibtex-org-cite-follow)
 
+
+;;; org-roam-bibtex
+(use-package org-roam-bibtex
+  :hook (after-init . org-roam-bibtex-mode))
+
 ;;; origami
 (use-package origami
   :config
