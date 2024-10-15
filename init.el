@@ -230,7 +230,9 @@
 
 ;;; org-roam-bibtex
 (use-package org-roam-bibtex
-  :after org-roam)
+  :after org-roam
+  :config
+  (setq org-cite-follow-processor 'helm-bibtex-org-cite-follow))
 
 ;;; company
 (use-package company
