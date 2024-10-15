@@ -166,12 +166,12 @@
   (setq org-roam-dailies-directory "~/org/worklogs/")
   (setq org-roam-capture-templates
 	'(("d" "default" plain "%?"
-	   :target (file+head "node_%<%Y%m%d%H%M%S>.org"
+	   :target (file+head "nodes/node_%<%Y%m%d%H%M%S>.org"
 			      "#+TITLE: ${title}\n#+FILETAGS:\n\n* ${title}\n\n** Table of Contents :TOC_4:\n")
 	   :create-file yes
 	   :unnarrowed t)
 	  ("n" "literature note" plain "%?"
-           :target (file+head "${citar-citekey}.org"
+           :target (file+head "academic/${citar-citekey}.org"
 			      "#+TITLE: ${citar-citekey}\n#+FILETAGS: :article:\n* ${citar-title}")
          :unnarrowed t)))
   (setq org-roam-dailies-capture-templates
