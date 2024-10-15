@@ -23,7 +23,7 @@
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
-   '(helm-bibtex annotate toc-org direnv hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme))
+   '(org-roam-bibtex annotate toc-org direnv hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme))
  '(python-isort-extra-args nil))
 
 ;;; Theme
@@ -228,13 +228,10 @@
   (setq org-journal-date-format "%Y-%m-%d")
   )
 
-;;; helm-bibtex
+;;; org-roam-bibtex
+(use-package org-roam-bibtex
+  :after org-roam)
 
-(use-package helm-bibtex
-  :config
-  (setq bibtex-completion-bibliography '("~/org/bibliography.bib"))
-  (setq bibtex-completion-notes-path "~/org/academic")
-		)
 ;;; company
 (use-package company
   :config
