@@ -249,14 +249,14 @@
   )
 
 ;;; citar
-(use-package citar
-  :config
-  (setq org-cite-insert-processor 'citar
-      org-cite-follow-processor 'citar
-      org-cite-activate-processor 'citar
-	  citar-bibliography "~/org/bibliography.bib"
-	  citar-notes-paths "~/org/academic"
-	  ))
+;; (use-package citar
+  ;; :config
+  ;; (setq org-cite-insert-processor 'citar
+  ;;     org-cite-follow-processor 'citar
+  ;;     org-cite-activate-processor 'citar
+  ;; 	  citar-bibliography "~/org/bibliography.bib"
+  ;; 	  citar-notes-paths "~/org/academic"
+  ;; 	  ))
 
 ;;; citar-org-roam
 (use-package citar-org-roam
