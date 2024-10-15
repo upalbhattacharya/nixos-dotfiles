@@ -247,9 +247,9 @@
 
 ;;; citar
 (use-package citar
-  :config
-  (setq citar-bibliography '("~/org/bibliography.bib"))
-  (setq citar-notes-paths '("~/org/academic"))
+  :custom
+  (citar-bibliography '("~/org/bibliography.bib"))
+  (citar-notes-paths '("~/org/academic"))
   )
 
 ;;; citar-org-roam
