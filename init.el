@@ -195,8 +195,6 @@
   :hook (org-mode . org-superstar-mode)
   )
 
-  )
-
 ;;; Dashboard
 (use-package dashboard
   :config
