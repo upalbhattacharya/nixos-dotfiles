@@ -23,7 +23,7 @@
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
-   '(annotate toc-org direnv hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme))
+   '(org-roam-bibtex org-ref annotate toc-org direnv hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal helm-bibtex vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme))
  '(python-isort-extra-args nil))
 
 ;;; Theme
@@ -176,7 +176,7 @@
 	   :unnarrowed t)
 	  ("n" "literature note" plain "%?"
            :target (file+head "academic/${citar-citekey}.org"
-			      "#+TITLE: ${citar-citekey}\n#+FILETAGS: :article:\n* ${citar-title}")
+			      "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
          :unnarrowed t)))
   (setq org-roam-dailies-capture-templates
       '(("d" "default" plain "%?"
@@ -248,28 +248,15 @@
   (global-git-gutter-mode 1)
   )
 
-;; (defvar my/global-bibliography-file
-;;       (expand-file-name "bibliography.bib" org-directory)
-;;       "My main BibTex references file.")
-    
-;;     (use-package citar
-;;       ;; :bind
-;;       ;; (("C-c r e" . #'citar-open-entry)
-;;       ;;  ("C-c r l" . #'citar-open-links)
-;;       ;;  ("C-c r n" . #'citar-open-notes)
-;;       ;;  ("C-c r i" . #'citar-insert-citation))
-;;       :custom
-;;       (citar-bibliography (list my/global-bibliography-file))
-;;       (org-cite-insert-processor 'citar)
-;;       (org-cite-activate-processor 'citar)
-;;       (org-cite-follow-processor 'citar))
-    
-;;     (use-package citar-org-roam
-;;       :custom
-;;       (citar-org-roam-mode t)
-;;       ;; NOTE: This was the original default subdir,prior to
-;;       ;; https://github.com/emacs-citar/citar-org-roam/issues/36
-;;       (citar-org-roam-subdir "academic"))
+;;; org-ref
+(use-package org-ref
+  :config
+  (setq bibtex-completion-bibliography '("~/org/bibliography.bib"))  ; location of .bib file containing bibliography entries
+(setq bibtex-completion-find-additional-pdfs t)                          ; support for multiple pdfs for one %citekey
+(setq bibtex-completion-pdf-field "File")                                ; in bib entry, file = {/path/to/file.pdf} could be set to locate the accompanying file
+                                                                         ;; for multiple files use, file = {:/path/to/file0.pdf:PDF;:/path/to/file1.pdf:PDF}
+                                                                         ;; if only !exist "file" field in bib entry
+(setq bibtex-completion-notes-path "~/org/academic/") )
 
 ;;; origami
 (use-package origami
