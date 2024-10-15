@@ -175,7 +175,7 @@
 	   :create-file yes
 	   :unnarrowed t)
 	  ("n" "literature note" plain "%?"
-           :target (file+head "academic/${citar-citekey}.org"
+           :target (file+head "academic/${citekey}.org"
 			      "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
          :unnarrowed t)))
   (setq org-roam-dailies-capture-templates
