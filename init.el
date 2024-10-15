@@ -81,11 +81,12 @@
   ;; org-agenda
   (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
   (setq org-agenda-start-day "+0d")
+  (setq org-agenda-window-setup 'other-tab)
   (setq org-agenda-skip-timestamp-if-done t)
   (setq org-agenda-skip-deadline-if-done t)
   (setq org-agenda-skip-scheduled-if-done t)
   (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
-  (setq org-agend-skip-timeline-if-deadline-is-shown t)
+  (setq org-agenda-skip-timeline-if-deadline-is-shown t)
   (setq org-agenda-hide-tags-regexp ".*")
   (setq org-agenda-prefix-format '(
 				(agenda . "  %?-2i %t")
