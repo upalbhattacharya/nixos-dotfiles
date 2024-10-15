@@ -78,6 +78,9 @@
   (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
   (setq org-return-follows-link t)
 
+  ;;org-cite
+  (setq org-cite-global-bibliography "~/org/bibliography.bib")
+
   ;; org-agenda
   (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
   (setq org-agenda-start-day "+0d")
@@ -192,6 +195,8 @@
   :hook (org-mode . org-superstar-mode)
   )
 
+  )
+
 ;;; Dashboard
 (use-package dashboard
   :config
@@ -253,7 +258,7 @@
       org-cite-activate-processor 'citar
 	  citar-bibliography "~/org/bibliography.bib"
 	  citar-notes-paths "~/org/academic"
-  ))
+	  ))
 
 ;;; citar-org-roam
 (use-package citar-org-roam
