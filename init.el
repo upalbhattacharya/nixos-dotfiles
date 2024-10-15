@@ -252,7 +252,7 @@
       org-cite-follow-processor 'citar
       org-cite-activate-processor 'citar
 	  citar-bibliography "~/org/bibliography.bib"
-	  citar-notes-paths '("~/org/academic")
+	  citar-notes-paths "~/org/academic"
   ))
 
 ;;; citar-org-roam
