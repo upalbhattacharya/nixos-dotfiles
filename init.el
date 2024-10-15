@@ -253,6 +253,7 @@
 (setq bibtex-completion-bibliography
       '("~/org/bibliography.bib"))
 (setq bibtex-completion-notes-path "~/org/academic")
+(setq org-cite-follow-processor 'helm-bibtex-org-cite-follow)
 
 ;;; origami
 (use-package origami
