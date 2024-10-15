@@ -232,7 +232,15 @@
 (use-package org-roam-bibtex
   :after org-roam
   :config
-  (setq org-cite-follow-processor 'helm-bibtex-org-cite-follow))
+  (setq org-cite-follow-processor 'helm-bibtex-org-cite-follow)
+  (setq bibtex-completion-format-citation-functions
+	'((org-mode . bibtex-completion-format-citation-org-cite)
+	(latex-mode . bibtex-completion-format-citation-cite)
+	(markdown-mode . bibtex-completion-format-citation-pandoc-citeproc) 
+	(python-mode . bibtex-completion-format-citation-sphinxcontrib-bibtex) 
+	(rst-mode . bibtex-completion-format-citation-sphinxcontrib-bibtex) 
+	(default . bibtex-completion-format-citation-default)))
+  )
 
 ;;; company
 (use-package company
