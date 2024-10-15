@@ -248,28 +248,28 @@
   (global-git-gutter-mode 1)
   )
 
-(defvar my/global-bibliography-file
-      (expand-file-name "bibliography.bib" org-directory)
-      "My main BibTex references file.")
+;; (defvar my/global-bibliography-file
+;;       (expand-file-name "bibliography.bib" org-directory)
+;;       "My main BibTex references file.")
     
-    (use-package citar
-      ;; :bind
-      ;; (("C-c r e" . #'citar-open-entry)
-      ;;  ("C-c r l" . #'citar-open-links)
-      ;;  ("C-c r n" . #'citar-open-notes)
-      ;;  ("C-c r i" . #'citar-insert-citation))
-      :custom
-      (citar-bibliography (list my/global-bibliography-file))
-      (org-cite-insert-processor 'citar)
-      (org-cite-activate-processor 'citar)
-      (org-cite-follow-processor 'citar))
+;;     (use-package citar
+;;       ;; :bind
+;;       ;; (("C-c r e" . #'citar-open-entry)
+;;       ;;  ("C-c r l" . #'citar-open-links)
+;;       ;;  ("C-c r n" . #'citar-open-notes)
+;;       ;;  ("C-c r i" . #'citar-insert-citation))
+;;       :custom
+;;       (citar-bibliography (list my/global-bibliography-file))
+;;       (org-cite-insert-processor 'citar)
+;;       (org-cite-activate-processor 'citar)
+;;       (org-cite-follow-processor 'citar))
     
-    (use-package citar-org-roam
-      :custom
-      (citar-org-roam-mode t)
-      ;; NOTE: This was the original default subdir,prior to
-      ;; https://github.com/emacs-citar/citar-org-roam/issues/36
-      (citar-org-roam-subdir "academic"))
+;;     (use-package citar-org-roam
+;;       :custom
+;;       (citar-org-roam-mode t)
+;;       ;; NOTE: This was the original default subdir,prior to
+;;       ;; https://github.com/emacs-citar/citar-org-roam/issues/36
+;;       (citar-org-roam-subdir "academic"))
 
 ;;; origami
 (use-package origami
