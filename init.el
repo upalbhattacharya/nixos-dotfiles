@@ -23,7 +23,7 @@
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(package-selected-packages
-   '(annotate toc-org direnv hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme))
+   '(helm-bibtex annotate toc-org direnv hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme))
  '(python-isort-extra-args nil))
 
 ;;; Theme
@@ -228,6 +228,12 @@
   (setq org-journal-date-format "%Y-%m-%d")
   )
 
+;;; helm-bibtex
+
+(use-package helm-bibtex
+  :config
+  (setq bibtex-completion-bibliography '("~/org/bibliography.bib"))
+		)
 ;;; company
 (use-package company
   :config
@@ -247,21 +253,6 @@
   :config
   (global-git-gutter-mode 1)
   )
-
-;;; citar
-(use-package citar
-  :custom
-  (citar-bibliography '("~/org/bibliography.bib"))
-  :hook
-  (LaTeX-mode . citar-capf-setup)
-  (org-mode . citar-capf-setup))
-
-;;; citar-org-roam
-(use-package citar-org-roam
-  :after (citar org-roam)
-  :config
-  (citar-org-roam-mode 1)
-  (setq citar-org-roam-capture-template-key "n"))
 
 ;;; origami
 (use-package origami
