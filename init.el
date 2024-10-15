@@ -164,6 +164,7 @@
   :config
   (setq org-roam-directory (file-truename "~/org/"))
   (setq org-roam-dailies-directory "~/org/worklogs/")
+  (setq org-roam-completion-everywhere t)
   (setq org-roam-capture-templates
 	'(("d" "default" plain "%?"
 	   :target (file+head "nodes/node_%<%Y%m%d%H%M%S>.org"
