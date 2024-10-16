@@ -113,10 +113,9 @@
    )
   )
 
-;;; org-agenda using org-super-agenda
+;;; org-super-agenda
 
-(let ((org-agenda-span 'day)
-	  (org-super-agenda-groups
+	  (setq org-super-agenda-groups
        '(;; Each group has an implicit boolean OR operator between its selectors.
          (:name "Today"  ; Optionally specify section name
                 :time-grid t  ; Items that appear on the time grid
@@ -157,7 +156,11 @@
          ;; After the last group, the agenda will display items that didn't
          ;; match any of these groups, with the default order position of 99
          )))
-  (org-agenda nil "a"))
+  (org-agenda nil "a")
+
+(use-package org-super-agenda
+  :config
+  (org-super-agenda-mode 1))
 ;; Outside org because of org-super-agenda usage (?)
 ;; (setq org-agenda-custom-commands '(
 ;; 				   ("d" "Daily" ((agenda "" (
