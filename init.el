@@ -127,16 +127,20 @@
 									(org-super-agenda-groups
 									'(
 									  (:name "Today"
-										   :date today
+											 :date today
+											 :todo ("NEXT" "IN PROGRESS" "TODO")
 										   :order 1)
 									(:name "Overdue"
 										   :deadline past
+										   :todo ("NEXT" "IN PROGRESS" "TODO")
 										   :order 2)
 									(:name "Reschedule"
 										   :scheduled past
+										   :todo ("NEXT" "IN PROGRESS" "TODO")
 										   :order 3)
 									(:name "Upcoming"
 										   :scheduled future
+										   :todo ("NEXT" "IN PROGRESS" "TODO")
 										   :order 4)
 									(:discard (:anything))
 									)
