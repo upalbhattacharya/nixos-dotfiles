@@ -3,6 +3,10 @@
 {
 	programs.papis = {
 		enable = true;
+    settings = {
+      editor = "emc";
+      opentool = "okular";
+    };
     libraries = {
       papers = {
         name = "papers";
