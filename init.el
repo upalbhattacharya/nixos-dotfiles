@@ -93,8 +93,8 @@
   (setq org-agenda-skip-timeline-if-deadline-is-shown t)
   (setq org-agenda-hide-tags-regexp ".*")
   (setq org-agenda-prefix-format '(
-				(agenda . "  %?-12t ")
-				(todo . "  TADA %?-12t %s")))
+				(agenda . " %?-12c  %?-12t ")
+				(todo . " %?-12t %s")))
   ;; org-todo
   (setq org-todo-keywords
 	'((sequence "TODO" "NEXT" "IN PROGRESS" "|" "DONE" "ARCHIVED")))
