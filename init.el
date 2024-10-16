@@ -125,12 +125,13 @@
 									(org-agenda-span 'day)
 									(org-super-agenda-groups
 									'(
-									(:name "Today"
-										:auto-outline-path t
+									  (:name "Today"
+										   :time-grid t
+										;; :auto-outline-path t
 										;; :todo ("NEXT" "IN PROGRESS" "TODO")
 										:deadline past)
 									(:name "Overdue"
-										:auto-outline-path t
+										;; :auto-outline-path t
 										;; :todo ("NEXT" "IN PROGRESS" "TODO")
 										:deadline past)
 									)
