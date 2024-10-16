@@ -134,7 +134,7 @@
 (use-package org-super-agenda
   :after org
   :config
-  (org-super-agenda-mode 1)
+  ;; (org-super-agenda-mode 1)
   (org-agenda nil "u"))
 
 ;; org-roam
