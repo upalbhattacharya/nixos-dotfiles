@@ -94,7 +94,7 @@
   (setq org-agenda-prefix-format '(
 				(agenda . "  %?-2i %c %t")
 				(todo . "  %?-2i %s %t")))
--  ;; org-todo
+  ;; org-todo
   (setq org-todo-keywords
 	'((sequence "TODO" "NEXT" "IN PROGRESS" "|" "DONE" "ARCHIVED")))
   (setq org-todo-keyword-faces
