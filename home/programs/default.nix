@@ -6,11 +6,9 @@
 		./fzf.nix
 		./git.nix
 		./kitty.nix
-    # ./alacritty.nix
-		#./nixvim
     ./emacs.nix
     ./compression.nix
     ./mpv.nix
-    ./tmux.nix
+    ./papis.nix
 	];
 }
