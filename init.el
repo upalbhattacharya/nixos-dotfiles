@@ -126,7 +126,6 @@
 									(org-super-agenda-groups
 									'(
 									  (:name "Today"
-										   :time-grid t
 										   :date today
 										   :order 1)
 									  (:name "Due Today"
