@@ -93,7 +93,7 @@
   (setq org-agenda-skip-timeline-if-deadline-is-shown t)
   (setq org-agenda-hide-tags-regexp ".*")
   (setq org-agenda-prefix-format '(
-				(agenda . "  %?-2i %?-12t%  ")
+				(agenda . "  %?-2i %?-12t  ")
 				(todo . "  %?-2i %s %t  ")))
   ;; org-todo
   (setq org-todo-keywords
