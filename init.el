@@ -154,7 +154,7 @@
 							    )
 							))
 				    )
-				   )))
+				   ))
 
 (use-package org-super-agenda
   :after org
