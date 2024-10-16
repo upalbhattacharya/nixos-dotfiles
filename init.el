@@ -115,7 +115,8 @@
 
 ;;; org-super-agenda
 ;; Outside org because of org-super-agenda usage (?)
-(setq org-agenda-custom-commands '(
+(setq org-agenda-custom-commands
+	  '(
 				   ("u" "Super View" ((agenda "" (
 							     (org-agenda-span 'day)
 							     (org-super-agenda-groups
@@ -123,17 +124,18 @@
 								(:name "Today"
 								       :auto-outline-path t
 								       :todo ("NEXT" "IN PROGRESS" "TODO")
-								       :deadline today)
+								       :deadline past)
 								(:name "Overdue"
 								       :auto-outline-path t
 								       :todo ("NEXT" "IN PROGRESS" "TODO")
 								       :deadline past)
 								)
-							      ))
-								   )
+							      )
 								 )
+											  ))
 				    )
-				   ))
+				   )
+	  )
 
 (use-package org-super-agenda
   :after org
