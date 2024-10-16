@@ -129,36 +129,10 @@
 								   )
 								 )
 				    )
-				   ("o" "Overdue" ((todo "" (
-							     (org-agenda-span 1)
-							     (org-super-agenda-groups
-							      '(
-								(:name "Today"
-								       :auto-outline-path t
-								       :todo ("NEXT" "IN PROGRESS" "TODO")
-								       :deadline past)
-								)
-							      )
-							     )
-							 ))
-				    )
-				   ("w" "Week" ((agenda "" (
-							    (org-agenda-span 'week)
-							    (org-super-agenda-groups
-							     '(
-							       (:name "This Week"
-								      :auto-outline-path t
-								      :todo ("NEXT" "IN PROGRESS" "TODO"))
-							       )
-							     )
-							    )
-							))
-				    )
 				   ))
 
 (use-package org-super-agenda
   :after org
-  :defer t
   :config
   (org-super-agenda-mode 1)
   (org-agenda nil "d"))
