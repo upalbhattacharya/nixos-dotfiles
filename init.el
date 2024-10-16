@@ -129,7 +129,7 @@
 										   :time-grid t
 										;; :auto-outline-path t
 										;; :todo ("NEXT" "IN PROGRESS" "TODO")
-										:deadline past)
+										:deadline today)
 									(:name "Overdue"
 										;; :auto-outline-path t
 										;; :todo ("NEXT" "IN PROGRESS" "TODO")
