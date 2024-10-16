@@ -10,6 +10,5 @@
     ./compression.nix
     ./mpv.nix
     ./papis.nix
-    ./papis-zotero.nix
 	];
 }
