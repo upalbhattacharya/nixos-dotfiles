@@ -162,7 +162,8 @@
   (setq org-roam-capture-templates
 	'(("d" "default" plain "%?"
 	   :target (file+head "nodes/node_%<%Y%m%d%H%M%S>.org"
-			      "#+TITLE: ${title}\n#+FILETAGS:\n\n* ${title}\n\n** Table of Contents :TOC_4:\n")
+						  ":PROPERTIES:\n:CATEGORY: NODE\n:END:\n#+TITLE: ${title}\n#+FILETAGS:\n\n* ${title}\n\n** Table of Contents :TOC_4:\n")
+	   :immediate-finish t
 	   :create-file yes
 	   :unnarrowed t)
 	  ("n" "literature note" plain "%?"
