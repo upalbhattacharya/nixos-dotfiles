@@ -9,6 +9,6 @@
     ./emacs.nix
     ./compression.nix
     ./mpv.nix
-#    ./papis.nix
+    ./papis.nix
 	];
 }
