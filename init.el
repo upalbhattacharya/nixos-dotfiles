@@ -94,7 +94,7 @@
   (setq org-agenda-hide-tags-regexp ".*")
   (setq org-agenda-prefix-format '(
 				(agenda . "  %?-12t ")
-				(todo . "  %s %?-12t ")))
+				(todo . "  %?-12t %s")))
   ;; org-todo
   (setq org-todo-keywords
 	'((sequence "TODO" "NEXT" "IN PROGRESS" "|" "DONE" "ARCHIVED")))
