@@ -123,7 +123,7 @@
 	(setq org-agenda-custom-commands
 		'(
 					("u" "Super View" ((agenda "" (
-									;; (org-agenda-span 'day)
+									(org-agenda-span 'day)
 									(org-super-agenda-groups
 									'(
 									(:name "Today"
