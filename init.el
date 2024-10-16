@@ -121,7 +121,7 @@
   :init
 	(setq org-agenda-custom-commands
 		'(
-					("u" "Super View" ((agenda "" (
+					("u" "Super View" ((timegrid "" (
 									(org-agenda-span 'day)
 									(org-super-agenda-groups
 									'(
