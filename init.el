@@ -128,18 +128,15 @@
 									  (:name "Today"
 										   :date today
 										   :order 1)
-									  (:name "Due Today"
-										   :deadline today
-										   :order 2)
 									(:name "Overdue"
 										   :deadline past
-										   :order 3)
+										   :order 2)
 									(:name "Reschedule"
 										   :scheduled past
-										   :order 4)
+										   :order 3)
 									(:name "Upcoming"
 										   :scheduled future
-										   :order 5)
+										   :order 4)
 									)
 									)
 									)
