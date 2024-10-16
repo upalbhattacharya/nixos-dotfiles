@@ -18,7 +18,7 @@
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
  '(org-agenda-files
-   '("/home/upal/org/nodes/node_20241008182909.org" "/home/upal/org/nodes/node_20241008202250.org" "/home/upal/org/worklogs/log_2024-10-08.org" "/home/upal/org/worklogs/log_2024-10-09.org" "/home/upal/org/worklogs/log_2024-10-10.org" "/home/upal/org/worklogs/log_2024-10-11.org" "/home/upal/org/worklogs/log_2024-10.org" "/home/upal/org/node_20241014133549.org"))
+   '("/home/upal/org/nodes/node_20241008202250.org" "/home/upal/org/worklogs/log_2024-10-08.org" "/home/upal/org/worklogs/log_2024-10-09.org" "/home/upal/org/worklogs/log_2024-10-10.org" "/home/upal/org/worklogs/log_2024-10-11.org" "/home/upal/org/worklogs/log_2024-10.org" "/home/upal/org/node_20241014133549.org"))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
