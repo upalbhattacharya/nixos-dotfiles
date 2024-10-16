@@ -127,14 +127,17 @@
 									'(
 									  (:name "Today"
 										   :time-grid t
-										;; :auto-outline-path t
-										;; :todo ("NEXT" "IN PROGRESS" "TODO")
 										   :deadline today
 										   :scheduled today)
 									(:name "Overdue"
-										;; :auto-outline-path t
-										;; :todo ("NEXT" "IN PROGRESS" "TODO")
-										:deadline past)
+										   :deadline past)
+
+									(:name "Reschedule"
+										   :schedule past)
+
+									(:name "Upcoming"
+										:deadline future
+										:schedule future)
 									)
 									)
 									)
