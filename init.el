@@ -116,7 +116,7 @@
 ;;; org-super-agenda
 ;; Outside org because of org-super-agenda usage (?)
 (setq org-agenda-custom-commands '(
-				   ("d" "Daily" ((agenda "" (
+				   ("u" "Super View" ((agenda "" (
 							     (org-agenda-span 'day)
 							     (org-super-agenda-groups
 							      '(
@@ -135,7 +135,7 @@
   :after org
   :config
   (org-super-agenda-mode 1)
-  (org-agenda nil "d"))
+  (org-agenda nil "u"))
 
 ;; org-roam
 (use-package org-roam
