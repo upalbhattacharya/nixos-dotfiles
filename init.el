@@ -137,6 +137,7 @@
 									(:name "Upcoming"
 										   :scheduled future
 										   :order 4)
+									(:discard (:anything))
 									)
 									)
 									)
