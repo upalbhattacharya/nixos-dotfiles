@@ -80,7 +80,7 @@
   (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
 
   ;; org-agenda
-  (setq org-agenda-files "~/org")
+  (setq org-agenda-files '("~/org"))
   (setq org-agenda-start-day "+0d")
   (setq org-agenda-window-setup 'other-tab)
   (setq org-agenda-skip-timestamp-if-done t)
