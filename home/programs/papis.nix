@@ -4,7 +4,13 @@
 	programs.papis = {
 		enable = true;
     libraries = {
-      papers = "~/ReferenceManagement/papers";
+      papers = {
+        name = "papers";
+        settings = {
+          dir = "~/ReferenceManagement/papers";
+        };
+        isDefault = true;
+      };
     };
 	};
 }
