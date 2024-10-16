@@ -245,7 +245,7 @@
 ;;; helm-bibtex
 (use-package helm-bibtex
   :config
-  (setq bibtex-completion-bibliography '("~/org/bibliography.bib"))
+  (setq bibtex-completion-bibliography '("~/org/bibliography.bib")))
 
 ;;; company
 (use-package company
