@@ -114,68 +114,55 @@
   )
 
 ;;; org-super-agenda
-(let ((org-agenda-span 'day)
-      (org-super-agenda-groups
-       '((:name "Time grid items in all-uppercase with RosyBrown1 foreground"
-                :time-grid t
-                :transformer (--> it
-                                  (upcase it)
-                                  (propertize it 'face '(:foreground "RosyBrown1"))))
-         (:name "Priority >= C items underlined, on black background"
-                :face (:background "black" :underline t)
-                :not (:priority>= "C")
-                :order 100))))
-  (org-agenda nil "a"))
-
-(use-package org-super-agenda
-  :config
-  (org-super-agenda-mode 1))
 ;; Outside org because of org-super-agenda usage (?)
-;; (setq org-agenda-custom-commands '(
-;; 				   ("d" "Daily" ((agenda "" (
-;; 							     (org-agenda-span 1)
-							    ;;  (let ((org-super-agenda-groups
-							    ;;   '(
-								;; (:name "Today"
-								;;        :auto-outline-path t
-								;;        :todo ("NEXT" "IN PROGRESS" "TODO")
-								;;        :deadline today)
-								;; )
-							    ;;   ))
-								;;    (org-agenda nil "a"))
-					;; 		 ))
-				    ;; )
+(setq org-agenda-custom-commands '(
+				   ("d" "Daily" ((agenda "" (
+							     (org-agenda-span 1)
+							     (let ((org-super-agenda-groups
+							      '(
+								(:name "Today"
+								       :auto-outline-path t
+								       :todo ("NEXT" "IN PROGRESS" "TODO")
+								       :deadline today)
+								)
+							      ))
+								   (org-agenda nil "a"))
+							 ))
+				    )
 
-				   ;; ("o" "Overdue" ((todo "" (
-				   ;; 			     (org-agenda-span 1)
-				   ;; 			     (org-super-agenda-groups
-				   ;; 			      '(
-				   ;; 				(:name "Today"
-				   ;; 				       :auto-outline-path t
-				   ;; 				       :todo ("NEXT" "IN PROGRESS" "TODO")
-				   ;; 				       :deadline past)
-				   ;; 				)
-				   ;; 			      )
-				   ;; 			     )
-				   ;; 			 ))
-				   ;;  )
-				   ;; ("w" "Week" ((agenda "" (
-				   ;; 			    (org-agenda-span 'week)
-				   ;; 			    (org-super-agenda-groups
-				   ;; 			     '(
-				   ;; 			       (:name "This Week"
-				   ;; 				      :auto-outline-path t
-				   ;; 				      :todo ("NEXT" "IN PROGRESS" "TODO"))
-				   ;; 			       )
-				   ;; 			     )
-				   ;; 			    )
-				   ;; 			))
-				   ;;  )
-				   ;; ))
+				   ("o" "Overdue" ((todo "" (
+							     (org-agenda-span 1)
+							     (org-super-agenda-groups
+							      '(
+								(:name "Today"
+								       :auto-outline-path t
+								       :todo ("NEXT" "IN PROGRESS" "TODO")
+								       :deadline past)
+								)
+							      )
+							     )
+							 ))
+				    )
+				   ("w" "Week" ((agenda "" (
+							    (org-agenda-span 'week)
+							    (org-super-agenda-groups
+							     '(
+							       (:name "This Week"
+								      :auto-outline-path t
+								      :todo ("NEXT" "IN PROGRESS" "TODO"))
+							       )
+							     )
+							    )
+							))
+				    )
+				   )))
 
 (use-package org-super-agenda
+  :after org
+  :defer t
   :config
   (org-super-agenda-mode 1)
+  (org-agenda nil "d"))
   )
 
 ;; org-roam
