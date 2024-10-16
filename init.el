@@ -117,8 +117,8 @@
 ;; Outside org because of org-super-agenda usage (?)
 (setq org-agenda-custom-commands '(
 				   ("d" "Daily" ((agenda "" (
-							     (org-agenda-span 1)
-							     (let ((org-super-agenda-groups
+							     (org-agenda-span 'day)
+							     (org-super-agenda-groups
 							      '(
 								(:name "Today"
 								       :auto-outline-path t
@@ -126,10 +126,9 @@
 								       :deadline today)
 								)
 							      ))
-								   (org-agenda nil "a"))
-							 ))
+								   )
+								 )
 				    )
-
 				   ("o" "Overdue" ((todo "" (
 							     (org-agenda-span 1)
 							     (org-super-agenda-groups
