@@ -162,7 +162,6 @@
   :config
   (org-super-agenda-mode 1)
   (org-agenda nil "d"))
-  )
 
 ;; org-roam
 (use-package org-roam
