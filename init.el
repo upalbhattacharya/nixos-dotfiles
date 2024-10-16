@@ -161,7 +161,7 @@
   (setq org-roam-completion-everywhere t)
   (setq org-roam-capture-templates
 	'(("d" "default" plain "%?"
-	   :target (file+head "nodes/node_%<%Y%m%d%H%M%S>.org"
+	   :target (file+head "nodes/${slug}.org"
 						  ":PROPERTIES:\n:CATEGORY: NODE\n:END:\n#+TITLE: ${title}\n#+FILETAGS:\n\n* ${title}\n\n** Table of Contents :TOC_4:\n")
 	   :immediate-finish t
 	   :create-file yes
