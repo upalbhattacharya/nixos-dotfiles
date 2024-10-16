@@ -126,7 +126,8 @@
 									(org-super-agenda-groups
 									'(
 									  (:name "Today"
-										   :date today
+											 :date today
+											 :auto-outline-path t
 										   :order 1)
 									(:name "Overdue"
 										   :deadline past
