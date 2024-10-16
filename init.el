@@ -128,7 +128,7 @@
 									  (:name "Today"
 										   :time-grid t
 										   :deadline today
-										   :scheduled today)
+										   :schedule today)
 									(:name "Overdue"
 										   :deadline past)
 
