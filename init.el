@@ -17,8 +17,6 @@
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
- '(org-agenda-files
-   '("~/org/journal/202410.org" "~/org/nodes/node_20241008182909.org" "~/org/nodes/node_20241008202250.org" "~/org/nodes/node_20241014133549.org" "~/org/nodes/node_20241015165002.org" "~/org/nodes/node_20241016163455.org" "~/org/nodes/node_20241016182417.org" "~/org/worklogs/log_2024-10-08.org" "~/org/worklogs/log_2024-10-09.org" "~/org/worklogs/log_2024-10-10.org" "~/org/worklogs/log_2024-10-11.org" "~/org/worklogs/log_2024-10.org"))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
@@ -29,7 +27,7 @@
 	 (file . find-file)
 	 (wl . wl-other-frame)))
  '(package-selected-packages
-   '(helm-bibtex org-roam-bibtex annotate toc-org direnv hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme))
+   '(org-ql helm-bibtex org-roam-bibtex annotate toc-org direnv hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme))
  '(python-isort-extra-args nil))
 
 ;;; Theme
@@ -169,7 +167,7 @@
   (setq org-roam-completion-everywhere t)
   (setq org-roam-capture-templates
 	'(("d" "default" plain "%?"
-	   :target (file+head "nodes/${slug}.org"
+	   :target (file+head "nodes/${title}.org"
 						  ":PROPERTIES:\n:CATEGORY: NODE\n:END:\n#+TITLE: ${title}\n#+FILETAGS:\n\n* ${title}\n\n** Table of Contents :TOC_4:\n")
 	   :immediate-finish t
 	   :create-file yes
@@ -463,6 +461,10 @@ exist after each headings's drawers."
             (if (eq major-mode 'org-journal-mode) ; Org-journal-mode
                 (let ((current-prefix-arg 4)) ; Emulate C-u
                   (call-interactively 'unpackaged/org-fix-blank-lines)))))
+
+;;; org-ql
+
+(use-package org-ql)
 
 ;;; Keybindings
 
