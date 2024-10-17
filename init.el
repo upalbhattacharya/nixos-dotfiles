@@ -22,6 +22,12 @@
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
+ '(org-link-frame-setup
+   '((vm . vm-visit-folder-other-frame)
+	 (vm-imap . vm-visit-imap-folder-other-frame)
+	 (gnus . org-gnus-no-new-news)
+	 (file . find-file-other-frame)
+	 (wl . wl-other-frame)))
  '(package-selected-packages
    '(helm-bibtex org-roam-bibtex annotate toc-org direnv hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme))
  '(python-isort-extra-args nil))
