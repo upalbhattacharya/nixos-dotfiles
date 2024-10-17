@@ -17,6 +17,8 @@
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
+ '(org-agenda-files
+   '("~/org/journal/202410.org" "~/org/nodes/node_20241008182909.org" "~/org/nodes/node_20241008202250.org" "~/org/nodes/node_20241014133549.org" "~/org/nodes/node_20241015165002.org" "~/org/nodes/node_20241016163455.org" "~/org/nodes/node_20241016182417.org" "~/org/worklogs/log_2024-10-08.org" "~/org/worklogs/log_2024-10-09.org" "~/org/worklogs/log_2024-10-10.org" "~/org/worklogs/log_2024-10-11.org" "~/org/worklogs/log_2024-10.org"))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
@@ -130,18 +132,21 @@
 										   :date today
 										   :todo ("NEXT" "IN PROGRESS" "TODO")
 										   :order 1)
+									(:name "Next"
+										   :todo ("NEXT")
+										   :order 2)
 									(:name "Overdue"
 										   :deadline past
 										   :todo ("NEXT" "IN PROGRESS" "TODO")
-										   :order 2)
+										   :order 3)
 									(:name "Reschedule"
 										   :scheduled past
 										   :todo ("NEXT" "IN PROGRESS" "TODO")
-										   :order 3)
+										   :order 4)
 									(:name "Upcoming"
 										   :scheduled future
 										   :todo ("NEXT" "IN PROGRESS" "TODO")
-										   :order 4)
+										   :order 5)
 									(:discard (:anything))
 									)
 									)
