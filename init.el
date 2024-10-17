@@ -132,7 +132,7 @@
 										   :date today
 										   :todo ("NEXT" "IN PROGRESS" "TODO")
 										   :order 1)
-									(:name "Next"
+									(:name "Lalala"
 										   :date today
 										   :todo "NEXT"
 										   :order 2)
