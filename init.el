@@ -132,10 +132,6 @@
 										   :date today
 										   :todo ("NEXT" "IN PROGRESS" "TODO")
 										   :order 1)
-									(:name "Next"
-										   :date t
-										   :todo "NEXT"
-										   :order 2)
 									(:name "Overdue"
 										   :deadline past
 										   :todo ("NEXT" "IN PROGRESS" "TODO")
