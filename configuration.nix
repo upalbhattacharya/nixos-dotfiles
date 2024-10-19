@@ -148,6 +148,7 @@ in {
     graphviz
     poetry
     python312Full
+    strawberry
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
