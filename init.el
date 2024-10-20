@@ -1,4 +1,4 @@
-(Require 'package)
+(require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
@@ -17,6 +17,8 @@
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
+ '(org-agenda-files
+   '("~/org/journal/202410.org" "~/org/nodes/Dutch Vocabulary.org" "~/org/nodes/EKAW 2024.org" "~/org/nodes/ESWC 2025.org" "~/org/nodes/Emacs.org" "~/org/nodes/PhD Meetings.org" "~/org/nodes/Routledge Dutch Intensive Course.org" "~/org/nodes/Systematic Literature Review.org" "~/org/nodes/Term Typing Ontology Enrichment Experiment 1.org" "~/org/nodes/Who Am I.org" "~/org/worklogs/log_2024-10-08.org" "~/org/worklogs/log_2024-10-09.org" "~/org/worklogs/log_2024-10-10.org" "~/org/worklogs/log_2024-10-11.org" "~/org/worklogs/log_2024-10.org"))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
@@ -27,7 +29,7 @@
 	 (file . find-file)
 	 (wl . wl-other-frame)))
  '(package-selected-packages
-   '(org-anki org-ql helm-bibtex org-roam-bibtex annotate toc-org direnv hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme))
+   '(which-key org-anki org-ql helm-bibtex org-roam-bibtex annotate toc-org direnv hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-modern org-roam evil catppuccin-theme))
  '(python-isort-extra-args nil))
 
 ;;; Theme
@@ -283,12 +285,6 @@
   :hook (after-init . rainbow-delimiter-mode)
   )
 
-;;; which-key
-(use-package which-key
-  :config
-  (which-key-mode 1)
-  )
-
 ;;; auctex
 (use-package auctex
   :config
@@ -474,6 +470,11 @@ exist after each headings's drawers."
 
 ;;; python-mode
 (use-package python-mode)
+
+;;; which-key
+(use-package which-key
+  :config
+  (which-key-mode 1))
 
 ;;; Keybindings
 
