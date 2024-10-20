@@ -468,9 +468,15 @@ exist after each headings's drawers."
 (use-package org-ql)
 
 
-;;; anki-editor
+;;; org-anki
 
-(use-package anki-editor)
+(use-package org-anki)
+
+;;; python-mode
+(use-package python-mode)
+
+;;; which-key
+(use-package which-key)
 
 ;;; Keybindings
 
