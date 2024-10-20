@@ -149,7 +149,7 @@ in {
     poetry
     python312Full
     pandoc
-    texliveBasic
+    texliveMedium
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
