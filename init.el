@@ -1,4 +1,4 @@
-(require 'package)
+(Require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
@@ -474,9 +474,6 @@ exist after each headings's drawers."
 
 ;;; python-mode
 (use-package python-mode)
-
-;;; which-key
-(use-package which-key)
 
 ;;; Keybindings
 
