@@ -150,7 +150,6 @@ in {
     python312Full
     pandoc
     texlive
-    dvipng
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
