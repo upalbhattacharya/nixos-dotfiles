@@ -476,6 +476,11 @@ exist after each headings's drawers."
   :config
   (which-key-mode 1))
 
+;;; projectile
+(use-package projectile
+  :config
+  (projectile-mode 1))
+
 ;;; Keybindings
 
 ;; General
@@ -523,3 +528,7 @@ exist after each headings's drawers."
 
 ;; unpackaged/org-fix-blank-lines
 (global-set-key (kbd "C-c f") 'unpackaged/org-fix-blank-lines)
+
+
+;; projectile
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
