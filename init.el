@@ -490,7 +490,7 @@ exist after each headings's drawers."
 (global-set-key (kbd "C-x g") 'magit-status)
 
 ;; org-roam
-(global-set-key (kbd "C-c p") 'org-roam-node-find)
+(global-set-key (kbd "C-c o") 'org-roam-node-find)
 (global-set-key (kbd "C-c i") 'org-roam-node-insert)
 (global-set-key (kbd "C-c n") 'org-roam-capture)
 (global-set-key (kbd "C-M-r") 'org-roam-buffer-toggle)
