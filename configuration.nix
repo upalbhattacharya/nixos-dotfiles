@@ -150,6 +150,7 @@ in {
     python312Full
     pandoc
     texliveMedium
+    waydroid
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
