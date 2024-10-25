@@ -160,7 +160,7 @@
 										)
 									(:name "Overdue"
 										   :deadline past
-										   :face '(org-upcoming-deadline)
+										   :face '((org-upcoming-deadline))
 										   :order 2
 										   )
 									(:name "Upcoming"
