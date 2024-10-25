@@ -108,7 +108,7 @@
 				(todo . " %?-12t %s")))
   (setq org-agenda-view-columns-initially t)
   (setq org-agenda-overriding-columns-format "%TODO(STATUS) %CATEGORY %PRIORITY %DEADLINE %SCHEDULED %ITEM")
-  (setq org-agenda-with-colors t)
+  (setq org-agenda-with-colors nil)
 
   ;; org-todo
   (setq org-todo-keywords
