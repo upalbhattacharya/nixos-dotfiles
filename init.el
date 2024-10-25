@@ -115,7 +115,7 @@
 (setq org-agenda-with-colors t)
 (setq org-agenda-format-date (lambda (date) (concat "\n"
                                                     (org-agenda-format-date-aligned date)
-													"\n"
+													"\n")))
 
 	  
   ;; org-todo
