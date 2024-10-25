@@ -143,7 +143,7 @@
 									(org-super-agenda-groups
 									'(
 									(:name "For the day"
-										   :date today
+										   :deadline today
 										   :todo ("NEXT" "IN PROGRESS" "TODO")
 										   ;; :order 0
 										   )
