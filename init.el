@@ -140,14 +140,14 @@
 									(org-super-agenda-groups
 									 '(
 
-									  (:name "For the day"
-										   :deadline today
-										   :order 0
-										   )
-									  (:name "Scheduled"
-										   :scheduled today
-										   :order 1
-										   )
+									(:name "Scheduled"
+										:scheduled today
+										:order 0
+										)
+									(:name "Due"
+										:deadline today
+										:order 1
+										)
 									(:name "Overdue"
 										   :deadline past
 										   :order 2
