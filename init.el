@@ -141,12 +141,8 @@
 									(org-agenda-span 'day)
 									(org-super-agenda-groups
 									'(
-									  (:name "Scheduled"
-										   :scheduled today
-										   :order 0
-										   )
-									  (:name "Due"
-										   :deadline today
+									  (:name "For the day"
+										   :date today
 										   :order 1
 										   )
 									(:name "Overdue"
