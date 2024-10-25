@@ -117,8 +117,8 @@
   (setq org-agenda-with-colors t)
   (setq org-agenda-format-date (lambda (date) (concat "\n"
                                                       (org-agenda-format-date-aligned date)
-                                                    (make-string (string-width (org-agenda-format-date-aligned date)) 9472)
                                                     "\n"
+                                                    (make-string (string-width (org-agenda-format-date-aligned date)) 9472)
 													)))
 	  
   ;; org-todo
