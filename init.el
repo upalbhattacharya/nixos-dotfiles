@@ -65,7 +65,9 @@
   )
 
   (defun org-agenda-open-hook()
-	(olivetti-mode))
+	(olivetti-mode)
+	(visual-line-mode -1)
+	(toggle-truncate-lines 1))
 
 ;;; Evil
 (use-package evil
