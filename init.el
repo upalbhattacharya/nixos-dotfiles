@@ -160,8 +160,8 @@
 										)
 									(:name "Overdue"
 										   :deadline past
+										   :face (:foreground "red")
 										   :order 2
-										   :face (:foreground "firebrick")
 										   )
 									(:name "Upcoming"
 										   :scheduled future
