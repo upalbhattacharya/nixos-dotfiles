@@ -112,7 +112,7 @@
 				(todo . " %?-12t %s")))
   (setq org-agenda-view-columns-initially t)
   (setq org-agenda-overriding-columns-format "%15CATEGORY %15TODO(STATUS) %PRIORITY(PR.) %DEADLINE %SCHEDULED %120ITEM")
-  (setq org-agenda-with-colors nil)
+(setq org-agenda-with-colors nil)
   (setq org-agenda-format-date (lambda (date) (concat "\n"
                                                     (make-string (window-width) 9472)
                                                     "\n"
