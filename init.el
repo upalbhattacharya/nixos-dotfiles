@@ -544,7 +544,8 @@ exist after each headings's drawers."
  '(org-agenda-date-today ((t (:foreground "medium spring green" :weight bold))))
  '(org-agenda-date-weekend ((t (:inherit org-agenda-date :foreground "dim gray"))))
  '(org-agenda-date-weekend-today ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
- '(org-agenda-structure-filter ((t nil))))
+ '(org-agenda-structure-filter ((t nil)))
+ '(org-imminent-deadline ((t nil))))
 
 ;; unpackaged/org-fix-blank-lines
 (global-set-key (kbd "C-c f") 'unpackaged/org-fix-blank-lines)
