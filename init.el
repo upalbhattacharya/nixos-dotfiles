@@ -114,7 +114,7 @@
   (setq org-agenda-overriding-columns-format "%15CATEGORY %15TODO(STATUS) %PRIORITY(PR.) %DEADLINE %SCHEDULED %120ITEM")
 (setq org-agenda-with-colors t)
   (setq org-agenda-format-date (lambda (date) (concat "\n"
-                                                    (make-string (window-width) 9472)
+                                                    (make-string 50 9472)
                                                     "\n"
                                                     (org-agenda-format-date-aligned date))))
 
