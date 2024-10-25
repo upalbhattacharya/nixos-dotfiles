@@ -549,7 +549,7 @@ exist after each headings's drawers."
  '(org-agenda-date-weekend ((t (:inherit org-agenda-date :foreground "dim gray"))))
  '(org-agenda-date-weekend-today ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
  '(org-agenda-structure-filter ((t nil)))
- '(org-imminent-deadline ((t nil)))
+ '(org-imminent-deadline ((t (:foreground "firebrick"))))
  '(org-scheduled ((t nil))))
 
 ;; unpackaged/org-fix-blank-lines
