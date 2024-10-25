@@ -64,10 +64,6 @@
   (setq truncate-partial-width-windows nil)
   )
 
-  (defun org-agenda-open-hook()
-	(olivetti-mode)
-	(visual-line-mode -1)
-	(toggle-truncate-lines 1))
 
 ;;; Evil
 (use-package evil
@@ -80,7 +76,6 @@
   :custom-face
   (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
   :hook (org-mode . org-indent-mode)
-  ;; :hook (org-agenda-mode . org-agenda-open-hook)
   ; :custom
   ; (org-blank-before-new-entry '((heading . t)(plain-list-item . t)))
   :config
