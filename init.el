@@ -149,15 +149,15 @@
 									(:name "Overdue"
 										   :deadline past
 										   :todo ("NEXT" "IN PROGRESS" "TODO")
-										   :order 3)
+										   :order 2)
 									(:name "Reschedule"
 										   :scheduled past
 										   :todo ("NEXT" "IN PROGRESS" "TODO")
-										   :order 4)
+										   :order 3)
 									(:name "Upcoming"
 										   :scheduled future
 										   :todo ("NEXT" "IN PROGRESS" "TODO")
-										   :order 5)
+										   :order 4)
 									(:discard (:anything))
 									)
 									)
