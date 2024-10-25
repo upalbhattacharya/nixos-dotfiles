@@ -159,7 +159,7 @@
 										:order 1
 										)
 									(:name "Overdue"
-										   :face org-upcoming-deadline
+										   :face error 
 										   :deadline past
 										   :order 2
 										   )
