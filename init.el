@@ -118,7 +118,9 @@
   (setq org-agenda-format-date (lambda (date) (concat "\n"
                                                     (make-string (string-width (org-agenda-format-date-aligned date)+2) 9472)
 													"\n"
-                                                    "|"(org-agenda-format-date-aligned date)"|"
+                                                    "|"
+													(org-agenda-format-date-aligned date)
+													"|"
                                                     "\n"
                                                     (make-string (string-width (org-agenda-format-date-aligned date)+2) 9472)
 													)))
