@@ -62,7 +62,10 @@
   (setq visual-line-mode 1)
   (setq auto-fill-mode 1)
   (setq truncate-partial-width-windows nil)
-)
+  )
+
+  (defun org-agenda-open-hook()
+	(olivetti-mode))
 
 ;;; Evil
 (use-package evil
@@ -75,6 +78,7 @@
   :custom-face
   (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
   :hook (org-mode . org-indent-mode)
+  :hook (org-agenda-mode . org-agenda-open-hook)
   ; :custom
   ; (org-blank-before-new-entry '((heading . t)(plain-list-item . t)))
   :config
@@ -120,7 +124,6 @@
 	    ("DONE" . (:foreground "#a6e3a1" :weight bold))
 	    ("ARCHIVED" . (:foreground "#9399b2"))
 	    ))
-
   ;; babel
   (org-babel-do-load-languages
    'org-babel-load-languages
