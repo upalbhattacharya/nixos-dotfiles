@@ -159,7 +159,6 @@
 										:order 1
 										)
 									(:name "Overdue"
-										   :face error
 										   :deadline past
 										   :order 2
 										   )
