@@ -159,7 +159,7 @@
 										:order 1
 										)
 									(:name "Overdue"
-										   :face (:foreground "light gray" :weight normal)
+										   :face org-upcoming-deadline
 										   :deadline past
 										   :order 2
 										   )
