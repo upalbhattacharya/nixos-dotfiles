@@ -152,11 +152,11 @@
 										   :todo ("NEXT" "IN PROGRESS" "TODO")
 										   ;; :order 1
 										   )
-									(:name "Reschedule"
-										   :scheduled past
-										   :todo ("NEXT" "IN PROGRESS" "TODO")
-										   ;; :order 2
-										   )
+									;; (:name "Reschedule"
+									;; 	   :scheduled past
+									;; 	   :todo ("NEXT" "IN PROGRESS" "TODO")
+									;; 	   ;; :order 2
+									;; 	   )
 									(:name "Upcoming"
 										   :scheduled future
 										   :todo ("NEXT" "IN PROGRESS" "TODO")
