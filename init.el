@@ -161,7 +161,7 @@
 									(:name "Overdue"
 										   :deadline past
 										   :order 2
-										   :face org-upcoming-deadline
+										   :face (:foreground "firebrick")
 										   )
 									(:name "Upcoming"
 										   :scheduled future
