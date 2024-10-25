@@ -108,7 +108,7 @@
 				(agenda . " %?-12c  %?-12t%?-b ")
 				(todo . " %?-12t %s")))
   (setq org-agenda-view-columns-initially t)
-  (setq org-agenda-overriding-columns-format "%CATEGORY %TODO(STATUS) %PRIORITY%DEADLINE %SCHEDULED %ITEM")
+  (setq org-agenda-overriding-columns-format "%CATEGORY %TODO(STATUS) %PRIORITY %DEADLINE %SCHEDULED %ITEM")
 
   ;; org-todo
   (setq org-todo-keywords
