@@ -138,9 +138,14 @@
 					("u" "Super View" ((agenda "" (
 									(org-agenda-span 'day)
 									(org-super-agenda-groups
-									'(
+									 '(
+
 									  (:name "For the day"
-										   :date today
+										   :deadline today
+										   :order 0
+										   )
+									  (:name "Scheduled"
+										   :scheduled today
 										   :order 1
 										   )
 									(:name "Overdue"
