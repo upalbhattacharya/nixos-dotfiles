@@ -116,7 +116,6 @@
 (setq org-agenda-format-date (lambda (date) (concat "\n"
                                                     (org-agenda-format-date-aligned date)
 													"\n"
-                                                    (make-string 50 9472))))
 
 	  
   ;; org-todo
