@@ -152,7 +152,6 @@
 									(:name "Overdue"
 										   :deadline past
 										   :order 2
-										   :face 'org-warning
 										   )
 									(:name "Upcoming"
 										   :scheduled future
