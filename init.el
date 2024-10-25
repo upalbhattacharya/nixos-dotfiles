@@ -147,7 +147,7 @@
 										   )
 									(:name "Overdue"
 										   :deadline past
-										   :order 5
+										   :order 2
 										   )
 									(:name "Upcoming"
 										   :scheduled future
