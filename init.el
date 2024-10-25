@@ -143,7 +143,7 @@
 									'(
 									  (:name "For the day"
 										   :date today
-										   :todo ("NEXT" "IN PROGRESS" "TODO")
+										   ;; :todo ("NEXT" "IN PROGRESS" "TODO")
 										   :order 0
 										   )
 									;; (:name "Overdue"
