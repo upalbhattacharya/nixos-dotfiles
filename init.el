@@ -115,9 +115,13 @@
                                                     (org-agenda-format-date-aligned date))))
 
 
-(setq org-priority-faces '((?A . (:foreground "red" :weight 'bold))
-                           (?B . (:foreground "yellow"))
-                           (?C . (:foreground "green"))))
+  (setq org-priority-faces '(
+						   (65 :foreground "red")
+                           (66 :foreground "yellow")
+                           (67 :foreground "green")
+						   )
+		)
+	  
   ;; org-todo
   (setq org-todo-keywords
 	'((sequence "TODO" "NEXT" "IN PROGRESS" "|" "DONE" "ARCHIVED")))
