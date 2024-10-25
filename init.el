@@ -141,8 +141,9 @@
 									(org-agenda-span 'day)
 									(org-super-agenda-groups
 									'(
-									(:name "For the day"
-										   :deadline today
+									  (:name "For the day"
+										   :time-grid t
+										   :date today
 										   :todo ("NEXT" "IN PROGRESS" "TODO")
 										   :order 0
 										   )
