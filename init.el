@@ -142,10 +142,10 @@
 									(org-agenda-span 'day)
 									(org-super-agenda-groups
 									'(
-									(:name "For the day"
-										   :date today
-										   :todo ("NEXT" "IN PROGRESS" "TODO")
-										   :order 1)
+									;; (:name "For the day"
+									;; 	   :date today
+									;; 	   :todo ("NEXT" "IN PROGRESS" "TODO")
+									;; 	   :order 1)
 									(:name "Overdue"
 										   :deadline past
 										   :todo ("NEXT" "IN PROGRESS" "TODO")
