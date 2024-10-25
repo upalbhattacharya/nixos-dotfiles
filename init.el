@@ -145,9 +145,8 @@
 										   :scheduled today
 										   :order 0
 										   )
-
 									  (:name "Due"
-										   :scheduled today
+										   :deadline today
 										   :order 1
 										   )
 									(:name "Overdue"
