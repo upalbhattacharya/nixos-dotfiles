@@ -145,13 +145,8 @@
 										   :date today
 										   :order 1
 										   )
-									;; (:name "Overdue"
-									;; 	   :deadline past
-									;; 	   :order 2
-									;; 	   )
-									(:name "Reschedule"
-										   :scheduled past
-										   :order 3
+									(:name "Overdue"
+										   :deadline past
 										   )
 									(:name "Upcoming"
 										   :scheduled future
