@@ -114,13 +114,6 @@
                                                     "\n"
                                                     (org-agenda-format-date-aligned date))))
 
-
-  (setq org-priority-faces '(
-						   (65 :foreground "red")
-                           (66 :foreground "yellow")
-                           (67 :foreground "green")
-						   )
-		)
 	  
   ;; org-todo
   (setq org-todo-keywords
@@ -552,7 +545,8 @@ exist after each headings's drawers."
  '(org-agenda-date-weekend ((t (:inherit org-agenda-date :foreground "dim gray"))))
  '(org-agenda-date-weekend-today ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
  '(org-agenda-structure-filter ((t nil)))
- '(org-imminent-deadline ((t nil))))
+ '(org-imminent-deadline ((t nil)))
+ '(org-scheduled ((t (:foreground "deep sky blue")))))
 
 ;; unpackaged/org-fix-blank-lines
 (global-set-key (kbd "C-c f") 'unpackaged/org-fix-blank-lines)
