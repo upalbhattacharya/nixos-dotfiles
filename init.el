@@ -192,7 +192,7 @@
 	   :target (file+head "nodes/${title}.org"
 						  ":PROPERTIES:
 :CATEGORY: NODE
-:ID: %(upcase (uuid-string))
+:ID:
 :END:
 #+TITLE: ${title}
 #+FILETAGS:
