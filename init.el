@@ -35,6 +35,8 @@
    '((65 :foreground "red")
 	 (66 :foreground "yellow")
 	 (67 :foreground "green")))
+ '(org-roam-capture-new-node-hook
+   '(org-id-get-create org-roam-capture--insert-captured-ref-h))
  '(org-super-agenda-date-format "%e %Y-%m-%d")
  '(package-selected-packages
    '(envrc projectile which-key org-anki org-ql helm-bibtex org-roam-bibtex annotate toc-org hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-roam evil catppuccin-theme))
@@ -204,7 +206,7 @@
   (setq org-roam-dailies-capture-templates
       '(("d" "default" plain "%?"
          :target (file+olp "log_%<%Y-%m>.org"
-						   ("%<%Y-W%W>" "%<%Y-%m-%d>\n:PROPERTIES:\n:CATEGORY: WORKLOG\n:END:\n#+TITLE: %<%Y-%m>\n\n"))))
+						   ("%<%Y-W%W>" "%<%Y-%m-%d>"))))
 	  )
   (setq org-roam-mode-sections
       (list #'org-roam-backlinks-section
