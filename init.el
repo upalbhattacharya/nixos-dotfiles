@@ -190,7 +190,13 @@
   (setq org-roam-capture-templates
 	'(("d" "default" plain "%?"
 	   :target (file+head "nodes/${title}.org"
-						  ":PROPERTIES:\n:CATEGORY: NODE\n:END:\n#+TITLE: ${title}\n#+FILETAGS:\n\n* ${title}\n\n")
+						  ":PROPERTIES:
+:CATEGORY: NODE
+:END:
+#+TITLE: ${title}
+#+FILETAGS:
+
+* ${title}\n\n")
 	   :immediate-finish t
 	   :create-file yes
 	   :unnarrowed t)
