@@ -201,7 +201,8 @@
 	("c" "capture" plain "%?"
 	 :target (file+head+olp "worklogs/log_%<%Y-%m>.org"
 							":PROPERTIES:\n:CATEGORY: WORKLOG\n:END:"
-							("%<%Y-W%W>" "%<%Y-%m-%d>" "TODO ${title}\n:PROPERTIES:
+							("%<%Y-W%W>" "%<%Y-%m-%d>" "TODO ${title}
+:PROPERTIES:
 :CATEGORY: CAPTURE
 :ID: %(upcase (uuid-string))
 :END:\n\n")
