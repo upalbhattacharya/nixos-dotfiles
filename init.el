@@ -195,12 +195,18 @@
 	  ("n" "literature note" plain "%?"
            :target (file+head "academic/${citekey}.org"
 			      "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
-         :unnarrowed t)))
+           :unnarrowed t)
+      ("c" "capture" plain "%?"
+         :target (file+head+olp "log_%<%Y-%m>.org"
+								":PROPERTIES:\n:CATEGORY: CAPTURE\n:END:#+TITLE: {title}\n\n"
+								("{capture}" "%<%Y-%m-%d>")))
+
   (setq org-roam-dailies-capture-templates
       '(("d" "default" plain "%?"
          :target (file+head+olp "log_%<%Y-%m>.org"
 								":PROPERTIES:\n:CATEGORY: WORKLOG\n:END:#+TITLE: %<%Y-%m>\n\n"
-								("%<%Y-W%W>" "%<%Y-%m-%d>")))))
+								("%<%Y-W%W>" "%<%Y-%m-%d>"))))
+	  )
   (setq org-roam-mode-sections
       (list #'org-roam-backlinks-section
             #'org-roam-reflinks-section
