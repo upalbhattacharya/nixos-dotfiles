@@ -196,7 +196,7 @@
            :target (file+head "academic/${citekey}.org"
 			      "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
            :unnarrowed t)
-	("c" "capture" entry "%?"
+	("c" "capture" plain "%?"
 			:target (file+olp+datetree "capture.org"
 									;; ":PROPERTIES:\n:CATEGORY: CAPTURE\n:END:#+TITLE: ${title}\n\n"
 									[ "%<%Y-W%W>" "%<%Y-%m-%d>" "${title}" ]))
