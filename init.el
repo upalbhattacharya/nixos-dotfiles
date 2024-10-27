@@ -197,7 +197,7 @@
 			      "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
            :unnarrowed t)
       ("c" "capture" plain "%?"
-         :target (file+head+olp "log_%<%Y-%m>.org"
+         :target (file+olp+datetree "log_%<%Y-%m>.org"
 								":PROPERTIES:\n:CATEGORY: CAPTURE\n:END:#+TITLE: ${title}\n\n"
 								("%<%Y-%m-%d>" "${title}")))
 	  ))
