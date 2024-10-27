@@ -196,10 +196,6 @@
            :target (file+head "academic/${citekey}.org"
 			      "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
            :unnarrowed t)
-      ("c" "capture" plain "%?"
-         :target (file+olp+datetree "log_%<%Y-%m>.org"
-								":PROPERTIES:\n:CATEGORY: CAPTURE\n:END:#+TITLE: ${title}\n\n"
-								("%<%Y-%m-%d>" "${title}")))
 	  ))
 
   (setq org-roam-dailies-capture-templates
