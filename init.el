@@ -200,6 +200,7 @@
          :target (file+head+olp "log_%<%Y-%m>.org"
 								":PROPERTIES:\n:CATEGORY: CAPTURE\n:END:#+TITLE: {title}\n\n"
 								("{capture}" "%<%Y-%m-%d>")))
+	  ))
 
   (setq org-roam-dailies-capture-templates
       '(("d" "default" plain "%?"
