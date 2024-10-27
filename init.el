@@ -197,14 +197,14 @@
 			      "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
            :unnarrowed t)
 	("c" "capture" plain "%?"
-			:target (file+olp "worklogs/log_%<%Y-%m>.org"
+			:target (file+head+olp "worklogs/log_%<%Y-%m>.org"
 									("%<%Y-W%W>" "%<%Y-%m-%d>" "TODO ${title}\n:PROPERTIES:\n:CATEGORY: CAPTURE\n:ID:\n:END:\n\n#+TITLE: ${title}\n\n")))
 	  ))
 
   (setq org-roam-dailies-capture-templates
       '(("d" "default" plain "%?"
-         :target (file+head+olp "log_%<%Y-%m>.org"
-								":PROPERTIES:\n:CATEGORY: WORKLOG\n:END:#+TITLE: %<%Y-%m>\n\n"
+         :target (file+olp "log_%<%Y-%m>.org"
+								":PROPERTIES:\n:CATEGORY: WORKLOG\n:END:\n#+TITLE: %<%Y-%m>\n\n"
 								("%<%Y-W%W>" "%<%Y-%m-%d>"))))
 	  )
   (setq org-roam-mode-sections
