@@ -84,6 +84,7 @@
   :custom-face
   (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
   :hook (org-mode . org-indent-mode)
+  :hook (org-capture-mode . org-id-get-create)
   :config
   (define-key minibuffer-local-completion-map (kbd "?") nil)
   (setq org-deadline-warning-days 0)
