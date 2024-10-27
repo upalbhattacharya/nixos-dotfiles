@@ -211,7 +211,7 @@
 							("%<%Y-W%W>" "%<%Y-%m-%d>" "TODO ${title}
 :PROPERTIES:
 :CATEGORY: CAPTURE
-:ID: %(upcase (uuid-string))
+:ID: %(org-id-get-create)
 :END:\n\n")
 							)
            :unnarrowed t)
