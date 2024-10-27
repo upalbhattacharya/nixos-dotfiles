@@ -199,7 +199,7 @@
 	("f" "capture" plain "%?"
 			:target (file+head+olp "log_%<%Y-%m>.org"
 									":PROPERTIES:\n:CATEGORY: WORKLOG\n:END:#+TITLE: %<%Y-%m>\n\n"
-									("%<%Y-W%W>" "%<%Y-%m-%d>")))
+									("%<%Y-W%W>" "%<%Y-%m-%d>" "${title}")))
 	  ))
 
   (setq org-roam-dailies-capture-templates
