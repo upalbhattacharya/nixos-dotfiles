@@ -203,7 +203,7 @@
 							":PROPERTIES:\n:CATEGORY: WORKLOG\n:END:"
 							("%<%Y-W%W>" "%<%Y-%m-%d>" "TODO ${title}\n:PROPERTIES:
 :CATEGORY: CAPTURE
-:ID:%(format-time-string \"%Y%m%dT%H%M%SZ\" (current-time) t)
+:ID: %(upcase (uuid-string))
 :END:\n\n")
 							)
            :unnarrowed t)
