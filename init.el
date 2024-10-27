@@ -198,7 +198,7 @@
            :unnarrowed t)
 	("f" "capture" plain "%?"
 			:target (file+head+olp "log_%<%Y-%m>.org"
-									":PROPERTIES:\n:CATEGORY: WORKLOG\n:END:#+TITLE: %<%Y-%m>\n\n"
+									":PROPERTIES:\n:CATEGORY: CAPTURE\n:END:#+TITLE: %<%Y-%m>\n\n"
 									("%<%Y-W%W>" "%<%Y-%m-%d>" "${title}")))
 	  ))
 
