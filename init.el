@@ -166,8 +166,12 @@
 										   :order 2
 										   )
 									(:name "Upcoming"
-										   :date future
+										   :deadline future
 										   :order 4
+										   )
+									(:name "Planned"
+										   :scheduled future
+										   :order 5
 										   )
 									(:discard (:anything))
 									)
