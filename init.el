@@ -154,11 +154,11 @@
 									 '(
 
 									(:name "Scheduled"
-										:scheduled t
+										:scheduled today
 										:order 0
 										)
 									(:name "Due"
-										:deadline t
+										:deadline today
 										:order 1
 										)
 									(:name "Overdue"
