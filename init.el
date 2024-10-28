@@ -172,6 +172,9 @@
                           (:name "Due Soon"
                                  :deadline future
                                  :order 4)
+                          (:name "Upcoming"
+                                 :scheduled future
+                                 :order 5)
                           (:discard (:anything t))
                           ))
                        )))
