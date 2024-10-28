@@ -185,7 +185,6 @@
                        (org-super-agenda-groups
                         '((:name "Forgotten"
                                 :date nil
-                                :todo t
                                 :order 1
                                 ))
 						)
