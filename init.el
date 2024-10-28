@@ -154,6 +154,7 @@
                                 :time-grid t
                                 :date today
                                 :todo t
+								:scheduled today
                                 :order 1
                                 )))))
           (alltodo "" ((org-agenda-overriding-header "")
