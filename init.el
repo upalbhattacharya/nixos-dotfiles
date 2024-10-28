@@ -184,7 +184,8 @@
           (alltodo "" ((org-agenda-overriding-header "")
                        (org-super-agenda-groups
                         '((:name "Forgotten"
-                                :date nil
+                                 :deadline nil
+								 :scheduled nil
                                 :order 1
                                 ))
 						)
