@@ -157,7 +157,7 @@
 								:scheduled today
                                 :order 1
                                 )
-						 (:discard (:anything t))
+						 (:discard (:anything t)
 						 ))))
           (alltodo "" ((org-agenda-overriding-header "")
                        (org-super-agenda-groups
