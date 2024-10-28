@@ -175,7 +175,7 @@
                           (:name "Upcoming"
                                  :scheduled future
                                  :order 5)
-                          (:name "Chec"
+                          (:name "Check"
                                  :date nil
                                  :order 6)
                           (:discard (:anything t))
