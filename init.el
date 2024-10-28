@@ -181,7 +181,7 @@
                        )))
          ) ; Super zen view
         ("f" "Forgotten view" (
-          (alltodo "" ((org-agenda-overriding-header "")
+          (agenda "" ((org-agenda-overriding-header "")
                        (org-super-agenda-groups
                         '((:name "Forgotten"
 								 :todo t
