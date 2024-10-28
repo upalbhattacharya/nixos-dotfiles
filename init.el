@@ -196,7 +196,7 @@
 				   )
 		  ))
 		))
-        
+       ) 
   :config
   (org-super-agenda-mode t))
 
