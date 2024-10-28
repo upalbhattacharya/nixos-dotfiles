@@ -146,7 +146,8 @@
 (use-package org-super-agenda
   :after org
   :init
-  (setq org-agenda-custom-commands '(
+  (setq org-agenda-custom-commands
+		'(
         ("z" "Super zen view" (
                                 (agenda "" ((org-agenda-span 'day)
                       (org-super-agenda-groups
@@ -179,6 +180,18 @@
                           ))
                        )))
          ) ; Super zen view
+        ("f" "Forgotten view" (
+          (alltodo "" ((org-agenda-overriding-header "")
+                       (org-super-agenda-groups
+                        '((:name "Forgotten"
+                                :date nil
+                                :todo t
+                                :order 1
+                                ))
+						)
+					   )
+				   )
+		  ))
 		))
         
   :config
