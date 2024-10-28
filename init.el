@@ -159,15 +159,12 @@
                                 )))))
           (alltodo "" ((org-agenda-overriding-header "")
                        (org-super-agenda-groups
-                        '((:name "Next to do"
-                                 :todo "NEXT"
-                                 :order 1)
-                          (:name "Important"
-                                 :tag "Important"
-                                 :priority "A"
-                                 :order 6)
+                        '(
                           (:name "Due Today"
                                  :deadline today
+                                 :order 1)
+						  (:name "Next to do"
+                                 :todo "NEXT"
                                  :order 2)
                           (:name "Due Soon"
                                  :deadline future
