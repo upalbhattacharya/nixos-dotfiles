@@ -175,6 +175,9 @@
                           (:name "Upcoming"
                                  :scheduled future
                                  :order 5)
+                          (:name "Chec"
+                                 :date nil
+                                 :order 6)
                           (:discard (:anything t))
                           ))
                        )))
