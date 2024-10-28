@@ -175,14 +175,19 @@
                           (:name "Upcoming"
                                  :scheduled future
                                  :order 5)
-                          (:name "Check"
-                                 :date nil
-                                 :order 6)
                           (:discard (:anything t))
                           ))
                        )))
          ) ; Super zen view
-        )))
+
+		("f" "Forgotten"
+          (alltodo "" ((org-agenda-overriding-header "")
+                       (org-super-agenda-groups
+                        '(
+                          (:name "Due Today"
+                                 :deadline today
+                                 :order 1)
+        )))))
   :config
   (org-super-agenda-mode t))
 
