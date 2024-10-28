@@ -178,6 +178,7 @@
                                  :order 5)
                           (:name "Check"
                                  :date nil
+								 :scheduled nil
                                  :order 6)
                           (:discard (:anything t))
                           ))
