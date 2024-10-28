@@ -147,7 +147,7 @@
   :after org
   :init
   (setq org-agenda-custom-commands (list(quote
-        ("z" "Super zaen view" (
+        ("z" "Super zen view" (
                                 (agenda "" ((org-agenda-span 'day)
                       (org-super-agenda-groups
                        '((:name "Today"
@@ -204,47 +204,8 @@
                           (:discard (:tag ("Chore" "Routine" "Daily")))
                           ))
                        )))
-         ) ; Super zaen view
+         ) ; Super zen view
         )))
-
-
-
-
-	;; (setq org-agenda-custom-commands
-	;; 	'(
-	;; 				("t" "Today" ((agenda "" (
-	;; 								(org-agenda-span 'day)
-	;; 								(org-super-agenda-groups
-	;; 								 '(
-
-	;; 								(:name "Scheduled"
-	;; 									:scheduled today
-	;; 									:order 0
-	;; 									)
-	;; 								(:name "Due"
-	;; 									:deadline today
-	;; 									:order 1
-	;; 									)
-	;; 								(:name "Overdue"
-	;; 									   :deadline past
-	;; 									   :order 2
-	;; 									   )
-	;; 								(:name "Upcoming"
-	;; 									   :deadline future
-	;; 									   :order 4
-	;; 									   )
-	;; 								(:name "Planned"
-	;; 									   :scheduled future
-	;; 									   :order 5
-	;; 									   )
-	;; 								(:discard (:anything))
-	;; 								)
-	;; 								)
-	;; 								)
-	;; 											))
-	;; 					)
-	;; 				)
-	;; 	)
   :config
   (org-super-agenda-mode t))
 
