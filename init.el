@@ -146,7 +146,7 @@
 (use-package org-super-agenda
   :after org
   :init
-  (setq org-agenda-custom-commands (list(quote
+  (setq org-agenda-custom-commands ('
         ("z" "Super zen view" (
                                 (agenda "" ((org-agenda-span 'day)
                       (org-super-agenda-groups
@@ -180,7 +180,7 @@
                        )))
          ) ; Super zen view
 		))
-        )
+        
   :config
   (org-super-agenda-mode t))
 
