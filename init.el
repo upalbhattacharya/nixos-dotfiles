@@ -153,7 +153,7 @@
                        '((:name "Today"
                                 :time-grid t
                                 :date today
-                                :todo
+                                :todo t
                                 :order 1
                                 )))))
           (alltodo "" ((org-agenda-overriding-header "")
