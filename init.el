@@ -152,7 +152,6 @@
                                 (agenda "" ((org-agenda-span 'day)
                       (org-super-agenda-groups
                        '((:name "Today"
-                                :time-grid t
                                 :date today
                                 :todo t
 								:scheduled today
