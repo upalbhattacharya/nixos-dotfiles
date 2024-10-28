@@ -189,7 +189,8 @@
                                  :deadline nil
 								 :scheduled nil
                                 :order 1
-                                ))
+                                )
+						  (:discard (:anything t))
 						)
 					   )
 				   )
