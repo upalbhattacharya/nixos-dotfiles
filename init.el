@@ -172,7 +172,7 @@
                           (:name "Due Soon"
                                  :deadline future
                                  :order 4)
-                          (:discard anything)
+                          (:discard :anything)
                           ))
                        )))
          ) ; Super zen view
