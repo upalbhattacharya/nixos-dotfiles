@@ -119,7 +119,7 @@
 	(when (equal column-title "FILE")
 	  (file-name-base value)))
 	(add-to-list 'org-columns-summary-types '("filenamebase" . file-base-name))
-  (setq org-agenda-overriding-columns-format "%15CATEGORY %15TODO(STATUS) %PRIORITY(PR.) %DEADLINE %SCHEDULED %120ITEM")
+  (setq org-agenda-overriding-columns-format "%15CATEGORY %15TODO(STATUS) %PRIORITY(PR.) %DEADLINE %SCHEDULED %FILE{filebasename} %120ITEM")
   (setq org-agenda-with-colors t)
   (setq org-agenda-format-date (lambda (date) (concat "\n"
 													(org-agenda-format-date-aligned date)
