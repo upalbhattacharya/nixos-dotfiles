@@ -187,6 +187,11 @@
                           (:name "Forgotten"
                                  :date nil
                                  :order 1)
+						  )
+						)
+					   )
+				   )
+		  )
         )))))
   :config
   (org-super-agenda-mode t))
