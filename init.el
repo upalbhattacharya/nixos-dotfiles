@@ -168,7 +168,7 @@
 								   :order 2)
 							(:name "Scheduled"
 								 :todo "DONE"
-								   :order 2)
+								   :order 3)
 
 							(:discard (:anything t))
 
