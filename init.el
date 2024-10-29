@@ -188,11 +188,6 @@
 						  (:name "Next to do"
                                  :todo "NEXT"
                                  :order 2)
-						  (:name "Done"
-								 :todo "DONE"
-								 ;; :log closed
-								 ;; :log state
-								 :order 3)
                           (:discard (:anything t))
 						  )
 						)))
