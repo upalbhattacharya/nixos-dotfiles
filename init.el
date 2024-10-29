@@ -20,6 +20,8 @@
  '(gac-automatically-push-p t)
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
+ '(org-agenda-files
+   '("~/org/journal/202410.org" "~/org/nodes/CFLW Data.org" "~/org/nodes/Dutch Vocabulary.org" "~/org/nodes/EKAW 2024.org" "~/org/nodes/ESWC 2025.org" "~/org/nodes/Emacs.org" "~/org/nodes/NLDR Ranking.org" "~/org/nodes/PhD Meetings.org" "~/org/nodes/Recurring.org" "~/org/nodes/Routledge Dutch Intensive Course.org" "~/org/nodes/Systematic Literature Review.org" "~/org/nodes/Term Typing Ontology Enrichment Experiment 1.org" "~/org/nodes/Who Am I.org" "~/org/worklogs/log_2024-10-08.org" "~/org/worklogs/log_2024-10-09.org" "~/org/worklogs/log_2024-10-10.org" "~/org/worklogs/log_2024-10-11.org" "~/org/log_2024-10.org"))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
@@ -114,7 +116,7 @@
 				(agenda . " %?-12c  %?-12t%?-b ")
 				(todo . " %?-12t %s")))
   (setq org-agenda-view-columns-initially t)
-  (setq org-agenda-overriding-columns-format "%15CATEGORY %15TODO(STATUS) %PRIORITY(PR.) %DEADLINE %SCHEDULED %FILE{50} %120ITEM")
+  (setq org-agenda-overriding-columns-format "%15CATEGORY %15TODO(STATUS) %PRIORITY(PR.) %DEADLINE %SCHEDULED %50FILE %120ITEM")
 	(defun summarize-file-name-base (column-title value)
 	"Modifies the value to display in column view."
 	(when (equal column-title "FILE")
@@ -162,7 +164,7 @@
 		'(
           ("z" "Super zen view" (
                       (agenda "" (
-								  (org-agenda-span 'day)
+								  ;; (org-agenda-span 'day)
 								  (org-super-agenda-groups
 								   '((:name "Due"
 											:and (
