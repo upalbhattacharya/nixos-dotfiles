@@ -188,7 +188,7 @@
 
 							))))
 					   (alltodo "" (
-									(org-agenda-overriding-header "")
+									(org-agenda-overriding-header "Planned")
 									(org-super-agenda-groups
                         '((:name "Today"
 								 :todo ("TODAY")
@@ -200,7 +200,7 @@
 						  )
 						)))
 					   (alltodo "" (
-									(org-agenda-overriding-header "")
+									(org-agenda-overriding-header "Past and Future")
 									(org-super-agenda-groups
                           '((:name "Overdue"
                                  :deadline past
