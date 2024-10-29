@@ -171,6 +171,7 @@
 						  (:name "Next to do"
                                  :todo "NEXT"
                                  :order 1)
+                          (:discard (:anything t))
 						  )
 						)))
 					   (alltodo "" (
