@@ -122,10 +122,11 @@
                                                     (make-string (string-width (org-agenda-format-date-aligned date)) 9472)
 													)))
   (setq org-log-done t)
+  (setq org-agenda-start-with-log-mode 'only)
 	  
   ;; org-todo
   (setq org-todo-keywords
-		'((sequence "TODO(t)" "NEXT(n)" "TODAY(T)" "IN PROGRESS(p)" "|" "DONE(d)" "ARCHIVED(a)")
+
 		  (sequence "LATER(l)" "|")
 		  ))
   (setq org-todo-keyword-faces
