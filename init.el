@@ -153,17 +153,17 @@
   (setq org-agenda-custom-commands
 		'(
         ("z" "Super zen view" (
-                               (agenda "" (
-					  (org-agenda-span 'day)
-                      (org-super-agenda-groups
-                       '((:name "Today"
-								:todo "TODAY")
-                         (:name "Due Today"
-                                 :deadline today)
-                         (:name "Scheduled Today"
-                                 :scheduled today)
-						 (:discard (:anything t))
-						 ))))
+                      ;;          (agenda "" (
+					  ;; (org-agenda-span 'day)
+                      ;; (org-super-agenda-groups
+                      ;;  '((:name "Today"
+					  ;; 			:todo "TODAY")
+                      ;;    (:name "Due Today"
+                      ;;            :deadline today)
+                      ;;    (:name "Scheduled Today"
+                      ;;            :scheduled today)
+					  ;; 	 (:discard (:anything t))
+					  ;; 	 ))))
 							   (alltodo "" (
 					  (org-agenda-span 'day)
 					   (org-agenda-overriding-header "")
