@@ -168,15 +168,17 @@
 								  (org-super-agenda-groups
 								   '((:name "Due"
 											:and (
-													:not(:log closed)
-														:deadline 
+												  :not(:log closed)
+												  :and(:date today
+														:deadline)
 														)
 											:order 1
 											)
 									 (:name "Scheduled"
 											:and (
-													  :not(:log closed)
-													  :scheduled 
+												  :not(:log closed)
+												  :and(:date today
+														:scheduled)
 													  )
 											:order 2
 											)
