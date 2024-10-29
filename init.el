@@ -153,7 +153,7 @@
   (setq org-agenda-custom-commands
 		'(
         ("z" "Super zen view" (
-                                (alltodo "" ((org-agenda-span 'day)
+                                (agenda "" ((org-agenda-span 'day)
                       (org-super-agenda-groups
                        '((:name "Today"
                                 :todo "TODAY")
