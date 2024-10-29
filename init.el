@@ -157,9 +157,9 @@
 								  (org-agenda-span 'day)
 					   (org-agenda-overriding-header "Hard Dates")
                       (org-super-agenda-groups
-                       '((:name "Due Today"
+                       '((:name "Due"
                                  :deadline today)
-                         (:name "Scheduled Today"
+                         (:name "Scheduled"
                                  :scheduled today)
 						 (:discard (:anything t))
 						 ))))
