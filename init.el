@@ -161,10 +161,10 @@
                                 )
                           (:name "Due Today"
                                  :deadline today
-                                 :order 1)
+                                 :order 2)
                           (:name "Scheduled Today"
                                  :scheduled today
-                                 :order 2)
+                                 :order 3)
 						 (:discard (:anything t))
 						 ))))
           (alltodo "" ((org-agenda-overriding-header "")
@@ -172,20 +172,20 @@
                         '(
 						  (:name "Next to do"
                                  :todo "NEXT"
-                                 :order 3)
+                                 :order 1)
                           (:name "Overdue"
                                  :deadline past
-                                 :order 4)
+                                 :order 2)
                           (:name "Due Soon"
                                  :deadline future
-                                 :order 5)
+                                 :order 3)
                           (:name "Upcoming"
                                  :scheduled future
-                                 :order 6)
+                                 :order 4)
                           (:name "Check"
                                  :date nil
 								 :scheduled nil
-                                 :order 7)
+                                 :order 5)
                           (:discard (:anything t))
                           ))
                        )))
