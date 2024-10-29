@@ -164,10 +164,9 @@
 							(:discard (:anything t))
 							))))
 					   (alltodo "" (
-					   (org-agenda-overriding-header "")
-                       (org-super-agenda-groups
-                        '(
-						  (:name "Today"
+									(org-agenda-overriding-header "")
+									(org-super-agenda-groups
+                        '((:name "Today"
 								:todo "TODAY")
 						  (:name "Next to do"
                                  :todo "NEXT"
