@@ -230,6 +230,7 @@ services.kanata = {
 (defsrc)
 (deflayermap (base-layer)
  caps bspc
+ bspc esc
 )
   '';
     };
