@@ -169,7 +169,6 @@
 								   '((:name "Due"
 											:and (
 												  :not(:log closed)
-													    :date 
 														:deadline t
 														)
 											:order 1
