@@ -178,6 +178,7 @@
                                  :order 2)
 						  (:name "Done"
 								 :log closed
+								 :log state
 								   :order 3)
                           (:discard (:anything t))
 						  )
