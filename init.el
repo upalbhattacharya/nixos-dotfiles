@@ -155,14 +155,14 @@
         ("z" "Super zen view" (
                       (agenda "" (
 								  (org-agenda-span 'day)
-					   (org-agenda-overriding-header "Hard Dates")
-                      (org-super-agenda-groups
-                       '((:name "Due"
-                                 :deadline today)
-                         (:name "Scheduled"
-                                 :scheduled today)
-						 (:discard (:anything t))
-						 ))))
+								  (org-agenda-overriding-header "Hard Dates")
+								  (org-super-agenda-groups
+						'((:name "Due"
+									:deadline today)
+							(:name "Scheduled"
+									:scheduled today)
+							(:discard (:anything t))
+							))))
 					   (alltodo "" (
 					   (org-agenda-overriding-header "")
                        (org-super-agenda-groups
