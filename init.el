@@ -169,14 +169,14 @@
 								   '((:name "Due"
 											:and (
 												  :not(:log closed)
-														:deadline
+														:deadline t
 														)
 											:order 1
 											)
 									 (:name "Scheduled"
 											:and (
 												  :not(:log closed)
-														:scheduled
+														:scheduled t
 													  )
 											:order 2
 											)
