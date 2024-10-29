@@ -172,13 +172,13 @@
 									(org-agenda-overriding-header "Planned (by status)")
 									(org-super-agenda-groups
                         '((:name "Today"
-								 :todo "TODAY"
+								 :todo ("TODAY")
 								 :order 1)
 						  (:name "Next to do"
                                  :todo "NEXT"
                                  :order 2)
 							(:name "Done"
-								   :regexp "State \"DONE\""
+								   :todo ("DONE")
 								   :order 3)
                           (:discard (:anything t))
 						  )
