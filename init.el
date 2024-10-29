@@ -111,7 +111,6 @@
   (setq org-agenda-skip-scheduled-if-done t)
   (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
   (setq org-agenda-skip-timeline-if-deadline-is-shown t)
-  (setq org-agenda-get-deadlines '((today? t)))
   (setq org-agenda-hide-tags-regexp ".*")
   (setq org-agenda-prefix-format '(
 				(agenda . " %?-12c  %?-12t%?-b ")
