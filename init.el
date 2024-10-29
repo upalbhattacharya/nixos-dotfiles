@@ -176,8 +176,8 @@
 						  (:name "Next to do"
                                  :todo "NEXT"
                                  :order 2)
-							(:name "Done"
-								 :todo "DONE"
+						  (:name "Done"
+								 :log closed
 								   :order 3)
                           (:discard (:anything t))
 						  )
