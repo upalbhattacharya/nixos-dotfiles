@@ -164,7 +164,7 @@
 		'(
           ("z" "Super zen view" (
                       (agenda "" (
-								  (org-agenda-span 'day)
+								  (org-agenda-span 7)
 								  (org-super-agenda-groups
 								   '((:name "Due"
 											:and (
