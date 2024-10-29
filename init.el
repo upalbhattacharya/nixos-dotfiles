@@ -156,7 +156,6 @@
                                 (agenda "" ((org-agenda-span 'day)
                       (org-super-agenda-groups
                        '((:name "Today"
-                                :date today
                                 :todo "TODAY"
                                 :order 1
                                 )
