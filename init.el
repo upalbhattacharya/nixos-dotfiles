@@ -170,7 +170,7 @@
 
 							))))
 					   (alltodo "" (
-									(org-agenda-overriding-header "Planned (by status)")
+									(org-agenda-overriding-header "By status)")
 									(org-super-agenda-groups
                         '((:name "Today"
 								 :todo ("TODAY")
