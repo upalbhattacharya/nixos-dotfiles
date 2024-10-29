@@ -226,7 +226,7 @@ in {
 services.kanata = {
     enable = true;
     keyboards = {
-      "logi".config = ''
+      "comfort".config = ''
 (defsrc)
 (deflayermap (base-layer)
  caps bspc
