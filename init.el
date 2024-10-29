@@ -186,8 +186,9 @@
                                  :order 4)
                           (:name "Check"
 								 :discard (:todo "TODAY")
+								 :and (
                                  :date nil
-								 :scheduled nil
+								 :scheduled nil)
                                  :order 5)
                           (:discard (:anything t))
                           ))
