@@ -162,9 +162,9 @@
 								 :deadline today
 								 :order 1)
 						  (:name "Scheduled"
-								 :discard (:regexp ("Status \"DONE\""))
+								 :discard (:todo "DONE")
 								 :scheduled today
-								   :order 2)
+								 :order 2)
 							(:discard (:anything t))
 
 							))))
