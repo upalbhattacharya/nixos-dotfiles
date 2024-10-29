@@ -162,6 +162,7 @@
 								 :deadline today
 								 :order 1)
 						  (:name "Scheduled"
+								 :not (:todo "DONE")
 								 :scheduled today
 								   :order 2)
 							(:discard (:anything t))
