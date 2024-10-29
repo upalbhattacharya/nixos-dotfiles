@@ -156,7 +156,7 @@
                                 (agenda "" ((org-agenda-span 'day)
                       (org-super-agenda-groups
                        '((:name "Today"
-								:and (:todo "TODAY" :scheduled nil :deadline nil))
+								:todo "TODAY"
                          (:name "Due Today"
                                  :deadline today)
                          (:name "Scheduled Today"
