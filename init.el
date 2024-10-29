@@ -166,10 +166,9 @@
 								 :scheduled today
 								 :not (:todo "DONE")
 								   :order 2)
-							(:name "Scheduled"
+							(:name "Done"
 								 :todo "DONE"
 								   :order 3)
-
 							(:discard (:anything t))
 
 							))))
