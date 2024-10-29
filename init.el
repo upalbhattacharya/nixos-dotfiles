@@ -160,10 +160,11 @@
 								  (org-super-agenda-groups
 								   '((:name "Due"
 											:and (
-												  :not(:todo "DONE")
-													  :deadline today
-													  )
-								 :order 1)
+													:not(:todo "DONE")
+														:deadline today
+														)
+											:order 1
+											)
 									 (:name "Scheduled"
 
 								 :scheduled today
