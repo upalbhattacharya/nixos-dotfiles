@@ -203,11 +203,13 @@
                           '((:name "Overdue"
                                  :deadline past
                                  :order 1)
-                          (:name "Due Soon"
-                                 :deadline future
+							(:name "Due Soon"
+								   :and (:not (:todo "TODAY")
+											  :deadline future)
                                  :order 2)
-                          (:name "Upcoming"
-                                 :scheduled future
+							(:name "Upcoming"
+								   :and (:not (:todo "TODAY")
+											  :scheduled future)
                                  :order 3)
                           (:name "Later"
                                  :todo "LATER"
