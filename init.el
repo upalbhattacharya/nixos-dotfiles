@@ -165,7 +165,7 @@
 							(:discard (:anything t))
 							))))
 					   (alltodo "" (
-									(org-agenda-overriding-header "Planned")
+									(org-agenda-overriding-header "Planned (by status)")
 									(org-super-agenda-groups
                         '((:name "Today"
 								 :todo "TODAY"
