@@ -164,7 +164,9 @@
                                  :scheduled today)
 						 (:discard (:anything t))
 						 ))))
-          (alltodo "" ((org-agenda-overriding-header "")
+							   (alltodo "" (
+					  (org-agenda-span 'day)
+					   (org-agenda-overriding-header "")
                        (org-super-agenda-groups
                         '(
 						  (:name "Next to do"
