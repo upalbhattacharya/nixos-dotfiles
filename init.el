@@ -195,7 +195,7 @@
                           ))
 						  ))
          ) ; Super zen view
-       ))
+       )))
   :config
   (org-super-agenda-mode t))
 
