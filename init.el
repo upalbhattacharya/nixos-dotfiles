@@ -183,6 +183,7 @@
                                  :scheduled future
                                  :order 4)
                           (:name "Check"
+								 :not (:todo "TODAY")
                                  :date nil
 								 :scheduled nil
                                  :order 5)
