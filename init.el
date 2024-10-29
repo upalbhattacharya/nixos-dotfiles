@@ -87,7 +87,7 @@
   :hook (org-capture-mode . org-id-get-create)
   :config
   (define-key minibuffer-local-completion-map (kbd "?") nil)
-  (setq org-deadline-warning-days 0)
+  (setq org-deadline-warning-days 7)
   (setq org-cycle-separator-lines 1)
   (setq org-adapt-indentation nil)
   (setq org-hide-emphasis-markers t)
@@ -164,7 +164,7 @@
 		'(
           ("z" "Super zen view" (
                       (agenda "" (
-								  (org-agenda-span 7)
+								  (org-agenda-span 'day)
 								  (org-super-agenda-groups
 								   '((:name "Due"
 											:and (
