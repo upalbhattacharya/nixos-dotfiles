@@ -179,7 +179,6 @@
                                  :scheduled future
                                  :order 4)
                           (:name "Check"
-								 :discard (:todo "TODAY")
 								 :and (
 									   :date nil
 									   :deadline nil
