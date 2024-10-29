@@ -195,12 +195,15 @@
                           (:name "Upcoming"
                                  :scheduled future
                                  :order 3)
+                          (:name "Upcoming"
+                                 :todo "LATER"
+                                 :order 4)
                           (:name "Check"
 								 :and (
 									   :date nil
 									   :deadline nil
 									   :scheduled nil)
-                                 :order 4)
+                                 :order 5)
                           (:discard (:anything t))
                           ))
 						  ))
