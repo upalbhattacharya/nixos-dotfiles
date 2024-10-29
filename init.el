@@ -119,7 +119,8 @@
 	"Modifies the value to display in column view."
 	(when (equal column-title "FILE")
 	  (file-name-base value)))
-	(add-to-list 'org-columns-summary-types '("filenamebase" . summarize-file-name-base))
+	(setq org-columns-modify-value-for-display-function
+		#'summarize-file-name-base)
   (setq org-agenda-with-colors t)
   (setq org-agenda-format-date (lambda (date) (concat "\n"
 													(org-agenda-format-date-aligned date)
