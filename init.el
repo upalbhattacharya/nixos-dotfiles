@@ -159,10 +159,12 @@
                                 :todo "TODAY"
                                 :order 1
                                 )
-                          (:name "Due Today"
+                         (:name "Due Today"
+								 :discard (:todo "TODAY")
                                  :deadline today
                                  :order 2)
-                          (:name "Scheduled Today"
+                         (:name "Scheduled Today"
+								 :discard (:todo "TODAY")
                                  :scheduled today
                                  :order 3)
 						 (:discard (:anything t))
