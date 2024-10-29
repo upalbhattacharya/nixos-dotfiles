@@ -162,7 +162,11 @@
 							(:name "Scheduled"
 								   :scheduled today
 								   :order 2)
+							(:name "Scheduled"
+								   :scheduled today
+								   :order 2)
 							(:discard (:anything t))
+
 							))))
 					   (alltodo "" (
 									(org-agenda-overriding-header "Planned (by status)")
@@ -173,6 +177,9 @@
 						  (:name "Next to do"
                                  :todo "NEXT"
                                  :order 2)
+							(:name "Done"
+								   :todo "DONE"
+								   :order 3)
                           (:discard (:anything t))
 						  )
 						)))
