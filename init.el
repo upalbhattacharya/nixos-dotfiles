@@ -159,11 +159,9 @@
 								  (org-agenda-span 'day)
 								  (org-super-agenda-groups
 								   '((:name "Due"
-											:log nil
 								 :deadline today
 								 :order 1)
 						  (:name "Scheduled"
-								 :log nil
 								 :scheduled today
 								 :order 2)
 							(:discard (:anything t))
