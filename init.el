@@ -87,7 +87,7 @@
   :hook (org-capture-mode . org-id-get-create)
   :config
   (define-key minibuffer-local-completion-map (kbd "?") nil)
-  (setq org-deadline-warning-days -7)
+  (setq org-deadline-warning-days 7)
   (setq org-cycle-separator-lines 1)
   (setq org-adapt-indentation nil)
   (setq org-hide-emphasis-markers t)
@@ -169,6 +169,7 @@
 								   '((:name "Due"
 											:and (
 												  :not(:log closed)
+													    :date 
 														:deadline t
 														)
 											:order 1
