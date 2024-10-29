@@ -165,6 +165,7 @@
           ("z" "Super zen view" (
                       (agenda "" (
 								  (org-agenda-span 'day)
+								  (org-deadline-warning-days 7)
 								  (org-super-agenda-groups
 								   '((:name "Due"
 											:and (
