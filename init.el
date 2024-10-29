@@ -158,11 +158,12 @@
                       (agenda "" (
 								  (org-agenda-span 'day)
 								  (org-super-agenda-groups
-						'((:name "Due"
+								   '((:name "Due"
+											:log nil
 								 :deadline today
 								 :order 1)
 						  (:name "Scheduled"
-								 :discard (:todo "DONE")
+								 :log nil
 								 :scheduled today
 								 :order 2)
 							(:discard (:anything t))
