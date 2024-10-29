@@ -124,10 +124,11 @@
 	  
   ;; org-todo
   (setq org-todo-keywords
-	'((sequence "TODO" "NEXT" "IN PROGRESS" "|" "DONE" "ARCHIVED")))
+	'((sequence "TODO" "NEXT" "TODAY" "IN PROGRESS" "|" "DONE" "ARCHIVED")))
   (setq org-todo-keyword-faces
 	'(("TODO" . (:foreground "#f9e2af" :weight bold))
-	    ("NEXT" . (:foreground "#cba6f7" :weight bold))
+	  ("NEXT" . (:foreground "#cba6f7" :weight bold))
+	  ("TODAY" . (:foreground "#f2cdcd" :weight bold))
 	    ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold))
 	    ("DONE" . (:foreground "#a6e3a1" :weight bold))
 	    ("ARCHIVED" . (:foreground "#9399b2"))
@@ -153,7 +154,7 @@
                       (org-super-agenda-groups
                        '((:name "Today"
                                 :date today
-                                :todo t
+                                :todo "TODAY"
 								:scheduled today
                                 :order 1
                                 )
