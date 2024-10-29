@@ -195,7 +195,7 @@
                           (:name "Upcoming"
                                  :scheduled future
                                  :order 3)
-                          (:name "Upcoming"
+                          (:name "Later"
                                  :todo "LATER"
                                  :order 4)
                           (:name "Check"
