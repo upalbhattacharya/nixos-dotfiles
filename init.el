@@ -164,7 +164,7 @@
                       ;;            :scheduled today)
 					  ;; 	 (:discard (:anything t))
 					  ;; 	 ))))
-							   (alltodo "" (
+							   (todo "" (
 					  (org-agenda-span 'day)
 					   (org-agenda-overriding-header "")
                        (org-super-agenda-groups
