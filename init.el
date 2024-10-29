@@ -154,7 +154,7 @@
 		'(
         ("z" "Super zen view" (
                                (agenda "" (
-										   ;; (org-agenda-span 'day)
+					  (org-agenda-span 'day)
                       (org-super-agenda-groups
                        '((:name "Today"
 								:todo "TODAY")
