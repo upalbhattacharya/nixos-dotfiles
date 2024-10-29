@@ -178,7 +178,7 @@
                                  :todo "NEXT"
                                  :order 2)
 							(:name "Done"
-								   :todo "DONE"
+								   :regexp "State \"DONE\""
 								   :order 3)
                           (:discard (:anything t))
 						  )
