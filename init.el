@@ -155,7 +155,6 @@
                        '((:name "Today"
                                 :date today
                                 :todo "TODAY"
-								:scheduled today
                                 :order 1
                                 )
 						 (:discard (:anything t))
@@ -166,22 +165,25 @@
                           (:name "Due Today"
                                  :deadline today
                                  :order 1)
+                          (:name "Scheduled Today"
+                                 :scheduled today
+                                 :order 2)
 						  (:name "Next to do"
                                  :todo "NEXT"
-                                 :order 2)
+                                 :order 3)
                           (:name "Overdue"
                                  :deadline past
-                                 :order 3)
+                                 :order 4)
                           (:name "Due Soon"
                                  :deadline future
-                                 :order 4)
+                                 :order 5)
                           (:name "Upcoming"
                                  :scheduled future
-                                 :order 5)
+                                 :order 6)
                           (:name "Check"
                                  :date nil
 								 :scheduled nil
-                                 :order 6)
+                                 :order 7)
                           (:discard (:anything t))
                           ))
                        )))
