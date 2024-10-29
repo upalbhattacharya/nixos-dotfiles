@@ -159,9 +159,13 @@
 								  (org-agenda-span 'day)
 								  (org-super-agenda-groups
 								   '((:name "Due"
-								 :deadline today
+											:and (
+												  :not(:todo "DONE")
+													  :deadline today
+													  )
 								 :order 1)
-						  (:name "Scheduled"
+									 (:name "Scheduled"
+
 								 :scheduled today
 								 :order 2)
 							(:discard (:anything t))
