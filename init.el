@@ -159,17 +159,17 @@
                                 :todo "TODAY"
                                 :order 1
                                 )
-						 (:discard (:anything t))
-						 ))))
-          (alltodo "" ((org-agenda-overriding-header "")
-                       (org-super-agenda-groups
-                        '(
                           (:name "Due Today"
                                  :deadline today
                                  :order 1)
                           (:name "Scheduled Today"
                                  :scheduled today
                                  :order 2)
+						 (:discard (:anything t))
+						 ))))
+          (alltodo "" ((org-agenda-overriding-header "")
+                       (org-super-agenda-groups
+                        '(
 						  (:name "Next to do"
                                  :todo "NEXT"
                                  :order 3)
