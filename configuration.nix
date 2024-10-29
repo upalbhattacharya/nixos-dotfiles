@@ -125,7 +125,7 @@ in {
   users.users.workboots = {
     isNormalUser = true;
     home = "/home/workboots";
-    extraGroups = [ "wheel" "networkmanager" "power" "video" ];
+    extraGroups = [ "wheel" "networkmanager" "power" "video" "uinput" ];
     useDefaultShell = true;
   };
 
@@ -151,6 +151,7 @@ in {
     pandoc
     texliveMedium
     waydroid
+    kanata
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -221,5 +222,16 @@ in {
       true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall =
       true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
+services.kanata = {
+    enable = true;
+    keyboards = {
+      "logi".config = ''
+(defsrc)
+(deflayermap (base-layer)
+ caps bspc
+)
+  '';
+    };
   };
 }
