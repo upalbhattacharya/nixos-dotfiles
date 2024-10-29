@@ -164,13 +164,16 @@
 							(:discard (:anything t))
 							))))
 					   (alltodo "" (
-									(org-agenda-overriding-header "")
+									(org-agenda-overriding-header "Planned")
 									(org-super-agenda-groups
                         '((:name "Today"
 								:todo "TODAY")
 						  (:name "Next to do"
                                  :todo "NEXT"
-                                 :order 1)
+                                 :order 1)))))
+					   (alltodo "" (
+									(org-agenda-overriding-header "Other deadlines")
+									(org-super-agenda-groups
                           (:name "Overdue"
                                  :deadline past
                                  :order 2)
