@@ -152,18 +152,7 @@
   :init
   (setq org-agenda-custom-commands
 		'(
-        ("z" "Super zen view" (
-                      (agenda "" (
-								  (org-agenda-span 'day)
-								  (org-super-agenda-groups
-						'((:name "Due"
-								 :deadline today
-								 :order 1)
-							(:name "Scheduled"
-								   :scheduled today
-								   :order 2)
-							(:discard (:anything t))
-							))))
+          ("z" "Super zen view" (
 					   (alltodo "" (
 									(org-agenda-overriding-header "Planned (by status)")
 									(org-super-agenda-groups
@@ -176,6 +165,17 @@
                           (:discard (:anything t))
 						  )
 						)))
+                      (agenda "" (
+								  (org-agenda-span 'day)
+								  (org-super-agenda-groups
+						'((:name "Due"
+								 :deadline today
+								 :order 1)
+							(:name "Scheduled"
+								   :scheduled today
+								   :order 2)
+							(:discard (:anything t))
+							))))
 					   (alltodo "" (
 									(org-agenda-overriding-header "Other deadlines")
 									(org-super-agenda-groups
