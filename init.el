@@ -124,7 +124,9 @@
 	  
   ;; org-todo
   (setq org-todo-keywords
-	'((sequence "TODO(t)" "NEXT(n)" "TODAY(T)" "IN PROGRESS(p)" "|" "DONE(d)" "ARCHIVED(a)")))
+		'((sequence "TODO(t)" "NEXT(n)" "TODAY(T)" "IN PROGRESS(p)" "|" "DONE(d)" "ARCHIVED(a)")
+		  (sequence "LATER(l)" "|")
+		  ))
   (setq org-todo-keyword-faces
 	'(("TODO" . (:foreground "#f9e2af" :weight bold))
 	  ("NEXT" . (:foreground "#cba6f7" :weight bold))
