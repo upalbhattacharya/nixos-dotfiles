@@ -168,7 +168,7 @@
 									 (:name "Scheduled"
 											:and (
 												  :not(:todo "DONE")
-													  (:scheduled today)
+													  :scheduled today
 													  )
 											:order 2
 											)
