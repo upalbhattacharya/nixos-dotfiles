@@ -170,11 +170,13 @@
 								:todo "TODAY")
 						  (:name "Next to do"
                                  :todo "NEXT"
-                                 :order 1)))))
+                                 :order 1)
+						  )
+						)))
 					   (alltodo "" (
 									(org-agenda-overriding-header "Other deadlines")
 									(org-super-agenda-groups
-                          (:name "Overdue"
+                          '((:name "Overdue"
                                  :deadline past
                                  :order 2)
                           (:name "Due Soon"
@@ -190,8 +192,8 @@
 									   :scheduled nil)
                                  :order 5)
                           (:discard (:anything t))
-                          )))
-                       )
+                          ))
+						  ))
          ) ; Super zen view
        ))
   :config
