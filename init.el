@@ -121,6 +121,7 @@
                                                     "\n"
                                                     (make-string (string-width (org-agenda-format-date-aligned date)) 9472)
 													)))
+  (setq org-log-done t)
 	  
   ;; org-todo
   (setq org-todo-keywords
