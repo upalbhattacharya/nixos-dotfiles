@@ -158,19 +158,22 @@
 								  (org-agenda-overriding-header "Hard Dates")
 								  (org-super-agenda-groups
 						'((:name "Due"
-									:deadline today)
+								 :deadline today
+								 :order 1)
 							(:name "Scheduled"
-									:scheduled today)
+								   :scheduled today
+								   :order 2)
 							(:discard (:anything t))
 							))))
 					   (alltodo "" (
 									(org-agenda-overriding-header "Planned")
 									(org-super-agenda-groups
                         '((:name "Today"
-								:todo "TODAY")
+								 :todo "TODAY"
+								 :order 1)
 						  (:name "Next to do"
                                  :todo "NEXT"
-                                 :order 1)
+                                 :order 2)
                           (:discard (:anything t))
 						  )
 						)))
@@ -179,19 +182,19 @@
 									(org-super-agenda-groups
                           '((:name "Overdue"
                                  :deadline past
-                                 :order 2)
+                                 :order 1)
                           (:name "Due Soon"
                                  :deadline future
-                                 :order 3)
+                                 :order 2)
                           (:name "Upcoming"
                                  :scheduled future
-                                 :order 4)
+                                 :order 3)
                           (:name "Check"
 								 :and (
 									   :date nil
 									   :deadline nil
 									   :scheduled nil)
-                                 :order 5)
+                                 :order 4)
                           (:discard (:anything t))
                           ))
 						  ))
