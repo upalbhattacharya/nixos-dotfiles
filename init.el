@@ -18,8 +18,8 @@
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
- '(org-agenda-block-separator "......................................................................................................................................................................................................................")
- '(org-agenda-breadcrumbs-separator " -> ")
+ '(org-agenda-block-separator (make-string 213 ?.))
+   '(org-agenda-breadcrumbs-separator " -> ")
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
