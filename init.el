@@ -156,18 +156,18 @@
                       (agenda "" (
 					  (org-agenda-span 'day)
                       (org-super-agenda-groups
-                       '((:name "Today"
-								:todo "TODAY")
-                         (:name "Due Today"
+                       '((:name "Due Today"
                                  :deadline today)
                          (:name "Scheduled Today"
                                  :scheduled today)
 						 (:discard (:anything t))
 						 ))))
-							   (alltodo "" (
+					   (alltodo "" (
 					   (org-agenda-overriding-header "")
                        (org-super-agenda-groups
                         '(
+						  (:name "Today"
+								:todo "TODAY")
 						  (:name "Next to do"
                                  :todo "NEXT"
                                  :order 1)
