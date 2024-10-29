@@ -204,7 +204,7 @@
 									(org-super-agenda-groups
                           '((:name "Overdue"
                                  :deadline past
-                                 :order 1
+                                 :order 1)
 							(:name "Due Soon"
 								   :and (:not (:todo "TODAY")
 											  :deadline future)
