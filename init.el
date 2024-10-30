@@ -629,3 +629,9 @@ exist after each headings's drawers."
 
 ;; projectile
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+
+;; tab deletion
+
+(global-set-key (kbd "DEL") 'backward-delete-char)
+(setq c-backspace-function 'backward-delete-char)
