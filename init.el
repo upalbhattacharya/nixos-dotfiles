@@ -18,8 +18,10 @@
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
- '(org-agenda-block-separator (make-string 214 ?.))
-   '(org-agenda-breadcrumbs-separator " -> ")
+ '(org-agenda-block-separator 46)
+ '(org-agenda-breadcrumbs-separator " -> ")
+ '(org-agenda-files
+   '("~/org/journal/202410.org" "~/org/nodes/CFLW Data.org" "~/org/nodes/Dutch Vocabulary.org" "~/org/nodes/EKAW 2024.org" "~/org/nodes/ESWC 2025.org" "~/org/nodes/Emacs.org" "~/org/nodes/NLDR Ranking.org" "~/org/nodes/PhD Meetings.org" "~/org/nodes/Recurring.org" "~/org/nodes/Routledge Dutch Intensive Course.org" "~/org/nodes/Systematic Literature Review.org" "~/org/nodes/Term Typing Ontology Enrichment Experiment 1.org" "~/org/nodes/Who Am I.org" "~/org/worklogs/log_2024-10-08.org" "~/org/worklogs/log_2024-10-09.org" "~/org/worklogs/log_2024-10-10.org" "~/org/worklogs/log_2024-10-11.org" "~/org/log_2024-10.org"))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
 				 ("begin" "$1" "$" "$$" "\\(" "\\[")))
@@ -85,7 +87,7 @@
   :hook (org-capture-mode . org-id-get-create)
   :config
   (define-key minibuffer-local-completion-map (kbd "?") nil)
-  (setq org-deadline-warning-days 0)
+  (setq org-deadline-warning-days 14)
   (setq org-cycle-separator-lines 1)
   (setq org-adapt-indentation nil)
   (setq org-hide-emphasis-markers t)
@@ -102,7 +104,7 @@
 	(defun org-agenda-files (&rest _)
 		(directory-files-recursively "~/org/" "\\.org$")))
   ;; (setq org-agenda-files '("~/org"))
-  (setq org-agenda-start-day nil)
+  (setq org-agenda-start-day "+0d")
   (setq org-agenda-window-setup 'other-tab)
   (setq org-agenda-skip-timestamp-if-done t)
   (setq org-agenda-skip-deadline-if-done t)
@@ -114,13 +116,21 @@
 				(agenda . " %?-12c  %?-12t%?-b ")
 				(todo . " %?-12t %s")))
   (setq org-agenda-view-columns-initially t)
-  (setq org-agenda-overriding-columns-format "%15CATEGORY %15TODO(STATUS) %PRIORITY(PR.) %DEADLINE %SCHEDULED %120ITEM")
+  (setq org-agenda-overriding-columns-format "%15CATEGORY %15TODO(STATUS) %PRIORITY(PR.) %DEADLINE %SCHEDULED %50FILE %120ITEM")
+	(defun summarize-file-name-base (column-title value)
+	"Modifies the value to display in column view."
+	(when (equal column-title "FILE")
+	  (file-name-base value)))
+	(setq org-columns-modify-value-for-display-function
+		#'summarize-file-name-base)
   (setq org-agenda-with-colors t)
   (setq org-agenda-format-date (lambda (date) (concat "\n"
 													(org-agenda-format-date-aligned date)
                                                     "\n"
                                                     (make-string (string-width (org-agenda-format-date-aligned date)) 9472)
 													)))
+  (setq org-log-done t)
+  (setq org-agenda-start-with-log-mode t)
 	  
   ;; org-todo
   (setq org-todo-keywords
@@ -156,19 +166,32 @@
                       (agenda "" (
 								  (org-agenda-span 'day)
 								  (org-super-agenda-groups
-						'((:name "Due"
-								 :deadline today
-								 :order 1)
-							(:name "Scheduled"
-								   :scheduled today
-								   :order 2)
+								   '((:name "Due"
+											:and (
+												  :not(:log closed)
+														:deadline today
+														)
+											:order 1
+											)
+									 (:name "Scheduled"
+											:and (
+												  :not(:log closed)
+														:scheduled today
+													  )
+											:order 2
+											)
+									 (:name "Done"
+											:log closed
+											:order 3
+											)
 							(:discard (:anything t))
+
 							))))
 					   (alltodo "" (
-									(org-agenda-overriding-header "Planned (by status)")
+									(org-agenda-overriding-header "Daily Planned")
 									(org-super-agenda-groups
                         '((:name "Today"
-								 :todo "TODAY"
+								 :todo ("TODAY")
 								 :order 1)
 						  (:name "Next to do"
                                  :todo "NEXT"
@@ -177,23 +200,28 @@
 						  )
 						)))
 					   (alltodo "" (
-									(org-agenda-overriding-header "Other deadlines")
+									(org-agenda-overriding-header "Past and Future")
 									(org-super-agenda-groups
                           '((:name "Overdue"
                                  :deadline past
                                  :order 1)
-                          (:name "Due Soon"
-                                 :deadline future
+							(:name "Due Soon"
+								   :and (:not (:todo "TODAY")
+											  :deadline future)
                                  :order 2)
-                          (:name "Upcoming"
-                                 :scheduled future
+							(:name "Upcoming"
+								   :and (:not (:todo "TODAY")
+											  :scheduled future)
                                  :order 3)
+                          (:name "Later"
+                                 :todo "LATER"
+                                 :order 4)
                           (:name "Check"
 								 :and (
 									   :date nil
 									   :deadline nil
 									   :scheduled nil)
-                                 :order 4)
+                                 :order 5)
                           (:discard (:anything t))
                           ))
 						  ))
