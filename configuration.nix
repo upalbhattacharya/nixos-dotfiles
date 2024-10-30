@@ -151,6 +151,7 @@ in {
     pandoc
     texliveMedium
     waydroid
+    wl-kbptr
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
