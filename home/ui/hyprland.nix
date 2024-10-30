@@ -84,6 +84,9 @@ in {
           bindl = ,switch:on:[Lid Switch],exec,hyprctl keyword monitor "eDP-1, disable"
           bindl = ,switch:off:[Lid Switch],exec,hyprctl keyword monitor "eDP-1,enable"
 
+        bind=${modifier},Backspace,exec,hyprctl keyword cursor:inactive_timeout 0; hyprctl keyword cursor:hide_on_key_press false; hyprctl dispatch submap cursor
+        bind=${modifier},plus,exec,wl-kbptr && (hyprctl keyword cursor:inactive_timeout 0; hyprctl keyword cursor:hide_on_key_press false; hyprctl dispatch submap cursor)
+
         # Cursor submap (similar to the Mouse mode in Sway)
         submap=cursor
 
@@ -91,10 +94,10 @@ in {
         bind=,a,exec,hyprctl dispatch submap reset && wl-kbptr && hyprctl dispatch submap cursor
 
         # Cursor movement
-        binde=,j,exec,wlrctl pointer move 0 10
-        binde=,k,exec,wlrctl pointer move 0 -10
-        binde=,l,exec,wlrctl pointer move 10 0
-        binde=,h,exec,wlrctl pointer move -10 0
+        binde=,f,exec,wlrctl pointer move 0 10
+        binde=,d,exec,wlrctl pointer move 0 -10
+        binde=,e,exec,wlrctl pointer move 10 0
+        binde=,r,exec,wlrctl pointer move -10 0
 
         # Left button
         bind=,s,exec,wlrctl pointer click left
