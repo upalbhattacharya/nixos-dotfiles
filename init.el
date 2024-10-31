@@ -541,7 +541,6 @@ exist after each headings's drawers."
 ;;; org-ql
 (use-package org-ql)
 
-
 ;;; org-anki
 (use-package org-anki)
 
