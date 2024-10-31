@@ -96,6 +96,7 @@
   (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
   (setq org-return-follows-link t)
   (setq org-refile-targets '((org-agenda-files)))
+  (setq org-refile-use-outline-path 'file)
 
   ;;org-cite
   (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
