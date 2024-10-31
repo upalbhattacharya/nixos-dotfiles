@@ -98,6 +98,8 @@
   (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
   (setq org-refile-use-outline-path 'file)
   (setq org-outline-path-complete-in-steps nil)
+  (setq org-enforce-todo-dependencies t)
+  (setq org-enforce-todo-checkbox-dependencies t)
 
   ;;org-cite
   (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
