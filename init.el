@@ -539,12 +539,10 @@ exist after each headings's drawers."
          (call-interactively 'unpackaged/org-fix-blank-lines)))))
 
 ;;; org-ql
-
 (use-package org-ql)
 
 
 ;;; org-anki
-
 (use-package org-anki)
 
 ;;; python-mode
