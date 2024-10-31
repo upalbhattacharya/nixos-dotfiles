@@ -557,7 +557,6 @@ exist after each headings's drawers."
 (use-package evil-nerd-commenter :config (evilnc-default-hotkeys))
 
 ;;; Keybindings
-
 (use-package aggressive-indent :config (setq global-aggressive-indent-mode 1))
 
 ;; General
