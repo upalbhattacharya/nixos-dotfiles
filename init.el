@@ -218,7 +218,8 @@
                                  :todo "LATER"
                                  :order 4)
                           (:name "Check"
-								 :and (
+				 :and (
+                                       :not (:todo ("TODAY" "NEXT"))
 									   :date nil
 									   :deadline nil
 									   :scheduled nil)
@@ -256,7 +257,7 @@
 			      "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
            :unnarrowed t)
 	("c" "capture" plain "%?"
-	 :target (file+head+olp "worklogs/log_%<%Y-%m>.org"
+	 :target (file+head+olp "worklogs/Log %<%Y %m>.org"
 							":PROPERTIES:\n:CATEGORY: WORKLOG\n:END:"
 							("%<%Y-W%W>" "%<%Y-%m-%d>" "TODO ${title}
 :PROPERTIES:
