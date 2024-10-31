@@ -270,7 +270,7 @@
 
   (setq org-roam-dailies-capture-templates
       '(("d" "default" plain "%?"
-         :target (file+olp "log_%<%Y-%m>.org"
+         :target (file+olp "Log %<%Y-%m>.org"
 						   ("%<%Y-W%W>" "%<%Y-%m-%d>"))))
 	  )
   (setq org-roam-mode-sections
