@@ -251,17 +251,17 @@
 
 ;; org-roam
 (use-package
- org-roam
- :config
- (setq org-roam-directory (file-truename "~/org/"))
- (setq org-roam-dailies-directory "~/org/worklogs/")
- (setq org-roam-completion-everywhere t)
- (setq org-roam-capture-templates
-       '(("d" "default" plain "%?"
-          :target
-          (file+head
-           "nodes/${title}.org"
-           ":PROPERTIES:
+  org-roam
+  :config
+  (setq org-roam-directory (file-truename "~/org/"))
+  (setq org-roam-dailies-directory "~/org/worklogs/")
+  (setq org-roam-completion-everywhere t)
+  (setq org-roam-capture-templates
+        '(("d" "default" plain "%?"
+           :target
+           (file+head
+            "nodes/${title}.org"
+            ":PROPERTIES:
 :CATEGORY: NODE
 :ID:
 :END:
@@ -269,35 +269,36 @@
 #+FILETAGS:
 
 * ${title}\n\n")
-          :immediate-finish t
-          :create-file yes
-          :unnarrowed t)
-         ("n" "literature note" plain "%?"
-          :target
-          (file+head
-           "academic/${citekey}.org" "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
-          :unnarrowed t)
-         ("c" "capture" plain "%?"
-          :target
-          (file+head+olp
-           "worklogs/Log %<%Y-%m>.org" ":PROPERTIES:\n:CATEGORY: WORKLOG\n:END:"
-           ("%<%Y-W%W>" "%<%Y-%m-%d>"
-            "TODO ${title}
+           :immediate-finish t
+           :create-file yes
+           :unnarrowed t)
+          ("n" "literature note" plain "%?"
+           :target
+           (file+head
+            "academic/${citekey}.org" "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
+           :unnarrowed t)
+          ("c" "capture" plain "%?"
+           :target
+           (file+head+olp
+            "worklogs/Log %<%Y-%m>.org" ":PROPERTIES:\n:CATEGORY: WORKLOG\n:END:"
+            ("%<%Y-W%W>" "%<%Y-%m-%d>"
+             "TODO ${title}
 :PROPERTIES:
 :CATEGORY: CAPTURE
 :ID:
 :END:\n\n"))
-          :unnarrowed t)))
+           :unnarrowed t)
+          ))
 
- (setq org-roam-dailies-capture-templates
-       '(("d"
-          "default"
-          plain
-          "%?"
-          :target (file+olp "Log %<%Y-%m>.org" ("%<%Y-W%W>" "%<%Y-%m-%d>")))))
- (setq org-roam-mode-sections (list #'org-roam-backlinks-section #'org-roam-reflinks-section))
- (setq org-roam-completion-everywhere t)
- (org-roam-db-autosync-mode 1))
+  (setq org-roam-dailies-capture-templates
+        '(("d"
+           "default"
+           plain
+           "%?"
+           :target (file+olp "Log %<%Y-%m>.org" ("%<%Y-W%W>" "%<%Y-%m-%d>")))))
+  (setq org-roam-mode-sections (list #'org-roam-backlinks-section #'org-roam-reflinks-section))
+  (setq org-roam-completion-everywhere t)
+  (org-roam-db-autosync-mode 1))
 
 ;;; org-superstar
 (use-package org-superstar :hook (org-mode . org-superstar-mode))
