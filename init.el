@@ -41,11 +41,6 @@
      "~/org/worklogs/log_2024-10-10.org"
      "~/org/worklogs/log_2024-10-11.org"
      "~/org/log_2024-10.org"))
- '(org-agenda-sorting-strategy
-   '((agenda habit-down time-up priority-down category-keep)
-     (todo deadline-up scheduled-up time-up category-keep)
-     (tags priority-down category-keep)
-     (search category-keep)))
  '(org-format-latex-options
    '(:foreground
      default
