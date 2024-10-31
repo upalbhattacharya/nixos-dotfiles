@@ -97,6 +97,7 @@
   (setq org-return-follows-link t)
   (setq org-refile-targets '((org-agenda-files)))
   (setq org-refile-use-outline-path 'file)
+  (setq org-outline-path-complete-in-steps nil)
 
   ;;org-cite
   (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
