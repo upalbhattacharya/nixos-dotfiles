@@ -257,7 +257,7 @@
 			      "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
            :unnarrowed t)
 	("c" "capture" plain "%?"
-	 :target (file+head+olp "worklogs/Log %<%Y %m>.org"
+	 :target (file+head+olp "worklogs/Log %<%Y-%m>.org"
 							":PROPERTIES:\n:CATEGORY: WORKLOG\n:END:"
 							("%<%Y-W%W>" "%<%Y-%m-%d>" "TODO ${title}
 :PROPERTIES:
