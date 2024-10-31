@@ -135,13 +135,14 @@
   ;; org-todo
   (setq org-todo-keywords
 		'((sequence "TODO(t)" "NEXT(n)" "TODAY(T)" "IN PROGRESS(p)" "|" "DONE(d)" "ARCHIVED(a)")
-		  (sequence "LATER(l)" "|")
+		  (sequence "LATER(l)" "FUTURE(f)" "|")
 		  ))
   (setq org-todo-keyword-faces
 	'(("TODO" . (:foreground "#f9e2af" :weight bold))
 	  ("NEXT" . (:foreground "#cba6f7" :weight bold))
 	  ("TODAY" . (:foreground "#f2cdcd" :weight bold))
 	  ("LATER" . (:foreground "#b4befe" :weight bold))
+	  ("FUTURE" . (:foreground "#b4befe" :weight bold))
 	    ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold))
 	    ("DONE" . (:foreground "#a6e3a1" :weight bold))
 	    ("ARCHIVED" . (:foreground "#9399b2"))
