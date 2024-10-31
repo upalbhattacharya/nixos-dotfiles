@@ -39,7 +39,7 @@
    '(org-id-get-create org-roam-capture--insert-captured-ref-h))
  '(org-super-agenda-date-format "%e %Y-%m-%d")
  '(package-selected-packages
-   '(evil-nerd-commenter envrc projectile which-key org-anki org-ql helm-bibtex org-roam-bibtex annotate toc-org hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-roam evil catppuccin-theme))
+   '(aggressive-indent evil-nerd-commenter envrc projectile which-key org-anki org-ql helm-bibtex org-roam-bibtex annotate toc-org hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami org-journal vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-roam evil catppuccin-theme))
  '(python-isort-extra-args nil))
 
 ;;; Theme
@@ -106,8 +106,8 @@
 
   ;; org-agenda
   (with-eval-after-load 'org
-	(defun org-agenda-files (&rest _)
-		(directory-files-recursively "~/org/" "\\.org$")))
+    (defun org-agenda-files (&rest _)
+      (directory-files-recursively "~/org/" "\\.org$")))
   ;; (setq org-agenda-files '("~/org"))
   (setq org-agenda-start-day "+0d")
   (setq org-agenda-window-setup 'other-tab)
@@ -118,40 +118,40 @@
   (setq org-agenda-skip-timeline-if-deadline-is-shown t)
   (setq org-agenda-hide-tags-regexp ".*")
   (setq org-agenda-prefix-format '(
-				(agenda . " %?-12c  %?-12t%?-b ")
-				(todo . " %?-12t %s")))
+				   (agenda . " %?-12c  %?-12t%?-b ")
+				   (todo . " %?-12t %s")))
   (setq org-agenda-view-columns-initially t)
   (setq org-agenda-overriding-columns-format "%15CATEGORY %15TODO(STATUS) %PRIORITY(PR.) %DEADLINE %SCHEDULED %50FILE %120ITEM")
-	(defun summarize-file-name-base (column-title value)
-	"Modifies the value to display in column view."
-	(when (equal column-title "FILE")
-	  (file-name-base value)))
-	(setq org-columns-modify-value-for-display-function
-		#'summarize-file-name-base)
+  (defun summarize-file-name-base (column-title value)
+    "Modifies the value to display in column view."
+    (when (equal column-title "FILE")
+      (file-name-base value)))
+  (setq org-columns-modify-value-for-display-function
+	#'summarize-file-name-base)
   (setq org-agenda-with-colors t)
   (setq org-agenda-format-date (lambda (date) (concat "\n"
-													(org-agenda-format-date-aligned date)
-                                                    "\n"
-                                                    (make-string (string-width (org-agenda-format-date-aligned date)) 9472)
-													)))
+						      (org-agenda-format-date-aligned date)
+                                                      "\n"
+                                                      (make-string (string-width (org-agenda-format-date-aligned date)) 9472)
+						      )))
   (setq org-log-done t)
   (setq org-agenda-start-with-log-mode t)
-	  
+  
   ;; org-todo
   (setq org-todo-keywords
-		'((sequence "TODO(t)" "NEXT(n)" "TODAY(T)" "IN PROGRESS(p)" "|" "DONE(d)" "ARCHIVED(a)")
-		  (sequence "LATER(l)" "FUTURE(f)" "|")
-		  ))
+	'((sequence "TODO(t)" "NEXT(n)" "TODAY(T)" "IN PROGRESS(p)" "|" "DONE(d)" "ARCHIVED(a)")
+	  (sequence "LATER(l)" "FUTURE(f)" "|")
+	  ))
   (setq org-todo-keyword-faces
 	'(("TODO" . (:foreground "#f9e2af" :weight bold))
 	  ("NEXT" . (:foreground "#cba6f7" :weight bold))
 	  ("TODAY" . (:foreground "#f2cdcd" :weight bold))
 	  ("LATER" . (:foreground "#b4befe" :weight bold))
 	  ("FUTURE" . (:foreground "#b4befe" :weight bold))
-	    ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold))
-	    ("DONE" . (:foreground "#a6e3a1" :weight bold))
-	    ("ARCHIVED" . (:foreground "#9399b2"))
-	    ))
+	  ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold))
+	  ("DONE" . (:foreground "#a6e3a1" :weight bold))
+	  ("ARCHIVED" . (:foreground "#9399b2"))
+	  ))
   ;; babel
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -167,73 +167,73 @@
   :after org
   :init
   (setq org-agenda-custom-commands
-		'(
+	'(
           ("z" "Super zen view" (
-                      (agenda "" (
-								  (org-agenda-span 'day)
-								  (org-super-agenda-groups
-								   '((:name "Due"
-											:and (
-												  :not(:log closed)
-														:deadline today
-														)
-											:order 1
-											)
-									 (:name "Scheduled"
-											:and (
-												  :not(:log closed)
-														:scheduled today
-													  )
-											:order 2
-											)
-									 (:name "Done"
-											:log closed
-											:order 3
-											)
-							(:discard (:anything t))
+                                 (agenda "" (
+					     (org-agenda-span 'day)
+					     (org-super-agenda-groups
+					      '((:name "Due"
+						       :and (
+							     :not(:log closed)
+							     :deadline today
+							     )
+						       :order 1
+						       )
+						(:name "Scheduled"
+						       :and (
+							     :not(:log closed)
+							     :scheduled today
+							     )
+						       :order 2
+						       )
+						(:name "Done"
+						       :log closed
+						       :order 3
+						       )
+						(:discard (:anything t))
 
-							))))
-					   (alltodo "" (
-									(org-agenda-overriding-header "Daily Planned")
-									(org-super-agenda-groups
-                        '((:name "Today"
-								 :todo ("TODAY")
-								 :order 1)
-						  (:name "Next to do"
-                                 :todo "NEXT"
-                                 :order 2)
-                          (:discard (:anything t))
-						  )
-						)))
-					   (alltodo "" (
-									(org-agenda-overriding-header "Past and Future")
-									(org-super-agenda-groups
-                          '((:name "Overdue"
-                                 :deadline past
-                                 :order 1)
-							(:name "Due Soon"
-								   :and (:not (:todo "TODAY")
-											  :deadline future)
-                                 :order 2)
-							(:name "Upcoming"
-								   :and (:not (:todo "TODAY")
-											  :scheduled future)
-                                 :order 3)
-                          (:name "Later"
-                                 :todo "LATER"
-                                 :order 4)
-                          (:name "Check"
-				 :and (
-                                       :not (:todo ("TODAY" "NEXT"))
-									   :date nil
-									   :deadline nil
-									   :scheduled nil)
-                                 :order 5)
-                          (:discard (:anything t))
-                          ))
-						  ))
-         ) ; Super zen view
-       )))
+						))))
+				 (alltodo "" (
+					      (org-agenda-overriding-header "Daily Planned")
+					      (org-super-agenda-groups
+                                               '((:name "Today"
+							:todo ("TODAY")
+							:order 1)
+						 (:name "Next to do"
+                                                        :todo "NEXT"
+                                                        :order 2)
+                                                 (:discard (:anything t))
+						 )
+					       )))
+				 (alltodo "" (
+					      (org-agenda-overriding-header "Past and Future")
+					      (org-super-agenda-groups
+                                               '((:name "Overdue"
+                                                        :deadline past
+                                                        :order 1)
+						 (:name "Due Soon"
+							:and (:not (:todo "TODAY")
+								   :deadline future)
+                                                        :order 2)
+						 (:name "Upcoming"
+							:and (:not (:todo "TODAY")
+								   :scheduled future)
+                                                        :order 3)
+                                                 (:name "Later"
+                                                        :todo "LATER"
+                                                        :order 4)
+                                                 (:name "Check"
+				                        :and (
+                                                              :not (:todo ("TODAY" "NEXT"))
+							      :date nil
+							      :deadline nil
+							      :scheduled nil)
+                                                        :order 5)
+                                                 (:discard (:anything t))
+                                                 ))
+					      ))
+                                 ) ; Super zen view
+           )))
   :config
   (org-super-agenda-mode t))
 
@@ -246,7 +246,7 @@
   (setq org-roam-capture-templates
 	'(("d" "default" plain "%?"
 	   :target (file+head "nodes/${title}.org"
-						  ":PROPERTIES:
+			      ":PROPERTIES:
 :CATEGORY: NODE
 :ID:
 :END:
@@ -261,27 +261,27 @@
            :target (file+head "academic/${citekey}.org"
 			      "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
            :unnarrowed t)
-	("c" "capture" plain "%?"
-	 :target (file+head+olp "worklogs/Log %<%Y-%m>.org"
-							":PROPERTIES:\n:CATEGORY: WORKLOG\n:END:"
-							("%<%Y-W%W>" "%<%Y-%m-%d>" "TODO ${title}
+	  ("c" "capture" plain "%?"
+	   :target (file+head+olp "worklogs/Log %<%Y-%m>.org"
+				  ":PROPERTIES:\n:CATEGORY: WORKLOG\n:END:"
+				  ("%<%Y-W%W>" "%<%Y-%m-%d>" "TODO ${title}
 :PROPERTIES:
 :CATEGORY: CAPTURE
 :ID:
 :END:\n\n")
-							)
+				  )
            :unnarrowed t)
 	  ))
 
   (setq org-roam-dailies-capture-templates
-      '(("d" "default" plain "%?"
-         :target (file+olp "Log %<%Y-%m>.org"
-						   ("%<%Y-W%W>" "%<%Y-%m-%d>"))))
-	  )
+        '(("d" "default" plain "%?"
+           :target (file+olp "Log %<%Y-%m>.org"
+			     ("%<%Y-W%W>" "%<%Y-%m-%d>"))))
+	)
   (setq org-roam-mode-sections
-      (list #'org-roam-backlinks-section
-            #'org-roam-reflinks-section
-            ))
+        (list #'org-roam-backlinks-section
+              #'org-roam-reflinks-section
+              ))
   (setq org-roam-completion-everywhere t)
   (org-roam-db-autosync-mode 1)
   )
@@ -331,11 +331,11 @@
   (setq org-cite-follow-processor 'helm-bibtex-org-cite-follow)
   (setq bibtex-completion-format-citation-functions
 	'((org-mode . bibtex-completion-format-citation-org-cite)
-	(latex-mode . bibtex-completion-format-citation-cite)
-	(markdown-mode . bibtex-completion-format-citation-pandoc-citeproc) 
-	(python-mode . bibtex-completion-format-citation-sphinxcontrib-bibtex) 
-	(rst-mode . bibtex-completion-format-citation-sphinxcontrib-bibtex) 
-	(default . bibtex-completion-format-citation-default)))
+	  (latex-mode . bibtex-completion-format-citation-cite)
+	  (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc) 
+	  (python-mode . bibtex-completion-format-citation-sphinxcontrib-bibtex) 
+	  (rst-mode . bibtex-completion-format-citation-sphinxcontrib-bibtex) 
+	  (default . bibtex-completion-format-citation-default)))
   )
 
 ;;; helm-bibtex
@@ -402,7 +402,7 @@
   (setq lsp-keymap-prefix "C-c l")
   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
          (python-mode . lsp)
-		 (nix-mode . lsp)
+	 (nix-mode . lsp)
          ;; if you want which-key integration
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
@@ -417,7 +417,7 @@
 (require 'reformatter)
 
 ;; python
-; isort
+                                        ; isort
 (defcustom python-isort-command "isort"
   "Name of the `isort` executable."
   :group 'nasy
@@ -449,7 +449,7 @@
 
 (add-hook 'python-mode-hook 'python-isort-on-save-mode)
 
-; black
+                                        ; black
 (defcustom python-black-command "black"
   "Name of the `black` executable."
   :group 'nasy
@@ -481,7 +481,7 @@
 
 (add-hook 'python-mode-hook 'python-black-on-save-mode)
 
-; nix-nixfmt
+                                        ; nix-nixfmt
 (defcustom nix-nixfmt-command "nixfmt"
   "Name of the `nix-nixfmt` executable."
   :group 'nasy
@@ -505,8 +505,8 @@
 ;;; annotate
 (use-package annotate
   :hook (
-		 (org-mode . annotate-mode)
-		 (org-journal-mode .annotate-mode))
+	 (org-mode . annotate-mode)
+	 (org-journal-mode .annotate-mode))
   :config
   (setq annotate-file "~/org/annotations")
   )
@@ -586,6 +586,10 @@ exist after each headings's drawers."
   (evilnc-default-hotkeys))
 
 ;;; Keybindings
+
+(use-package aggressive-indent
+  :config
+  (setq global-aggressive-indent-mode 1))
 
 ;; General
 (global-set-key (kbd "C-c r") 'eval-buffer)
