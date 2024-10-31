@@ -95,7 +95,7 @@
   (setq org-display-inline-images t)
   (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
   (setq org-return-follows-link t)
-  (setq org-refile-targets '((org-agenda-files)))
+  (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
   (setq org-refile-use-outline-path 'file)
   (setq org-outline-path-complete-in-steps nil)
 
