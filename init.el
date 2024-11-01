@@ -308,12 +308,12 @@
                  (:property
                   ("SPACE" "PERSONAL")
                   :deadline past
-                  :not (:property ("CATEGORY" "PERSONAL")))
+                  )
                  :order 1)
                 (:name
                  "Due Soon"
                  :and
-                 (:property ("SPACE" "PERSONAL") :not (:todo "TODAY") :deadline future :not (:property ("CATEGORY" "PERSONAL")))
+                 (:property ("SPACE" "PERSONAL") :not (:todo "TODAY") :deadline future) 
                  :order 2)
                 (:name "Upcoming" :and (:property ("SPACE" "PERSONAL") :not (:todo "TODAY") :scheduled future) :order 3)
                 (:name "Later" :and (:property ("SPACE" "PERSONAL") :todo "LATER") :order 4)
