@@ -380,6 +380,7 @@
 :PROPERTIES:
 :CATEGORY: CAPTURE
 :ID:
+:SPACE: WORK
 :END:\n\n"))
           :unnarrowed t)))
 
