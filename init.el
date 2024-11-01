@@ -240,7 +240,7 @@
             ((org-agenda-overriding-header "Past and Future")
              (org-super-agenda-groups
               '((:name "Overdue" :deadline past :order 1)
-                (:name "Due Soon" :and (:not (:todo "TODAY") :deadline future) :order 2)
+                (:name "Due Soon" :and (:not (:todo "TODAY") :deadline future :property ("CATEGORY" "PERSONAL")) :order 2)
                 (:name "Upcoming" :and (:not (:todo "TODAY") :scheduled future) :order 3)
                 (:name "Later" :todo "LATER" :order 4)
                 (:name
