@@ -680,7 +680,7 @@ exist after each headings's drawers."
 (global-set-key (kbd "C-c M-r") 'org-transclusion-remove-all)
 
 ;; citar-org-roam
-(global-set-key (kbd "C-x M-r") 'citar-open-notes)
+(global-set-key (kbd "C-x M-r") 'helm-bibtex)
 
 ;; org-view-mode
 (global-set-key (kbd "C-c M-e") 'org-view-mode)
