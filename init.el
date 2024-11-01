@@ -270,7 +270,7 @@
                  :order 5)
                 (:discard (:anything t))))))) ; Super zen view
           )
-         ("z" "Super zen view (Personal)"
+         ("zp" "Super zen view (Personal)"
           ((agenda
             ""
             ((org-agenda-span 'day)
