@@ -249,11 +249,12 @@
                  (:not (:todo "TODAY") :deadline future :not (:property ("CATEGORY" "PERSONAL")))
                  :order 2)
                 (:name "Upcoming" :and (:not (:todo "TODAY") :scheduled future) :order 3)
-                (:name "Later" :todo "LATER" :order 4)
+                (:name "Personal" :property ("CATEGORY" "PERSONAL") :order 4)
+                (:name "Later" :todo "LATER" :order 5)
                 (:name
                  "Check"
                  :and (:not (:todo ("TODAY" "NEXT")) :date nil :deadline nil :scheduled nil)
-                 :order 5)
+                 :order 6)
                 (:discard (:anything t))))))) ; Super zen view
           )))
  :config (org-super-agenda-mode t))
