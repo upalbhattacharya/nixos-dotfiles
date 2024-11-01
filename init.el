@@ -224,7 +224,10 @@
             ((org-agenda-span 'day)
              (org-agenda-sorting-strategy '(deadline-up scheduled-up priority-down))
              (org-super-agenda-groups
-              '((:name "Due" :and (:property ("SPACE" "WORK") :not (:log closed) :deadline today) :order 1)
+              '((:name "Due"
+                 :and
+                 (:property ("SPACE" "WORK") :not (:log closed) :deadline today)
+                 :order 1)
                 (:name "Scheduled" :and (:not (:log closed) :scheduled today) :order 2)
                 (:name "Done" :log closed :order 3)
                 (:discard (:anything t))))))
@@ -257,7 +260,7 @@
                  :order 6)
                 (:discard (:anything t))))))) ; Super zen view
           )
-       ("z" "Super zen view (Personal)"
+         ("z" "Super zen view (Personal)"
           ((agenda
             ""
             ((org-agenda-span 'day)
@@ -295,8 +298,7 @@
                  :and (:not (:todo ("TODAY" "NEXT")) :date nil :deadline nil :scheduled nil)
                  :order 6)
                 (:discard (:anything t))))))) ; Super zen view
-          )
-         ))
+          )))
  :config (org-super-agenda-mode t))
 
 ;; org-roam
