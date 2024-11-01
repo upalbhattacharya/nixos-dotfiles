@@ -251,12 +251,16 @@
              (org-super-agenda-groups
               '((:name
                  "Overdue"
-                 :and (:property ("SPACE" "WORK") :deadline past :not (:property ("CATEGORY" "PERSONAL")))
+                 :and
+                 (:property
+                  ("SPACE" "WORK")
+                  :deadline past
+                  :not (:property ("CATEGORY" "PERSONAL")))
                  :order 1)
                 (:name
                  "Due Soon"
                  :and
-                 (:not (:todo "TODAY") :deadline future :not (:property ("CATEGORY" "PERSONAL")))
+                 (:property ("SPACE" "WORK") :not (:todo "TODAY") :deadline future :not (:property ("CATEGORY" "PERSONAL")))
                  :order 2)
                 (:name "Upcoming" :and (:not (:todo "TODAY") :scheduled future) :order 3)
                 (:name "Later" :todo "LATER" :order 4)
