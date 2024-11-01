@@ -679,7 +679,7 @@ exist after each headings's drawers."
 (global-set-key (kbd "C-c M-a") 'org-transclusion-add-all)
 (global-set-key (kbd "C-c M-r") 'org-transclusion-remove-all)
 
-;; citar-org-roam
+;; helm-bibtex
 (global-set-key (kbd "C-x M-r") 'helm-bibtex)
 
 ;; org-view-mode
