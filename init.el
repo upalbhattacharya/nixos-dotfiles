@@ -224,11 +224,12 @@
             ((org-agenda-span 'day)
              (org-agenda-sorting-strategy '(deadline-up scheduled-up priority-down))
              (org-super-agenda-groups
-              '((:name "Due"
+              '((:name
+                 "Due"
                  :and
                  (:property ("SPACE" "WORK") :not (:log closed) :deadline today)
                  :order 1)
-                (:name "Scheduled" :and (:not (:log closed) :scheduled today) :order 2)
+                (:name "Scheduled" :and (:property ("SPACE" "WORK") :not (:log closed) :scheduled today) :order 2)
                 (:name "Done" :log closed :order 3)
                 (:discard (:anything t))))))
            (alltodo
