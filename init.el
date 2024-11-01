@@ -357,7 +357,7 @@
            ":PROPERTIES:
 :CATEGORY: NODE
 :ID:
-:SPACE:
+:SPACE: WORK
 :END:
 #+TITLE: ${title}
 #+FILETAGS:
