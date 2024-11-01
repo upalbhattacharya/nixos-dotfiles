@@ -218,7 +218,8 @@
  :after org
  :init
  (setq org-agenda-custom-commands
-       '(("zw" "Super zen view (Work)"
+       '(
+         ("zw" "Super zen view (Work)"
           ((agenda
             ""
             ((org-agenda-span 'day)
@@ -276,16 +277,26 @@
             ((org-agenda-span 'day)
              (org-agenda-sorting-strategy '(deadline-up scheduled-up priority-down))
              (org-super-agenda-groups
-              '((:name "Due" :and (:not (:log closed) :deadline today) :order 1)
-                (:name "Scheduled" :and (:not (:log closed) :scheduled today) :order 2)
-                (:name "Done" :log closed :order 3)
-                (:discard (:anything t))))))
+              '((:name
+                 "Due"
+                 :and
+                 (:property ("SPACE" "PERSONAL") :not (:log closed) :deadline today)
+                 :order 1)
+                (:name
+                 "Scheduled"
+                 :and
+                 (:property ("SPACE" "PERSONAL") :not (:log closed) :scheduled today)
+                 :order 2)
+                (:name "Done" :log closed :order 3) (:discard (:anything t))))))
            (alltodo
             ""
             ((org-agenda-overriding-header "Daily Planned")
              (org-super-agenda-groups
-              '((:name "Today" :todo ("TODAY") :order 1)
-                (:name "Next to do" :todo "NEXT" :order 2)
+              '((:name "Today" :and (:property ("SPACE" "PERSONAL") :todo ("TODAY")) :order 1)
+                (:name
+                 "Next to do"
+                 :and (:property ("SPACE" "PERSONAL") :todo "NEXT")
+                 :order 2)
                 (:discard (:anything t))))))
            (alltodo
             ""
@@ -293,22 +304,26 @@
              (org-super-agenda-groups
               '((:name
                  "Overdue"
-                 :and (:deadline past :not (:property ("CATEGORY" "PERSONAL")))
+                 :and
+                 (:property
+                  ("SPACE" "PERSONAL")
+                  :deadline past
+                  :not (:property ("CATEGORY" "PERSONAL")))
                  :order 1)
                 (:name
                  "Due Soon"
                  :and
-                 (:not (:todo "TODAY") :deadline future :not (:property ("CATEGORY" "PERSONAL")))
+                 (:property ("SPACE" "PERSONAL") :not (:todo "TODAY") :deadline future :not (:property ("CATEGORY" "PERSONAL")))
                  :order 2)
-                (:name "Upcoming" :and (:not (:todo "TODAY") :scheduled future) :order 3)
-                (:name "Later" :todo "LATER" :order 4)
-                (:name "Personal" :property ("CATEGORY" "PERSONAL") :order 5)
+                (:name "Upcoming" :and (:property ("SPACE" "PERSONAL") :not (:todo "TODAY") :scheduled future) :order 3)
+                (:name "Later" :and (:property ("SPACE" "PERSONAL") :todo "LATER") :order 4)
                 (:name
                  "Check"
-                 :and (:not (:todo ("TODAY" "NEXT")) :date nil :deadline nil :scheduled nil)
-                 :order 6)
+                 :and (:property ("SPACE" "PERSONAL") :not (:todo ("TODAY" "NEXT")) :date nil :deadline nil :scheduled nil)
+                 :order 5)
                 (:discard (:anything t))))))) ; Super zen view
-          )))
+          )
+         ))
  :config (org-super-agenda-mode t))
 
 ;; org-roam
