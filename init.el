@@ -262,13 +262,12 @@
                  :and
                  (:property ("SPACE" "WORK") :not (:todo "TODAY") :deadline future :not (:property ("CATEGORY" "PERSONAL")))
                  :order 2)
-                (:name "Upcoming" :and (:not (:todo "TODAY") :scheduled future) :order 3)
-                (:name "Later" :todo "LATER" :order 4)
-                (:name "Personal" :property ("CATEGORY" "PERSONAL") :order 5)
+                (:name "Upcoming" :and (:property ("SPACE" "WORK") :not (:todo "TODAY") :scheduled future) :order 3)
+                (:name "Later" :and (:property ("SPACE" "WORK") :todo "LATER") :order 4)
                 (:name
                  "Check"
-                 :and (:not (:todo ("TODAY" "NEXT")) :date nil :deadline nil :scheduled nil)
-                 :order 6)
+                 :and (:property ("SPACE" "WORK") :not (:todo ("TODAY" "NEXT")) :date nil :deadline nil :scheduled nil)
+                 :order 5)
                 (:discard (:anything t))))))) ; Super zen view
           )
          ("z" "Super zen view (Personal)"
