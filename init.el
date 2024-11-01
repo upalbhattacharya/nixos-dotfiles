@@ -240,7 +240,10 @@
             ((org-agenda-overriding-header "Daily Planned")
              (org-super-agenda-groups
               '((:name "Today" :and (:property ("SPACE" "WORK") :todo ("TODAY")) :order 1)
-                (:name "Next to do" :and (:property ("SPACE" "WORK") :todo "NEXT") :order 2)
+                (:name
+                 "Next to do"
+                 :and (:property ("SPACE" "WORK") :todo "NEXT")
+                 :order 2)
                 (:discard (:anything t))))))
            (alltodo
             ""
@@ -248,7 +251,7 @@
              (org-super-agenda-groups
               '((:name
                  "Overdue"
-                 :and (:deadline past :not (:property ("CATEGORY" "PERSONAL")))
+                 :and (:property ("SPACE" "WORK") :deadline past :not (:property ("CATEGORY" "PERSONAL")))
                  :order 1)
                 (:name
                  "Due Soon"
