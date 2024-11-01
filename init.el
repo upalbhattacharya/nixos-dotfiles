@@ -239,8 +239,8 @@
             ""
             ((org-agenda-overriding-header "Daily Planned")
              (org-super-agenda-groups
-              '((:name "Today" :and(:property ("SPACE" "WORK") :todo ("TODAY")) :order 1)
-                (:name "Next to do" :todo "NEXT" :order 2)
+              '((:name "Today" :and (:property ("SPACE" "WORK") :todo ("TODAY")) :order 1)
+                (:name "Next to do" :and (:property ("SPACE" "WORK") :todo "NEXT") :order 2)
                 (:discard (:anything t))))))
            (alltodo
             ""
