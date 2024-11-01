@@ -229,14 +229,17 @@
                  :and
                  (:property ("SPACE" "WORK") :not (:log closed) :deadline today)
                  :order 1)
-                (:name "Scheduled" :and (:property ("SPACE" "WORK") :not (:log closed) :scheduled today) :order 2)
-                (:name "Done" :log closed :order 3)
-                (:discard (:anything t))))))
+                (:name
+                 "Scheduled"
+                 :and
+                 (:property ("SPACE" "WORK") :not (:log closed) :scheduled today)
+                 :order 2)
+                (:name "Done" :log closed :order 3) (:discard (:anything t))))))
            (alltodo
             ""
             ((org-agenda-overriding-header "Daily Planned")
              (org-super-agenda-groups
-              '((:name "Today" :todo ("TODAY") :order 1)
+              '((:name "Today" :and(:property ("SPACE" "WORK") :todo ("TODAY")) :order 1)
                 (:name "Next to do" :todo "NEXT" :order 2)
                 (:discard (:anything t))))))
            (alltodo
