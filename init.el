@@ -239,7 +239,10 @@
             ""
             ((org-agenda-overriding-header "Past and Future")
              (org-super-agenda-groups
-              '((:name "Overdue" :and (:deadline past :not(:property ("CATEGORY" "PERSONAL"))) :order 1)
+              '((:name
+                 "Overdue"
+                 :and (:deadline past :not (:property ("CATEGORY" "PERSONAL")))
+                 :order 1)
                 (:name
                  "Due Soon"
                  :and
