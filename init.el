@@ -638,8 +638,10 @@ exist after each headings's drawers."
 ;;; evil-nerd-commenter
 (use-package evil-nerd-commenter :config (evilnc-default-hotkeys))
 
-;;; Keybindings
+;;; aggressive-indent
 (use-package aggressive-indent :config (setq global-aggressive-indent-mode 1))
+
+;;; Keybindings
 
 ;; General
 (global-set-key (kbd "C-c r") 'eval-buffer)
