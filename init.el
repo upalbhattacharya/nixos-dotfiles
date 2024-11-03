@@ -376,7 +376,7 @@
            "journal"
            plain
            "%?"
-           :target (file+datetree "journal/Journal %<%Y-%m>.org")
+           :target (file+olp+datetree "journal/Journal %<%Y-%m>.org")
            :unnarrowed t)))
 
   (setq org-roam-dailies-capture-templates
