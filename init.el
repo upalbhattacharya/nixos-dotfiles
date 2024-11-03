@@ -369,6 +369,7 @@
 :CATEGORY: CAPTURE
 :ID:
 :SPACE: WORK
+:WORKWEEK: %<%Y-W%W>
 :END:\n\n"))
           :unnarrowed t)
          ))
@@ -378,11 +379,7 @@
           "default"
           plain
           "%?"
-          :target (file+olp "Log %<%Y-%m>.org" ("%<%Y-%m-%d>")))
-         ;; ("j" "journal" plain "%?"
-         ;;  :target (file+olp "journal/Journal %<%Y>.org" "%<%Y-%m-%d>")
-         ;;  :unnarrowed t
-         ;;  )
+          :target (file+olp "Journal %<%Y>.org" ("%<%Y-%m>" "%<%Y-%m-%d>")))
          ))
  (setq org-roam-mode-sections (list #'org-roam-backlinks-section #'org-roam-reflinks-section))
  (setq org-roam-completion-everywhere t)
