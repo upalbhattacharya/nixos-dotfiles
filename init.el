@@ -158,7 +158,7 @@
   (setq org-enforce-todo-dependencies t)
   (setq org-enforce-todo-checkbox-dependencies t)
   (setq org-capture-templates
-        '(("j" "journal" plain (file+olp+datetree "journal/Journal <%Y>.org"))))
+        '())
 
   ;;org-cite
   (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
@@ -372,7 +372,11 @@
 :ID:
 :SPACE: WORK
 :END:\n\n"))
-           :unnarrowed t)))
+           :unnarrowed t)
+          ("j" "journal" plain "%?"
+           :target (file+olp+datetree "journal/Journal %<%Y-%m>.org")
+           :unnarrowed t)
+          ))
 
   (setq org-roam-dailies-capture-templates
         '(("d"
