@@ -402,15 +402,6 @@
 ;;; hotfuzz
 (use-package hotfuzz :config (setq completion-styles '(hotfuzz)))
 
-;;; journal
-(use-package
-  org-journal
-  :after org
-  :config
-  (setq org-journal-dir "~/org/journal")
-  (setq org-journal-file-type 'monthly)
-  (setq org-journal-file-format "%Y%m")
-  (setq org-journal-date-format "%Y-%m-%d"))
 
 ;;; org-roam-bibtex
 (use-package
@@ -571,7 +562,7 @@
 ;;; annotate
 (use-package
   annotate
-  :hook ((org-mode . annotate-mode) (org-journal-mode .annotate-mode))
+  :hook ((org-mode . annotate-mode) )
   :config (setq annotate-file "~/org/annotations"))
 
 ;;; Custom
@@ -612,13 +603,6 @@ exist after each headings's drawers."
  'before-save-hook
  (lambda ()
    (if (eq major-mode 'org-mode) ; Org-mode
-       (let ((current-prefix-arg 4)) ; Emulate C-u
-         (call-interactively 'unpackaged/org-fix-blank-lines)))))
-
-(add-hook
- 'before-save-hook
- (lambda ()
-   (if (eq major-mode 'org-journal-mode) ; Org-journal-mode
        (let ((current-prefix-arg 4)) ; Emulate C-u
          (call-interactively 'unpackaged/org-fix-blank-lines)))))
 
@@ -674,8 +658,8 @@ exist after each headings's drawers."
 ;; org-agenda
 (global-set-key (kbd "C-c a") 'org-agenda)
 
-;; org-journal
-(global-set-key (kbd "C-c M-d") 'org-journal-new-entry)
+;; journal
+(define-key global-map (kbd "C-c M-j") (kbd "C-c j"))
 
 ;; org-transclusion
 (global-set-key (kbd "C-c M-a") 'org-transclusion-add-all)
