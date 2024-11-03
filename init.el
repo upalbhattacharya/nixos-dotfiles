@@ -656,17 +656,12 @@ exist after each headings's drawers."
 
 ;; org-roam-dailies
 (global-set-key (kbd "C-c M-\\") 'org-roam-dailies-goto-today)
+
 ;; org-agenda
 (global-set-key (kbd "C-c a") 'org-agenda)
 
 ;; journal
 (define-key global-map (kbd "C-c x") 'org-capture)
-(define-key global-map (kbd "C-c M-j") (kbd "C-c o j"))
-(global-set-key
- (kbd "C-c M-j")
- (lambda ()
-   (interactive)
-   (find-file "~/org/journal/Journal %<%Y>.org")))
 
 ;; org-transclusion
 (global-set-key (kbd "C-c M-a") 'org-transclusion-add-all)
