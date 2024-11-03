@@ -341,7 +341,8 @@
   (setq org-roam-dailies-directory "~/org/worklogs/")
   (setq org-roam-completion-everywhere t)
   (setq org-roam-capture-templates
-        '(("d" "default" plain "%?"
+        '(
+          ("d" "default" plain "%?"
            :target
            (file+head
             "nodes/${title}.org"
@@ -374,7 +375,8 @@
 :SPACE: WORK
 :END:\n\n"))
            :unnarrowed t)
-          ))
+          )
+        )
 
   (setq org-roam-dailies-capture-templates
         '(("d"
