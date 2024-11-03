@@ -157,8 +157,7 @@
   (setq org-outline-path-complete-in-steps nil)
   (setq org-enforce-todo-dependencies t)
   (setq org-enforce-todo-checkbox-dependencies t)
-  (setq org-capture-templates
-        '())
+  (setq org-capture-templates '())
 
   ;;org-cite
   (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
@@ -373,10 +372,12 @@
 :SPACE: WORK
 :END:\n\n"))
            :unnarrowed t)
-          ("j" "journal" plain "%?"
+          ("j"
+           "journal"
+           plain
+           "%?"
            :target (file+datetree "journal/Journal %<%Y-%m>.org")
-           :unnarrowed t)
-          ))
+           :unnarrowed t)))
 
   (setq org-roam-dailies-capture-templates
         '(("d"
@@ -665,7 +666,11 @@ exist after each headings's drawers."
 ;; journal
 (define-key global-map (kbd "C-c x") 'org-capture)
 (define-key global-map (kbd "C-c M-j") (kbd "C-c o j"))
-(global-set-key (kbd "C-c M-j") (lambda () (interactive) (find-file "~/org/journal/Journal %<%Y>.org")))
+(global-set-key
+ (kbd "C-c M-j")
+ (lambda ()
+   (interactive)
+   (find-file "~/org/journal/Journal %<%Y>.org")))
 
 ;; org-transclusion
 (global-set-key (kbd "C-c M-a") 'org-transclusion-add-all)
