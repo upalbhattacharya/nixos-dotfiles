@@ -157,7 +157,13 @@
   (setq org-outline-path-complete-in-steps nil)
   (setq org-enforce-todo-dependencies t)
   (setq org-enforce-todo-checkbox-dependencies t)
-  (setq org-capture-templates '())
+  (setq org-capture-templates '(
+("j"
+           "journal"
+           plain
+           (file+olp+datetree "journal/Journal %<%Y-%m>.org")
+           :unnarrowed t)
+                                ))
 
   ;;org-cite
   (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
@@ -372,12 +378,7 @@
 :SPACE: WORK
 :END:\n\n"))
            :unnarrowed t)
-          ("j"
-           "journal"
-           plain
-           "%?"
-           :target (file+olp+datetree "journal/Journal %<%Y-%m>.org")
-           :unnarrowed t)))
+          ))
 
   (setq org-roam-dailies-capture-templates
         '(("d"
