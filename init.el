@@ -335,7 +335,7 @@
  org-roam
  :config
  (setq org-roam-directory (file-truename "~/org/"))
- (setq org-roam-dailies-directory "~/org/worklogs/")
+ (setq org-roam-dailies-directory '(("~/org/worklogs/" "~/org/journal")))
  (setq org-roam-completion-everywhere t)
  (setq org-roam-capture-templates
        '(("d" "default" plain "%?"
