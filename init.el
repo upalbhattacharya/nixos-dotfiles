@@ -158,11 +158,7 @@
   (setq org-enforce-todo-dependencies t)
   (setq org-enforce-todo-checkbox-dependencies t)
   (setq org-capture-templates
-        '(("j"
-           "journal"
-           plain
-           (file+olp+datetree "journal/Journal %<%Y>.org")
-           :unarrowed t)))
+        '(("j" "journal" plain (file+olp+datetree "journal/Journal %<%Y>.org") :unarrowed t)))
 
   ;;org-cite
   (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
