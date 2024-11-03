@@ -661,6 +661,7 @@ exist after each headings's drawers."
 ;; journal
 (define-key global-map (kbd "C-c x") 'org-capture)
 (define-key global-map (kbd "C-c M-j") (kbd "C-c x j"))
+(global-set-key (kbd "<f6> h") (lambda () (interactive) (find-file "~/org/journal/Journal %<%Y>.org")))
 
 ;; org-transclusion
 (global-set-key (kbd "C-c M-a") 'org-transclusion-add-all)
