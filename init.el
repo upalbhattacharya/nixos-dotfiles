@@ -660,7 +660,7 @@ exist after each headings's drawers."
 
 ;; journal
 (define-key global-map (kbd "C-c x") 'org-capture)
-;; (define-key global-map (kbd "C-c -j") (kbd "C-c x r"))
+(define-key global-map (kbd "C-c M-j") (kbd "C-c x j"))
 
 ;; org-transclusion
 (global-set-key (kbd "C-c M-a") 'org-transclusion-add-all)
