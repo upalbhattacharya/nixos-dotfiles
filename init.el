@@ -372,7 +372,7 @@
 :END:\n\n"))
           :unnarrowed t)
          ("j" "journal" plain "%?"
-          :target (file+olp "journal/Journal %<%Y>.org" ("%<%Y-%m-%d>"))
+          :target (file+olp "journal/Journal %<%Y>.org" "%<%Y-%m-%d>")
           :unnarrowed t
           ))))
 
