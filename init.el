@@ -379,10 +379,11 @@
           plain
           "%?"
           :target (file+olp "Log %<%Y-%m>.org" ("%<%Y-W%W>" "%<%Y-%m-%d>")))
-         ("j" "journal" plain "%?"
-          :target (file+olp "journal/Journal %<%Y>.org" "%<%Y-%m-%d>")
-          :unnarrowed t
-          )))
+         ;; ("j" "journal" plain "%?"
+         ;;  :target (file+olp "journal/Journal %<%Y>.org" "%<%Y-%m-%d>")
+         ;;  :unnarrowed t
+         ;;  )
+         ))
  (setq org-roam-mode-sections (list #'org-roam-backlinks-section #'org-roam-reflinks-section))
  (setq org-roam-completion-everywhere t)
  (org-roam-db-autosync-mode 1))
