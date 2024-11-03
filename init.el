@@ -369,7 +369,7 @@
 :CATEGORY: CAPTURE
 :ID:
 :SPACE: WORK
-:WORKWEEK: %<%Y-W%W>
+:CREATED: %U
 :END:\n\n"))
           :unnarrowed t)
          ))
