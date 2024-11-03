@@ -665,7 +665,7 @@ exist after each headings's drawers."
 (define-key global-map (kbd "C-c x") 'org-capture)
 
 ;; inbox
-(global-set-key (kbd "C-c M-\\") (lambda () (interactive) (find-file "~/inbox.org")))
+(global-set-key (kbd "C-c M-\\") (lambda () (interactive) (find-file "~/org/inbox.org")))
 
 ;; org-transclusion
 (global-set-key (kbd "C-c M-a") 'org-transclusion-add-all)
