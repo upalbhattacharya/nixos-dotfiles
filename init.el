@@ -35,12 +35,7 @@
      "~/org/nodes/Term Typing Ontology Enrichment Experiment 1.org"
      "~/org/nodes/UU ICS Server.org"
      "~/org/nodes/Who Am I.org"
-     "~/org/worklogs/Log 2024-10.org"
-     "~/org/worklogs/log_2024-10-08.org"
-     "~/org/worklogs/log_2024-10-09.org"
-     "~/org/worklogs/log_2024-10-10.org"
-     "~/org/worklogs/log_2024-10-11.org"
-     "~/org/log_2024-10.org"))
+     ))
  '(org-format-latex-options
    '(:foreground
      default
