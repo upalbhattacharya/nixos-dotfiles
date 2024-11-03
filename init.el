@@ -362,7 +362,7 @@
          ("c" "capture" plain "%?"
           :target
           (file+head+olp
-           "inbox.org" ":PROPERTIES:\n:CATEGORY: INBOX\n:END:"
+           "Inbox.org" ":PROPERTIES:\n:CATEGORY: INBOX\n:END:"
            ("%<%Y-W%W>" "%<%Y-%m-%d>"
             "TODO ${title}
 :PROPERTIES:
@@ -665,7 +665,7 @@ exist after each headings's drawers."
 (define-key global-map (kbd "C-c x") 'org-capture)
 
 ;; inbox
-(global-set-key (kbd "C-c M-\\") (lambda () (interactive) (find-file "~/org/inbox.org")))
+(global-set-key (kbd "C-c M-\\") (lambda () (interactive) (find-file "~/org/Inbox.org")))
 
 ;; org-transclusion
 (global-set-key (kbd "C-c M-a") 'org-transclusion-add-all)
