@@ -656,13 +656,16 @@ exist after each headings's drawers."
 (global-set-key (kbd "C-M-r") 'org-roam-buffer-toggle)
 
 ;; org-roam-dailies
-(global-set-key (kbd "C-c M-\\") 'org-roam-dailies-goto-today)
+(global-set-key (kbd "C-c M-j") 'org-roam-dailies-goto-today)
 
 ;; org-agenda
 (global-set-key (kbd "C-c a") 'org-agenda)
 
 ;; journal
 (define-key global-map (kbd "C-c x") 'org-capture)
+
+;; inbox
+(global-set-key (kbd "C-c M-\\") (lambda () (interactive) (find-file "~/inbox.org")))
 
 ;; org-transclusion
 (global-set-key (kbd "C-c M-a") 'org-transclusion-add-all)
