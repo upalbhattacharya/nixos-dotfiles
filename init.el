@@ -362,7 +362,7 @@
          ("c" "capture" plain "%?"
           :target
           (file+head+olp
-           "worklogs/Log %<%Y-%m>.org" ":PROPERTIES:\n:CATEGORY: WORKLOG\n:END:"
+           "inbox.org" ":PROPERTIES:\n:CATEGORY: INBOX\n:END:"
            ("%<%Y-W%W>" "%<%Y-%m-%d>"
             "TODO ${title}
 :PROPERTIES:
@@ -378,7 +378,7 @@
           "default"
           plain
           "%?"
-          :target (file+olp "Log %<%Y-%m>.org" ("%<%Y-W%W>" "%<%Y-%m-%d>")))
+          :target (file+olp "Log %<%Y-%m>.org" ("%<%Y-%m-%d>")))
          ;; ("j" "journal" plain "%?"
          ;;  :target (file+olp "journal/Journal %<%Y>.org" "%<%Y-%m-%d>")
          ;;  :unnarrowed t
