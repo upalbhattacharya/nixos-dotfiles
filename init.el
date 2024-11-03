@@ -34,8 +34,7 @@
      "~/org/nodes/Systematic Literature Review.org"
      "~/org/nodes/Term Typing Ontology Enrichment Experiment 1.org"
      "~/org/nodes/UU ICS Server.org"
-     "~/org/nodes/Who Am I.org"
-     ))
+     "~/org/nodes/Who Am I.org"))
  '(org-format-latex-options
    '(:foreground
      default
@@ -366,8 +365,7 @@
 :SPACE: WORK
 :CREATED: %U
 :END:\n\n"))
-          :unnarrowed t)
-         ))
+          :unnarrowed t)))
 
  (setq org-roam-dailies-capture-templates
        '(("d"
@@ -375,8 +373,7 @@
           plain
           "%?"
           :target (file+olp "Journal %<%Y>.org" ("%<%Y-%m>" "%<%Y-%m-%d>"))
-          :unnarrowed t)
-         ))
+          :unnarrowed t)))
  (setq org-roam-mode-sections (list #'org-roam-backlinks-section #'org-roam-reflinks-section))
  (setq org-roam-completion-everywhere t)
  (org-roam-db-autosync-mode 1))
@@ -660,7 +657,11 @@ exist after each headings's drawers."
 (define-key global-map (kbd "C-c x") 'org-capture)
 
 ;; inbox
-(global-set-key (kbd "C-c M-\\") (lambda () (interactive) (find-file "~/org/Inbox.org")))
+(global-set-key
+ (kbd "C-c M-\\")
+ (lambda ()
+   (interactive)
+   (find-file "~/org/Inbox.org")))
 
 ;; org-transclusion
 (global-set-key (kbd "C-c M-a") 'org-transclusion-add-all)
