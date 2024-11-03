@@ -161,7 +161,6 @@
         '(("j"
            "journal"
            plain
-           "%?"
            :target (file+olp+datetree "journal/Journal %<%Y-%m>.org" "%<%Y-%m-%d>"))))
 
   ;;org-cite
