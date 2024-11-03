@@ -370,7 +370,11 @@
 :ID:
 :SPACE: WORK
 :END:\n\n"))
-          :unnarrowed t)))
+          :unnarrowed t)
+         ("j" "journal" plain "%?"
+          :target (file+olp "journal/Journal %<%Y>.org" ("%<%Y-%m-%d>"))
+          :unnarrowed t)
+          )))
 
  (setq org-roam-dailies-capture-templates
        '(("d"
