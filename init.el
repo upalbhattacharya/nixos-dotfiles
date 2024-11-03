@@ -374,7 +374,7 @@
 :END:\n\n"))
            :unnarrowed t)
           ("j" "journal" plain "%?"
-           :target (file+olp+datetree "journal/Journal %<%Y-%m>.org")
+           :target (file+datetree "journal/Journal %<%Y-%m>.org")
            :unnarrowed t)
           ))
 
