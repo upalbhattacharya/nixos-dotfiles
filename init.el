@@ -161,7 +161,7 @@
         '(("j"
            "journal"
            plain
-           (file+olp+datetree "journal/Journal %<%Y-%m>.org"))))
+           (file+olp+datetree "journal/Journal %<%Y>.org"))))
 
   ;;org-cite
   (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
