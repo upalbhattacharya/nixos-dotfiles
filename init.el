@@ -158,7 +158,10 @@
   (setq org-enforce-todo-dependencies t)
   (setq org-enforce-todo-checkbox-dependencies t)
   (setq org-capture-templates
-        '(("j" "journal" plain "%?"
+        '(("j"
+           "journal"
+           plain
+           "%?"
            :target (file+olp+datetree "journal/Journal %<%Y-%m>.org" ("<%Y-%m-%d>")))))
 
   ;;org-cite
@@ -341,8 +344,7 @@
   (setq org-roam-dailies-directory "~/org/worklogs/")
   (setq org-roam-completion-everywhere t)
   (setq org-roam-capture-templates
-        '(
-          ("d" "default" plain "%?"
+        '(("d" "default" plain "%?"
            :target
            (file+head
             "nodes/${title}.org"
@@ -374,9 +376,7 @@
 :ID:
 :SPACE: WORK
 :END:\n\n"))
-           :unnarrowed t)
-          )
-        )
+           :unnarrowed t)))
 
   (setq org-roam-dailies-capture-templates
         '(("d"
