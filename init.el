@@ -504,7 +504,7 @@ if nil,the top of the file."
        ("n" "literature note" plain "%?"
         :target
         (file+head
-         "academic/${citekey}.org" "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
+         "Resources/${citekey}.org" "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
         :unnarrowed t))
 
  (setq org-roam-dailies-capture-templates
