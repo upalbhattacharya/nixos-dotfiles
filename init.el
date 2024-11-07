@@ -21,20 +21,7 @@
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-files
-   '("~/org/journal/202410.org"
-     "~/org/nodes/CFLW Data.org"
-     "~/org/nodes/Dutch Vocabulary.org"
-     "~/org/nodes/EKAW 2024.org"
-     "~/org/nodes/ESWC 2025.org"
-     "~/org/nodes/Emacs.org"
-     "~/org/nodes/NLDR Ranking.org"
-     "~/org/nodes/PhD Meetings.org"
-     "~/org/nodes/Recurring.org"
-     "~/org/nodes/Routledge Dutch Intensive Course.org"
-     "~/org/nodes/Systematic Literature Review.org"
-     "~/org/nodes/Term Typing Ontology Enrichment Experiment 1.org"
-     "~/org/nodes/UU ICS Server.org"
-     "~/org/nodes/Who Am I.org"))
+   '("~/org/Journal/202410.org"
  '(org-format-latex-options
    '(:foreground
      default
