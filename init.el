@@ -226,6 +226,28 @@ For instance, given the string:    What's all this then?
                         (replace-regexp-in-string no-letters "-"))))
     (string-trim init-try "-+" "-+")))
 
+(defun org-set-file-property (key value &optional spot)
+  "Make sure file contains a top-level, file-wide property.
+KEY is something like `TITLE' or `tags'. This function makes
+sure that the property contains the contents of VALUE, and if the
+file doesn't have the property, it is inserted at either SPOT, or
+if nil,the top of the file."
+  (save-excursion
+    (goto-char (point-min))
+    (let ((case-fold-search t))
+      (if (re-search-forward (format "^#\\+%s:\s*\\(.*\\)" key) nil t)
+          (replace-match value nil nil nil 1)
+
+        (cond
+         ;; if SPOT is a number, go to it:
+         ((numberp spot) (goto-char spot))
+         ;; If SPOT is not given, jump to first blank line:
+         ((null spot) (progn (goto-char (point-min))
+                             (re-search-forward "^\s*$" nil t)))
+         (t (goto-char (point-min))))
+
+        (insert (format "#+%s: %s\n" (upcase key) value))))))
+
 ;;; emacs
 (use-package
  emacs
