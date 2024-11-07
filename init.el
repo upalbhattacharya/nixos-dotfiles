@@ -16,40 +16,85 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(calendar-date-style 'iso)
- '(custom-safe-themes
-   '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
+ '(custom-safe-themes '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-files '("~/org/Journal/202410.org"))
  '(org-format-latex-options
-   '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
-                 ("begin" "$1" "$" "$$" "\\(" "\\[")))
+   '(:foreground
+     default
+     :background default
+     :scale 2.2
+     :html-foreground "Black"
+     :html-background "Transparent"
+     :html-scale 2.0
+     :matchers ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-link-frame-setup
    '((vm . vm-visit-folder-other-frame)
      (vm-imap . vm-visit-imap-folder-other-frame)
      (gnus . org-gnus-no-new-news)
      (file . find-file)
      (wl . wl-other-frame)))
- '(org-priority-faces
-   '((65 :foreground "red")
-     (66 :foreground "yellow")
-     (67 :foreground "green")))
- '(org-roam-capture-new-node-hook
-   '(org-id-get-create org-roam-capture--insert-captured-ref-h))
+ '(org-priority-faces '((65 :foreground "red") (66 :foreground "yellow") (67 :foreground "green")))
+ '(org-roam-capture-new-node-hook '(org-id-get-create org-roam-capture--insert-captured-ref-h))
  '(org-super-agenda-date-format "%e %Y-%m-%d")
  '(package-selected-packages
-   '(elisp-autofmt aggressive-indent evil-nerd-commenter envrc projectile which-key org-anki org-ql helm-bibtex org-roam-bibtex annotate toc-org hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-roam evil catppuccin-theme))
+   '(elisp-autofmt
+     aggressive-indent
+     evil-nerd-commenter
+     envrc
+     projectile
+     which-key
+     org-anki
+     org-ql
+     helm-bibtex
+     org-roam-bibtex
+     annotate
+     toc-org
+     hotfuzz
+     ruff-format
+     nix-mode
+     git-auto-commit
+     lsp-ui
+     lsp-mode
+     latex-extra
+     latexdiff
+     auctex
+     org-view-mode
+     rainbow-delimiters
+     flycheck
+     origami
+     vertico
+     git-gutter
+     magit
+     git-auto-commit-mode
+     company
+     org-roam-ui
+     spacious-padding
+     org-super-agenda
+     fzf
+     dashboard
+     org-transclusion
+     org-superstar
+     org-roam
+     evil
+     catppuccin-theme))
  '(python-isort-extra-args nil))
 
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
 
-(defvar org-default-inbox-file "~/org/Inbox.org" "Primary Capture file")
-(defvar org-default-projects-dir "~/org/Projects" "Primary Projects directory")
-(defvar org-default-areas-dir "~/org/Areas" "Primary Areas directory")
-(defvar org-default-resources-dir "~/org/Resources" "Primary Resources directory")
-(defvar org-default-archive-dir "~/org/Archive" "Primary Archive directory")
+(defvar org-default-inbox-file "~/org/Inbox.org"
+  "Primary Capture file")
+(defvar org-default-projects-dir "~/org/Projects"
+  "Primary Projects directory")
+(defvar org-default-areas-dir "~/org/Areas"
+  "Primary Areas directory")
+(defvar org-default-resources-dir "~/org/Resources"
+  "Primary Resources directory")
+(defvar org-default-archive-dir "~/org/Archive"
+  "Primary Archive directory")
 
 (defun org-subtree-metadata ()
   "Return a list of key aspects of an org-subtree. Includes the
@@ -74,14 +119,18 @@ of the start and end of the subtree."
   "Given the properties, PROPS, from a call to
 `org-entry-properties', return a list of tags."
   (unless props
-     (setq props (org-entry-properties)))
-  (let ((tag-label (if org-get-subtree-tags-inherited "ALLTAGS" "TAGS")))
-    (-some->> props
-         (assoc tag-label)
-         cdr
-         substring-no-properties
-         (s-split ":")
-         (--filter (not (equalp "" it))))))
+    (setq props (org-entry-properties)))
+  (let ((tag-label
+         (if org-get-subtree-tags-inherited
+             "ALLTAGS"
+           "TAGS")))
+    (-some->>
+     props
+     (assoc tag-label)
+     cdr
+     substring-no-properties
+     (s-split ":")
+     (--filter (not (equalp "" it))))))
 
 (defvar org-get-subtree-tags-inherited t
   "Returns a subtree's tags, and all tags inherited (from tags
@@ -100,43 +149,44 @@ of the start and end of the subtree."
           (val (second tup)))
       (list (substring (symbol-name key) 1) val)))
 
-  (->> attributes
-       (-partition 2)                         ; Convert plist to list of tuples
-       (--filter (symbol-upcase? (first it))) ; Remove lowercase tuples
-       (-map 'convert-tuple)))
+  (->>
+   attributes
+   (-partition 2) ; Convert plist to list of tuples
+   (--filter (symbol-upcase? (first it))) ; Remove lowercase tuples
+   (-map 'convert-tuple)))
 
 (defun org-get-subtree-content (attributes)
   "Return the contents of the current subtree as a string."
-  (let ((header-components '(clock diary-sexp drawer headline inlinetask
-                             node-property planning property-drawer section)))
+  (let ((header-components
+         '(clock
+           diary-sexp drawer headline inlinetask node-property planning property-drawer section)))
 
-      (goto-char (plist-get attributes :contents-begin))
+    (goto-char (plist-get attributes :contents-begin))
 
-      ;; Walk down past the properties, etc.
-      (while
-          (let* ((cntx (org-element-context))
-                 (elem (first cntx))
-                 (props (second cntx)))
-            (when (member elem header-components)
-              (goto-char (plist-get props :end)))))
+    ;; Walk down past the properties, etc.
+    (while (let* ((cntx (org-element-context))
+                  (elem (first cntx))
+                  (props (second cntx)))
+             (when (member elem header-components)
+               (goto-char (plist-get props :end)))))
 
-      ;; At this point, we are at the beginning of what we consider
-      ;; the contents of the subtree, so we can return part of the buffer:
-      (buffer-substring-no-properties (point) (org-end-of-subtree))))
+    ;; At this point, we are at the beginning of what we consider
+    ;; the contents of the subtree, so we can return part of the buffer:
+    (buffer-substring-no-properties (point) (org-end-of-subtree))))
 
 (defun org-refile-subtree-to-file (dir)
   "Archive the org-mode subtree and create an entry in the
 directory folder specified by DIR. It attempts to move as many of
 the subtree's properties and other features to the new file."
   (interactive "Destination: ")
-  (let* ((props      (org-subtree-metadata))
-         (head       (plist-get props :header))
-         (body       (plist-get props :body))
-         (tags       (plist-get props :tags))
+  (let* ((props (org-subtree-metadata))
+         (head (plist-get props :header))
+         (body (plist-get props :body))
+         (tags (plist-get props :tags))
          (properties (plist-get props :properties))
-         (area       (plist-get props :region))
-         (filename   (org-filename-from-title head))
-         (filepath   (format "%s/%s.org" dir filename)))
+         (area (plist-get props :region))
+         (filename (org-filename-from-title head))
+         (filepath (format "%s/%s.org" dir filename)))
     (apply #'delete-region area)
     (org-create-org-file filepath head body tags properties)))
 
@@ -154,7 +204,7 @@ pre-populated with the HEADER, BODY and any associated TAGS."
     (or (re-search-forward "^\s*$" nil t) (point-max))
     (--map (insert (format "#+PROPERTY: %s %s" (first it) (second it))) properties))
 
-gT  ;; My auto-insert often adds an initial headline for a subtree, and in this
+  gT ;; My auto-insert often adds an initial headline for a subtree, and in this
   ;; case, I don't want that... Yeah, this isn't really globally applicable,
   ;; but it shouldn't cause a problem for others.
   (when (re-search-forward "^\\* [0-9]$" nil t)
@@ -170,10 +220,12 @@ gT  ;; My auto-insert often adds an initial headline for a subtree, and in this
 For instance, given the string:    What's all this then?
      This function will return:    whats-all-this-then"
   (let* ((no-letters (rx (one-or-more (not alphanumeric))))
-         (init-try (->> title
-                        downcase
-                        (replace-regexp-in-string "'" "")
-                        (replace-regexp-in-string no-letters "-"))))
+         (init-try
+          (->>
+           title
+           downcase
+           (replace-regexp-in-string "'" "")
+           (replace-regexp-in-string no-letters "-"))))
     (string-trim init-try "-+" "-+")))
 
 (defun org-set-file-property (key value &optional spot)
@@ -190,11 +242,15 @@ if nil,the top of the file."
 
         (cond
          ;; if SPOT is a number, go to it:
-         ((numberp spot) (goto-char spot))
+         ((numberp spot)
+          (goto-char spot))
          ;; If SPOT is not given, jump to first blank line:
-         ((null spot) (progn (goto-char (point-min))
-                             (re-search-forward "^\s*$" nil t)))
-         (t (goto-char (point-min))))
+         ((null spot)
+          (progn
+            (goto-char (point-min))
+            (re-search-forward "^\s*$" nil t)))
+         (t
+          (goto-char (point-min))))
 
         (insert (format "#+%s: %s\n" (upcase key) value))))))
 
@@ -253,12 +309,14 @@ if nil,the top of the file."
  (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
 
  ;; org-agenda
- (setq org-agenda-files (list org-default-inbox-file
-                              org-default-projects-dir
-                              org-default-areas-dir
-                              org-default-resources-dir
-                              ;; org-default-archive-dir
-                              ))
+ (setq org-agenda-files
+       (list
+        org-default-inbox-file
+        org-default-projects-dir
+        org-default-areas-dir
+        org-default-resources-dir
+        ;; org-default-archive-dir
+        ))
  (setq org-agenda-file-regexp "^[a-z0-9-_]+.org")
  (setq org-agenda-start-day "+0d")
  (setq org-agenda-window-setup 'other-tab)
@@ -431,26 +489,8 @@ if nil,the top of the file."
  (setq org-roam-directory (file-truename "~/org/"))
  (setq org-roam-dailies-directory "~/org/Journal/")
  (setq org-roam-completion-everywhere t)
- (setq org-roam-capture-templates '(
-;;        '(("d" "default" entry "* %?"
-;;           :target
-;;           (file+head+olp
-;;            "Inbox.org"
-;;            ":PROPERTIES:
-;; :CATEGORY: NODE
-;; :ID:
-;; :SPACE: WORK
-;; :END:
-
-;; * ${title}\n\n")
-;;           :immediate-finish t
-;;           :create-file yes)
-         ("n" "literature note" plain "%?"
-          :target
-          (file+head
-           "academic/${citekey}.org" "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
-          :unnarrowed t)
-         ("d" "default" plain "%?"
+ (setq org-roam-capture-templates
+       '(("d" "default" plain "%?"
           :target
           (file+head+olp
            "Inbox.org" ":PROPERTIES:\n:CATEGORY: INBOX\n:END:"
@@ -461,7 +501,12 @@ if nil,the top of the file."
 :SPACE: WORK
 :CREATED: %U
 :END:\n\n"))
-          :unnarrowed t)))
+          :unnarrowed t))
+       ("n" "literature note" plain "%?"
+        :target
+        (file+head
+         "academic/${citekey}.org" "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
+        :unnarrowed t))
 
  (setq org-roam-dailies-capture-templates
        '(("d"
@@ -776,7 +821,8 @@ exist after each headings's drawers."
  '(org-agenda-date ((t (:foreground "light gray" :weight normal))))
  '(org-agenda-date-today ((t (:foreground "medium spring green" :weight bold))))
  '(org-agenda-date-weekend ((t (:inherit org-agenda-date :foreground "dim gray"))))
- '(org-agenda-date-weekend-today ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
+ '(org-agenda-date-weekend-today
+   ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
  '(org-agenda-structure-filter ((t nil)))
  '(org-scheduled ((t nil))))
 
