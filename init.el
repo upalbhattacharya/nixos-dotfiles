@@ -492,15 +492,14 @@ if nil,the top of the file."
  (setq org-roam-capture-templates
        '(("d" "default" plain "%?"
           :target
-          (file+head+olp
+          (file+head
            "Inbox.org" ":PROPERTIES:\n:CATEGORY: INBOX\n:END:"
-           ("%<%Y-W%W>" "%<%Y-%m-%d>"
             "TODO ${title}
 :PROPERTIES:
 :ID:
 :SPACE: WORK
 :CREATED: %U
-:END:\n\n")))
+:END:\n\n"))
          ("n" "literature note" plain "%?"
           :target
           (file+head
