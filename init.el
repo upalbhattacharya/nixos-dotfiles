@@ -481,7 +481,7 @@ if nil,the top of the file."
  org-roam
  :config
  (setq org-roam-directory (file-truename "~/org/"))
- (setq org-roam-dailies-directory "~/org/journal/")
+ (setq org-roam-dailies-directory "~/org/Journal/")
  (setq org-roam-completion-everywhere t)
  (setq org-roam-capture-templates
        '(("d" "default" plain "%?"
