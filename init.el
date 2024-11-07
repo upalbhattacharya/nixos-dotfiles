@@ -418,10 +418,10 @@ otherwise use the subtree title."
  (setq org-roam-dailies-directory "~/org/Journal/")
  (setq org-roam-completion-everywhere t)
  (setq org-roam-capture-templates
-       '(("d" "default" entry "* {title}%?"
+       '(("d" "default" entry "* {title}\n:PROPERTIES:\n:SPACE:WORK\n:END:\n%?"
           :target
-          (file+head
-           "Inbox.org" (":PROPERTIES:\n:SPACE: WORK\n:END:"))
+          (file
+           "Inbox.org"
           )
          ("n" "literature note" plain "%?"
           :target
