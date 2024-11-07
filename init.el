@@ -48,139 +48,14 @@
 
 (defvar org-default-inbox-file "~/org/Inbox.org"
   "Primary Capture file")
-(defvar org-default-projects-file "~/org/Projects.org"
+(defvar org-default-projects-dir "~/org/Projects"
   "Primary Projects directory")
-(defvar org-default-areas-file "~/org/Areas.org"
+(defvar org-default-areas-dir "~/org/Areas"
   "Primary Areas directory")
-(defvar org-default-resources-file "~/org/Resources.org"
+(defvar org-default-resources-dir "~/org/Resources"
   "Primary Resources directory")
-(defvar org-default-archive-file "~/org/Archive/Archive %<%Y>.org"
+(defvar org-default-archive-dir "~/org/Archive"
   "Primary Archive directory")
-
-(defun custom/org-projects-file-from-subtree (&optional name)
-"Cut the subtree currently being edited and create a new file
-from it.
-
-If called with the universal argument, prompt for new filename,
-otherwise use the subtree title."
-(interactive "P")
-(org-back-to-heading)
-(let ((filename (cond
-               (current-prefix-arg
-                (expand-file-name
-                 (read-file-name "New file name: ")))
-               (t
-                (concat
-                 (expand-file-name
-                  (org-element-property :title
-                                        (org-element-at-point))
-                  org-default-projects-dir)
-                 ".org")))))
-(org-cut-subtree)
-(find-file-noselect filename)
-(with-temp-file filename
-  (org-mode)
-  (yank))))
-
-(defun custom/org-projects-file-from-subtree (&optional name)
-"Cut the subtree currently being edited and create a new file
-from it.
-
-If called with the universal argument, prompt for new filename,
-otherwise use the subtree title."
-(interactive "P")
-(org-back-to-heading)
-(let ((filename (cond
-               (current-prefix-arg
-                (expand-file-name
-                 (read-file-name "New file name: ")))
-               (t
-                (concat
-                 (expand-file-name
-                  (org-element-property :title
-                                        (org-element-at-point))
-                  org-default-projects-dir)
-                 ".org")))))
-(org-cut-subtree)
-(find-file-noselect filename)
-(with-temp-file filename
-  (org-mode)
-  (yank))))
-
-(defun custom/org-areas-file-from-subtree (&optional name)
-"Cut the subtree currently being edited and create a new file
-from it.
-
-If called with the universal argument, prompt for new filename,
-otherwise use the subtree title."
-(interactive "P")
-(org-back-to-heading)
-(let ((filename (cond
-               (current-prefix-arg
-                (expand-file-name
-                 (read-file-name "New file name: ")))
-               (t
-                (concat
-                 (expand-file-name
-                  (org-element-property :title
-                                        (org-element-at-point))
-                  org-default-areas-dir)
-                 ".org")))))
-(org-cut-subtree)
-(find-file-noselect filename)
-(with-temp-file filename
-  (org-mode)
-  (yank))))
-
-(defun custom/org-resources-file-from-subtree (&optional name)
-"Cut the subtree currently being edited and create a new file
-from it.
-
-If called with the universal argument, prompt for new filename,
-otherwise use the subtree title."
-(interactive "P")
-(org-back-to-heading)
-(let ((filename (cond
-               (current-prefix-arg
-                (expand-file-name
-                 (read-file-name "New file name: ")))
-               (t
-                (concat
-                 (expand-file-name
-                  (org-element-property :title
-                                        (org-element-at-point))
-                  org-default-resources-dir)
-                 ".org")))))
-(org-cut-subtree)
-(find-file-noselect filename)
-(with-temp-file filename
-  (org-mode)
-  (yank))))
-
-(defun custom/org-archive-file-from-subtree (&optional name)
-"Cut the subtree currently being edited and create a new file
-from it.
-
-If called with the universal argument, prompt for new filename,
-otherwise use the subtree title."
-(interactive "P")
-(org-back-to-heading)
-(let ((filename (cond
-               (current-prefix-arg
-                (expand-file-name
-                 (read-file-name "New file name: ")))
-               (t
-                (concat
-                 (expand-file-name
-                  (org-element-property :title
-                                        (org-element-at-point))
-                  org-default-archive-dir)
-                 ".org")))))
-(org-cut-subtree)
-(find-file-noselect filename)
-(with-temp-file filename
-  (org-mode)
-  (yank))))
 
 ;;; emacs
 (use-package
@@ -243,7 +118,7 @@ otherwise use the subtree title."
         org-default-projects-dir
         org-default-areas-dir
         org-default-resources-dir
-        ;; org-default-archive-dir
+        org-default-archive-dir
         ))
  (setq org-agenda-file-regexp "^[a-z0-9-_]+.org")
  (setq org-agenda-start-day "+0d")
@@ -418,10 +293,10 @@ otherwise use the subtree title."
  (setq org-roam-dailies-directory "~/org/Journal/")
  (setq org-roam-completion-everywhere t)
  (setq org-roam-capture-templates
-       '(("d" "default" plain "\n* ${title}\n\n%?"
+       '(("d" "default" plain "%?"
           :target
-          (file+head
-        "Inbox.org" "#+TITLE: ${title}"
+          (file+olp
+        "Inbox.org" ("Inbox" "${title}\n:PROPERTIES:\n:SPACE: WORK\n:END:\n\n")
           ))
          ("n" "literature note" plain "%?"
           :target
