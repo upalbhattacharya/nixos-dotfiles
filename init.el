@@ -215,6 +215,11 @@ if nil,the top of the file."
 
         (insert (format "#+%s: %s\n" (upcase key) value))))))
 
+(defun org-refile-to-projects-dir ()
+  "Move the current subtree to a file in the `projects' directory."
+  (interactive)
+  (org-refile-subtree-to-file org-default-projects-dir))
+
 ;;; emacs
 (use-package
  emacs
