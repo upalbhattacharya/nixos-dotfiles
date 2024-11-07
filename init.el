@@ -422,7 +422,7 @@ otherwise use the subtree title."
           :target
           (file
            "Inbox.org"
-          )
+          ))
          ("n" "literature note" plain "%?"
           :target
           (file+head
