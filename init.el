@@ -100,6 +100,44 @@
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
 
+
+(defun org-subtree-metadata ()
+  "Return a list of key aspects of an org-subtree. Includes the
+following: header text, body contents, list of tags, region list
+of the start and end of the subtree."
+  (save-excursion
+    ;; Jump to the parent header if not already on a header
+    (when (not (org-at-heading-p))
+      (org-previous-visible-heading 1))
+
+    (let* ((context (org-element-context))
+           (attrs (second context))
+           (props (org-entry-properties)))
+
+      (list
+       :region (list (plist-get attrs :begin) (plist-get attrs :end))
+       :header (plist-get attrs :title)
+       :tags (org-get-subtree-tags props)
+       :properties (org-get-subtree-properties attrs)
+       :body (org-get-subtree-content attrs)))))
+(defun org-get-subtree-tags (&optional props)
+  "Given the properties, PROPS, from a call to
+`org-entry-properties', return a list of tags."
+  (unless props
+     (setq props (org-entry-properties)))
+  (let ((tag-label (if org-get-subtree-tags-inherited "ALLTAGS" "TAGS")))
+    (-some->> props
+         (assoc tag-label)
+         cdr
+         substring-no-properties
+         (s-split ":")
+         (--filter (not (equalp "" it))))))
+
+(defvar org-get-subtree-tags-inherited t
+  "Returns a subtree's tags, and all tags inherited (from tags
+  specified in parents headlines or on the file itself). Defaults
+  to true.")
+
 ;;; emacs
 (use-package
  emacs
