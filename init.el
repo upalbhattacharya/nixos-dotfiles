@@ -494,12 +494,12 @@ if nil,the top of the file."
           :target
           (file+head+olp
            "Inbox.org" ":PROPERTIES:\n:CATEGORY: INBOX\n:END:"
-            "TODO ${title}
+            ("TODO ${title}
 :PROPERTIES:
 :ID:
 :SPACE: WORK
 :CREATED: %U
-:END:\n\n"))
+:END:\n\n")))
          ("n" "literature note" plain "%?"
           :target
           (file+head
