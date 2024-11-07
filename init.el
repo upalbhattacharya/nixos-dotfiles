@@ -22,6 +22,7 @@
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-files
    '("~/org/Journal/202410.org"
+     ))
  '(org-format-latex-options
    '(:foreground
      default
