@@ -446,8 +446,7 @@ if nil,the top of the file."
 
 * ${title}\n\n")
           :immediate-finish t
-          :create-file yes
-          :unnarrowed t)
+          :create-file yes)
          ("n" "literature note" plain "%?"
           :target
           (file+head
