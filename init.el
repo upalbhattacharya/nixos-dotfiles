@@ -329,7 +329,7 @@
        '(("d" "default" plain "%?"
           :target
           (file+olp
-           "Inbox.org" ("Inbox" "${title}\n:PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U:END:\n\n")))
+           "Inbox.org" ("Inbox" "${title}\n:PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n\n")))
          ("p" "project" plain "%?"
           :target
           (file+head
