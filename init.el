@@ -500,12 +500,12 @@ if nil,the top of the file."
 :ID:
 :SPACE: WORK
 :CREATED: %U
-:END:\n\n"))))
+:END:\n\n")))
        ("n" "literature note" plain "%?"
         :target
         (file+head
          "Resources/${citekey}.org" "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
-        :unnarrowed t))
+        :unnarrowed t)))
 
  (setq org-roam-dailies-capture-templates
        '(("d"
