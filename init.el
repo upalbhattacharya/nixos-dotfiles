@@ -500,8 +500,7 @@ if nil,the top of the file."
 :ID:
 :SPACE: WORK
 :CREATED: %U
-:END:\n\n"))
-          :unnarrowed t))
+:END:\n\n"))))
        ("n" "literature note" plain "%?"
         :target
         (file+head
