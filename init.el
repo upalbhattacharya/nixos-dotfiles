@@ -418,7 +418,7 @@ otherwise use the subtree title."
  (setq org-roam-dailies-directory "~/org/Journal/")
  (setq org-roam-completion-everywhere t)
  (setq org-roam-capture-templates
-       '(("d" "default" plain "\n& ${title}\n\n%?"
+       '(("d" "default" plain "\n* ${title}\n\n%?"
           :target
           (file+head
         "Inbox.org" "#+TITLE: ${title}"
