@@ -100,6 +100,10 @@
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
 
+(defvar org-default-projects-dir "~/org/Projects" "Primary Projects directory")
+(defvar org-default-areas-dir "~/org/Areas" "Primary Areas directory")
+(defvar org-default-resources-dir "~/org/Resources" "Primary Resources directory")
+(defvar org-default-archive-dir "~/org/Archive" "Primary Archive directory")
 
 (defun org-subtree-metadata ()
   "Return a list of key aspects of an org-subtree. Includes the
