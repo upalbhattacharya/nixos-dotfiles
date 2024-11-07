@@ -432,25 +432,25 @@ if nil,the top of the file."
  (setq org-roam-dailies-directory "~/org/Journal/")
  (setq org-roam-completion-everywhere t)
  (setq org-roam-capture-templates
-       '(("d" "default" entry "* %?"
-          :target
-          (file+head
-           "Inbox.org"
-           ":PROPERTIES:
-:CATEGORY: NODE
-:ID:
-:SPACE: WORK
-:END:
+;;        '(("d" "default" entry "* %?"
+;;           :target
+;;           (file+head+olp
+;;            "Inbox.org"
+;;            ":PROPERTIES:
+;; :CATEGORY: NODE
+;; :ID:
+;; :SPACE: WORK
+;; :END:
 
-* ${title}\n\n")
-          :immediate-finish t
-          :create-file yes)
+;; * ${title}\n\n")
+;;           :immediate-finish t
+;;           :create-file yes)
          ("n" "literature note" plain "%?"
           :target
           (file+head
            "academic/${citekey}.org" "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
           :unnarrowed t)
-         ("c" "capture" plain "%?"
+         ("d" "default" plain "%?"
           :target
           (file+head+olp
            "Inbox.org" ":PROPERTIES:\n:CATEGORY: INBOX\n:END:"
