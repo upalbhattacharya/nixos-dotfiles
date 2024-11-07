@@ -215,6 +215,17 @@ pre-populated with the HEADER, BODY and any associated TAGS."
   (insert "\n")
   (insert body))
 
+(defun org-filename-from-title (title)
+  "Creates a useful filename based on a header string, TITLE.
+For instance, given the string:    What's all this then?
+     This function will return:    whats-all-this-then"
+  (let* ((no-letters (rx (one-or-more (not alphanumeric))))
+         (init-try (->> title
+                        downcase
+                        (replace-regexp-in-string "'" "")
+                        (replace-regexp-in-string no-letters "-"))))
+    (string-trim init-try "-+" "-+")))
+
 ;;; emacs
 (use-package
  emacs
