@@ -309,7 +309,7 @@ if nil,the top of the file."
 
  ;; org-agenda
  (setq org-agenda-files (list org-default-inbox-file
-                              org-default-projects-dir
+                              ;; org-default-projects-dir
                               org-default-areas-dir
                               org-default-resources-dir
                               org-default-archive-dir))
