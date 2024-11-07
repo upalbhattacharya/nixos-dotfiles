@@ -332,9 +332,19 @@
            "Inbox.org" ("Inbox" "${title}\n:PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U:END:\n\n")))
          ("p" "project" plain "%?"
           :target
-          (file+olp
+          (file+head
            "Projects/${title}.org"
-           ("${title}\n:PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n\n")))
+           ":PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n#+TITLE:\t${title}"))
+         ("a" "area" plain "%?"
+          :target
+          (file+head
+           "Areas/${title}.org"
+           ":PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n#+TITLE:\t${title}"))
+         ("a" "resource" plain "%?"
+          :target
+          (file+head
+           "Resources/${title}.org"
+           ":PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n#+TITLE:\t${title}"))
          ("n" "literature note" plain "%?"
           :target
           (file+head
