@@ -138,6 +138,23 @@ of the start and end of the subtree."
   specified in parents headlines or on the file itself). Defaults
   to true.")
 
+(defun org-get-subtree-properties (attributes)
+  "Return a list of tuples of a subtrees properties where the keys are strings."
+
+  (defun symbol-upcase? (sym)
+    (let ((case-fold-search nil))
+      (string-match-p "^:[A-Z]+$" (symbol-name sym))))
+
+  (defun convert-tuple (tup)
+    (let ((key (first tup))
+          (val (second tup)))
+      (list (substring (symbol-name key) 1) val)))
+
+  (->> attributes
+       (-partition 2)                         ; Convert plist to list of tuples
+       (--filter (symbol-upcase? (first it))) ; Remove lowercase tuples
+       (-map 'convert-tuple)))
+
 ;;; emacs
 (use-package
  emacs
