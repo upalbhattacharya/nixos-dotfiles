@@ -57,6 +57,8 @@
 (defvar org-default-archive-dir "~/org/Archive"
   "Primary Archive directory")
 
+'(require org-element)
+
 (defun org-subtree-metadata ()
   "Return a list of key aspects of an org-subtree. Includes the
 following: header text, body contents, list of tags, region list
@@ -219,7 +221,30 @@ if nil,the top of the file."
   "Move the current subtree to a file in the `projects' directory."
   (interactive)
   (org-refile-subtree-to-file org-default-projects-dir))
+(defun me/org-file-from-subtree (&optional name)
+"Cut the subtree currently being edited and create a new file
+from it.
 
+If called with the universal argument, prompt for new filename,
+otherwise use the subtree title."
+(interactive "P")
+(org-back-to-heading)
+(let ((filename (cond
+               (current-prefix-arg
+                (expand-file-name
+                 (read-file-name "New file name: ")))
+               (t
+                (concat
+                 (expand-file-name
+                  (org-element-property :title
+                                        (org-element-at-point))
+                  default-directory)
+                 ".org")))))
+(org-cut-subtree)
+(find-file-noselect filename)
+(with-temp-file filename
+  (org-mode)
+  (yank))))
 ;;; emacs
 (use-package
  emacs
