@@ -155,6 +155,66 @@ of the start and end of the subtree."
        (--filter (symbol-upcase? (first it))) ; Remove lowercase tuples
        (-map 'convert-tuple)))
 
+(defun org-get-subtree-content (attributes)
+  "Return the contents of the current subtree as a string."
+  (let ((header-components '(clock diary-sexp drawer headline inlinetask
+                             node-property planning property-drawer section)))
+
+      (goto-char (plist-get attributes :contents-begin))
+
+      ;; Walk down past the properties, etc.
+      (while
+          (let* ((cntx (org-element-context))
+                 (elem (first cntx))
+                 (props (second cntx)))
+            (when (member elem header-components)
+              (goto-char (plist-get props :end)))))
+
+      ;; At this point, we are at the beginning of what we consider
+      ;; the contents of the subtree, so we can return part of the buffer:
+      (buffer-substring-no-properties (point) (org-end-of-subtree))))
+
+(defun org-refile-subtree-to-file (dir)
+  "Archive the org-mode subtree and create an entry in the
+directory folder specified by DIR. It attempts to move as many of
+the subtree's properties and other features to the new file."
+  (interactive "DDestination: ")
+  (let* ((props      (org-subtree-metadata))
+         (head       (plist-get props :header))
+         (body       (plist-get props :body))
+         (tags       (plist-get props :tags))
+         (properties (plist-get props :properties))
+         (area       (plist-get props :region))
+         (filename   (org-filename-from-title head))
+         (filepath   (format "%s/%s.org" dir filename)))
+    (apply #'delete-region area)
+    (org-create-org-file filepath head body tags properties)))
+
+(defun org-create-org-file (filepath header body tags properties)
+  "Create a new Org file by FILEPATH. The contents of the file is
+pre-populated with the HEADER, BODY and any associated TAGS."
+  (find-file-other-window filepath)
+  (org-set-file-property "TITLE" header t)
+  (when tags
+    (org-set-file-property "tags" (s-join " " tags)))
+
+  ;; Insert any drawer properties as #+PROPERTY entries:
+  (when properties
+    (goto-char (point-min))
+    (or (re-search-forward "^\s*$" nil t) (point-max))
+    (--map (insert (format "#+PROPERTY: %s %s" (first it) (second it))) properties))
+
+  ;; My auto-insert often adds an initial headline for a subtree, and in this
+  ;; case, I don't want that... Yeah, this isn't really globally applicable,
+  ;; but it shouldn't cause a problem for others.
+  (when (re-search-forward "^\\* [0-9]$" nil t)
+    (replace-match ""))
+
+  (delete-blank-lines)
+  (goto-char (point-max))
+  (insert "\n")
+  (insert body))
+
 ;;; emacs
 (use-package
  emacs
