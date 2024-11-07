@@ -457,7 +457,6 @@ if nil,the top of the file."
            ("%<%Y-W%W>" "%<%Y-%m-%d>"
             "TODO ${title}
 :PROPERTIES:
-:CATEGORY: CAPTURE
 :ID:
 :SPACE: WORK
 :CREATED: %U
