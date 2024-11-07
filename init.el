@@ -420,7 +420,7 @@ otherwise use the subtree title."
  (setq org-roam-capture-templates
        '(("d" "default" entry "* {title}%?"
           :target
-          (file+head
+          (file+olp
            "Inbox.org" ":PROPERTIES:\n:SPACE: WORK\n:END:")
           )
          ("n" "literature note" plain "%?"
