@@ -100,6 +100,7 @@
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
 
+(defvar org-default-inbox-file "~/org/Inbox.org" "Primary Capture file")
 (defvar org-default-projects-dir "~/org/Projects" "Primary Projects directory")
 (defvar org-default-areas-dir "~/org/Areas" "Primary Areas directory")
 (defvar org-default-resources-dir "~/org/Resources" "Primary Resources directory")
@@ -307,10 +308,7 @@ if nil,the top of the file."
  (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
 
  ;; org-agenda
- (with-eval-after-load 'org
-   (defun org-agenda-files (&rest _)
-     (directory-files-recursively "~/org/" "\\.org$")))
- ;; (setq org-agenda-files '("~/org"))
+ (setq org-agenda-files (list org-agenda-de
  (setq org-agenda-start-day "+0d")
  (setq org-agenda-window-setup 'other-tab)
  (setq org-agenda-skip-timestamp-if-done t)
