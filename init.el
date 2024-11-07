@@ -263,7 +263,6 @@ if nil,the top of the file."
  (tool-bar-mode -1)
  (tab-bar-mode 1)
  (global-display-line-numbers-mode 1)
- (setq server-socket-dir (format "/tmp/emacs%d" (user-uid)))
  (setq inhibit-startup-screen t)
  (setq auto-save-file-name-transforms `((".*" "/tmp/" t)))
  (setq backup-directory-alist '((".*" . "/tmp")))
