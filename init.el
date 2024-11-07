@@ -16,73 +16,30 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(calendar-date-style 'iso)
- '(custom-safe-themes '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
+ '(custom-safe-themes
+   '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
- '(org-agenda-files
-   '("~/org/Journal/202410.org"
-     ))
+ '(org-agenda-files '("~/org/Journal/202410.org"))
  '(org-format-latex-options
-   '(:foreground
-     default
-     :background default
-     :scale 2.2
-     :html-foreground "Black"
-     :html-background "Transparent"
-     :html-scale 2.0
-     :matchers ("begin" "$1" "$" "$$" "\\(" "\\[")))
+   '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
+                 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-link-frame-setup
    '((vm . vm-visit-folder-other-frame)
      (vm-imap . vm-visit-imap-folder-other-frame)
      (gnus . org-gnus-no-new-news)
      (file . find-file)
      (wl . wl-other-frame)))
- '(org-priority-faces '((65 :foreground "red") (66 :foreground "yellow") (67 :foreground "green")))
- '(org-roam-capture-new-node-hook '(org-id-get-create org-roam-capture--insert-captured-ref-h))
+ '(org-priority-faces
+   '((65 :foreground "red")
+     (66 :foreground "yellow")
+     (67 :foreground "green")))
+ '(org-roam-capture-new-node-hook
+   '(org-id-get-create org-roam-capture--insert-captured-ref-h))
  '(org-super-agenda-date-format "%e %Y-%m-%d")
  '(package-selected-packages
-   '(org-journal
-     elisp-autofmt
-     aggressive-indent
-     evil-nerd-commenter
-     envrc
-     projectile
-     which-key
-     org-anki
-     org-ql
-     helm-bibtex
-     org-roam-bibtex
-     annotate
-     toc-org
-     hotfuzz
-     ruff-format
-     nix-mode
-     git-auto-commit
-     lsp-ui
-     lsp-mode
-     latex-extra
-     latexdiff
-     auctex
-     org-view-mode
-     rainbow-delimiters
-     flycheck
-     origami
-     vertico
-     git-gutter
-     magit
-     git-auto-commit-mode
-     company
-     org-roam-ui
-     spacious-padding
-     org-super-agenda
-     fzf
-     dashboard
-     org-transclusion
-     org-superstar
-     org-roam
-     evil
-     catppuccin-theme))
+   '(elisp-autofmt aggressive-indent evil-nerd-commenter envrc projectile which-key org-anki org-ql helm-bibtex org-roam-bibtex annotate toc-org hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-roam evil catppuccin-theme))
  '(python-isort-extra-args nil))
 
 ;;; Theme
@@ -171,7 +128,7 @@ of the start and end of the subtree."
   "Archive the org-mode subtree and create an entry in the
 directory folder specified by DIR. It attempts to move as many of
 the subtree's properties and other features to the new file."
-  (interactive "DDestination: ")
+  (interactive "Destination: ")
   (let* ((props      (org-subtree-metadata))
          (head       (plist-get props :header))
          (body       (plist-get props :body))
@@ -197,7 +154,7 @@ pre-populated with the HEADER, BODY and any associated TAGS."
     (or (re-search-forward "^\s*$" nil t) (point-max))
     (--map (insert (format "#+PROPERTY: %s %s" (first it) (second it))) properties))
 
-  ;; My auto-insert often adds an initial headline for a subtree, and in this
+gT  ;; My auto-insert often adds an initial headline for a subtree, and in this
   ;; case, I don't want that... Yeah, this isn't really globally applicable,
   ;; but it shouldn't cause a problem for others.
   (when (re-search-forward "^\\* [0-9]$" nil t)
@@ -475,10 +432,10 @@ if nil,the top of the file."
  (setq org-roam-dailies-directory "~/org/Journal/")
  (setq org-roam-completion-everywhere t)
  (setq org-roam-capture-templates
-       '(("d" "default" plain "%?"
+       '(("d" "default" entry "* %?"
           :target
           (file+head
-           "nodes/${title}.org"
+           "Inbox.org"
            ":PROPERTIES:
 :CATEGORY: NODE
 :ID:
@@ -823,8 +780,7 @@ exist after each headings's drawers."
  '(org-agenda-date ((t (:foreground "light gray" :weight normal))))
  '(org-agenda-date-today ((t (:foreground "medium spring green" :weight bold))))
  '(org-agenda-date-weekend ((t (:inherit org-agenda-date :foreground "dim gray"))))
- '(org-agenda-date-weekend-today
-   ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
+ '(org-agenda-date-weekend-today ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
  '(org-agenda-structure-filter ((t nil)))
  '(org-scheduled ((t nil))))
 
