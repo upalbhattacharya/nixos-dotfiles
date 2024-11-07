@@ -48,13 +48,13 @@
 
 (defvar org-default-inbox-file "~/org/Inbox.org"
   "Primary Capture file")
-(defvar org-default-projects-dir "~/org/Projects"
+(defvar org-default-projects-file "~/org/Projects.org"
   "Primary Projects directory")
-(defvar org-default-areas-dir "~/org/Areas"
+(defvar org-default-areas-file "~/org/Areas.org"
   "Primary Areas directory")
-(defvar org-default-resources-dir "~/org/Resources"
+(defvar org-default-resources-file "~/org/Resources.org"
   "Primary Resources directory")
-(defvar org-default-archive-dir "~/org/Archive"
+(defvar org-default-archive-file "~/org/Archive/Archive %<%Y>.org"
   "Primary Archive directory")
 
 (defun custom/org-projects-file-from-subtree (&optional name)
@@ -420,14 +420,9 @@ otherwise use the subtree title."
  (setq org-roam-capture-templates
        '(("d" "default" plain "%?"
           :target
-          (file+head+olp
-           "Inbox.org" ":PROPERTIES:\n:CATEGORY: INBOX\n:END:"
-            ("TODO ${title}
-:PROPERTIES:
-:ID:
-:SPACE: WORK
-:CREATED: %U
-:END:\n\n")))
+          (file+head
+           "Inbox.org" "{title}\n:PROPERTIES:\n:SPACE: WORK\n:END:")
+          )
          ("n" "literature note" plain "%?"
           :target
           (file+head
