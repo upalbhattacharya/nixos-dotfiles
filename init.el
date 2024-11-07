@@ -421,7 +421,7 @@ otherwise use the subtree title."
        '(("d" "default" plain "\n& ${title}\n\n%?"
           :target
           (file+head
-           "Inbox.org" "#+TITLE: ${title}"
+        "Inbox.org" "#+TITLE: ${title}"
           ))
          ("n" "literature note" plain "%?"
           :target
