@@ -348,7 +348,7 @@
          ("n" "literature note" plain "%?"
           :target
           (file+head
-           "Resources/${citekey}.org" "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}")
+           "Resources/${citekey}.org" "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}\n")
           :unnarrowed t)))
 
  (setq org-roam-dailies-capture-templates
