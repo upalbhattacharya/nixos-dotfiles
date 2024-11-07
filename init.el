@@ -492,7 +492,7 @@ if nil,the top of the file."
  (setq org-roam-capture-templates
        '(("d" "default" plain "%?"
           :target
-          (file+head
+          (file+head+olp
            "Inbox.org" ":PROPERTIES:\n:CATEGORY: INBOX\n:END:"
             "TODO ${title}
 :PROPERTIES:
