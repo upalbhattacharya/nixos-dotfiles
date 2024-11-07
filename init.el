@@ -112,14 +112,7 @@
  (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
 
  ;; org-agenda
- (setq org-agenda-files
-       (list
-        org-default-inbox-file
-        org-default-projects-dir
-        org-default-areas-dir
-        org-default-resources-dir
-        org-default-archive-dir
-        ))
+ (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
  (setq org-agenda-file-regexp "^[a-z0-9-_]+.org")
  (setq org-agenda-start-day "+0d")
  (setq org-agenda-window-setup 'other-tab)
