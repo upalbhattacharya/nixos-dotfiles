@@ -441,8 +441,6 @@ if nil,the top of the file."
 :ID:
 :SPACE: WORK
 :END:
-#+TITLE: ${title}
-#+FILETAGS:
 
 * ${title}\n\n")
           :immediate-finish t
