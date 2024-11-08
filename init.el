@@ -228,8 +228,8 @@
             :order 3)
            (:discard (:anything t))))))) ; Super zen Archive view
      )
-    ("ces" "Custom: Agenda and Emacs SOMEDAY [#A] items"
-         ((org-ql-block '(deadline auto)
+    ("zt" "Custom: Agenda and Emacs SOMEDAY [#A] items"
+         ((org-ql-search (org-agenda-files) '(deadline auto)
                         ((org-ql-block-header "AllTODO")))
           (alltodo)))
 
