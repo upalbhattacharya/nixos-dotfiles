@@ -329,12 +329,12 @@
        '(("d" "default" plain "%?"
           :target
           (file+olp
-           org-default-inbox-file
+           'org-default-inbox-file
            ("Inbox" "${title}\n:PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n\n")))
          ("p" "project" plain "%?"
           :target
           (file+olp
-           org-default-projects-file
+           'org-default-projects-file
            ("${title}\n:PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n\n")))
          ("a" "area" plain "%?"
           :target
