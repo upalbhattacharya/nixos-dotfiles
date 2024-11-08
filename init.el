@@ -287,7 +287,33 @@
             (alltodo
              ""
              (org-ql-block '(deadline auto) ((org-ql-block-header "Due Soon")))
-             (org-ql-block '(deadline -1) ((org-ql-block-header "Overdue"))))))))
+             (org-ql-block '(deadline -1) ((org-ql-block-header "Overdue"))))))
+          ("zet" "Super Agenda View Test"
+           ((agenda
+             ""
+             ((org-ql-search "~/src/emacs/org-super-agenda/test/test.org"
+                '(and (or (ts-active :on today)
+                          (deadline auto)
+                          (scheduled :to today))
+                      (not (done)))
+                :title "My Agenda View"
+                ;; The `org-super-agenda-groups' setting is used automatically when set, or it
+                ;; may be overriden by specifying it here:
+                :super-groups '((:name "Bills"
+                                       :tag "bills")
+                                (:todo ("SOMEDAY" "TO-READ" "CHECK" "TO-WATCH" "WATCHING")
+                                       :order 7)
+                                (:name "Personal"
+                                       :habit t
+                                       :tag "personal"
+                                       :order 3)
+                                (:todo "WAITING"
+                                       :order 6)
+                                (:priority "A" :order 1)
+                                (:priority "B" :order 2)
+                                (:priority "C" :order 2)))
+
+              ))))))
   :config (setq org-super-agenda-mode t))
 
 ;; org-roam
