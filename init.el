@@ -428,7 +428,7 @@ exist after each headings's drawers."
                                 (closed :on today)
                                 (not(path "Archive" "Inbox")))
                           ((org-ql-block-header "Completed Today")))
-            (org-ql-block '(and (level 2 10)
+            (org-ql-block '(and (level 2 8)
                                 (todo "TODAY")
                                 (not(path "Archive" "Inbox")))
                           ((org-ql-block-header "Planned Today")))
