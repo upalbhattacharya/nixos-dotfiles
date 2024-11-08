@@ -199,107 +199,28 @@
             ((org-agenda-span 'day)
              (org-agenda-sorting-strategy '(deadline-up scheduled-up priority-down))
              (org-super-agenda-groups
-              '((:name
-                 "Due"
-                 :and
-                 (:property ("SPACE" "WORK") :not (:log closed) :deadline today)
-                 :order 1)
-                (:name
-                 "Scheduled"
-                 :and
-                 (:property ("SPACE" "WORK") :not (:log closed) :scheduled today)
-                 :order 2)
-                (:name "Done" :log closed :order 3) (:discard (:anything t))))))
+              '((:name "Due" :and (:not (:log closed) :deadline today) :order 1)
+                (:name "Scheduled" :and (:not (:log closed) :scheduled today) :order 2)
+                (:name "Done" :log closed :order 3)
+                (:discard (:anything t))))))
            (alltodo
             ""
             ((org-agenda-overriding-header "Daily Planned")
              (org-super-agenda-groups
-              '((:name "Today" :and (:property ("SPACE" "WORK") :todo ("TODAY")) :order 1)
-                (:name
-                 "Next to do"
-                 :and (:property ("SPACE" "WORK") :todo "NEXT")
-                 :order 2)
+              '((:name "Today" :and (:todo ("TODAY")) :order 1)
+                (:name "Next to do" :and (:todo "NEXT") :order 2)
                 (:discard (:anything t))))))
            (alltodo
             ""
             ((org-agenda-overriding-header "Past and Future")
              (org-super-agenda-groups
-              '((:name "Overdue" :and (:property ("SPACE" "WORK") :deadline past) :order 1)
-                (:name
-                 "Due Soon"
-                 :and (:property ("SPACE" "WORK") :not (:todo "TODAY") :deadline future)
-                 :order 2)
-                (:name
-                 "Upcoming"
-                 :and (:property ("SPACE" "WORK") :not (:todo "TODAY") :scheduled future)
-                 :order 3)
-                (:name "Later" :and (:property ("SPACE" "WORK") :todo "LATER") :order 4)
+              '((:name "Overdue" :and (:deadline past) :order 1)
+                (:name "Due Soon" :and (:not (:todo "TODAY") :deadline future) :order 2)
+                (:name "Upcoming" :and (:not (:todo "TODAY") :scheduled future) :order 3)
+                (:name "Later" :and (:todo "LATER") :order 4)
                 (:name
                  "Check"
-                 :and
-                 (:property
-                  ("SPACE" "WORK")
-                  :not (:todo ("TODAY" "NEXT"))
-                  :date nil
-                  :deadline nil
-                  :scheduled nil)
-                 :order 5)
-                (:discard (:anything t))))))) ; Super zen view
-          )
-         ("zp" "Super zen view (Personal)"
-          ((agenda
-            ""
-            ((org-agenda-span 'day)
-             (org-agenda-sorting-strategy '(deadline-up scheduled-up priority-down))
-             (org-super-agenda-groups
-              '((:name
-                 "Due"
-                 :and
-                 (:property ("SPACE" "PERSONAL") :not (:log closed) :deadline today)
-                 :order 1)
-                (:name
-                 "Scheduled"
-                 :and
-                 (:property ("SPACE" "PERSONAL") :not (:log closed) :scheduled today)
-                 :order 2)
-                (:name "Done" :log closed :order 3) (:discard (:anything t))))))
-           (alltodo
-            ""
-            ((org-agenda-overriding-header "Daily Planned")
-             (org-super-agenda-groups
-              '((:name
-                 "Today"
-                 :and
-                 (:property ("SPACE" "PERSONAL") :todo ("TODAY"))
-                 :order 1)
-                (:name
-                 "Next to do"
-                 :and (:property ("SPACE" "PERSONAL") :todo "NEXT")
-                 :order 2)
-                (:discard (:anything t))))))
-           (alltodo
-            ""
-            ((org-agenda-overriding-header "Past and Future")
-             (org-super-agenda-groups
-              '((:name "Overdue" :and (:property ("SPACE" "PERSONAL") :deadline past) :order 1)
-                (:name
-                 "Due Soon"
-                 :and (:property ("SPACE" "PERSONAL") :not (:todo "TODAY") :deadline future)
-                 :order 2)
-                (:name
-                 "Upcoming"
-                 :and (:property ("SPACE" "PERSONAL") :not (:todo "TODAY") :scheduled future)
-                 :order 3)
-                (:name "Later" :and (:property ("SPACE" "PERSONAL") :todo "LATER") :order 4)
-                (:name
-                 "Check"
-                 :and
-                 (:property
-                  ("SPACE" "PERSONAL")
-                  :not (:todo ("TODAY" "NEXT"))
-                  :date nil
-                  :deadline nil
-                  :scheduled nil)
+                 :and (:not (:todo ("TODAY" "NEXT")) :date nil :deadline nil :scheduled nil)
                  :order 5)
                 (:discard (:anything t))))))) ; Super zen view
           )))
@@ -615,6 +536,7 @@ exist after each headings's drawers."
 (global-set-key (kbd "C-c i") 'org-roam-node-insert)
 (global-set-key (kbd "C-c n") 'org-roam-capture)
 (global-set-key (kbd "C-M-r") 'org-roam-buffer-toggle)
+(global-set-key (kbd "C-c C-w") 'org-roam-refile)
 
 ;; org-roam-dailies
 (global-set-key (kbd "C-c M-j") 'org-roam-dailies-goto-today)
