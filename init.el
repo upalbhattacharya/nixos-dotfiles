@@ -293,8 +293,8 @@
              ""
              ((org-agenda-span 'day)
               (org-ql-search '(org-agenda-files)
-                '(and (or (deadline :to today)
-                          (scheduled :to today))
+                '(and (or (deadline :on today)
+                          (scheduled :on today))
                       )
                 :title "My Agenda View"
                 ;; The `org-super-agenda-groups' setting is used automatically when set, or it
