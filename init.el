@@ -273,7 +273,7 @@
          ))
         ("ar" "Archive"
          (
-          (org-ql-block '(and :not(path "Archive") (todo) (deadline :on today))
+          (org-ql-block '(and (path "Archive") (todo) (deadline :on today))
                         ((org-ql-block-header "Due Today")))
          (org-ql-block '(and (todo) (scheduled :on today))
                         ((org-ql-block-header "Scheduled Today")))
