@@ -191,7 +191,7 @@
               '((:name "Overdue" :and (:not (:file-path "Archive") :deadline past) :order 1)
                 (:name
                  "Due Soon"
-                 :and (:not (:file-path "Archive") :not (:todo "TODAY") :deadline t))
+                 :and (:not (:file-path "Archive") :not (:todo "TODAY") :deadline t)
                 :order 2)
               (:name
                "Upcoming"
@@ -209,7 +209,6 @@
                 :scheduled nil)
                :order 5)
               (:discard (:anything t)))))) ; Super zen view
-          )
          ("za" "Super zen Archive view"
           ((alltodo
             ""
