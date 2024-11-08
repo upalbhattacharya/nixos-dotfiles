@@ -295,7 +295,7 @@
               (org-ql-search '(org-agenda-files)
                 '(and (or (deadline :to today)
                           (scheduled :to today))
-                      (not (done)))
+                      )
                 :title "My Agenda View"
                 ;; The `org-super-agenda-groups' setting is used automatically when set, or it
                 ;; may be overriden by specifying it here:
