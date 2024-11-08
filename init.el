@@ -149,92 +149,94 @@
 ;; Outside org because of org-super-agenda usage (?)
 
 (use-package
- org-super-agenda
- :after org
- :init
- (setq
-  org-agenda-custom-commands
-  '(("zp" "Super zen view"
-     ((agenda
-       ""
-       ((org-agenda-span 'day)
-        (org-agenda-sorting-strategy '(deadline-up scheduled-up priority-down))
-        (org-super-agenda-groups
-         '((:name
-            "Due"
-            :and
-            (:not (:file-path "Archive") :not (:log closed) :deadline today)
-            :order 1)
-           (:name
-            "Scheduled"
-            :and
-            (:not (:file-path "Archive") :not (:log closed) :scheduled today)
-            :order 2)
-           (:name
-            "Done"
-            :and (:not (:file-path "Archive") :log closed)
-            :order 3)
-           (:discard (:anything t))))))
-      (alltodo
-       ""
-       ((org-agenda-overriding-header "Daily Planned")
-        (org-super-agenda-groups
-         '((:name "Today" :and (:not (:file-path "Archive") :todo ("TODAY")) :order 1)
-           (:name
-            "Next to do"
-            :and (:not (:file-path "Archive") :todo "NEXT")
-            :order 2)
-           (:discard (:anything t))))))
-      (alltodo
-       ""
-       ((org-agenda-overriding-header "Past and Future")
-        (org-super-agenda-groups
-         '((:name "Overdue" :and (:not (:file-path "Archive") :deadline past) :order 1)
-           (:name
-            "Due Soon"
-            :and (:not (:file-path "Archive") :not (:todo "TODAY") :deadline t)
-            :order 2)
-           (:name
-            "Upcoming"
-            :and (:not (:not (:file-path "Archive") :todo "TODAY") :scheduled future)
-            :order 3)
-           (:name "Later" :and (:not (:file-path "Archive") :todo "LATER") :order 4)
-           (:name
-            "Check"
-            :and
-            (:not
-             (:file-path "Archive")
-             :not (:todo ("TODAY" "NEXT"))
-             :date nil
-             :deadline nil
-             :scheduled nil)
-            :order 5)
-           (:discard (:anything t)))))))) ; Super zen view
-    ("za" "Super zen Archive view"
-     ((alltodo
-       ""
-       ((org-super-agenda-groups
-         '((:name
-            "Archived Projects"
-            :and (:todo t :file-path "Projects Archive" :not (:log closed))
-            :order 1)
-           (:name
-            "Archived Areas"
-            :and (:todo t :file-path "Areas Archive" :not (:log closed))
-            :order 2)
-           (:name
-            "Archived Resources"
-            :and (:todo t :file-path "Resources Archive" :not (:log closed))
-            :order 3)
-           (:discard (:anything t))))))) ; Super zen Archive view
-     )
-    ("zt" "Custom: Agenda and Emacs SOMEDAY [#A] items"
-         ((org-ql-block '(deadline auto)
-                        ((org-ql-block-header "AllTODO")))
-          (alltodo)))
+  org-super-agenda
+  :after org
+  :init
+  (setq
+   org-agenda-custom-commands
+   '(("zp" "Super zen view"
+      ((agenda
+        ""
+        ((org-agenda-span 'day)
+         (org-agenda-sorting-strategy '(deadline-up scheduled-up priority-down))
+         (org-super-agenda-groups
+          '((:name
+             "Due"
+             :and
+             (:not (:file-path "Archive") :not (:log closed) :deadline today)
+             :order 1)
+            (:name
+             "Scheduled"
+             :and
+             (:not (:file-path "Archive") :not (:log closed) :scheduled today)
+             :order 2)
+            (:name
+             "Done"
+             :and (:not (:file-path "Archive") :log closed)
+             :order 3)
+            (:discard (:anything t))))))
+       (alltodo
+        ""
+        ((org-agenda-overriding-header "Daily Planned")
+         (org-super-agenda-groups
+          '((:name "Today" :and (:not (:file-path "Archive") :todo ("TODAY")) :order 1)
+            (:name
+             "Next to do"
+             :and (:not (:file-path "Archive") :todo "NEXT")
+             :order 2)
+            (:discard (:anything t))))))
+       (alltodo
+        ""
+        ((org-agenda-overriding-header "Past and Future")
+         (org-super-agenda-groups
+          '((:name "Overdue" :and (:not (:file-path "Archive") :deadline past) :order 1)
+            (:name
+             "Due Soon"
+             :and (:not (:file-path "Archive") :not (:todo "TODAY") :deadline t)
+             :order 2)
+            (:name
+             "Upcoming"
+             :and (:not (:not (:file-path "Archive") :todo "TODAY") :scheduled future)
+             :order 3)
+            (:name "Later" :and (:not (:file-path "Archive") :todo "LATER") :order 4)
+            (:name
+             "Check"
+             :and
+             (:not
+              (:file-path "Archive")
+              :not (:todo ("TODAY" "NEXT"))
+              :date nil
+              :deadline nil
+              :scheduled nil)
+             :order 5)
+            (:discard (:anything t)))))))) ; Super zen view
+     ("za" "Super zen Archive view"
+      ((alltodo
+        ""
+        ((org-super-agenda-groups
+          '((:name
+             "Archived Projects"
+             :and (:todo t :file-path "Projects Archive" :not (:log closed))
+             :order 1)
+            (:name
+             "Archived Areas"
+             :and (:todo t :file-path "Areas Archive" :not (:log closed))
+             :order 2)
+            (:name
+             "Archived Resources"
+             :and (:todo t :file-path "Resources Archive" :not (:log closed))
+             :order 3)
+            (:discard (:anything t))))))) ; Super zen Archive view
+      )
+     ("zt" "Custom: Agenda and Emacs SOMEDAY [#A] items"
+      ((org-ql-block '(deadline auto)
+                     ((org-ql-block-header "Due Soon")))
+       (org-ql-block '(deadline past)
+                     ((org-ql-block-header "Overdue")))
+       (alltodo)))
 
-    )
-  )
+     )
+   )
   :config
   (setq org-super-agenda-mode t))
 
