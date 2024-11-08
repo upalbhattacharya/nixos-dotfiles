@@ -47,11 +47,11 @@
 (load-theme 'catppuccin :no-confirm)
 (defun my/org-refile-archive ()
     ;; (interactive)
-    (let ((filepath)
-          ;; (org-reverse-note-order t)) ; prepend
-        ;; (setq filepath (read-file-name "Enter .org file path:"))
+    ;; (let ((filepath)
+    ;;       ;; (org-reverse-note-order t)) ; prepend
+    ;;     ;; (setq filepath (read-file-name "Enter .org file path:"))
         (org-refile nil "Archive %<%Y>.org" nil nil) ; // nil filepath nil nil
-        ))
+        )
 ;;; emacs
 (use-package
  emacs
