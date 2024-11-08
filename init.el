@@ -238,7 +238,7 @@
                               (tags "Emacs")
                               (priority "A"))
                         ((org-ql-block-header "SOMEDAY :Emacs: High-priority")))
-          (agenda)))
+          (alltodo)))
 
     )
   )
