@@ -174,6 +174,10 @@
            (
             (org-ql-block '(path "Projects Archive")
                           ((org-ql-block-header "Archived Projects")))
+            (org-ql-block '(path "Areas Archive")
+                          ((org-ql-block-header "Archived Areas")))
+            (org-ql-block '(path "Resources Archive")
+                          ((org-ql-block-header "Archived Resources")))
             ))
           ))
   :config (setq org-super-agenda-mode t))
