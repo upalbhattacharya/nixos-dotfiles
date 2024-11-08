@@ -35,6 +35,7 @@
    '((65 :foreground "red")
      (66 :foreground "yellow")
      (67 :foreground "green")))
+ '(org-ql-search-directories-files-recursive t)
  '(org-roam-capture-new-node-hook
    '(org-id-get-create org-roam-capture--insert-captured-ref-h))
  '(org-super-agenda-date-format "%e %Y-%m-%d")
@@ -171,7 +172,7 @@
             ))
           ("ar" "Archive"
            (
-            (org-ql-block '(todo "ARCHIVED")
+            (org-ql-block '(and (todo) not(done) (path "Archive"))
                           ((org-ql-block-header "Archived")))
             ))
           ))
