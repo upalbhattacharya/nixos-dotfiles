@@ -447,17 +447,6 @@ exist after each headings's drawers."
                           ((org-ql-block-header "Inbox")))
 
             ))
-          ("r" "Archive"
-           (
-            (org-ql-block '(and (not(done)) (path "Projects Archive"))
-                          ((org-ql-block-header "Archived Projects")))
-            (org-ql-block '(and (not(done)) (path "Areas Archive"))
-                          ((org-ql-block-header "Archived Areas")))
-            (org-ql-block '(and (not(done)) (path "Resources Archive"))
-                          ((org-ql-block-header "Archived Resources")))
-            (org-ql-block '(and (not(done)) (path "Inbox Archive"))
-                          ((org-ql-block-header "Archived Inbox")))
-            ))
           ("i" "Inbox"
            (
             (org-ql-block '(path "Inbox")
@@ -477,6 +466,21 @@ exist after each headings's drawers."
                           ((org-ql-block-header "Active Areas")))
             (org-ql-block '(and (not(path "Archive"))
                                 (path "Resources")
+                                (level 1)
+                                )
+                          ((org-ql-block-header "Active Resources")))
+            ))
+          ("r" "Archive"
+           (
+            (org-ql-block '(and (path "Projects Archive")
+                                (level 1)
+                                )
+                          ((org-ql-block-header "Active Projects")))
+            (org-ql-block '(and (path "Areas Archive")
+                                (level 1)
+                                )
+                          ((org-ql-block-header "Active Areas")))
+            (org-ql-block '(and (path "Resources Archive")
                                 (level 1)
                                 )
                           ((org-ql-block-header "Active Resources")))
