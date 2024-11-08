@@ -152,8 +152,9 @@
  (setq org-agenda-hide-tags-regexp ".*")
  (setq org-agenda-prefix-format '((agenda . " %?-12c  %?-12t%?-b ") (todo . " %?-12t %s")))
  (setq org-agenda-view-columns-initially t)
- (setq org-agenda-overriding-columns-format
-       "%12TODO(STATUS) %100ITEM %40NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %DEADLINE %SCHEDULED")
+ (setq
+  org-agenda-overriding-columns-format
+  "%12TODO(STATUS) %100ITEM %40NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %DEADLINE %SCHEDULED")
  (setq org-agenda-with-colors t)
  (setq org-agenda-format-date
        (lambda (date)
@@ -256,26 +257,22 @@
  (setq org-roam-dailies-directory "~/org/Journal/")
  (setq org-roam-completion-everywhere t)
  (setq org-roam-capture-templates
-       '(("d"
-          "default"
-          plain
-          "%?"
-          :target (file+olp "Inbox.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
-         ("p"
-          "project"
-          plain
-          "%?"
-          :target (file+olp "Projects.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
-         ("a"
-          "area"
-          plain
-          "%?"
-          :target (file+olp "Areas.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
-         ("a"
-          "resource"
-          plain
-          "%?"
-          :target (file+head "Resources.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
+       '(("d" "default" plain "%?"
+          :target
+          (file+olp
+           "Inbox.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
+         ("p" "project" plain "%?"
+          :target
+          (file+olp
+           "Projects.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
+         ("a" "area" plain "%?"
+          :target
+          (file+olp
+           "Areas.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
+         ("a" "resource" plain "%?"
+          :target
+          (file+head
+           "Resources.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
          ("n" "literature note" plain "%?"
           :target
           (file+head
