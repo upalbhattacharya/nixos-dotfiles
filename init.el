@@ -199,7 +199,7 @@
             ((org-agenda-span 'day)
              (org-agenda-sorting-strategy '(deadline-up scheduled-up priority-down))
              (org-super-agenda-groups
-              '((:name "Due" :and (:auto-parent: order 1)
+              '((:name "Due" :and (:auto-parent: order 1))
                                    ;; :not (:log closed) :deadline today) :order 1)
                 (:name "Scheduled" :and (:not (:log closed) :scheduled today) :order 2)
                 (:name "Done" :log closed :order 3)
