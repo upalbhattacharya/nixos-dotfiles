@@ -236,7 +236,7 @@
             "Due Soon"
             :and
             (:todo t :not (:file-path "Archive") :deadline future)
-            :order 1))))))))
+            :order 1))))))
   :config
   (org-super-agenda-mode t)))
 
