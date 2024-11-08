@@ -211,12 +211,10 @@
               (org-agenda-sorting-strategy '(deadline-up scheduled-up priority-down))
               (org-super-agenda-groups
                '((:name "Due"
-                  :and
-                  (:not (:file-path "Archive") :not (:log closed) :deadline today)
+                  :and (:not (:file-path "Archive") :not (:log closed) :deadline today)
                   :order 1)
                  (:name "Scheduled"
-                  :and
-                  (:not (:file-path "Archive") :not (:log closed) :scheduled today)
+                  :and (:not (:file-path "Archive") :not (:log closed) :scheduled today)
                   :order 2)
                  (:name "Done"
                   :and (:not (:file-path "Archive") :log closed)
