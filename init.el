@@ -329,26 +329,27 @@
        '(("d" "default" plain "%?"
           :target
           (file+olp
-           "Inbox.org" ("Inbox" "${title}\n:PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n\n")))
+           org-default-inbox-file
+           ("Inbox" "${title}\n:PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n\n")))
          ("p" "project" plain "%?"
           :target
           (file+olp
-           "Projects.org"
-           ("* ${title}\n:PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n\n")))
+           org-default-projects-file
+           ("${title}\n:PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n\n")))
          ("a" "area" plain "%?"
           :target
-          (file+head
-           "Areas/${title}.org"
-           ":PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n#+TITLE:\t${title}\n* ${title}\n"))
+          (file+olp
+           org-default-areas-file
+           ("${title}\n:PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n\n")))
          ("a" "resource" plain "%?"
           :target
           (file+head
-           "Resources/${title}.org"
-           ":PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n#+TITLE:\t${title}\n* ${title}\n"))
+           org-default-resources-file
+           ("${title}\n:PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n\n")))
          ("n" "literature note" plain "%?"
           :target
           (file+head
-           "Resources/${citekey}.org" "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}\n")
+           "Academic/${citekey}.org" "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}\n")
           :unnarrowed t)))
 
  (setq org-roam-dailies-capture-templates
