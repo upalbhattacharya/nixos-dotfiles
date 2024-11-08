@@ -279,7 +279,7 @@
                  (:discard (:anything t))))))) ; Super zen Archive view
            )
           ("zt"
-           "Custom: Agenda and Emacs SOMEDAY [#A] items"
+           "Custom Testing"
            ((org-agenda-span 'day)
             ((org-ql-block '(deadline 0) ((org-ql-block-header "Overdue"))) (agenda))
             ((org-ql-block '(deadline auto) ((org-ql-block-header "Due Soon")))
