@@ -300,19 +300,21 @@
                 :title "My Agenda View"
                 ;; The `org-super-agenda-groups' setting is used automatically when set, or it
                 ;; may be overriden by specifying it here:
-                :super-groups '((:name "Bills"
-                                       :tag "bills")
-                                (:todo ("SOMEDAY" "TO-READ" "CHECK" "TO-WATCH" "WATCHING")
-                                       :order 7)
-                                (:name "Personal"
-                                       :habit t
-                                       :tag "personal"
-                                       :order 3)
-                                (:todo "WAITING"
-                                       :order 6)
-                                (:priority "A" :order 1)
-                                (:priority "B" :order 2)
-                                (:priority "C" :order 2)))
+                :super-groups '((:name
+                                 "Due"
+                                 :and
+                                 (:not (:file-path "Archive") :not (:log closed) :deadline today)
+                                 :order 1)
+                                (:name
+                                 "Scheduled"
+                                 :and
+                                 (:not (:file-path "Archive") :not (:log closed) :scheduled today)
+                                 :order 2)
+                                (:name
+                                 "Done"
+                                 :and (:not (:file-path "Archive") :log closed)
+                                 :order 3)
+                                (:discard (:anything t))))
 
               ))))))
   :config (setq org-super-agenda-mode t))
