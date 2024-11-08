@@ -257,7 +257,12 @@
          ((org-ql-block '(and (todo)
                               (or (deadline :on today)
                                   (scheduled :on today)))
-                        ((org-ql-block-header "Stuck Projects")))))))
+                        ((org-ql-block-header "Due Today")))
+          (org-ql-block '(and (todo)
+                              (or (deadline :on today)
+                                  (scheduled :on today)))
+                        ((org-ql-block-header "Scheduled Today")))
+          ))))
   :config (setq org-super-agenda-mode t))
 
 ;; org-roam
