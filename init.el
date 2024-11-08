@@ -280,7 +280,7 @@
                  (:discard (:anything t))))))) ; Super zen Archive view
            )
 
-          ("zp" "Super zen view"
+          ("zt" "Super zen view"
            ((agenda
              ""
              ((org-agenda-span 'day)
