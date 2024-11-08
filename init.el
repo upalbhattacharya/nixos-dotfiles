@@ -209,7 +209,7 @@
                           :deadline nil
                           :scheduled nil)
                          :order 5)
-                        (:discard (:anything t))))))) ; Super zen view
+                        (:discard (:anything t)))))))) ; Super zen view
           )
          ("za" "Super zen Archive view"
           ((alltodo
