@@ -154,7 +154,7 @@
  (setq org-agenda-view-columns-initially t)
  (setq
   org-agenda-overriding-columns-format
-  "%12TODO(STATUS) %100ITEM %40NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %DEADLINE %SCHEDULED")
+  "%12TODO(STATUS) %100ITEM %50NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %DEADLINE %SCHEDULED")
  (setq org-agenda-with-colors t)
  (setq org-agenda-format-date
        (lambda (date)
