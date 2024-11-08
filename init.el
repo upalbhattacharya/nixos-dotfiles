@@ -255,7 +255,7 @@
 (setq org-agenda-custom-commands
       '(("z" "Zen View"
          (
-          (org-ql-block '(and not(path "Archive") (todo) (deadline :on today))
+          (org-ql-block '(and not(category (("Projects Archive" "Areas Archive" "Resources Archive"))) (todo) (deadline :on today))
                         ((org-ql-block-header "Due Today")))
          (org-ql-block '(and not(path "Archive") (todo) (scheduled :on today))
                         ((org-ql-block-header "Scheduled Today")))
