@@ -261,7 +261,7 @@
                         ((org-ql-block-header "Scheduled Today")))
          (org-ql-block '(and (todo) (closed :on today))
                        ((org-ql-block-header "Completed Today")))
-         (org-ql-block '(and todo "TODAY"))
+         (org-ql-block '(todo "TODAY")
                        ((org-ql-block-header "Planned Today")))
          (org-ql-block '(and (todo) (deadline :to -1))
                        ((org-ql-block-header "Overdue")))
