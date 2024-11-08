@@ -16,84 +16,33 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(calendar-date-style 'iso)
- '(custom-safe-themes '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
+ '(custom-safe-themes
+   '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-files
-   '("/home/workboots/org/Archive/Areas Archive.org"
-     "/home/workboots/org/Archive/Dutch Vocabulary.org"
-     "/home/workboots/org/Archive/Inbox Archive.org"
-     "/home/workboots/org/Archive/Projects Archive.org"
-     "/home/workboots/org/Archive/Resources Archive.org"
-     "/home/workboots/org/Archive/Routledge Dutch Intensive Course.org"
-     "/home/workboots/org/Journal/202410.org"
-     "/home/workboots/org/Journal/Journal 2024.org"
-     "/home/workboots/org/Archive.org"
-     "/home/workboots/org/Areas.org"
-     "/home/workboots/org/Inbox.org"
-     "/home/workboots/org/Projects.org"
-     "/home/workboots/org/Resources.org"))
+   '("/home/workboots/org/Archive/Areas Archive.org" "/home/workboots/org/Archive/Dutch Vocabulary.org" "/home/workboots/org/Archive/Inbox Archive.org" "/home/workboots/org/Archive/Projects Archive.org" "/home/workboots/org/Archive/Resources Archive.org" "/home/workboots/org/Archive/Routledge Dutch Intensive Course.org" "/home/workboots/org/Journal/202410.org" "/home/workboots/org/Journal/Journal 2024.org" "/home/workboots/org/Archive.org" "/home/workboots/org/Areas.org" "/home/workboots/org/Inbox.org" "/home/workboots/org/Projects.org" "/home/workboots/org/Resources.org"))
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
-   '(:foreground
-     default
-     :background default
-     :scale 2.2
-     :html-foreground "Black"
-     :html-background "Transparent"
-     :html-scale 2.0
-     :matchers ("begin" "$1" "$" "$$" "\\(" "\\[")))
+   '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
+                 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-link-frame-setup
    '((vm . vm-visit-folder-other-frame)
      (vm-imap . vm-visit-imap-folder-other-frame)
      (gnus . org-gnus-no-new-news)
      (file . find-file)
      (wl . wl-other-frame)))
- '(org-priority-faces '((65 :foreground "red") (66 :foreground "yellow") (67 :foreground "green")))
- '(org-roam-capture-new-node-hook '(org-id-get-create org-roam-capture--insert-captured-ref-h))
+ '(org-priority-faces
+   '((65 :foreground "red")
+     (66 :foreground "yellow")
+     (67 :foreground "green")))
+ '(org-roam-capture-new-node-hook
+   '(org-id-get-create org-roam-capture--insert-captured-ref-h))
  '(org-super-agenda-date-format "%e %Y-%m-%d")
  '(org-use-property-inheritance '("NAME"))
  '(package-selected-packages
-   '(elisp-autofmt
-     aggressive-indent
-     evil-nerd-commenter
-     envrc
-     which-key
-     org-anki
-     org-ql
-     helm-bibtex
-     org-roam-bibtex
-     annotate
-     toc-org
-     hotfuzz
-     ruff-format
-     nix-mode
-     git-auto-commit
-     lsp-ui
-     lsp-mode
-     latex-extra
-     latexdiff
-     auctex
-     org-view-mode
-     rainbow-delimiters
-     flycheck
-     origami
-     vertico
-     git-gutter
-     magit
-     git-auto-commit-mode
-     company
-     org-roam-ui
-     spacious-padding
-     org-super-agenda
-     fzf
-     dashboard
-     org-transclusion
-     org-superstar
-     org-roam
-     evil
-     catppuccin-theme))
+   '(elisp-autofmt aggressive-indent evil-nerd-commenter envrc which-key org-anki org-ql helm-bibtex org-roam-bibtex annotate toc-org hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding org-super-agenda fzf dashboard org-transclusion org-superstar org-roam evil catppuccin-theme))
  '(python-isort-extra-args nil))
 
 ;;; Theme
@@ -643,7 +592,6 @@ exist after each headings's drawers."
  '(org-agenda-date ((t (:foreground "light gray" :weight normal))))
  '(org-agenda-date-today ((t (:foreground "medium spring green" :weight bold))))
  '(org-agenda-date-weekend ((t (:inherit org-agenda-date :foreground "dim gray"))))
- '(org-agenda-date-weekend-today
-   ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
+ '(org-agenda-date-weekend-today ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
  '(org-agenda-structure-filter ((t nil)))
  '(org-scheduled ((t nil))))
