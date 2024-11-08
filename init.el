@@ -153,7 +153,7 @@
  (setq org-agenda-prefix-format '((agenda . " %?-12c  %?-12t%?-b ") (todo . " %?-12t %s")))
  (setq org-agenda-view-columns-initially t)
  (setq org-agenda-overriding-columns-format
-       "%50ITEM %15CATEGORY(PARA) %10NAME %12TODO(STATUS) %PRIORITY(PR.) %DEADLINE %SCHEDULED")
+       "%50ITEM %20CATEGORY(PARA) %40NAME(HEAD) %12TODO(STATUS) %PRIORITY(PR.) %DEADLINE %SCHEDULED")
  (setq org-agenda-with-colors t)
  (setq org-agenda-format-date
        (lambda (date)
