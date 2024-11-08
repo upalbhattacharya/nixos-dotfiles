@@ -280,7 +280,7 @@
            (:discard (:anything t))))))) ; Super zen Archive view
      )
     ("zt" "Super zen view (Test)"
-     ((org-ql-search
+     ((org-ql-block
        (org-agenda-files) '(deadline auto)
        :super-groups
        '((:name
