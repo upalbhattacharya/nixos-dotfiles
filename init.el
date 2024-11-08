@@ -256,11 +256,11 @@
       '(("zt" "Today"
          ((org-ql-block '(and (todo) (deadline :on today))
                         ((org-ql-block-header "Due Today")))
-         ((org-ql-block '(and (todo) (scheduled :on today))
+         (org-ql-block '(and (todo) (scheduled :on today))
                         ((org-ql-block-header "Scheduled Today")))
-         ((org-ql-block '(and (todo) (closed :on today))
+         (org-ql-block '(and (todo) (closed :on today))
                         ((org-ql-block-header "Completed Today")))
-          ))))))
+          ))))
   :config (setq org-super-agenda-mode t))
 
 ;; org-roam
