@@ -173,21 +173,8 @@
             ))
           ("ar" "Archive"
            (
-            (org-ql-block '(and () (todo) (deadline :on today))
-                          ((org-ql-block-header "Due Today")))
-            (org-ql-block '(and (todo) (scheduled :on today))
-                          ((org-ql-block-header "Scheduled Today")))
-            (org-ql-block '(and (todo) (closed :on today))
-                          ((org-ql-block-header "Completed Today")))
-            (org-ql-block '(todo "TODAY")
-                          ((org-ql-block-header "Planned Today")))
-            (org-ql-block '(and (todo) (deadline :to -1))
-                          ((org-ql-block-header "Overdue")))
-            (org-ql-block '(and (todo) (scheduled :to -1))
-                          ((org-ql-block-header "Reschedule")))
-            (org-ql-block '(and (todo) (deadline :from 1 :to 30))
-                          ((org-ql-block-header "Due Soon")))
-
+            (org-ql-block '(todo "ARCHIVED")
+                          ((org-ql-block-header "Archived")))
             ))
           ))
   :config (setq org-super-agenda-mode t))
