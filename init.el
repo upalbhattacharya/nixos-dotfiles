@@ -190,7 +190,7 @@
  :after org
  :init
  (setq org-agenda-custom-commands
-       '(("z" "Super zen view"
+       '(("zp" "Super zen view"
           ((agenda
             ""
             ((org-agenda-span 'day)
@@ -246,7 +246,20 @@
                   :scheduled nil)
                  :order 5)
                 (:discard (:anything t))))))) ; Super zen view
-          )))
+          )
+("za" "Super zen Archive view"
+          (
+           (alltodo
+            ""
+            (
+             (org-super-agenda-groups
+              '(
+                (:name "Archived Projects" (:file-path "Projects Archive") :order 1)
+                (:name "Archived Areas" (:file-path "Areas Archive") :order 2)
+                (:name "Archived Resources" (:file-path "Resources Archive") :order 3)
+                (:discard (:anything t))))))) ; Super zen view
+          )
+         ))
  :config (org-super-agenda-mode t))
 
 ;; org-roam
