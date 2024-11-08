@@ -466,8 +466,8 @@ exist after each headings's drawers."
           ("p" "PARA"
            (
             (org-ql-block '(and (not(path "Archive"))
-                                path "Projects"
-                                level 1
+                                (path "Projects")
+                                (level 1)
                                 )
                           ((org-ql-block-header "Active Projects")))
             (org-ql-block '(path "Areas")
