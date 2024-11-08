@@ -449,7 +449,6 @@ exist after each headings's drawers."
                           ((org-ql-block-header "Due Soon")))
             (org-ql-block '(and (todo)
                                 (path "Inbox")
-                                (level 2 8)
                                 (not(path "Archive")))
                           ((org-ql-block-header "Inbox")))
 
