@@ -260,22 +260,22 @@
           "default"
           plain
           "%?"
-          :target (file+olp "Inbox.org" ("${title}\n:PROPERTIES:\n:CREATED:\t%U\n:END:\n\n")))
+          :target (file+olp "Inbox.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
          ("p"
           "project"
           plain
           "%?"
-          :target (file+olp "Projects.org" ("${title}\n:PROPERTIES:\n:CREATED:\t%U\n:END:\n\n")))
+          :target (file+olp "Projects.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
          ("a"
           "area"
           plain
           "%?"
-          :target (file+olp "Areas.org" ("${title}\n:PROPERTIES:\n:CREATED:\t%U\n:END:\n\n")))
+          :target (file+olp "Areas.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
          ("a"
           "resource"
           plain
           "%?"
-          :target (file+head "Resources.org" ("${title}\n:PROPERTIES:\n:CREATED:\t%U\n:END:\n\n")))
+          :target (file+head "Resources.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
          ("n" "literature note" plain "%?"
           :target
           (file+head
