@@ -285,6 +285,7 @@
              ((org-agenda-span 'day)
               (org-ql-block '(deadline 0) ((org-ql-block-header "Due Today")))))
             (alltodo
+             ""
              (org-ql-block '(deadline auto) ((org-ql-block-header "Due Soon")))
              (org-ql-block '(deadline -1) ((org-ql-block-header "Overdue"))))))))
   :config (setq org-super-agenda-mode t))
