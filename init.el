@@ -226,7 +226,20 @@
                   :and (:todo t :file-path "Resources Archive" :not (:log closed))
                   :order 3)
                  (:discard (:anything t))))))) ; Super zen Archive view
-           )))
+           )
+          ("zt" "Super zen view (Test)"
+           ((org-ql-search (org-agenda-files)
+              '(deadline auto)
+              ((org-super-agenda-groups
+                '((:name "Due Soon"
+                         :and (:todo t :not(:file-path "Archive") :deadline future)
+                         :order 1
+            )
+           )
+                ))
+              ))
+           )
+          )
  :config (org-super-agenda-mode t))
 
 ;; org-roam
