@@ -187,7 +187,7 @@
            (alltodo
             ""
             ((org-agenda-overriding-header "Past and Future")
-             (-let* (((sec minute hour day month year dow dst utcoff)
+             (let* (((sec minute hour day month year dow dst utcoff)
                       (decode-time (+ (* 3 86400) (float-time)))) ;; 3 days
                      (target-date (format "%d-%02d-%02d" year month day))
                      (org-super-agenda-groups
