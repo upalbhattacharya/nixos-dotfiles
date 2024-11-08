@@ -144,65 +144,6 @@
   ;; babel
   (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t) (python . t))))
 
-;;; org-super-agenda
-;; Outside org because of org-super-agenda usage (?)
-
-(use-package
-  org-super-agenda
-  :after org
-  :init
-  (setq org-agenda-custom-commands
-        '(("z" "Zen View"
-           (
-            (org-ql-block '(and (todo)
-                                (deadline :on today)
-                                (not(path "Archive" "Inbox")))
-                          ((org-ql-block-header "Due Today")))
-            (org-ql-block '(and (todo)
-                                (scheduled :on today)
-                                (not(path "Archive" "Inbox")))
-                          ((org-ql-block-header "Scheduled Today")))
-            (org-ql-block '(and (todo)
-                                (closed :on today)
-                                (not(path "Archive" "Inbox")))
-                          ((org-ql-block-header "Completed Today")))
-            (org-ql-block '(and (todo "TODAY")
-                                (not(path "Archive" "Inbox")))
-                          ((org-ql-block-header "Planned Today")))
-            (org-ql-block '(and (todo)
-                                (deadline :to -1)
-                                (not(path "Archive" "Inbox")))
-                          ((org-ql-block-header "Overdue")))
-            (org-ql-block '(and (todo)
-                                (scheduled :to -1)
-                                (not(path "Archive" "Inbox")))
-                          ((org-ql-block-header "Reschedule")))
-            (org-ql-block '(and (todo)
-                                (deadline :from 1 :to 30)
-                                (not(path "Archive" "Inbox")))
-                          ((org-ql-block-header "Due Soon")))
-            (org-ql-block '(and (todo)
-                                (path "Inbox"))
-                          ((org-ql-block-header "Inbox")))
-
-            ))
-          ("r" "Archive"
-           (
-            (org-ql-block '(path "Projects Archive")
-                          ((org-ql-block-header "Archived Projects")))
-            (org-ql-block '(path "Areas Archive")
-                          ((org-ql-block-header "Archived Areas")))
-            (org-ql-block '(path "Resources Archive")
-                          ((org-ql-block-header "Archived Resources")))
-            ))
-          ("i" "Inbox"
-           (
-            (org-ql-block '(path "Inbox")
-                          ((org-ql-block-header "Inbox")))
-            ))
-          ))
-  :config (setq org-super-agenda-mode t))
-
 ;; org-roam
 (use-package
   org-roam
@@ -467,7 +408,58 @@ exist after each headings's drawers."
          (call-interactively 'unpackaged/org-fix-blank-lines)))))
 
 ;;; org-ql
-(use-package org-ql)
+(use-package org-ql
+(setq org-agenda-custom-commands
+        '(("z" "Zen View"
+           (
+            (org-ql-block '(and (todo)
+                                (deadline :on today)
+                                (not(path "Archive" "Inbox")))
+                          ((org-ql-block-header "Due Today")))
+            (org-ql-block '(and (todo)
+                                (scheduled :on today)
+                                (not(path "Archive" "Inbox")))
+                          ((org-ql-block-header "Scheduled Today")))
+            (org-ql-block '(and (todo)
+                                (closed :on today)
+                                (not(path "Archive" "Inbox")))
+                          ((org-ql-block-header "Completed Today")))
+            (org-ql-block '(and (todo "TODAY")
+                                (not(path "Archive" "Inbox")))
+                          ((org-ql-block-header "Planned Today")))
+            (org-ql-block '(and (todo)
+                                (deadline :to -1)
+                                (not(path "Archive" "Inbox")))
+                          ((org-ql-block-header "Overdue")))
+            (org-ql-block '(and (todo)
+                                (scheduled :to -1)
+                                (not(path "Archive" "Inbox")))
+                          ((org-ql-block-header "Reschedule")))
+            (org-ql-block '(and (todo)
+                                (deadline :from 1 :to 30)
+                                (not(path "Archive" "Inbox")))
+                          ((org-ql-block-header "Due Soon")))
+            (org-ql-block '(and (todo)
+                                (path "Inbox"))
+                          ((org-ql-block-header "Inbox")))
+
+            ))
+          ("r" "Archive"
+           (
+            (org-ql-block '(path "Projects Archive")
+                          ((org-ql-block-header "Archived Projects")))
+            (org-ql-block '(path "Areas Archive")
+                          ((org-ql-block-header "Archived Areas")))
+            (org-ql-block '(path "Resources Archive")
+                          ((org-ql-block-header "Archived Resources")))
+            ))
+          ("i" "Inbox"
+           (
+            (org-ql-block '(path "Inbox")
+                          ((org-ql-block-header "Inbox")))
+            ))
+          ))
+  )
 
 ;;; org-anki
 (use-package org-anki)
