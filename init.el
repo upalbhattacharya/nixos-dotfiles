@@ -187,15 +187,12 @@
            (alltodo
             ""
             ((org-agenda-overriding-header "Past and Future")
-             (let* (((sec minute hour day month year dow dst utcoff)
-                      (decode-time (+ (* 3 86400) (float-time)))) ;; 3 days
-                     (target-date (format "%d-%02d-%02d" year month day))
                      (org-super-agenda-groups
                       '((:name "Overdue" :and (:not (:file-path "Archive") :deadline past) :order 1)
                         (:name
                          "Due Soon"
                          :and (:not (:file-path "Archive") :not (:todo "TODAY")
-                                    `((:deadline (before ,target-date))))
+                                    :deadline t))
                          :order 2)
                         (:name
                          "Upcoming"
@@ -212,7 +209,7 @@
                           :deadline nil
                           :scheduled nil)
                          :order 5)
-                        (:discard (:anything t))))))))) ; Super zen view
+                        (:discard (:anything t))))))) ; Super zen view
           )
          ("za" "Super zen Archive view"
           ((alltodo
