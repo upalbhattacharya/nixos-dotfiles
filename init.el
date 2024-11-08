@@ -45,11 +45,8 @@
 
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
+
 (defun my/org-refile-archive ()
-    ;; (interactive)
-    ;; (let ((filepath)
-    ;;       ;; (org-reverse-note-order t)) ; prepend
-    ;;     ;; (setq filepath (read-file-name "Enter .org file path:"))
         (org-refile nil "Archive %<%Y>.org" nil nil) ; // nil filepath nil nil
 )
 ;;; emacs
@@ -611,7 +608,7 @@ exist after each headings's drawers."
 (global-set-key (kbd "C-c M-e") 'org-view-mode)
 
 ;; org-
-(global-set-key (kbd "C- M-e") 'org-view-mode)
+(global-set-key (kbd "C-c M-e") 'org-view-mode)
 
 ;; unpackaged/org-fix-blank-lines
 (global-set-key (kbd "C-c f") 'unpackaged/org-fix-blank-lines)
