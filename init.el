@@ -85,10 +85,6 @@
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
 
-(defun my/org-refile-archive ()
-  (interactive)
-  (org-refile nil "Archive %<%Y>.org" nil nil) ; // nil filepath nil nil
-  )
 ;;; emacs
 (use-package
  emacs
