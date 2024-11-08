@@ -262,7 +262,9 @@
          (org-ql-block '(and (todo) (closed :on today))
                        ((org-ql-block-header "Completed Today")))
          (org-ql-block '(todo "TODAY")
-                        ((org-ql-block-header "Planned Today")))
+                       ((org-ql-block-header "Planned Today")))
+         (org-ql-block '(and (todo) (deadline :to -1))
+                        ((org-ql-block-header "Overdue")))
           ))))
   :config (setq org-super-agenda-mode t))
 
