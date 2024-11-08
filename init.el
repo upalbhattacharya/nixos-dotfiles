@@ -86,12 +86,6 @@
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
 
-(defvar org-default-inbox-file "~/org/Inbox.org")
-(defvar org-default-projects-fil "~/org/Projects.org")
-(defvar org-default-areas-file "~/org/Areas.org")
-(defvar org-default-resources-file "~/org/Resources.org")
-(defvar org-default-archive-dir "~/org/Archive.org")
-
 ;;; emacs
 (use-package
  emacs
