@@ -20,7 +20,6 @@
  '(gac-automatically-push-p t)
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
- '(org-agenda-files '("~/org/Journal/202410.org"))
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground
