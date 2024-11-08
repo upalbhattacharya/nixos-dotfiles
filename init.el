@@ -253,7 +253,7 @@
   ;;                (:discard (:anything t)))))))) ; Super zen view
   ;;         ))
 (setq org-agenda-custom-commands
-      '(("zt" "Today"
+      '(("z" "Zen View"
          (
           (org-ql-block '(and (todo) (deadline :on today))
                         ((org-ql-block-header "Due Today")))
