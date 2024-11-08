@@ -294,7 +294,7 @@
              ((org-agenda-span 'day)
               (org-ql-search '(org-agenda-files)
                 '(and (or (ts-active :on today)
-                          (deadline auto)
+                          (deadline :to today)
                           (scheduled :to today))
                       (not (done)))
                 :title "My Agenda View"
