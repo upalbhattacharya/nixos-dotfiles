@@ -329,23 +329,23 @@
        '(("d" "default" plain "%?"
           :target
           (file+olp
-           'org-default-inbox-file
-           ("Inbox" "${title}\n:PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n\n")))
+           ,org-default-inbox-file
+           ("${title}\n:PROPERTIES:\n:CREATED:\t%U\n:END:\n\n")))
          ("p" "project" plain "%?"
           :target
           (file+olp
-           'org-default-projects-file
-           ("${title}\n:PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n\n")))
+           ,org-default-projects-file
+           ("${title}\n:PROPERTIES:\n:CREATED:\t%U\n:END:\n\n")))
          ("a" "area" plain "%?"
           :target
           (file+olp
-           org-default-areas-file
-           ("${title}\n:PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n\n")))
+           ,org-default-areas-file
+           ("${title}\n:PROPERTIES:\n:CREATED:\t%U\n:END:\n\n")))
          ("a" "resource" plain "%?"
           :target
           (file+head
-           org-default-resources-file
-           ("${title}\n:PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n\n")))
+           ,org-default-resources-file
+           ("${title}\n:PROPERTIES:\n:CREATED:\t%U\n:END:\n\n")))
          ("n" "literature note" plain "%?"
           :target
           (file+head
