@@ -230,8 +230,8 @@
      )
     ("zt" "Super zen view (Test)"
      ((org-ql-search
-       (org-agenda-files) '(deadline auto)
-       ((org-super-agenda-groups
+        (org-agenda-files) '(deadline auto)
+        :super-groups
          '((:name
             "Due Soon"
             :and
