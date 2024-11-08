@@ -22,7 +22,7 @@
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-files
-   '("/home/workboots/org/Archive/Areas Archive.org" "/home/workboots/org/Archive/Dutch Vocabulary.org" "/home/workboots/org/Archive/Emacs.org" "/home/workboots/org/Archive/Hobbies.org" "/home/workboots/org/Archive/Inbox Archive.org" "/home/workboots/org/Archive/Projects Archive.org" "/home/workboots/org/Archive/Resources Archive.org" "/home/workboots/org/Archive/Routledge Dutch Intensive Course.org" "/home/workboots/org/Journal/202410.org" "/home/workboots/org/Journal/Journal 2024.org" "/home/workboots/org/Archive.org" "/home/workboots/org/Areas.org" "/home/workboots/org/Inbox.org" "/home/workboots/org/Projects.org" "/home/workboots/org/Resources.org"))
+   '("/home/workboots/org/Archive/Areas Archive.org" "/home/workboots/org/Archive/Dutch Vocabulary.org" "/home/workboots/org/Archive/Emacs.org" "/home/workboots/org/Archive/Inbox Archive.org" "/home/workboots/org/Archive/Projects Archive.org" "/home/workboots/org/Archive/Resources Archive.org" "/home/workboots/org/Archive/Routledge Dutch Intensive Course.org" "/home/workboots/org/Journal/202410.org" "/home/workboots/org/Journal/Journal 2024.org" "/home/workboots/org/Archive.org" "/home/workboots/org/Areas.org" "/home/workboots/org/Inbox.org" "/home/workboots/org/Projects.org" "/home/workboots/org/Resources.org"))
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
