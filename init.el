@@ -280,10 +280,11 @@
            )
           ("zt"
            "Custom: Agenda and Emacs SOMEDAY [#A] items"
-           ((org-ql-block '(deadline 0) ((org-ql-block-header "Overdue"))) (agenda))
-           ((org-ql-block '(deadline auto) ((org-ql-block-header "Due Soon")))
-            (org-ql-block '(deadline -1) ((org-ql-block-header "Overdue")))
-            (alltodo)))))
+           ((org-agenda-span 'day)
+            ((org-ql-block '(deadline 0) ((org-ql-block-header "Overdue"))) (agenda))
+            ((org-ql-block '(deadline auto) ((org-ql-block-header "Due Soon")))
+             (org-ql-block '(deadline -1) ((org-ql-block-header "Overdue")))
+             (alltodo))))))
   :config (setq org-super-agenda-mode t))
 
 ;; org-roam
