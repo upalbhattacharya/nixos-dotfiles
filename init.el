@@ -240,7 +240,7 @@
               ))
            )
           )
- :config (org-super-agenda-mode t))
+ :config (org-super-agenda-mode t)))
 
 ;; org-roam
 (use-package
