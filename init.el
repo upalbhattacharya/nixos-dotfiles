@@ -255,7 +255,8 @@
 (setq org-agenda-custom-commands
       '(("zt" "Today"
          ((org-ql-block '(and (todo)
-                              (or (deadline today) (scheduled today)))
+                              (or (deadline :on today)
+                                  (scheduled :on today)))
                         ((org-ql-block-header "Stuck Projects")))))))
   :config (setq org-super-agenda-mode t))
 
