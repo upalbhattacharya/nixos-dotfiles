@@ -204,7 +204,8 @@
   :after org
   :init
   (setq org-agenda-custom-commands
-        '(("zp" "Super zen view"
+        '(
+          ("zp" "Super zen view"
            ((agenda
              ""
              ((org-agenda-span 'day)
@@ -278,13 +279,15 @@
                   :order 3)
                  (:discard (:anything t))))))) ; Super zen Archive view
            )
-          ("zt"
-           "Custom Testing"
-           ((org-agenda-span 'day)
-            ((org-ql-block '(deadline 0) ((org-ql-block-header "Due Today"))) (agenda))
-            ((org-ql-block '(deadline auto) ((org-ql-block-header "Due Soon")))
-             (org-ql-block '(deadline -1) ((org-ql-block-header "Overdue")))
-             (alltodo))))))
+
+          ("zp" "Super zen view"
+           ((agenda
+             ""
+             ((org-agenda-span 'day)
+              (org-ql-block '(deadline 0) ((org-ql-block-header "Due Today")))
+              (org-ql-block '(deadline auto) ((org-ql-block-header "Due Soon")))
+              (org-ql-block '(deadline -1) ((org-ql-block-header "Overdue")))
+              ))))))
   :config (setq org-super-agenda-mode t))
 
 ;; org-roam
