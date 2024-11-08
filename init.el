@@ -414,8 +414,8 @@ exist after each headings's drawers."
         '(("z" "Zen View"
            (
             (org-ql-block '(and (todo)
-                                (deadline :on today)
                                 (level 2 8)
+                                (deadline :on today)
                                 (not(path "Archive" "Inbox")))
                           ((org-ql-block-header "Due Today")))
             (org-ql-block '(and (todo)
