@@ -178,8 +178,6 @@
                           ((org-ql-block-header "Archived Areas")))
             (org-ql-block '(and (todo) not(done) (path "Resources Archive"))
                           ((org-ql-block-header "Archived Resources")))
-            (org-ql-block '(and (todo) not(done) (path "Archive"))
-                          ((org-ql-block-header "Archived Resources")))
             ))
           ))
   :config (setq org-super-agenda-mode t))
