@@ -292,7 +292,7 @@
            ((agenda
              ""
              ((org-agenda-span 'day)
-              (org-ql-search "~/src/emacs/org-super-agenda/test/test.org"
+              (org-ql-search '(org-agenda-files)
                 '(and (or (ts-active :on today)
                           (deadline auto)
                           (scheduled :to today))
