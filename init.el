@@ -279,15 +279,7 @@
                  (:discard (:anything t))))))) ; Super zen Archive view
            )
 
-          ("zt" "Super zen view"
-           ((agenda
-             ""
-             ((org-agenda-span 'day)
-              (org-ql-block '(deadline 0) ((org-ql-block-header "Due Today")))))
-            (alltodo
-             ""
-             (org-ql-block '(deadline auto) ((org-ql-block-header "Due Soon")))
-             (org-ql-block '(deadline -1) ((org-ql-block-header "Overdue"))))))
+;;; Works
           ("zet" "Super Agenda View Test"
            ((agenda
              ""
@@ -315,7 +307,46 @@
                                  :order 3)
                                 (:discard (:anything t))))
 
-              ))))))
+              ))
+            (alltodo
+             ""
+
+             ((org-ql-search '(org-agenda-files)
+                '((or (deadline :from -1 :to +30d)
+                      (scheduled :from -1 :to 30d)))
+                :title "Past and Future"
+                :super-groups '((
+                                 :name "Due"
+                                 :and (:not (:file-path "Archive") :deadline future)
+                                 :order 1
+                                 )
+                                (:discard (:anything t)))))
+             )
+            ;; ((org-agenda-overriding-header "Past and Future")
+            ;;  (org-super-agenda-groups
+            ;;   '((:name "Overdue" :and (:not (:file-path "Archive") :deadline past) :order 1)
+            ;;     (:name
+            ;;      "Due Soon"
+            ;;      :and (:not (:file-path "Archive") :not (:todo "TODAY") :deadline t)
+            ;;      :order 2)
+            ;;     (:name
+            ;;      "Upcoming"
+            ;;      :and (:not (:not (:file-path "Archive") :todo "TODAY") :scheduled future)
+            ;;      :order 3)
+            ;;     (:name "Later" :and (:not (:file-path "Archive") :todo "LATER") :order 4)
+            ;;     (:name
+            ;;      "Check"
+            ;;      :and
+            ;;      (:not
+            ;;       (:file-path "Archive")
+            ;;       :not (:todo ("TODAY" "NEXT"))
+            ;;       :date nil
+            ;;       :deadline nil
+            ;;       :scheduled nil)
+            ;;      :order 5)
+            ;;     (:discard (:anything t))))))
+
+           ))))
   :config (setq org-super-agenda-mode t))
 
 ;; org-roam
