@@ -231,7 +231,7 @@
      ("zt" "Custom: Agenda and Emacs SOMEDAY [#A] items"
       ((org-ql-block '(deadline auto)
                      ((org-ql-block-header "Due Soon")))
-       (org-ql-block '(deadline (:to -1))
+       (org-ql-block '(deadline -1)
                      ((org-ql-block-header "Overdue")))
        (alltodo)))
 
