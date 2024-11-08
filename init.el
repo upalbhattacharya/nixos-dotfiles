@@ -443,7 +443,8 @@ exist after each headings's drawers."
                                 (not(path "Archive" "Inbox")))
                           ((org-ql-block-header "Due Soon")))
             (org-ql-block '(and (todo)
-                                (path "Inbox"))
+                                (path "Inbox")
+                                (not(path "Archive")))
                           ((org-ql-block-header "Inbox")))
 
             ))
@@ -517,7 +518,7 @@ exist after each headings's drawers."
  (lambda ()
    (interactive)
    (tab-new)
-   (scratch-buffer)))
+   (dashboard-open)))
 (global-set-key (kbd "C-c w") 'tab-close)
 
 ;; magit
