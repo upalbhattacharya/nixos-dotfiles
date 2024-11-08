@@ -291,7 +291,8 @@
           ("zet" "Super Agenda View Test"
            ((agenda
              ""
-             ((org-ql-search "~/src/emacs/org-super-agenda/test/test.org"
+             ((org-agenda-span 'day)
+              (org-ql-search "~/src/emacs/org-super-agenda/test/test.org"
                 '(and (or (ts-active :on today)
                           (deadline auto)
                           (scheduled :to today))
