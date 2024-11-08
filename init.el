@@ -451,7 +451,7 @@ exist after each headings's drawers."
            (
             (org-ql-block '(and (not(done)) (path "Projects Archive"))
                           ((org-ql-block-header "Archived Projects")))
-            (org-ql-block '(path "Areas Archive"
+            (org-ql-block '(and (not(done)) (path "Areas Archive"))
                           ((org-ql-block-header "Archived Areas")))
             (org-ql-block '(and (not(done)) path "Resources Archive")
                           ((org-ql-block-header "Archived Resources")))
