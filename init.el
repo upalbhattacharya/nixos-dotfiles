@@ -348,7 +348,7 @@
           :unnarrowed t)))
  (setq org-roam-mode-sections (list #'org-roam-backlinks-section #'org-roam-reflinks-section))
  (setq org-roam-completion-everywhere t)
- (org-roam-db-autosync-mode 1))
+ (setq org-roam-db-autosync-mode 1))
 
 ;;; org-superstar
 (use-package org-superstar :hook (org-mode . org-superstar-mode))
