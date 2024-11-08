@@ -455,7 +455,7 @@ exist after each headings's drawers."
                           ((org-ql-block-header "Archived Areas")))
             (org-ql-block '(and (not(done)) path "Resources Archive")
                           ((org-ql-block-header "Archived Resources")))
-            (org-ql-block '(and (not(done) (path "Inbox Archive"))
+            (org-ql-block '(and (not(done)) (path "Inbox Archive")
                           ((org-ql-block-header "Archived Inbox")))
             ))
           ("i" "Inbox"
