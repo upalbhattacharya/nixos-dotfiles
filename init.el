@@ -230,7 +230,7 @@
      )
     ("ces" "Custom: Agenda and Emacs SOMEDAY [#A] items"
          ((org-ql-block '(deadline auto)
-                        ((org-ql-block-header "SOMEDAY :Emacs: High-priority")))
+                        ((org-ql-block-header "AllTODO")))
           (alltodo)))
 
     )
