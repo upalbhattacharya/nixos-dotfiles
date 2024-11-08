@@ -181,6 +181,9 @@
                                 (deadline :from 1 :to 30)
                                 (not(path "Archive" "Inbox")))
                           ((org-ql-block-header "Due Soon")))
+            (org-ql-block '(and (todo)
+                                (path "Inbox"))
+                          ((org-ql-block-header "Inbox")))
 
             ))
           ("r" "Archive"
