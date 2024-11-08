@@ -88,13 +88,13 @@
 
 (defvar org-default-inbox-file "~/org/Inbox.org"
   "Primary Capture file")
-(defvar org-default-projects-dir "~/org/Projects"
+(defvar org-default-projects-fil "~/org/Projects.org"
   "Primary Projects directory")
-(defvar org-default-areas-dir "~/org/Areas"
+(defvar org-default-areas-file "~/org/Areas.org"
   "Primary Areas directory")
-(defvar org-default-resources-dir "~/org/Resources"
+(defvar org-default-resources-file "~/org/Resources.org"
   "Primary Resources directory")
-(defvar org-default-archive-dir "~/org/Archive"
+(defvar org-default-archive-dir "~/org/Archive.org"
   "Primary Archive directory")
 
 ;;; emacs
@@ -332,9 +332,9 @@
            "Inbox.org" ("Inbox" "${title}\n:PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n\n")))
          ("p" "project" plain "%?"
           :target
-          (file+head
-           "Projects/${title}.org"
-           ":PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n#+TITLE:\t${title}\n* ${title}\n"))
+          (file+olp
+           "Projects.org"
+           ("* ${title}\n:PROPERTIES:\n:SPACE: WORK\n:CREATED:\t%U\n:END:\n\n")))
          ("a" "area" plain "%?"
           :target
           (file+head
