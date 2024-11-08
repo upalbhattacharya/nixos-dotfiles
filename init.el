@@ -174,10 +174,8 @@
            (
             (org-ql-block '(and (todo) not(done) (path "Projects Archive"))
                           ((org-ql-block-header "Archived Projects")))
-
             (org-ql-block '(and (todo) not(done) (path "Areas Archive"))
                           ((org-ql-block-header "Archived Areas")))
-
             (org-ql-block '(and (todo) not(done) (path "Resources Archive"))
                           ((org-ql-block-header "Archived Resources")))
             ))
