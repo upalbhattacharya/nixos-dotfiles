@@ -450,7 +450,9 @@ exist after each headings's drawers."
             ))
           ("i" "Inbox"
            (
-            (org-ql-block '(path "Inbox")
+            (org-ql-block '(and (todo)
+                                (path "Inbox")
+                                (not(path "Archive")))
                           ((org-ql-block-header "Inbox")))
             ))
           ("p" "PARA"
