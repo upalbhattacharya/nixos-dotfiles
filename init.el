@@ -257,7 +257,7 @@
                 (:name "Archived Projects" (:file-path "Projects Archive") :order 1)
                 (:name "Archived Areas" (:file-path "Areas Archive") :order 2)
                 (:name "Archived Resources" (:file-path "Resources Archive") :order 3)
-                (:discard (:anything t))))))) ; Super zen view
+                (:discard (:anything t))))))) ; Super zen Archive view
           )
          ))
  :config (org-super-agenda-mode t))
