@@ -546,9 +546,6 @@ exist after each headings's drawers."
 ;;; which-key
 (use-package which-key :config (which-key-mode 1))
 
-;;; projectile
-(use-package projectile :config (projectile-mode 1))
-
 ;;; evil-nerd-commenter
 (use-package evil-nerd-commenter :config (evilnc-default-hotkeys))
 
@@ -611,11 +608,6 @@ exist after each headings's drawers."
 
 ;; unpackaged/org-fix-blank-lines
 (global-set-key (kbd "C-c f") 'unpackaged/org-fix-blank-lines)
-
-
-;; projectile
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-
 
 ;; tab deletion
 (global-set-key (kbd "DEL") 'backward-delete-char)
