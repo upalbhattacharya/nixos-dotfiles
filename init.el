@@ -254,9 +254,9 @@
             (
              (org-super-agenda-groups
               '(
-                (:name "Archived Projects" (:file-path "Projects Archive") :order 1)
-                (:name "Archived Areas" (:file-path "Areas Archive") :order 2)
-                (:name "Archived Resources" (:file-path "Resources Archive") :order 3)
+                (:name "Archived Projects" :and (:todo :file-path "Projects Archive") :order 1)
+                (:name "Archived Areas" :and (:todo :file-path "Areas Archive") :order 2)
+                (:name "Archived Resources" :and (:todo :file-path "Resources Archive") :order 3)
                 (:discard (:anything t))))))) ; Super zen Archive view
           )
          ))
