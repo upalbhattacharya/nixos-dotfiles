@@ -231,13 +231,16 @@
     ("zt" "Super zen view (Test)"
      ((org-ql-block
        (org-agenda-files) '(deadline auto)
-       :super-groups
-       '((:name
-          "Due Soon"
-          :and (:todo t :not (:file-path "Archive") :deadline future)
-          :order 1))))
-     ""
-     ))
+       ))
+     )
+    ("ces" "Custom: Agenda and Emacs SOMEDAY [#A] items"
+         ((org-ql-block '(and (todo "SOMEDAY")
+                              (tags "Emacs")
+                              (priority "A"))
+                        ((org-ql-block-header "SOMEDAY :Emacs: High-priority")))
+          (agenda)))
+
+    )
   )
   :config
   (setq org-super-agenda-mode t))
