@@ -287,7 +287,8 @@
           "Due Soon"
           :and (:todo t :not (:file-path "Archive") :deadline future)
           :order 1))))))
-  :config (org-super-agenda-mode t)))
+  :config
+  (setq org-super-agenda-mode t)))
 
 ;; org-roam
 (use-package
