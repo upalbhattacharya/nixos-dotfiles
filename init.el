@@ -463,6 +463,16 @@ exist after each headings's drawers."
             (org-ql-block '(path "Inbox")
                           ((org-ql-block-header "Inbox")))
             ))
+          ("p" "PARA"
+           (
+            (org-ql-block '(and (not(path "Archive"))
+                                path "Projects"
+                                level 1
+                                )
+                          ((org-ql-block-header "Active Projects")))
+            (org-ql-block '(path "Areas")
+                          ((org-ql-block-header "Active Areas")))
+            ))
           ))
   )
 
