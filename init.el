@@ -329,7 +329,7 @@
        '(("d" "default" plain "%?"
           :target
           (file+olp
-           '(org-default-inbox-file)
+           (symbol-value 'org-default-inbox-file)
            ("${title}\n:PROPERTIES:\n:CREATED:\t%U\n:END:\n\n")))
          ("p" "project" plain "%?"
           :target
