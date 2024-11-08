@@ -411,7 +411,7 @@ exist after each headings's drawers."
 (use-package org-ql
   :init
   (setq org-agenda-custom-commands
-        '(("z" "Zen View"
+        '(("z" "Zen View Today"
            (
             (org-ql-block '(and (todo)
                                 (deadline :on today)
