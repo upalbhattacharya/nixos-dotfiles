@@ -277,7 +277,7 @@
                   :and (:todo t :file-path "Resources Archive" :not (:log closed))
                   :order 3)
                  (:discard (:anything t))))))) ; Super zen Archive view
-           ))))
+           )))
  :config (org-super-agenda-mode t))
 
 ;; org-roam
