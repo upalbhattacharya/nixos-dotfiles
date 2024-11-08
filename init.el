@@ -229,7 +229,7 @@
            (:discard (:anything t))))))) ; Super zen Archive view
      )
     ("zt" "Custom: Agenda and Emacs SOMEDAY [#A] items"
-         ((org-ql-search (org-agenda-files) '(deadline auto)
+         ((org-ql-block '(deadline auto)
                         ((org-ql-block-header "AllTODO")))
           (alltodo)))
 
