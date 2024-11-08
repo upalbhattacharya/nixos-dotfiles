@@ -115,11 +115,6 @@
  (setq org-agenda-view-columns-initially t)
  (setq org-agenda-overriding-columns-format
        "%15CATEGORY(PARA) %50NAME %12TODO(STATUS) %PRIORITY(PR.) %DEADLINE %SCHEDULED %120ITEM")
- (defun summarize-file-name-base (column-title value)
-   "Modifies the value to display in column view."
-   (when (equal column-title "FILE")
-     (file-name-base value)))
- (setq org-columns-modify-value-for-display-function #'summarize-file-name-base)
  (setq org-agenda-with-colors t)
  (setq org-agenda-format-date
        (lambda (date)
