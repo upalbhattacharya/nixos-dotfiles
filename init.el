@@ -253,12 +253,10 @@
   ;;                (:discard (:anything t)))))))) ; Super zen view
   ;;         ))
 (setq org-agenda-custom-commands
-      '(("ces" "Custom: Agenda and Emacs SOMEDAY [#A] items"
+      '(("zt" "Today"
          ((org-ql-block '(and (todo)
-                              (or (deadline :on today) (scheduled :on today)
-                                  )))
-          ((org-ql-block-header "Stuck Projects"))
-          (alltodo)))))
+                              (or (deadline today) (scheduled today)))
+                        ((org-ql-block-header "Stuck Projects")))))))
   :config (setq org-super-agenda-mode t))
 
 ;; org-roam
