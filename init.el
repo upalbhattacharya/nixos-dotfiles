@@ -429,7 +429,7 @@ exist after each headings's drawers."
                                 (not(path "Archive" "Inbox")))
                           ((org-ql-block-header "Completed Today")))
             (org-ql-block '(and (todo "TODAY")
-                                (level 2 8)
+                                (level 2 10)
                                 (not(path "Archive" "Inbox")))
                           ((org-ql-block-header "Planned Today")))
             (org-ql-block '(and (todo)
