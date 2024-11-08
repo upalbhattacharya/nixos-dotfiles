@@ -254,7 +254,8 @@
   ;;         ))
 (setq org-agenda-custom-commands
       '(("zt" "Today"
-         ((org-ql-block '(and (todo) (deadline :on today))
+         ((org-agenda-overriding-header "Hard Dates")
+          (org-ql-block '(and (todo) (deadline :on today))
                         ((org-ql-block-header "Due Today")))
          (org-ql-block '(and (todo) (scheduled :on today))
                         ((org-ql-block-header "Scheduled Today")))
