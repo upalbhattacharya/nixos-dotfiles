@@ -646,6 +646,21 @@ exist after each headings's drawers."
 
 ;; org-view-mode
 (global-set-key (kbd "C-c M-e") 'org-view-mode)
+
+(global-set-key (kbd "C- M-e") 'org-view-mode)
+
+;; unpackaged/org-fix-blank-lines
+(global-set-key (kbd "C-c f") 'unpackaged/org-fix-blank-lines)
+
+
+;; projectile
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+
+;; tab deletion
+(global-set-key (kbd "DEL") 'backward-delete-char)
+(setq c-backspace-function 'backward-delete-char)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -659,15 +674,3 @@ exist after each headings's drawers."
  '(org-agenda-structure-filter ((t nil)))
  '(org-scheduled ((t nil))))
 
-;; unpackaged/org-fix-blank-lines
-(global-set-key (kbd "C-c f") 'unpackaged/org-fix-blank-lines)
-
-
-;; projectile
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-
-
-;; tab deletion
-
-(global-set-key (kbd "DEL") 'backward-delete-char)
-(setq c-backspace-function 'backward-delete-char)
