@@ -113,7 +113,7 @@
   (setq org-agenda-skip-scheduled-if-done t)
   (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
   (setq org-agenda-skip-timeline-if-deadline-is-shown t)
-  (setq org-agenda-hide-tags-regexp ".*")
+  ;; (setq org-agenda-hide-tags-regexp ".*")
   (setq org-agenda-prefix-format '((agenda . " %?-12c  %?-12t%?-b ") (todo . " %?-12t %s")))
   (setq org-agenda-view-columns-initially t)
   (setq
