@@ -170,7 +170,7 @@
                           ((org-ql-block-header "Due Soon")))
 
             ))
-          ("ar" "Archive"
+          ("r" "Archive"
            (
             (org-ql-block '(path "Projects Archive")
                           ((org-ql-block-header "Archived Projects")))
@@ -178,6 +178,11 @@
                           ((org-ql-block-header "Archived Areas")))
             (org-ql-block '(path "Resources Archive")
                           ((org-ql-block-header "Archived Resources")))
+            ))
+          ("i" "Inbox"
+           (
+            (org-ql-block '(path "Inbox")
+                          ((org-ql-block-header "Inbox")))
             ))
           ))
   :config (setq org-super-agenda-mode t))
