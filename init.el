@@ -230,8 +230,9 @@
      )
     ("zt" "Super zen view (Test)"
      ((org-ql-block
-       (org-agenda-files) '(deadline auto)
-       ))
+       (org-agenda-files) '(deadline auto))
+       (alltodo)
+       )
      )
     ("ces" "Custom: Agenda and Emacs SOMEDAY [#A] items"
          ((org-ql-block '(and (todo "SOMEDAY")
