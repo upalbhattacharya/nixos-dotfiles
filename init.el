@@ -193,7 +193,7 @@
  :after org
  :init
  (setq org-agenda-custom-commands
-       '(("zw" "Super zen view (Work)"
+       '(("z" "Super zen view"
           ((agenda
             ""
             ((org-agenda-span 'day)
