@@ -409,7 +409,8 @@ exist after each headings's drawers."
 
 ;;; org-ql
 (use-package org-ql
-(setq org-agenda-custom-commands
+  :init
+  (setq org-agenda-custom-commands
         '(("z" "Zen View"
            (
             (org-ql-block '(and (todo)
