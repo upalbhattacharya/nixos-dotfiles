@@ -136,7 +136,7 @@
   :hook (org-capture-mode . org-id-get-create)
   :config
   (define-key minibuffer-local-completion-map (kbd "?") nil)
-  (setq org-deadline-warning-days 14)
+  (setq org-deadline-warning-days 0)
   (setq org-cycle-separator-lines 1)
   (setq org-adapt-indentation nil)
   (setq org-hide-emphasis-markers t)
@@ -210,18 +210,15 @@
              ((org-agenda-span 'day)
               (org-agenda-sorting-strategy '(deadline-up scheduled-up priority-down))
               (org-super-agenda-groups
-               '((:name
-                  "Due"
+               '((:name "Due"
                   :and
                   (:not (:file-path "Archive") :not (:log closed) :deadline today)
                   :order 1)
-                 (:name
-                  "Scheduled"
+                 (:name "Scheduled"
                   :and
                   (:not (:file-path "Archive") :not (:log closed) :scheduled today)
                   :order 2)
-                 (:name
-                  "Done"
+                 (:name "Done"
                   :and (:not (:file-path "Archive") :log closed)
                   :order 3)
                  (:discard (:anything t))))))
@@ -230,8 +227,7 @@
              ((org-agenda-overriding-header "Daily Planned")
               (org-super-agenda-groups
                '((:name "Today" :and (:not (:file-path "Archive") :todo ("TODAY")) :order 1)
-                 (:name
-                  "Next to do"
+                 (:name "Next to do"
                   :and (:not (:file-path "Archive") :todo "NEXT")
                   :order 2)
                  (:discard (:anything t))))))
@@ -240,17 +236,14 @@
              ((org-agenda-overriding-header "Past and Future")
               (org-super-agenda-groups
                '((:name "Overdue" :and (:not (:file-path "Archive") :deadline past) :order 1)
-                 (:name
-                  "Due Soon"
+                 (:name "Due Soon"
                   :and (:not (:file-path "Archive") :not (:todo "TODAY") :deadline t)
                   :order 2)
-                 (:name
-                  "Upcoming"
+                 (:name "Upcoming"
                   :and (:not (:not (:file-path "Archive") :todo "TODAY") :scheduled future)
                   :order 3)
                  (:name "Later" :and (:not (:file-path "Archive") :todo "LATER") :order 4)
-                 (:name
-                  "Check"
+                 (:name "Check"
                   :and
                   (:not
                    (:file-path "Archive")
