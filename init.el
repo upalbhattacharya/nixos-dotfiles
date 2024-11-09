@@ -464,7 +464,7 @@ exist after each headings's drawers."
                                 (not(path "Archive")))
                           ((org-ql-block-header "Inbox")))
             ))
-          ("i" "Inbox"
+          ("f" "Fleeting Notes"
            (
             (org-ql-block '(and (todo)
                                 (path "Fleeting")
