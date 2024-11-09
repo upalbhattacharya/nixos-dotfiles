@@ -464,6 +464,13 @@ exist after each headings's drawers."
                                 (not(path "Archive")))
                           ((org-ql-block-header "Inbox")))
             ))
+          ("i" "Inbox"
+           (
+            (org-ql-block '(and (todo)
+                                (path "Fleeting")
+                                (not(path "Archive")))
+                          ((org-ql-block-header "Fleeting Notes")))
+            ))
           ("p" "PARA"
            (
             (org-ql-block '(and (not(path "Archive"))
