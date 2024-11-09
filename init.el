@@ -171,12 +171,12 @@
           ("n" "literature note" plain "%?"
            :target
            (file+head
-            "Academic/${citekey}.org" "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}\n")
-           :unnarrowed t))
+            "Literature/${citekey}.org" "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}\n")
+           :unnarrowed t)
           ("f" "fleeting note" plain "%?"
            :target
            (file+olp
-            "Fleeting.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
+            "Fleeting.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))))
 
   (setq org-roam-dailies-capture-templates
         '(("d"
@@ -466,7 +466,7 @@ exist after each headings's drawers."
             ))
           ("f" "Fleeting Notes"
            (
-            (org-ql-block '(and (todo)
+            (org-ql-block '(and (level 1)
                                 (path "Fleeting")
                                 (not(path "Archive")))
                           ((org-ql-block-header "Fleeting Notes")))
