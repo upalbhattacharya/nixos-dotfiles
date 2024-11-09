@@ -173,6 +173,10 @@
            (file+head
             "Academic/${citekey}.org" "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}\n")
            :unnarrowed t)))
+          ("fn" "fleeting note" plain "%?"
+           :target
+           (file+olp
+            "Fleeting.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
 
   (setq org-roam-dailies-capture-templates
         '(("d"
