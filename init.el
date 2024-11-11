@@ -155,7 +155,7 @@
         '(("d" "default" plain "%?"
            :target
            (file+olp
-            "Inbox.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
+            "Inbox.org" ("TODO ${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
           ("p" "project" plain "%?"
            :target
            (file+olp
@@ -420,17 +420,17 @@ exist after each headings's drawers."
             (org-ql-block '(and (todo)
                                 (level 2 8)
                                 (deadline :on today)
-                                (not(path "Archive" "Inbox")))
+                                (not(path "Archive")))
                           ((org-ql-block-header "Due Today")))
             (org-ql-block '(and (todo)
                                 (level 2 8)
                                 (scheduled :on today)
-                                (not(path "Archive" "Inbox")))
+                                (not(path "Archive")))
                           ((org-ql-block-header "Scheduled Today")))
             (org-ql-block '(and (todo)
                                 (level 2 8)
                                 (closed :on today)
-                                (not(path "Archive" "Inbox")))
+                                (not(path "Archive")))
                           ((org-ql-block-header "Completed Today")))
             (org-ql-block '(and (level 2 8)
                                 (todo "TODAY")
