@@ -132,7 +132,7 @@
   (setq org-todo-keywords
         '((sequence "TODO(t)" "NEXT(n)" "TODAY(T)" "IN PROGRESS(p)" "|" "DONE(d)" "ARCHIVED(a)")
           (sequence "LATER(l)" "FUTURE(f)" "|")
-          (sequence "FOCUS(f)" "|")
+          (sequence "FOCUS(F)" "|")
           ))
   (setq org-todo-keyword-faces
         '(("TODO" . (:foreground "#f9e2af" :weight bold))
