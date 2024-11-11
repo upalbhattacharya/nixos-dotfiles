@@ -420,6 +420,10 @@ exist after each headings's drawers."
   (setq org-agenda-custom-commands
         '(("z" "Zen View"
            (
+            (org-ql-block '(and (level 2 8)
+                                (todo "FOCUS")
+                                (not(path "Archive" "Inbox")))
+                          ((org-ql-block-header "Presently Focusing On")))
             (org-ql-block '(and (todo)
                                 (level 2 8)
                                 (deadline :on today)
