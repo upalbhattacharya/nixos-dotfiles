@@ -636,8 +636,7 @@ exist after each headings's drawers."
 ;; org-roam
 (defhydra
  hydra-org-roam
- (:color pink
-         :hint nil)
+ (:color pink :hint nil)
  "
 ^org-roam^
 ---------
@@ -672,22 +671,19 @@ _s_: Sync database
 (global-set-key (kbd "C-c M-r") 'org-transclusion-remove-all)
 
 ;; citar
-(defhydra hydra-citar (:color pink
-                              :hint nil)
-"
+(defhydra hydra-citar (:color pink :hint nil) "
 ^citar^
 -------
 _o_: Open
 _i_: Insert commands
 _q_: Quit
 "
-("o" 'citar-open)
-("i" hydra-citar-insert/body :exit t)
-("q" nil)
-)
+          ("o" 'citar-open) ("i" hydra-citar-insert/body :exit t) ("q" nil))
 
-(defhydra hydra-citar-insert (:color pink :hint nil)
-  "
+(defhydra
+ hydra-citar-insert
+ (:color pink :hint nil)
+ "
 ^citar-insert^
 --------------
 _c_: Insert Citation
@@ -696,12 +692,11 @@ _r_: Insert Reference
 _k_: Insert Key
 _q_: Quit
 "
-  ("c" 'citar-insert-citation)
-  ("b" 'citar-insert-bibtex)
-  ("r" 'citar-insert-reference)
-  ("k" 'citar-insert-key)
-  ("q" nil)
- )
+ ("c" 'citar-insert-citation)
+ ("b" 'citar-insert-bibtex)
+ ("r" 'citar-insert-reference)
+ ("k" 'citar-insert-key)
+ ("q" nil))
 (global-set-key (kbd "C-c M-r") 'hydra-citar/body)
 
 ;; org-view-mode
