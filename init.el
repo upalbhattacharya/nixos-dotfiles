@@ -272,7 +272,6 @@
 
 ;;; citar-org-roam
 (use-package citar-org-roam
-  :straight t
   :after citar org-roam
   :config
   (setq citar-org-roam-mode 1)
