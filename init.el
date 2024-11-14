@@ -698,7 +698,7 @@ _k_: Insert Key
   ("r" 'citar-insert-reference)
   ("k" 'citar-insert-key)
  )
-(global-set-key (kbd "C-x M-r") 'citar-open)
+(global-set-key (kbd "C-x M-r") 'hydra-citar/body)
 
 ;; org-view-mode
 (global-set-key (kbd "C-c M-e") 'org-view-mode)
