@@ -672,7 +672,7 @@ _s_: Sync database
 (global-set-key (kbd "C-c M-r") 'org-transclusion-remove-all)
 
 ;; citar
-(defhydra hydra-citar (:color pink
+(defhydra hydra-citar (:color red
                               :hint nil)
 "
 ^citar^
@@ -686,7 +686,7 @@ _q_: Quit
 ("q" nil)
 )
 
-(defhydra hydra-citar-insert (:color pink :hint nil)
+(defhydra hydra-citar-insert (:color red :hint nil)
   "
 ^citar-insert^
 --------------
@@ -705,9 +705,6 @@ _q_: Quit
 (global-set-key (kbd "C-c M-r") 'hydra-citar/body)
 
 ;; org-view-mode
-(global-set-key (kbd "C-c M-e") 'org-view-mode)
-
-;; org-
 (global-set-key (kbd "C-c M-e") 'org-view-mode)
 
 ;; unpackaged/org-fix-blank-lines
