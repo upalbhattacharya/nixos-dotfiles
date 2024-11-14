@@ -699,7 +699,7 @@ _k_: Insert Key
 (global-set-key (kbd "C-c M-r") 'hydra-citar/body)
 
 ;; evil-nerd-commenter
-(defhyrda hydra-evil-nerd-commenter (:color pink :hint nil)
+(defhydra hydra-evil-nerd-commenter (:color pink :hint nil)
 "
 ^evil-nerd-commenter^
 ---------------------
