@@ -70,7 +70,7 @@
  '(org-super-agenda-date-format "%e %Y-%m-%d")
  '(org-use-property-inheritance '("NAME"))
  '(package-selected-packages
-   '(citar-org-roam citar elisp-autofmt aggressive-indent evil-nerd-commenter envrc which-key org-anki org-ql helm-bibtex org-roam-bibtex annotate toc-org hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding fzf dashboard org-transclusion org-superstar org-roam evil catppuccin-theme))
+   '(citar-org-roam citar elisp-autofmt aggressive-indent evil-nerd-commenter envrc which-key org-anki org-ql org-roam-bibtex annotate toc-org hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding fzf dashboard org-transclusion org-superstar org-roam evil catppuccin-theme))
  '(python-isort-extra-args nil))
 
 ;;; Theme
@@ -237,27 +237,6 @@
 
 ;;; hotfuzz
 (use-package hotfuzz :config (setq completion-styles '(hotfuzz)))
-
-
-;;; org-roam-bibtex
-;; (use-package
-;;   org-roam-bibtex
-;;   :after org-roam
-;;   :config (setq org-cite-follow-processor 'helm-bibtex-org-cite-follow)
-;;   (setq bibtex-completion-format-citation-functions
-;;         '((org-mode . bibtex-completion-format-citation-org-cite)
-;;           (latex-mode . bibtex-completion-format-citation-cite)
-;;           (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
-;;           (python-mode . bibtex-completion-format-citation-sphinxcontrib-bibtex)
-;;           (rst-mode . bibtex-completion-format-citation-sphinxcontrib-bibtex)
-;;           (default . bibtex-completion-format-citation-default))))
-
-;;; helm-bibtex
-;; (use-package helm-bibtex
-;;   :config
-;;   (setq bibtex-completion-bibliography '("~/org/bibliography.bib"))
-;;   (setq bibtex-completion-pdf-field nil)
-;;   )
 
 ;;; citar
 (use-package citar
