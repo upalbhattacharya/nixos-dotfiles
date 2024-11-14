@@ -262,12 +262,6 @@
  (setq citar-org-roam-note-title-template "${title}")
  (setq citar-org-roam-capture-template-key "l"))
 
-;; org-roam-bibtex
-;; (use-package org-roam-bibtex
-;;   :after citar-org-roam
-;;   :config
-;;   (setq org-roam-bibtex-mode 1))
-
 ;;; company
 (use-package company :config (company-mode 1))
 
