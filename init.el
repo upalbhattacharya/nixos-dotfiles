@@ -229,7 +229,7 @@
  (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t) (python . t))))
 
 ;; org-roam
-(defun org-roam-update-db-on-save-hook()
+(defun org-roam-update-db-on-save-hook ()
   "Org-roam db sync"
   (when (eq major-mode 'org-mode)
     (org-roam-db-sync)))
@@ -237,8 +237,8 @@
 (add-hook 'after-save-hook 'org-roam-update-db-on-save-hook)
 
 (use-package
-  org-roam
-  :hook
+ org-roam
+ :hook
  :config
  (setq org-roam-directory (file-truename "~/org"))
  (setq org-roam-dailies-directory "~/org/Journal/")
