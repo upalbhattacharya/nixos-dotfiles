@@ -586,7 +586,8 @@ exist after each headings's drawers."
 ;; (global-set-key (kbd "C-c C-w") 'org-roam-refile)
 ;; (global-set-key (kbd "C-c o s") 'org-roam-db-sync)
 
-(defhydra hydra-org-roam (:color blue)
+(defhydra hydra-org-roam (:color blue
+                          :hint nil)
   "
 org-roam
 ^Actions^
