@@ -274,9 +274,9 @@
 (use-package citar-org-roam
   :straight t
   :after citar org-roam
-  :config (citar-org-roam-mode))
-
-(setq citar-org-roam-capture-template-key nil)
+  :config (citar-org-roam-mode)
+  (setq citar-org-roam-capture-template-key "l")
+  )
 
 ;;; company
 (use-package company :config (company-mode 1))
