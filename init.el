@@ -274,7 +274,8 @@
 (use-package citar-org-roam
   :straight t
   :after citar org-roam
-  :config (citar-org-roam-mode)
+  :config
+  (setq citar-org-roam-mode 1)
   (setq citar-org-roam-capture-template-key "l")
   )
 
