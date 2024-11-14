@@ -581,7 +581,7 @@ exist after each headings's drawers."
 ;; org-roam
 (defhydra
  hydra-org-roam
- (:color pink :hint nil)
+ (:color pink :hint nil :exit t)
  "
 ^org-roam^
 ---------
@@ -599,9 +599,6 @@ _w_: Refile
  ("q" nil))
 (global-set-key (kbd "C-c o") 'hydra-org-roam/body)
 
-;; org-roam-dailies
-(global-set-key (kbd "C-c M-j") 'org-roam-dailies-goto-today)
-
 ;; org-agenda
 (global-set-key (kbd "C-c a") 'org-agenda)
 
@@ -617,7 +614,7 @@ _w_: Refile
 (global-set-key (kbd "C-c M-r") 'org-transclusion-remove-all)
 
 ;; citar
-(defhydra hydra-citar (:color pink :hint nil) "
+(defhydra hydra-citar (:color pink :hint nil :exit t) "
 ^citar^
 -------
 _o_: Open
@@ -628,7 +625,7 @@ _q_: Quit
 
 (defhydra
  hydra-citar-insert
- (:color pink :hint nil)
+ (:color pink :hint nil :exit t)
  "
 ^citar-insert^
 --------------
