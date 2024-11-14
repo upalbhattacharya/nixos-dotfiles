@@ -253,11 +253,11 @@
           (default . bibtex-completion-format-citation-default))))
 
 ;;; helm-bibtex
-(use-package helm-bibtex
-  :config
-  (setq bibtex-completion-bibliography '("~/org/bibliography.bib"))
-  (setq bibtex-completion-pdf-field nil)
-  )
+;; (use-package helm-bibtex
+;;   :config
+;;   (setq bibtex-completion-bibliography '("~/org/bibliography.bib"))
+;;   (setq bibtex-completion-pdf-field nil)
+;;   )
 
 ;;; company
 (use-package company :config (company-mode 1))
