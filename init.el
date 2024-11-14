@@ -679,9 +679,11 @@ _s_: Sync database
 -------
 _o_: Open
 _i_: Insert commands
+_q_: Quit
 "
 ("o" 'citar-open)
 ("i" 'hydra-citar-insert/body)
+("q" nil)
 )
 
 (defhydra hydra-citar-insert (:color pink :hint nil)
