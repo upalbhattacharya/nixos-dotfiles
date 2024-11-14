@@ -199,7 +199,7 @@
            :target
            (file+head
             "Resources.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
-          ("n" "literature note" plain "%?"
+          ("l" "literature note" plain "%?"
            :target
            (file+head
             "Literature/${citekey}.org" "#+TITLE: ${citekey}\n#+FILETAGS: :article:\n* ${title}\n")
@@ -268,6 +268,15 @@
   :hook
   (LaTeX-mode . citar-capf-setup)
   (org-mode . citar-capf-setup))
+
+
+;;; citar-org-roam
+(use-package citar-org-roam
+  :straight t
+  :after citar org-roam
+  :config (citar-org-roam-mode))
+
+(setq citar-org-roam-capture-template-key nil)
 
 ;;; company
 (use-package company :config (company-mode 1))
