@@ -682,7 +682,7 @@ _i_: Insert commands
 _q_: Quit
 "
 ("o" 'citar-open)
-("i" 'hydra-citar-insert/body)
+("i" 'hydra-citar-insert/body :exit t)
 ("q" nil)
 )
 
