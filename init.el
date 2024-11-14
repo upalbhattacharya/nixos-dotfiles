@@ -264,6 +264,7 @@
   :custom
   (citar-bibliography '("~/org/bibliography.bib"))
   (citar-notes-path '("~/org/Literature/"))
+  (citar-file-notes-extensions '("org"))
   :hook
   (LaTeX-mode . citar-capf-setup)
   (org-mode . citar-capf-setup))
