@@ -239,7 +239,7 @@
   :hook
   (after-save-hook . #org-roam-update-db-on-save-hook)
  :config
- (setq org-roam-directory (file-truename "~/org/"))
+ (setq org-roam-directory (file-truename "~/org"))
  (setq org-roam-dailies-directory "~/org/Journal/")
  (setq org-roam-completion-everywhere t)
  (setq org-roam-capture-templates
