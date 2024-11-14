@@ -686,11 +686,10 @@ _q_: Quit
  "
 ^citar-insert^
 --------------
-_c_: Insert Citation
+_c_: Insert Citation       _q_: Quit
 _b_: Insert BibTeX entry
 _r_: Insert Reference
 _k_: Insert Key
-_q_: Quit
 "
  ("c" 'citar-insert-citation)
  ("b" 'citar-insert-bibtex)
