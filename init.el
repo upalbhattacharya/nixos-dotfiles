@@ -263,6 +263,7 @@
 (use-package citar
   :custom
   (citar-bibliography '("~/org/bibliography.bib"))
+  (citar-notes-path '("~/org/Literature/"))
   :hook
   (LaTeX-mode . citar-capf-setup)
   (org-mode . citar-capf-setup))
