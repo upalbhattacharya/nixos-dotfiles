@@ -637,7 +637,7 @@ exist after each headings's drawers."
 (defhydra
  hydra-org-roam
  (:color blue :hint nil)
- " 
+ "
 ^org-roam^
 ---------
 _f_: Find node (or create)
