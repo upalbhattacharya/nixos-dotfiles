@@ -671,7 +671,16 @@ _s_: Sync database
 (global-set-key (kbd "C-c M-a") 'org-transclusion-add-all)
 (global-set-key (kbd "C-c M-r") 'org-transclusion-remove-all)
 
-;; helm-bibtex
+;; citar
+(defhydra hydra-citar (:color pink
+                              :hint nil)
+"
+^citar^
+-------
+_o_: Open
+_ic_: Insert Citation
+"
+)
 (global-set-key (kbd "C-x M-r") 'citar-open)
 
 ;; org-view-mode
