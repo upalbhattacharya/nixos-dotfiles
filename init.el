@@ -237,7 +237,7 @@
 (use-package
   org-roam
   :hook
-  (after-save-hook . org-roam-update-db-on-save-hook)
+  (after-save-hook . #org-roam-update-db-on-save-hook)
  :config
  (setq org-roam-directory (file-truename "~/org/"))
  (setq org-roam-dailies-directory "~/org/Journal/")
