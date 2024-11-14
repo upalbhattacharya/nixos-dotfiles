@@ -642,13 +642,13 @@ exist after each headings's drawers."
 
 (defhydra
  hydra-org-roam
- (global-map "C-c o")
  "org-roam"
  ("f" org-roam-node-find)
  ("i" org-roam-node-insert)
  ("b" org-roam-buffer-toggle)
  ("w" org-roam-refile)
  ("s" org-roam-db-sync))
+(global-set-key (kbd "C-c o") 'hydra-org-roam/body)
 
 ;; org-roam-dailies
 (global-set-key (kbd "C-c M-j") 'org-roam-dailies-goto-today)
