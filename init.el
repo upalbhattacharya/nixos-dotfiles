@@ -645,12 +645,14 @@ _i_: Insert node link
 _b_: Buffer toggle
 _w_: Refile
 _s_: Sync database
+_q_: Quit
 "
  ("f" org-roam-node-find)
  ("i" org-roam-node-insert)
  ("b" org-roam-buffer-toggle)
  ("w" org-roam-refile)
- ("s" org-roam-db-sync))
+ ("s" org-roam-db-sync)
+ ("q" nil)
 (global-set-key (kbd "C-c o") 'hydra-org-roam/body)
 
 ;; org-roam-dailies
