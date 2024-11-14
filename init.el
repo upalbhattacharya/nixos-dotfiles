@@ -698,6 +698,22 @@ _k_: Insert Key
  ("q" nil))
 (global-set-key (kbd "C-c M-r") 'hydra-citar/body)
 
+;; evil-nerd-commenter
+(defhyrda hydra-evil-nerd-commenter (:color pink :hint nil)
+"
+^evil-nerd-commenter^
+---------------------
+_l_: Comment line
+_b_: Comment block
+_r_: Comment region
+_q_: Quit
+"
+("l" 'comment-line)
+("b" 'comment-block)
+("r" 'comment-region)
+("q" nil))
+(global-set-key (kbd "C-;") 'hydra-evil-nerd-commenter/body)
+
 ;; org-view-mode
 (global-set-key (kbd "C-c M-e") 'org-view-mode)
 
