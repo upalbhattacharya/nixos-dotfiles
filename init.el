@@ -176,8 +176,7 @@
   (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t) (python . t))))
 
 ;; org-roam
-(use-package
-  org-roam
+(use-package org-roam
   :config
   (setq org-roam-directory (file-truename "~/org/"))
   (setq org-roam-dailies-directory "~/org/Journal/")
