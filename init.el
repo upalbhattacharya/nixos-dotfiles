@@ -335,7 +335,7 @@
 (use-package origami :config (global-origami-mode 1))
 
 ;;; flycheck
-;; (use-package flycheck :config (global-flycheck-mode +1))
+(use-package flycheck :config (global-flycheck-mode +1))
 
 ;;; rainbow-delimiters
 (use-package rainbow-delimiters :hook (after-init . rainbow-delimiter-mode))
