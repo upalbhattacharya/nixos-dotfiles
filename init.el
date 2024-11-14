@@ -678,7 +678,7 @@ _s_: Sync database
 ^citar^
 -------
 _o_: Open
-_ic_: Insert commands
+_i_: Insert commands
 "
 ("o" 'citar-open)
 ("i" 'hydra-citar-insert/body :exit t)
