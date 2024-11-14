@@ -586,8 +586,17 @@ exist after each headings's drawers."
 ;; (global-set-key (kbd "C-c C-w") 'org-roam-refile)
 ;; (global-set-key (kbd "C-c o s") 'org-roam-db-sync)
 
-(defhydra hydra-org-roam ()
- "org-roam"
+(defhydra hydra-org-roam (color: blue)
+  "
+org-roam
+^Actions^
+---------
+_f_: Find node (or create)
+_i_: Insert node link
+_b_: Buffer toggle
+_w_: Refile
+_s_: Sync database
+"
  ("f" org-roam-node-find)
  ("i" org-roam-node-insert)
  ("b" org-roam-buffer-toggle)
