@@ -692,10 +692,10 @@ _b_: Insert BibTeX entry
 _r_: Insert Reference
 _k_: Insert Key
 "
- ("c" 'citar-insert-citation)
- ("b" 'citar-insert-bibtex)
- ("r" 'citar-insert-reference)
- ("k" 'citar-insert-key)
+ ("c" citar-insert-citation)
+ ("b" citar-insert-bibtex)
+ ("r" citar-insert-reference)
+ ("k" citar-insert-key)
  ("q" nil))
 (global-set-key (kbd "C-c M-r") 'hydra-citar/body)
 
