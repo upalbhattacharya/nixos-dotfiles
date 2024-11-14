@@ -636,7 +636,8 @@ exist after each headings's drawers."
 ;; org-roam
 (defhydra
  hydra-org-roam
- (:color blue :hint nil)
+ (:color red
+         :hint nil)
  "
 ^org-roam^
 ---------
