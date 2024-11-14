@@ -641,8 +641,8 @@ exist after each headings's drawers."
 ^org-roam^
 ---------
 _f_: Find node (or create)    _s_: Sync database
-_i_: Insert node link         _q_: Quit
-_b_: Buffer toggle
+_i_: Insert node link         _j_: Goto Journal
+_b_: Buffer toggle            _q_: Quit
 _w_: Refile
 "
  ("f" org-roam-node-find)
@@ -650,6 +650,7 @@ _w_: Refile
  ("b" org-roam-buffer-toggle)
  ("w" org-roam-refile)
  ("s" org-roam-db-sync)
+ ("j" org-roam-dailies-goto-today)
  ("q" nil))
 (global-set-key (kbd "C-c o") 'hydra-org-roam/body)
 
@@ -697,6 +698,8 @@ _k_: Insert Key
  ("k" 'citar-insert-key)
  ("q" nil))
 (global-set-key (kbd "C-c M-r") 'hydra-citar/body)
+
+
 
 ;; org-view-mode
 (global-set-key (kbd "C-c M-e") 'org-view-mode)
