@@ -617,7 +617,7 @@ exist after each headings's drawers."
 (global-set-key (kbd "C-c M-r") 'org-transclusion-remove-all)
 
 ;; helm-bibtex
-(global-set-key (kbd "C-x M-r") 'helm-bibtex)
+(global-set-key (kbd "C-x M-r") 'citar-open)
 
 ;; org-view-mode
 (global-set-key (kbd "C-c M-e") 'org-view-mode)
