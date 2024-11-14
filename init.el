@@ -633,12 +633,22 @@ exist after each headings's drawers."
 (global-set-key (kbd "C-x g") 'magit-status)
 
 ;; org-roam
-(global-set-key (kbd "C-c o f") 'org-roam-node-find)
+(global-set-key (kbd "C-c C-o f") 'org-roam-node-find)
 (global-set-key (kbd "C-c o i") 'org-roam-node-insert)
 (global-set-key (kbd "C-c o c") 'org-roam-capture)
 (global-set-key (kbd "C-c o b") 'org-roam-buffer-toggle)
 (global-set-key (kbd "C-c C-w") 'org-roam-refile)
 (global-set-key (kbd "C-c o s") 'org-roam-db-sync)
+
+(defhydra
+ hydra-org-roam
+ (global-map "C-c o")
+ "org-roam"
+ ("f" org-roam-node-find)
+ ("i" org-roam-node-insert)
+ ("b" org-roam-buffer-toggle)
+ ("w" org-roam-refile)
+ ("s" org-roam-db-sync))
 
 ;; org-roam-dailies
 (global-set-key (kbd "C-c M-j") 'org-roam-dailies-goto-today)
