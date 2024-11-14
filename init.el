@@ -679,7 +679,7 @@ _o_: Open
 _i_: Insert commands
 _q_: Quit
 "
-          ("o" 'citar-open) ("i" hydra-citar-insert/body :exit t) ("q" nil))
+          ("o" citar-open) ("i" hydra-citar-insert/body :exit t) ("q" nil))
 
 (defhydra
  hydra-citar-insert
@@ -692,10 +692,10 @@ _b_: Insert BibTeX entry
 _r_: Insert Reference
 _k_: Insert Key
 "
- ("c" 'citar-insert-citation)
- ("b" 'citar-insert-bibtex)
- ("r" 'citar-insert-reference)
- ("k" 'citar-insert-key)
+ ("c" citar-insert-citation)
+ ("b" citar-insert-bibtex)
+ ("r" citar-insert-reference)
+ ("k" citar-insert-key)
  ("q" nil))
 (global-set-key (kbd "C-c M-r") 'hydra-citar/body)
 
