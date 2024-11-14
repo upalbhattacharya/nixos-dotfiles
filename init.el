@@ -608,7 +608,7 @@ exist after each headings's drawers."
 (use-package which-key :config (which-key-mode 1))
 
 ;;; evil-nerd-commenter
-(use-package evil-nerd-commenter :config (evilnc-default-hotkeys))
+(use-package evil-nerd-commenter)
 
 ;;; aggressive-indent
 (use-package aggressive-indent :config (setq global-aggressive-indent-mode 1))
