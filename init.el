@@ -202,7 +202,7 @@
           ("l" "literature note" plain "%?"
            :target
            (file+head
-            "Literature/${citar-citekey}.org" "#+TITLE: ${citar-citekey}\n#+FILETAGS: :article:\n* ${title}\n")
+            "Literature/${citar-citekey}.org" "#+TITLE: ${note-title}\n#+FILETAGS: :article:\n* ${note-title}\n")
            :unnarrowed t)
           ("f" "fleeting note" plain "%?"
            :target
