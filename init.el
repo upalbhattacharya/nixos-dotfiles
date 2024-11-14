@@ -660,9 +660,6 @@ _s_: Sync database
 ;; org-agenda
 (global-set-key (kbd "C-c a") 'org-agenda)
 
-;; journal
-(define-key global-map (kbd "C-c x") 'org-capture)
-
 ;; inbox
 (global-set-key
  (kbd "C-c M-\\")
