@@ -258,7 +258,7 @@
 (use-package citar-org-roam
   :after citar org-roam
  :config
- (setq citar-org-roam-mode t)
+ (citar-org-roam-mode)
  (setq citar-org-roam-note-title-template "${title}")
  (setq citar-org-roam-capture-template-key "l"))
 
