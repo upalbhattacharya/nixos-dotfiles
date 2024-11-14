@@ -640,12 +640,11 @@ exist after each headings's drawers."
  "
 ^org-roam^
 ---------
-_f_: Find node (or create)
+_f_: Find node (or create)    _q_: Quit
 _i_: Insert node link
 _b_: Buffer toggle
 _w_: Refile
 _s_: Sync database
-_q_: Quit
 "
  ("f" org-roam-node-find)
  ("i" org-roam-node-insert)
