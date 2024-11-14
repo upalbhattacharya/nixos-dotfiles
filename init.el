@@ -636,7 +636,7 @@ exist after each headings's drawers."
 ;; org-roam
 (defhydra
  hydra-org-roam
- (:color red
+ (:color pink
          :hint nil)
  "
 ^org-roam^
@@ -672,7 +672,7 @@ _s_: Sync database
 (global-set-key (kbd "C-c M-r") 'org-transclusion-remove-all)
 
 ;; citar
-(defhydra hydra-citar (:color red
+(defhydra hydra-citar (:color pink
                               :hint nil)
 "
 ^citar^
@@ -686,7 +686,7 @@ _q_: Quit
 ("q" nil)
 )
 
-(defhydra hydra-citar-insert (:color red :hint nil)
+(defhydra hydra-citar-insert (:color pink :hint nil)
   "
 ^citar-insert^
 --------------
