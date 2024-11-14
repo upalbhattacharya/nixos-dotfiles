@@ -638,7 +638,7 @@ exist after each headings's drawers."
 (global-set-key (kbd "C-c n") 'org-roam-capture)
 (global-set-key (kbd "C-M-r") 'org-roam-buffer-toggle)
 (global-set-key (kbd "C-c C-w") 'org-roam-refile)
-(global-set-ket (kbd "C-c s") 'org-roam-db-sync)
+(global-set-key (kbd "C-c s") 'org-roam-db-sync)
 
 ;; org-roam-dailies
 (global-set-key (kbd "C-c M-j") 'org-roam-dailies-goto-today)
