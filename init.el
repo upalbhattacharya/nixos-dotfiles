@@ -681,7 +681,7 @@ _o_: Open
 _ic_: Insert commands
 "
 ("o" 'citar-open)
-("i" 'hydra-citar-insert/body)
+("i" 'hydra-citar-insert/body :exit t)
 )
 
 (defhydra hydra-citar-insert (:color pink :hint nil)
