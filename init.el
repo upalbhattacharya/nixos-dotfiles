@@ -650,8 +650,7 @@ _w_: Refile
  ("b" org-roam-buffer-toggle)
  ("w" org-roam-refile)
  ("s" org-roam-db-sync)
- ("q" nil)
- ("Esc" nil))
+ ("q" nil))
 (global-set-key (kbd "C-c o") 'hydra-org-roam/body)
 
 ;; org-roam-dailies
