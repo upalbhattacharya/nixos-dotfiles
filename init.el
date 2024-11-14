@@ -234,7 +234,7 @@
   (when (eq major-mode 'org-mode)
     (org-roam-db-sync)))
 
-(add-hook 'after-save-hook '#org-roam-update-db-on-save-hook)
+(add-hook 'after-save-hook 'org-roam-update-db-on-save-hook)
 
 (use-package
   org-roam
