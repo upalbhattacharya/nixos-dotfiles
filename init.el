@@ -234,10 +234,11 @@
   (when (eq major-mode 'org-mode)
     (org-roam-db-sync)))
 
+(add-hook 'after-save-hook '#org-roam-update-db-on-save-hook)
+
 (use-package
   org-roam
   :hook
-  (after-save-hook . #org-roam-update-db-on-save-hook)
  :config
  (setq org-roam-directory (file-truename "~/org"))
  (setq org-roam-dailies-directory "~/org/Journal/")
