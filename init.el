@@ -645,12 +645,12 @@ _i_: Insert node link         _j_: Goto Journal
 _b_: Buffer toggle            _q_: Quit
 _w_: Refile
 "
- ("f" org-roam-node-find)
- ("i" org-roam-node-insert)
- ("b" org-roam-buffer-toggle)
- ("w" org-roam-refile)
- ("s" org-roam-db-sync)
- ("j" org-roam-dailies-goto-today)
+ ("f" 'org-roam-node-find)
+ ("i" 'org-roam-node-insert)
+ ("b" 'org-roam-buffer-toggle)
+ ("w" 'org-roam-refile)
+ ("s" 'org-roam-db-sync)
+ ("j" 'org-roam-dailies-goto-today)
  ("q" nil))
 (global-set-key (kbd "C-c o") 'hydra-org-roam/body)
 
@@ -692,10 +692,10 @@ _b_: Insert BibTeX entry
 _r_: Insert Reference
 _k_: Insert Key
 "
- ("c" citar-insert-citation)
- ("b" citar-insert-bibtex)
- ("r" citar-insert-reference)
- ("k" citar-insert-key)
+ ("c" 'citar-insert-citation)
+ ("b" 'citar-insert-bibtex)
+ ("r" 'citar-insert-reference)
+ ("k" 'citar-insert-key)
  ("q" nil))
 (global-set-key (kbd "C-c M-r") 'hydra-citar/body)
 
