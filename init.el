@@ -699,8 +699,6 @@ _k_: Insert Key
  ("q" nil))
 (global-set-key (kbd "C-c M-r") 'hydra-citar/body)
 
-
-
 ;; org-view-mode
 (global-set-key (kbd "C-c M-e") 'org-view-mode)
 
