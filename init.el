@@ -678,9 +678,26 @@ _s_: Sync database
 ^citar^
 -------
 _o_: Open
-_ic_: Insert Citation
+_ic_: Insert commands
 "
+("o" 'citar-open)
+("i" 'hydra-citar-insert/body)
 )
+
+(defhydra hydra-citar-insert (:color pink :hint nil)
+  "
+^citar-insert^
+--------------
+_c_: Insert Citation
+_b_: Insert BibTeX entry
+_r_: Insert Reference
+_k_: Insert Key
+"
+  ("c" 'citar-insert-citation)
+  ("b" 'citar-insert-bibtex)
+  ("r" 'citar-insert-reference)
+  ("k" 'citar-insert-key)
+ )
 (global-set-key (kbd "C-x M-r") 'citar-open)
 
 ;; org-view-mode
