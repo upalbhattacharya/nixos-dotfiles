@@ -692,11 +692,13 @@ _c_: Insert Citation
 _b_: Insert BibTeX entry
 _r_: Insert Reference
 _k_: Insert Key
+_q_: Quit
 "
   ("c" 'citar-insert-citation)
   ("b" 'citar-insert-bibtex)
   ("r" 'citar-insert-reference)
   ("k" 'citar-insert-key)
+  ("q" nil)
  )
 (global-set-key (kbd "C-x M-r") 'hydra-citar/body)
 
