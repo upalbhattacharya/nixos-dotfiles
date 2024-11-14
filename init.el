@@ -240,17 +240,17 @@
 
 
 ;;; org-roam-bibtex
-(use-package
-  org-roam-bibtex
-  :after org-roam
-  :config (setq org-cite-follow-processor 'helm-bibtex-org-cite-follow)
-  (setq bibtex-completion-format-citation-functions
-        '((org-mode . bibtex-completion-format-citation-org-cite)
-          (latex-mode . bibtex-completion-format-citation-cite)
-          (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
-          (python-mode . bibtex-completion-format-citation-sphinxcontrib-bibtex)
-          (rst-mode . bibtex-completion-format-citation-sphinxcontrib-bibtex)
-          (default . bibtex-completion-format-citation-default))))
+;; (use-package
+;;   org-roam-bibtex
+;;   :after org-roam
+;;   :config (setq org-cite-follow-processor 'helm-bibtex-org-cite-follow)
+;;   (setq bibtex-completion-format-citation-functions
+;;         '((org-mode . bibtex-completion-format-citation-org-cite)
+;;           (latex-mode . bibtex-completion-format-citation-cite)
+;;           (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
+;;           (python-mode . bibtex-completion-format-citation-sphinxcontrib-bibtex)
+;;           (rst-mode . bibtex-completion-format-citation-sphinxcontrib-bibtex)
+;;           (default . bibtex-completion-format-citation-default))))
 
 ;;; helm-bibtex
 ;; (use-package helm-bibtex
@@ -260,6 +260,12 @@
 ;;   )
 
 ;;; citar
+(use-package citar
+  :custom
+  (citar-bibliography '("~/org/bibliography.bib"))
+  :hook
+  (LaTeX-mode . citar-capf-setup)
+  (org-mode . citar-capf-setup))
 
 ;;; company
 (use-package company :config (company-mode 1))
