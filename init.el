@@ -700,7 +700,7 @@ _q_: Quit
   ("k" 'citar-insert-key)
   ("q" nil)
  )
-(global-set-key (kbd "C-x M-r") 'hydra-citar/body)
+(global-set-key (kbd "C-c M-r") 'hydra-citar/body)
 
 ;; org-view-mode
 (global-set-key (kbd "C-c M-e") 'org-view-mode)
