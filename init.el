@@ -285,11 +285,6 @@
 ;;; auctex
 (use-package auctex :config (setq TeX-parse-self t))
 
-;;; direnv
-;; (use-package direnv
-;;  :config
-;;  (direnv-mode))
-
 ;; envrc
 (use-package envrc :hook (after-init . envrc-global-mode))
 
