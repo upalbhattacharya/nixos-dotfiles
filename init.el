@@ -646,7 +646,7 @@ exist after each headings's drawers."
  (:color blue :hint nil)
  "
 org-roam
-^Actions^
+^org-roam^
 ---------
 _f_: Find node (or create)
 _i_: Insert node link
