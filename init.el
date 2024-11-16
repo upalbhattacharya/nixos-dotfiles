@@ -186,7 +186,14 @@
        '(("d" "default" plain "%?"
           :target
           (file+olp
-           "Inbox.org" ("TODO ${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
+           "Inbox.org" ("TODO ${title}
+:PROPERTIES:
+:NAME: ${title}
+:CREATED:\t%U
+:END:
+
+[[org-ql-search:(and (todo) (not(done)) (property "NAME" {$title} inherit))][org-ql-search: Pending Tasks]]
+")))
          ("p" "project" plain "%?"
           :target
           (file+olp
