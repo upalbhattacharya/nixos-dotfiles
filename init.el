@@ -644,6 +644,29 @@ exist after each headings's drawers."
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
+;; time-based
+(defhydra
+  hydra-time
+  (:color pink :hint nil :exit t)
+  "
+^Time-based^
+------------
+_d_: Set deadline     _a_: Goto active                _q_: Quit
+_s_: Set schedule     _d_: Display time logged
+_i_: Clock in         _c_: Cancel logging
+_o_: Clock out        _r_: Insert report
+"
+  ("d" org-deadline)
+  ("s" org-schedule)
+  ("i" org-clock-in)
+  ("o" org-clock-out)
+  ("a" org-clock-goto)
+  ("d" org-clock-display)
+  ("c" org-clock-cancel)
+  ("r" org-clock-report)
+  ("q" nil))
+(global-set-key (kbd "C-c M-t") 'hydra-time/body)
+
 ;; org-roam
 (defhydra
  hydra-org-roam
