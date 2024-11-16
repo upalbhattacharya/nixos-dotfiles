@@ -139,22 +139,6 @@
   org-expiry-inactive-timestamps t ; Don't have everything in the agenda view
   )
 
- (defun mrb/insert-created-timestamp ()
-   "Insert a CREATED property using org-expiry.el for TODO entries"
-   (org-expiry-insert-created)
-   (org-id-get-create)
-   (org-roam-db-sync)
-   (org-back-to-heading)
-   (org-end-of-line)
-   (insert " "))
-
- ;; Whenever a TODO entry is created, I want a timestamp
- ;; Advice org-insert-todo-heading to insert a created timestamp using org-expiry
- (defadvice org-insert-todo-heading (after mrb/created-timestamp-advice activate)
-   "Insert a CREATED property using org-expiry.el for TODO entries"
-   (mrb/insert-created-timestamp))
- ;; Make it active
- (ad-activate 'org-insert-todo-heading)
 
  ;;org-cite
  (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
@@ -623,6 +607,23 @@ exist after each headings's drawers."
 
 ;;; aggressive-indent
 (use-package aggressive-indent :config (setq global-aggressive-indent-mode 1))
+
+
+ (defun workboots/insert-todo-metadata ()
+   (org-expiry-insert-created)
+   (org-id-get-create)
+   (org-roam-db-sync)
+   (org-back-to-heading)
+   (org-end-of-line)
+   (insert " "))
+
+ ;; Whenever a TODO entry is created, I want a timestamp
+ ;; Advice org-insert-todo-heading to insert a created timestamp using org-expiry
+ (defadvice org-insert-todo-heading (after workboots/insert-todo-metadata activate)
+   "Insert a CREATED property using org-expiry.el for TODO entries"
+   (workboots/insert-todo-metadata))
+ ;; Make it active
+ (ad-activate 'org-insert-todo-heading)
 
 ;;; Keybindings
 
