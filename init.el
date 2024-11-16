@@ -142,6 +142,7 @@
  (defun mrb/insert-created-timestamp ()
    "Insert a CREATED property using org-expiry.el for TODO entries"
    (org-expiry-insert-created)
+   (org-id-get-create)
    (org-back-to-heading)
    (org-end-of-line)
    (insert " "))
