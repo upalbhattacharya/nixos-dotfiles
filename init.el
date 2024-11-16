@@ -143,6 +143,7 @@
    "Insert a CREATED property using org-expiry.el for TODO entries"
    (org-expiry-insert-created)
    (org-id-get-create)
+   (org-roam-db-sync)
    (org-back-to-heading)
    (org-end-of-line)
    (insert " "))
