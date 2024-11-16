@@ -23,7 +23,7 @@ in
     };
     extraConfig = ''
           workspace = w[t1], gapsout:0, gapsin:0, border: 0, rounding:0
-          workspace - w[tg1], gapsout:0, gapsin:0, border: 0, rounding:0
+          workspace = w[tg1], gapsout:0, gapsin:0, border: 0, rounding:0
           workspace = f[1], gapsout:0, gapsin:0, border: 0, rounding:0
 
           exec-once = killall waybar; sleep 2 && ${pkgs.waybar}/bin/waybar
