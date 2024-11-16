@@ -105,8 +105,6 @@
 ;;; Evil
 (use-package evil :config (evil-mode 1))
 
-(use-package org-expiry
-  :config
     (setq
     org-expiry-created-property-name "CREATED" ; Name of property when an item is created
     org-expiry-inactive-timestamps   t         ; Don't have everything in the agenda view
@@ -127,7 +125,7 @@
     (mrb/insert-created-timestamp)
     )
     ;; Make it active
-    (ad-activate 'org-insert-todo-heading))
+    (ad-activate 'org-insert-todo-heading)
 
 ;;; org
 (use-package
