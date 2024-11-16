@@ -191,8 +191,6 @@
 :NAME: ${title}
 :CREATED:\t%U
 :END:
-
-[[org-ql-search:(and (todo) (not(done)) (property "NAME" {$title} inherit))][org-ql-search: Pending Tasks]]
 ")))
          ("p" "project" plain "%?"
           :target
@@ -208,11 +206,25 @@
          ("a" "area" plain "%?"
           :target
           (file+olp
-           "Areas.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
+           "Areas.org" ("${title}
+:PROPERTIES:
+:NAME: ${title}
+:CREATED:\t%U
+:END:
+
+[[org-ql-search:(and (todo) (not(done)) (property "NAME" {$title} inherit))][org-ql-search: Pending Tasks]]
+")))
          ("r" "resource" plain "%?"
           :target
           (file+head
-           "Resources.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
+           "Resources.org" ("${title}
+:PROPERTIES:
+:NAME: ${title}
+:CREATED:\t%U
+:END:
+
+[[org-ql-search:(and (todo) (not(done)) (property "NAME" {$title} inherit))][org-ql-search: Pending Tasks]]
+")))
          ("l" "literature note" plain "%?"
           :target
           (file+head
