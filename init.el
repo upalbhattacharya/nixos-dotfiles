@@ -127,6 +127,7 @@
  (setq org-enforce-todo-dependencies t)
  (setq org-enforce-todo-checkbox-dependencies t)
  (setq org-startup-folded 'overview)
+ (setq org-log-into-drawer 1)
 
  ;;org-cite
  (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
