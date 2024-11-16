@@ -20,11 +20,12 @@ in
       decoration = {
         rounding = 2;
       };
-      dwindle = {
-        no_gaps_when_only = 1;
-      };
     };
     extraConfig = ''
+          workspace = w[t1], gapsout:0, gapsin:0, border: 0, rounding:0
+          workspace - w[tg1], gapsout:0, gapsin:0, border: 0, rounding:0
+          workspace = f[1], gapsout:0, gapsin:0, border: 0, rounding:0
+
           exec-once = killall waybar; sleep 2 && ${pkgs.waybar}/bin/waybar
           exec-once = killall wpaperd; sleep 2 && wpaperd -d
           exec-once = systemctl --user restart kanshi.service
