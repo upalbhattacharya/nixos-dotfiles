@@ -1,19 +1,30 @@
-{ config, lib, pkgs, ... }:
-let modifier = "SUPER";
-in {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  modifier = "SUPER";
+in
+{
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
     catppuccin.enable = true;
     settings = {
-      general = { border_size = 5; };
-      decoration = { rounding = 2; };
+      general = {
+        border_size = 5;
+      };
+      decoration = {
+        rounding = 2;
+      };
+      dwindle = {
+        no_gaps_when_only = 1;
+      };
     };
     extraConfig = ''
-          dwindle {
-            no_gaps_when_only = 1
-          }
           exec-once = killall waybar; sleep 2 && ${pkgs.waybar}/bin/waybar
           exec-once = killall wpaperd; sleep 2 && wpaperd -d
           exec-once = systemctl --user restart kanshi.service
