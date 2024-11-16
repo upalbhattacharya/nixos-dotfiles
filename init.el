@@ -126,6 +126,7 @@
  (setq org-outline-path-complete-in-steps nil)
  (setq org-enforce-todo-dependencies t)
  (setq org-enforce-todo-checkbox-dependencies t)
+ (setq org-startup-folded overview)
 
  ;;org-cite
  (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
