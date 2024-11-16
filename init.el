@@ -201,7 +201,7 @@
 :CREATED:\t%U
 :END:
 
-[[org-ql-search:(and (todo) (not(done)) (property "NAME" {$title} inherit))][org-ql-search: Pending Tasks]]
+[[org-ql-search:(and (todo) (not(done)) (property \"NAME\" {$title} inherit))][org-ql-search: Pending Tasks]]
 ")))
          ("a" "area" plain "%?"
           :target
@@ -212,7 +212,7 @@
 :CREATED:\t%U
 :END:
 
-[[org-ql-search:(and (todo) (not(done)) (property "NAME" {$title} inherit))][org-ql-search: Pending Tasks]]
+[[org-ql-search:(and (todo) (not(done)) (property \"NAME\" {$title} inherit))][org-ql-search: Pending Tasks]]
 ")))
          ("r" "resource" plain "%?"
           :target
@@ -223,7 +223,7 @@
 :CREATED:\t%U
 :END:
 
-[[org-ql-search:(and (todo) (not(done)) (property "NAME" {$title} inherit))][org-ql-search: Pending Tasks]]
+[[org-ql-search:(and (todo) (not(done)) (property \"NAME\" {$title} inherit))][org-ql-search: Pending Tasks]]
 ")))
          ("l" "literature note" plain "%?"
           :target
