@@ -612,7 +612,6 @@ exist after each headings's drawers."
  (defun workboots/insert-todo-metadata ()
    (org-expiry-insert-created)
    (org-id-get-create)
-   (org-roam-db-sync)
    (org-back-to-heading)
    (org-end-of-line)
    (insert " "))
