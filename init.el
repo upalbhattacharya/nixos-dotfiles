@@ -197,7 +197,14 @@
          ("p" "project" plain "%?"
           :target
           (file+olp
-           "Projects.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
+           "Projects.org" ("${title}
+:PROPERTIES:
+:NAME: ${title}
+:CREATED:\t%U
+:END:
+
+[[org-ql-search:(and (todo) (not(done)) (property "NAME" {$title} inherit))][org-ql-search: Pending Tasks]]
+")))
          ("a" "area" plain "%?"
           :target
           (file+olp
