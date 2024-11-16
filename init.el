@@ -195,7 +195,7 @@
           :target
           (file+olp
            "Areas.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
-         ("a" "resource" plain "%?"
+         ("r" "resource" plain "%?"
           :target
           (file+head
            "Resources.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))
