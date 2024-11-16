@@ -613,8 +613,7 @@ exist after each headings's drawers."
    (org-expiry-insert-created)
    (org-id-get-create)
    (org-back-to-heading)
-   (org-end-of-line)
-   (insert " "))
+   (org-end-of-line))
 
  ;; Whenever a TODO entry is created, I want a timestamp
  ;; Advice org-insert-todo-heading to insert a created timestamp using org-expiry
