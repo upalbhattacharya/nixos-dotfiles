@@ -650,7 +650,7 @@ exist after each headings's drawers."
   "
 ^Time-based^
 ------------
-_d_: Set deadline     _a_: Goto active                _D_: Remove overlays
+_d_: Set deadline     _a_: Goto active                _S-d_: Remove overlays
 _s_: Set schedule     _d_: Display time logged        _q_: Quit
 _i_: Clock in         _c_: Cancel logging
 _o_: Clock out        _r_: Insert report
