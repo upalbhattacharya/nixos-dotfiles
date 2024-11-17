@@ -183,6 +183,7 @@ in
     waydroid
     wl-kbptr
     lilypond
+    frescobaldi
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
