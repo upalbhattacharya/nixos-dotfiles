@@ -621,7 +621,15 @@ exist after each headings's drawers."
    "Insert a CREATED property using org-expiry.el for TODO entries"
    (workboots/insert-todo-metadata))
  ;; Make it active
- (ad-activate 'org-insert-todo-heading)
+(ad-activate 'org-insert-todo-heading)
+
+;; Lilypond
+
+(autoload 'LilyPond-mode "lilypond-mode")
+(setq auto-mode-alist
+      (cons '("\\.ly$" . LilyPond-mode) auto-mode-alist))
+
+(add-hook 'LilyPond-mode-hook (lambda () (turn-on-font-lock)))
 
 ;;; Keybindings
 

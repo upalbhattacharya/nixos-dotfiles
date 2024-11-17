@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   lowBatteryNotifier = pkgs.writeScript "lowBatteryNotifier" ''
     BAT_PCT=`cat /sys/class/power_supply/BAT0/capacity`
@@ -7,14 +12,18 @@ let
     test $BAT_PCT -lt 15 && test $BAT_PCT -gt 5 && test $BAT_STA = "Discharging" && DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus" notify-send -u critical "Low Battery" "Would be wise to keep my charger nearby."
     test $BAT_PCT -lt 5 && test $BAT_STA = "Discharging" && DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus" notify-send -u critical "Low Battery" "Charge me or watch me die!"
   '';
-in {
+in
+{
   imports = [ ./hardware-configuration.nix ];
 
   # Allow Unfree
   nixpkgs.config.allowUnfree = true;
 
   # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -39,8 +48,14 @@ in {
   security.pam.services.hyprlock = { };
 
   # Networking
-  networking.firewall.allowedTCPPorts = [ 8384 22000 ];
-  networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+  networking.firewall.allowedTCPPorts = [
+    8384
+    22000
+  ];
+  networking.firewall.allowedUDPPorts = [
+    22000
+    21027
+  ];
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -54,7 +69,9 @@ in {
   services.displayManager.defaultSession = "hyprland";
 
   # Nvidia
-  hardware.graphics = { enable = true; };
+  hardware.graphics = {
+    enable = true;
+  };
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -98,7 +115,11 @@ in {
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
-    settings = { General = { Enable = "Source,Sink,Media,Socket"; }; };
+    settings = {
+      General = {
+        Enable = "Source,Sink,Media,Socket";
+      };
+    };
   };
   services.blueman.enable = true;
 
@@ -108,10 +129,13 @@ in {
   # Cron
   services.cron = {
     enable = true;
-    systemCronJobs = let username = "workboots";
-    in [
-      "* * * * * ${username}  sh -x ${lowBatteryNotifier} > /tmp/cron.batt.log 2>&1"
-    ];
+    systemCronJobs =
+      let
+        username = "workboots";
+      in
+      [
+        "* * * * * ${username}  sh -x ${lowBatteryNotifier} > /tmp/cron.batt.log 2>&1"
+      ];
   };
 
   # Lid Behaviour
@@ -125,7 +149,13 @@ in {
   users.users.workboots = {
     isNormalUser = true;
     home = "/home/workboots";
-    extraGroups = [ "wheel" "networkmanager" "power" "video" "uinput" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "power"
+      "video"
+      "uinput"
+    ];
     useDefaultShell = true;
   };
 
@@ -152,6 +182,7 @@ in {
     texliveMedium
     waydroid
     wl-kbptr
+    lilypond
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -192,8 +223,14 @@ in {
     };
   };
 
-  fonts.packages = with pkgs;
-    [ (nerdfonts.override { fonts = [ "Inconsolata" "Iosevka" ]; }) ];
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {
+      fonts = [
+        "Inconsolata"
+        "Iosevka"
+      ];
+    })
+  ];
 
   # programs.sway = {
   #  		enable = true;
@@ -216,11 +253,8 @@ in {
 
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall =
-      true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall =
-      true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall =
-      true; # Open ports in the firewall for Steam Local Network Game Transfers
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 }
