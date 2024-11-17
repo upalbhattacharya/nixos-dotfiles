@@ -272,8 +272,13 @@
 (use-package org-superstar :hook (org-mode . org-superstar-mode))
 
 ;;; Dashboard
-(use-package dashboard :config (dashboard-setup-startup-hook) (setq dashboard-startup-banner 3))
-
+(use-package dashboard
+  :config
+  (dashboard-setup-startup-hook)
+  (setq dashboard-startup-banner 3)
+  (setq dashboard-items '((recents   . 5)
+                          (bookmarks . 5)
+                          (registers . 5))))
 ;;; vertico
 (use-package
  vertico
