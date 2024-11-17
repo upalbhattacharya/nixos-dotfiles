@@ -634,6 +634,18 @@ exist after each headings's drawers."
  ;; Make it active
 (ad-activate 'org-insert-heading)
 
+ (defadvice org-insert-heading-after-current (after workboots/insert-todo-metadata activate)
+   "Insert a CREATED property using org-expiry.el for TODO entries"
+   (workboots/insert-todo-metadata))
+ ;; Make it active
+(ad-activate 'org-insert-heading-after-current)
+
+ (defadvice org-insert-heading-respect-content (after workboots/insert-todo-metadata activate)
+   "Insert a CREATED property using org-expiry.el for TODO entries"
+   (workboots/insert-todo-metadata))
+ ;; Make it active
+(ad-activate 'org-insert-heading-respect-content)
+
  (defadvice org-insert-subheading (after workboots/insert-todo-metadata activate)
    "Insert a CREATED property using org-expiry.el for TODO entries"
    (workboots/insert-todo-metadata))
