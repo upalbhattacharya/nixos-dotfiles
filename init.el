@@ -686,9 +686,9 @@ exist after each headings's drawers."
 ^Time-based^
 ------------
 _d_: Set deadline     _a_: Goto active                _x_: Remove overlays
-_s_: Set schedule     _t_: Display time logged        _q_: Quit
-_i_: Clock in         _c_: Cancel logging
-_o_: Clock out        _r_: Insert report
+_s_: Set schedule     _t_: Display time logged        _p_: Inactive timestamp
+_i_: Clock in         _c_: Cancel logging             _v_: Active timestamp
+_o_: Clock out        _r_: Insert report              _q_: Quit
 "
   ("d" org-deadline)
   ("s" org-schedule)
@@ -699,6 +699,8 @@ _o_: Clock out        _r_: Insert report
   ("x" org-clock-remove-overlays)
   ("c" org-clock-cancel)
   ("r" org-clock-report)
+  ("p" org-time-stamp-inactive)
+  ("v" org-time-stamp-active)
   ("q" nil))
 (global-set-key (kbd "C-c M-t") 'hydra-time/body)
 
