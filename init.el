@@ -614,11 +614,11 @@ exist after each headings's drawers."
 (use-package aggressive-indent :config (setq global-aggressive-indent-mode 1))
 
 
- (defun workboots/insert-todo-metadata ()
-   (org-expiry-insert-created)
-   (org-id-get-create)
-   (org-back-to-heading)
-   (org-end-of-line))
+(defun workboots/insert-todo-metadata ()
+    (org-expiry-insert-created)
+    (org-id-get-create)
+    (org-back-to-heading)
+    (org-end-of-line))
 
  ;; Whenever a TODO entry is created, I want a timestamp
  ;; Advice org-insert-todo-heading to insert a created timestamp using org-expiry
