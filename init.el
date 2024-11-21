@@ -33,6 +33,7 @@
      (gnus . org-gnus-no-new-news)
      (file . find-file)
      (wl . wl-other-frame)))
+ '(org-log-into-drawer "t")
  '(org-preview-latex-process-alist
    '((dvipng :programs
              ("latex" "dvipng")
