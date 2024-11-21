@@ -130,7 +130,7 @@
  (setq org-enforce-todo-dependencies t)
  (setq org-enforce-todo-checkbox-dependencies t)
  (setq org-startup-folded 'overview)
- (setq org-log-into-drawer 1)
+ (setq org-log-into-drawer "LOGBOOK")
 
  ;;; org-expiry
  (require 'org-expiry)
@@ -172,9 +172,9 @@
 
  ;; org-todo
  (setq org-todo-keywords
-       '((sequence "TODO(t)" "NEXT(n)" "TODAY(T)" "IN PROGRESS(p)" "|" "DONE(d)" "ARCHIVED(a)")
-         (sequence "LATER(l)" "|")
-         (sequence "FOCUS(f)" "|")))
+       '((sequence "TODO(t)" "NEXT(n/!)" "TODAY(T/!)" "IN PROGRESS(p/!)" "|" "DONE(d/!)" "ARCHIVED(a/!)")
+         (sequence "LATER(l/!)" "|")
+         (sequence "FOCUS(f@/!)" "|")))
  (setq org-todo-keyword-faces
        '(("TODO" . (:foreground "#f9e2af" :weight bold))
          ("NEXT" . (:foreground "#cba6f7" :weight bold))
