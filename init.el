@@ -172,9 +172,8 @@
 
  ;; org-todo
  (setq org-todo-keywords
-       '((sequence "TODO(t)" "NEXT(n/!)" "TODAY(T/!)" "IN PROGRESS(p/!)" "|" "DONE(d/!)" "ARCHIVED(a/!)")
-         (sequence "LATER(l/!)" "|")
-         (sequence "FOCUS(f@/!)" "|")))
+       '((sequence "TODO(t)" "NEXT(n/!)" "TODAY(T/!)" "FOCUS(f@/!)" "IN PROGRESS(p/!)" "LATER(l/!)" "|" "DONE(d/!)" "ARCHIVED(a/!)")
+         ))
  (setq org-todo-keyword-faces
        '(("TODO" . (:foreground "#f9e2af" :weight bold))
          ("NEXT" . (:foreground "#cba6f7" :weight bold))
