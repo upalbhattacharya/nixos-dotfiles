@@ -70,7 +70,7 @@
  '(org-super-agenda-date-format "%e %Y-%m-%d")
  '(org-use-property-inheritance '("NAME"))
  '(package-selected-packages
-   '(hydra citar-org-roam citar elisp-autofmt aggressive-indent evil-nerd-commenter envrc which-key org-anki org-ql annotate toc-org hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding fzf dashboard org-transclusion org-superstar org-roam evil catppuccin-theme))
+   '(avy hydra citar-org-roam citar elisp-autofmt aggressive-indent evil-nerd-commenter envrc which-key org-anki org-ql annotate toc-org hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding fzf dashboard org-transclusion org-superstar org-roam evil catppuccin-theme))
  '(python-isort-extra-args nil))
 
 ;;; Theme
@@ -210,7 +210,7 @@
           (file+olp
            "Projects.org"
            (
-            "${title}
+            "TODO ${title} [/]
 :PROPERTIES:
 :NAME: ${title}
 :CREATED:\t%U
@@ -269,6 +269,9 @@
 
 ;;; org-superstar
 (use-package org-superstar :hook (org-mode . org-superstar-mode))
+
+;;; avy
+(use-package avy)
 
 ;;; Dashboard
 (use-package dashboard
@@ -775,6 +778,9 @@ _k_: Insert Key
 ;; tab deletion
 (global-set-key (kbd "DEL") 'backward-delete-char)
 (setq c-backspace-function 'backward-delete-char)
+
+;; avy
+(global-set-key (kbd "C-M-'") 'avy-goto-char-2)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
