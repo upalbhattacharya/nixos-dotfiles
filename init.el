@@ -139,6 +139,9 @@
   org-expiry-inactive-timestamps t ; Don't have everything in the agenda view
   )
 
+ ;;; org-checklist
+ (require 'org-checklist)
+
 
  ;;org-cite
  (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
