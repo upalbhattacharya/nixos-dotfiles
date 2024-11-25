@@ -22,7 +22,7 @@
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-files
-   '("/home/upal/org/Archive/Areas Archive.org" "/home/upal/org/Archive/Dutch Vocabulary.org" "/home/upal/org/Archive/Inbox Archive.org" "/home/upal/org/Archive/Projects Archive.org" "/home/upal/org/Archive/Resources Archive.org" "/home/upal/org/Journal/202410.org" "/home/upal/org/Journal/Journal 2024.org" "/home/upal/org/Areas.org" "/home/upal/org/Fleeting.org" "/home/upal/org/Inbox.org" "/home/upal/org/Index.org" "/home/upal/org/Projects.org" "/home/upal/org/Resources.org" "/home/upal/org/Scratchpad.org" "/home/upal/org/Slip Box.org"))
+   '("/home/workboots/org/Archive/Areas Archive.org" "/home/workboots/org/Archive/Dutch Vocabulary.org" "/home/workboots/org/Archive/Inbox Archive.org" "/home/workboots/org/Archive/Projects Archive.org" "/home/workboots/org/Archive/Resources Archive.org" "/home/workboots/org/Journal/202410.org" "/home/workboots/org/Journal/Journal 2024.org" "/home/workboots/org/Areas.org" "/home/workboots/org/Fleeting.org" "/home/workboots/org/Inbox.org" "/home/workboots/org/Index.org" "/home/workboots/org/Projects.org" "/home/workboots/org/Resources.org" "/home/workboots/org/Scratchpad.org" "/home/workboots/org/Slip Box.org"))
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
@@ -216,7 +216,7 @@
 :CREATED:\t%U
 :END:
 
-[[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" ${title} inherit))][org-ql-search: Pending Tasks]]
+[[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]
 ")))
          ("a" "area" plain "%?"
           :target
@@ -229,7 +229,7 @@
 :CREATED:\t%U
 :END:
 
-[[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" ${title} inherit))][org-ql-search: Pending Tasks]]
+[[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]
 ")))
          ("r" "resource" plain "%?"
           :target
@@ -242,7 +242,7 @@
 :CREATED:\t%U
 :END:
 
-[[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" ${title} inherit))][org-ql-search: Pending Tasks]]
+[[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]
 ")))
          ("l" "literature note" plain "%?"
           :target
