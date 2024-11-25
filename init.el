@@ -128,19 +128,7 @@
  (setq org-enforce-todo-dependencies t)
  (setq org-enforce-todo-checkbox-dependencies t)
  (setq org-startup-folded 'overview)
- (setq org-log-into-drawer t))
-
- ;;; org-expiry
- ;; (require 'org-expiry)
- (use-package org-expiry
-   :config
-   (setq
-   org-expiry-created-property-name "CREATED" ; Name of property when an item is created
-   org-expiry-inactive-timestamps t ; Don't have everything in the agenda view
-  ))
-
- ;;; org-checklist
-(use-package org-checklist)
+ (setq org-log-into-drawer t)
 
  ;;org-cite
  (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
@@ -188,6 +176,17 @@
  ;; babel
  (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t) (python . t))))
 
+ ;;; org-expiry
+ ;; (require 'org-expiry)
+ (use-package org-expiry
+   :config
+   (setq
+   org-expiry-created-property-name "CREATED" ; Name of property when an item is created
+   org-expiry-inactive-timestamps t ; Don't have everything in the agenda view
+  ))
+
+ ;;; org-checklist
+(use-package org-checklist)
 ;; org-roam
 (use-package
  org-roam
