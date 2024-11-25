@@ -77,7 +77,7 @@
 (load-theme 'catppuccin :no-confirm)
 (add-to-list 'load-path "~/.emacs.d/plugins/")
 (load "org-expiry.el")
-
+(load "org-checklist.el")
 ;;; emacs
 (use-package
  emacs
