@@ -75,9 +75,7 @@
 
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
-(add-to-list 'load-path "~/.emacs.d/plugins/")
-(load "org-expiry.el")
-(load "org-checklist.el")
+
 ;;; emacs
 (use-package
  emacs
@@ -133,15 +131,16 @@
  (setq org-log-into-drawer t)
 
  ;;; org-expiry
- (require 'org-expiry)
- (setq
-  org-expiry-created-property-name "CREATED" ; Name of property when an item is created
-  org-expiry-inactive-timestamps t ; Don't have everything in the agenda view
-  )
+ ;; (require 'org-expiry)
+ (use-package org-expiry
+   :config
+    (setq
+    org-expiry-created-property-name "CREATED" ; Name of property when an item is created
+    org-expiry-inactive-timestamps t ; Don't have everything in the agenda view
+  ))
 
  ;;; org-checklist
- (require 'org-checklist)
-
+(use-package org-checklist)
 
  ;;org-cite
  (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
