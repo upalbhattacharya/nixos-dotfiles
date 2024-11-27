@@ -54,6 +54,21 @@ in
 
           bindm = ${modifier},mouse:272,movewindow
           bindm = ${modifier},mouse:273,resizewindow
+          bind = ${modifier}_SHIFT, r, submap, resize
+
+          submap = resize
+
+          # sets repeatable binds for resizing the active window
+          binde = , right, resizeactive, 10 0
+          binde = , left, resizeactive, -10 0
+          binde = , up, resizeactive, 0 -10
+          binde = , down, resizeactive, 0 10
+
+          # use reset to go back to the global submap
+          bind = , escape, submap, reset 
+
+          # will reset the submap, which will return to the global submap
+          submap = reset
 
           bind = ${modifier}_SHIFT,h,exec,${pkgs.hyprland}/bin/hyprctl dispatch movewindow l
           bind = ${modifier}_SHIFT,l,exec,${pkgs.hyprland}/bin/hyprctl dispatch movewindow r
