@@ -1,6 +1,6 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
@@ -16,11 +16,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(gnutls-algorithm-priority "normal:-verstls1.3")
  '(calendar-date-style 'iso)
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
+ '(gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-files
@@ -72,7 +72,7 @@
  '(org-super-agenda-date-format "%e %Y-%m-%d")
  '(org-use-property-inheritance '("NAME"))
  '(package-selected-packages
-   '(avy hydra citar-org-roam citar elisp-autofmt aggressive-indent evil-nerd-commenter envrc which-key org-anki org-ql annotate toc-org hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding fzf dashboard org-transclusion org-superstar org-roam evil catppuccin-theme))
+   '(gnu-elpa gnu-elpa-keyring-update avy hydra citar-org-roam citar elisp-autofmt aggressive-indent evil-nerd-commenter envrc which-key org-anki org-ql annotate toc-org hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding fzf dashboard org-transclusion org-superstar org-roam evil catppuccin-theme))
  '(python-isort-extra-args nil))
 
 ;;; Theme
