@@ -225,12 +225,8 @@ in
   };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = [
-        "Inconsolata"
-        "Iosevka"
-      ];
-    })
+    nerd-fonts.inconsolata
+    nerd-fonts.iosevka
   ];
 
   # programs.sway = {
