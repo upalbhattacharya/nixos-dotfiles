@@ -184,6 +184,7 @@ in
     wl-kbptr
     lilypond
     frescobaldi
+    networkmanagerapplet
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
