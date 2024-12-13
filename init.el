@@ -157,12 +157,16 @@
 
 
 ;;; Evil
-(use-package evil :config (evil-mode 1))
+(use-package evil
+  :demand t
+  :ensure nil
+  :config (evil-mode 1))
 
 
 ;;; org
-(use-package
- org
+(use-package org
+ :demand t
+ :ensure nil
  :custom-face (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
  :hook (org-mode . org-indent-mode)
  :hook (org-capture-mode . org-id-get-create)
@@ -232,7 +236,10 @@
 
  ;;; org-expiry
  ;; (require 'org-expiry)
- (use-package org-expiry
+(use-package org-expiry
+
+ :demand t
+ :ensure nil
    :config
    (setq
    org-expiry-created-property-name "CREATED" ; Name of property when an item is created
@@ -240,10 +247,16 @@
   ))
 
  ;;; org-checklist
-(use-package org-checklist)
+(use-package org-checklist
+
+ :demand t
+ :ensure nil
+  )
 ;; org-roam
 (use-package
- org-roam
+  org-roam
+ :demand t
+ :ensure nil
  :config
  (setq org-roam-directory (file-truename "~/org"))
  (setq org-roam-dailies-directory "~/org/Journal/")
@@ -323,7 +336,10 @@
  (setq org-roam-db-update-on-save 1))
 
 ;;; org-superstar
-(use-package org-superstar :hook (org-mode . org-superstar-mode))
+(use-package org-superstar
+ :demand t
+ :ensure nil
+  :hook (org-mode . org-superstar-mode))
 
 ;;; avy
 (use-package avy)
