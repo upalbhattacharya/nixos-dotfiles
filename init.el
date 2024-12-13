@@ -424,7 +424,10 @@
   :config (global-git-gutter-mode 1))
 
 ;;; origami
-(use-package origami :config (global-origami-mode 1))
+(use-package origami
+  :demand t
+  :ensure nil
+  :config (global-origami-mode 1))
 
 ;;; flycheck
 (use-package flycheck :config (global-flycheck-mode +1))
