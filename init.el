@@ -209,8 +209,6 @@
 (elpaca elpaca-use-package (elpaca-use-package-mode))
 (setq use-package-always-ensure t)
 
-;;; Theme
-(load-theme 'catppuccin :no-confirm)
 
 ;;; emacs
 (use-package emacs
@@ -238,11 +236,16 @@
  (setq auto-fill-mode 1)
  (setq truncate-partial-width-windows nil))
 
+;;; Theme
+(use-package catppuccin-theme
+	 :demand t
+	 :ensure (:wait t))
+(load-theme 'catppuccin :no-confirm)
 
 ;;; Evil
 (use-package evil
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :config (evil-mode 1))
 
 
@@ -326,7 +329,6 @@
  (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t) (python . t))))
 
 ;;; org-expiry
-;; (require 'org-expiry)
 (use-package org-expiry
  :demand t
  :ensure nil
@@ -340,10 +342,11 @@
 (use-package org-checklist
  :demand t
  :ensure nil)
+
 ;; org-roam
 (use-package org-roam
  :demand t
- :ensure nil
+ :ensure (:wait t)
  :config
  (setq org-roam-directory (file-truename "~/org"))
  (setq org-roam-dailies-directory "~/org/Journal/")
@@ -425,26 +428,26 @@
 ;;; org-superstar
 (use-package org-superstar
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :hook (org-mode . org-superstar-mode))
 
 ;;; avy
 (use-package avy
   :demand t
-  :ensure nil)
+  :ensure t)
 
 ;;; Dashboard
 (use-package dashboard
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :config
   (dashboard-setup-startup-hook)
   (setq dashboard-startup-banner 3)
   (setq dashboard-items '((recents . 5) (bookmarks . 5) (registers . 5))))
-;;; vertico
+
 (use-package vertico
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :custom
   (vertico-count 13) ; Number of candidates to display
   (vertico-resize t)
@@ -454,13 +457,13 @@
 ;;; hotfuzz
 (use-package hotfuzz
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :config (setq completion-styles '(hotfuzz)))
 
 ;;; citar
 (use-package citar
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :custom
   (citar-bibliography '("~/org/bibliography.bib"))
   (citar-notes-paths '("~/org/Literature/"))
@@ -476,7 +479,7 @@
 ;;; citar-org-roam
 (use-package citar-org-roam
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :after
   citar
   org-roam
@@ -488,13 +491,13 @@
 ;;; company
 (use-package company
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :config (company-mode 1))
 
 ;;; git-auto-commit-mode
 (use-package git-auto-commit-mode
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :hook (after-save . git-auto-commit-mode)
   :config
   (setq gac-automatically-push-p t)
@@ -503,43 +506,43 @@
 ;;; git-gutter
 (use-package git-gutter
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :config (global-git-gutter-mode 1))
 
 ;;; origami
 (use-package origami
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :config (global-origami-mode 1))
 
 ;;; flycheck
 (use-package flycheck
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :config (global-flycheck-mode +1))
 
 ;;; rainbow-delimiters
 (use-package rainbow-delimiters
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :hook (after-init . rainbow-delimiter-mode))
 
 ;;; auctex
 (use-package auctex
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :config (setq TeX-parse-self t))
 
 ;; envrc
 (use-package envrc
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :hook (after-init . envrc-global-mode))
 
 ;;; lsp-mode
 (use-package lsp-mode
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :init
   ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
   (setq lsp-keymap-prefix "C-c l")
@@ -554,7 +557,7 @@
 ;;; lsp-ui
 (use-package lsp-ui
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :commands lsp-ui-mode)
 
 ;;; lsp
@@ -646,13 +649,13 @@
 ;;; org-toc
 (use-package toc-org
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :hook (org-mode . toc-org-mode))
 
 ;;; annotate
 (use-package annotate
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :hook ((org-mode . annotate-mode))
   :config (setq annotate-file "~/org/annotations"))
 
@@ -700,7 +703,7 @@ exist after each headings's drawers."
 ;;; org-ql
 (use-package org-ql
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :init
   (setq org-agenda-custom-commands
         '(("z" "Zen View"
@@ -800,29 +803,77 @@ exist after each headings's drawers."
 ;;; org-anki
 (use-package org-anki
   :demand t
-  :ensure nil)
+  :ensure t)
 
 ;;; python-mode
 (use-package python-mode
   :demand t
-  :ensure nil)
+  :ensure t)
 
 ;;; which-key
 (use-package which-key
   :demand t
-  :ensure nil
+  :ensure t
   :config (which-key-mode 1))
 
 ;;; evil-nerd-commenter
 (use-package evil-nerd-commenter
   :demand t
-  :ensure nil)
+  :ensure t)
 
 ;;; aggressive-indent
 (use-package aggressive-indent
   :demand t
-  :ensure nil
+  :ensure (:wait t)
   :config (setq global-aggressive-indent-mode 1))
+
+(use-package hydra
+  :demand t
+  :ensure t)
+
+(use-package elisp-autofmt
+  :demand t
+  :ensure t)
+
+(use-package envrc
+  :demand t
+  :ensure t)
+
+(use-package nix-mode
+  :demand t
+  :ensure t)
+
+(use-package latex-extra
+  :demand t
+  :ensure t)
+
+(use-package latexdiff
+  :demand t
+  :ensure t)
+
+(use-package org-view-mode
+  :demand t
+  :ensure t)
+
+(use-package magit
+  :demand t
+  :ensure t)
+
+(use-package org-roam-ui
+  :demand t
+  :ensure t)
+
+(use-package spacious-padding
+  :demand t
+  :ensure t)
+
+(use-package fzf
+  :demand t
+  :ensure t)
+
+(use-package org-transclusion
+  :demand t
+  :ensure t)
 
 
 (defun workboots/insert-todo-metadata ()
@@ -868,6 +919,7 @@ exist after each headings's drawers."
   (workboots/insert-todo-metadata))
 ;; Make it active
 (ad-activate 'org-insert-subheading)
+
 
 ;;; Keybindings
 
@@ -990,6 +1042,7 @@ _k_: Insert Key
 
 ;; avy
 (global-set-key (kbd "C-M-'") 'avy-goto-char-2)
+
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
