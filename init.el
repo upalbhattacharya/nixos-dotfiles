@@ -436,17 +436,27 @@
   :config (global-flycheck-mode +1))
 
 ;;; rainbow-delimiters
-(use-package rainbow-delimiters :hook (after-init . rainbow-delimiter-mode))
+(use-package rainbow-delimiters
+  :demand t
+  :ensure nil
+  :hook (after-init . rainbow-delimiter-mode))
 
 ;;; auctex
-(use-package auctex :config (setq TeX-parse-self t))
+(use-package auctex
+  :demand t
+  :ensure nil
+  :config (setq TeX-parse-self t))
 
 ;; envrc
-(use-package envrc :hook (after-init . envrc-global-mode))
+(use-package envrc
+  :demand t
+  :ensure nil
+  :hook (after-init . envrc-global-mode))
 
 ;;; lsp-mode
-(use-package
- lsp-mode
+(use-package lsp-mode
+ :demand t
+ :ensure nil
  :init
  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
  (setq lsp-keymap-prefix "C-c l")
@@ -459,7 +469,10 @@
  :commands lsp)
 
 ;;; lsp-ui
-(use-package lsp-ui :commands lsp-ui-mode)
+(use-package lsp-ui
+ :demand t
+ :ensure nil
+ :commands lsp-ui-mode)
 
 ;;; lsp
 
@@ -548,11 +561,16 @@
 (add-hook 'nix-mode-hook 'nix-nixfmt-on-save-mode)
 
 ;;; org-toc
-(use-package toc-org :hook (org-mode . toc-org-mode))
+(use-package toc-org
+ :demand t
+ :ensure nil
+ :hook (org-mode . toc-org-mode))
 
 ;;; annotate
 (use-package
- annotate
+  annotate
+ :demand t
+ :ensure nil
  :hook ((org-mode . annotate-mode))
  :config (setq annotate-file "~/org/annotations"))
 
