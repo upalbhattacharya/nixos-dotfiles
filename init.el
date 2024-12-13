@@ -409,7 +409,9 @@
 
 ;;; git-auto-commit-mode
 (use-package
- git-auto-commit-mode
+  git-auto-commit-mode
+  :demand t
+  :ensure nil
  :hook (after-save . git-auto-commit-mode)
  :config
  (setq gac-automatically-push-p t)
