@@ -644,15 +644,17 @@
 (add-hook 'nix-mode-hook 'nix-nixfmt-on-save-mode)
 
 ;;; org-toc
-(use-package toc-org :demand t :ensure nil :hook (org-mode . toc-org-mode))
+(use-package toc-org
+  :demand t
+  :ensure nil
+  :hook (org-mode . toc-org-mode))
 
 ;;; annotate
-(use-package
- annotate
- :demand t
- :ensure nil
- :hook ((org-mode . annotate-mode))
- :config (setq annotate-file "~/org/annotations"))
+(use-package annotate
+  :demand t
+  :ensure nil
+  :hook ((org-mode . annotate-mode))
+  :config (setq annotate-file "~/org/annotations"))
 
 ;;; Custom
 ;;;###autoload
@@ -696,105 +698,104 @@ exist after each headings's drawers."
          (call-interactively 'unpackaged/org-fix-blank-lines)))))
 
 ;;; org-ql
-(use-package
- org-ql
- :demand t
- :ensure nil
- :init
- (setq org-agenda-custom-commands
-       '(("z" "Zen View"
-          ((org-ql-block
-            '(and (level 2 8)
-                  (todo "FOCUS")
-                  (not (path "Archive" "Inbox")))
-            ((org-ql-block-header "Presently Focusing On")))
-           (org-ql-block
-            '(and (todo)
-                  (level 2 8)
-                  (deadline :on today)
-                  (not (path "Archive")))
-            ((org-ql-block-header "Due Today")))
-           (org-ql-block
-            '(and (todo)
-                  (level 2 8)
-                  (scheduled :on today)
-                  (not (path "Archive")))
-            ((org-ql-block-header "Scheduled Today")))
-           (org-ql-block
-            '(and (level 2 8)
-                  (todo "TODAY")
-                  (not (path "Archive" "Inbox")))
-            ((org-ql-block-header "Planned Today")))
-           (org-ql-block
-            '(and (done)
-                  (level 2 8)
-                  (closed :on today)
-                  (not (path "Archive")))
-            ((org-ql-block-header "Completed Today")))
-           (org-ql-block
-            '(and (level 2 8) (todo "NEXT") (not (path "Archive" "Inbox")))
-            ((org-ql-block-header "Next")))
-           (org-ql-block
-            '(and (level 2 8)
-                  (todo "IN PROGRESS")
-                  (not (path "Archive" "Inbox")))
-            ((org-ql-block-header "In Progress")))
-           (org-ql-block
-            '(and (todo)
-                  (level 2 8)
-                  (deadline :to -1)
-                  (not (path "Archive" "Inbox")))
-            ((org-ql-block-header "Overdue")))
-           (org-ql-block
-            '(and (todo)
-                  (level 2 8)
-                  (scheduled :to -1)
-                  (not (path "Archive" "Inbox")))
-            ((org-ql-block-header "Reschedule")))
-           (org-ql-block
-            '(and (todo)
-                  (level 2 8)
-                  (deadline :from 1 :to 30)
-                  (not (path "Archive" "Inbox")))
-            ((org-ql-block-header "Due Soon")))
-           (org-ql-block
-            '(and (todo) (path "Inbox") (not (path "Archive"))) ((org-ql-block-header "Inbox")))))
-         ("i" "Inbox"
-          ((org-ql-block
-            '(and (todo) (path "Inbox") (not (path "Archive"))) ((org-ql-block-header "Inbox")))))
-         ("f" "Fleeting Notes"
-          ((org-ql-block
-            '(and (level 1) (path "Fleeting") (not (path "Archive")))
-            ((org-ql-block-header "Fleeting Notes")))))
-         ("p" "PARA"
-          ((org-ql-block
-            '(and (not (path "Archive"))
-                  (not (heading "Contents"))
-                  (path "Projects")
-                  (level 1))
-            ((org-ql-block-header "Active Projects")))
-           (org-ql-block
-            '(and (not (path "Archive"))
-                  (not (heading "Contents"))
-                  (path "Areas")
-                  (level 1))
-            ((org-ql-block-header "Active Areas")))
-           (org-ql-block
-            '(and (not (path "Archive"))
-                  (not (heading "Contents"))
-                  (path "Resources")
-                  (level 1))
-            ((org-ql-block-header "Active Resources")))))
-         ("r" "Archive"
-          ((org-ql-block
-            '(and (not (done)) (path "Projects Archive") (level 1))
-            ((org-ql-block-header "Archived Projects")))
-           (org-ql-block
-            '(and (not (done)) (path "Areas Archive") (level 1))
-            ((org-ql-block-header "Archived Areas")))
-           (org-ql-block
-            '(and (not (done)) (path "Resources Archive") (level 1))
-            ((org-ql-block-header "Archived Resources"))))))))
+(use-package org-ql
+  :demand t
+  :ensure nil
+  :init
+  (setq org-agenda-custom-commands
+        '(("z" "Zen View"
+           ((org-ql-block
+             '(and (level 2 8)
+                   (todo "FOCUS")
+                   (not (path "Archive" "Inbox")))
+             ((org-ql-block-header "Presently Focusing On")))
+            (org-ql-block
+             '(and (todo)
+                   (level 2 8)
+                   (deadline :on today)
+                   (not (path "Archive")))
+             ((org-ql-block-header "Due Today")))
+            (org-ql-block
+             '(and (todo)
+                   (level 2 8)
+                   (scheduled :on today)
+                   (not (path "Archive")))
+             ((org-ql-block-header "Scheduled Today")))
+            (org-ql-block
+             '(and (level 2 8)
+                   (todo "TODAY")
+                   (not (path "Archive" "Inbox")))
+             ((org-ql-block-header "Planned Today")))
+            (org-ql-block
+             '(and (done)
+                   (level 2 8)
+                   (closed :on today)
+                   (not (path "Archive")))
+             ((org-ql-block-header "Completed Today")))
+            (org-ql-block
+             '(and (level 2 8) (todo "NEXT") (not (path "Archive" "Inbox")))
+             ((org-ql-block-header "Next")))
+            (org-ql-block
+             '(and (level 2 8)
+                   (todo "IN PROGRESS")
+                   (not (path "Archive" "Inbox")))
+             ((org-ql-block-header "In Progress")))
+            (org-ql-block
+             '(and (todo)
+                   (level 2 8)
+                   (deadline :to -1)
+                   (not (path "Archive" "Inbox")))
+             ((org-ql-block-header "Overdue")))
+            (org-ql-block
+             '(and (todo)
+                   (level 2 8)
+                   (scheduled :to -1)
+                   (not (path "Archive" "Inbox")))
+             ((org-ql-block-header "Reschedule")))
+            (org-ql-block
+             '(and (todo)
+                   (level 2 8)
+                   (deadline :from 1 :to 30)
+                   (not (path "Archive" "Inbox")))
+             ((org-ql-block-header "Due Soon")))
+            (org-ql-block
+             '(and (todo) (path "Inbox") (not (path "Archive"))) ((org-ql-block-header "Inbox")))))
+          ("i" "Inbox"
+           ((org-ql-block
+             '(and (todo) (path "Inbox") (not (path "Archive"))) ((org-ql-block-header "Inbox")))))
+          ("f" "Fleeting Notes"
+           ((org-ql-block
+             '(and (level 1) (path "Fleeting") (not (path "Archive")))
+             ((org-ql-block-header "Fleeting Notes")))))
+          ("p" "PARA"
+           ((org-ql-block
+             '(and (not (path "Archive"))
+                   (not (heading "Contents"))
+                   (path "Projects")
+                   (level 1))
+             ((org-ql-block-header "Active Projects")))
+            (org-ql-block
+             '(and (not (path "Archive"))
+                   (not (heading "Contents"))
+                   (path "Areas")
+                   (level 1))
+             ((org-ql-block-header "Active Areas")))
+            (org-ql-block
+             '(and (not (path "Archive"))
+                   (not (heading "Contents"))
+                   (path "Resources")
+                   (level 1))
+             ((org-ql-block-header "Active Resources")))))
+          ("r" "Archive"
+           ((org-ql-block
+             '(and (not (done)) (path "Projects Archive") (level 1))
+             ((org-ql-block-header "Archived Projects")))
+            (org-ql-block
+             '(and (not (done)) (path "Areas Archive") (level 1))
+             ((org-ql-block-header "Archived Areas")))
+            (org-ql-block
+             '(and (not (done)) (path "Resources Archive") (level 1))
+             ((org-ql-block-header "Archived Resources"))))))))
 
 ;;; org-anki
 (use-package org-anki :demand t :ensure nil)
