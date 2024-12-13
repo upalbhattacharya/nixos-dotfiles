@@ -715,19 +715,31 @@ exist after each headings's drawers."
             ((org-ql-block-header "Archived Resources"))))))))
 
 ;;; org-anki
-(use-package org-anki)
+(use-package org-anki
+ :demand t
+ :ensure nil)
 
 ;;; python-mode
-(use-package python-mode)
+(use-package python-mode
+  :demand t
+  :ensure nil)
 
 ;;; which-key
-(use-package which-key :config (which-key-mode 1))
+(use-package which-key
+  :demand t
+  :ensure nil
+  :config (which-key-mode 1))
 
 ;;; evil-nerd-commenter
-(use-package evil-nerd-commenter)
+(use-package evil-nerd-commenter
+  :demand t
+  :ensure nil)
 
 ;;; aggressive-indent
-(use-package aggressive-indent :config (setq global-aggressive-indent-mode 1))
+(use-package aggressive-indent
+  :demand t
+  :ensure nil
+  :config (setq global-aggressive-indent-mode 1))
 
 
 (defun workboots/insert-todo-metadata ()
