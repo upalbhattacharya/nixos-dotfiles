@@ -507,38 +507,55 @@
   :config (global-git-gutter-mode 1))
 
 ;;; origami
-(use-package origami :demand t :ensure nil :config (global-origami-mode 1))
+(use-package origami
+  :demand t
+  :ensure nil
+  :config (global-origami-mode 1))
 
 ;;; flycheck
-(use-package flycheck :demand t :ensure nil :config (global-flycheck-mode +1))
+(use-package flycheck
+  :demand t
+  :ensure nil
+  :config (global-flycheck-mode +1))
 
 ;;; rainbow-delimiters
-(use-package rainbow-delimiters :demand t :ensure nil :hook (after-init . rainbow-delimiter-mode))
+(use-package rainbow-delimiters
+  :demand t
+  :ensure nil
+  :hook (after-init . rainbow-delimiter-mode))
 
 ;;; auctex
-(use-package auctex :demand t :ensure nil :config (setq TeX-parse-self t))
+(use-package auctex
+  :demand t
+  :ensure nil
+  :config (setq TeX-parse-self t))
 
 ;; envrc
-(use-package envrc :demand t :ensure nil :hook (after-init . envrc-global-mode))
+(use-package envrc
+  :demand t
+  :ensure nil
+  :hook (after-init . envrc-global-mode))
 
 ;;; lsp-mode
-(use-package
- lsp-mode
- :demand t
- :ensure nil
- :init
- ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
- (setq lsp-keymap-prefix "C-c l")
- :hook
- ( ;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-  (python-mode . lsp)
-  (nix-mode . lsp)
-  ;; if you want which-key integration
-  (lsp-mode . lsp-enable-which-key-integration))
- :commands lsp)
+(use-package lsp-mode
+  :demand t
+  :ensure nil
+  :init
+  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+  (setq lsp-keymap-prefix "C-c l")
+  :hook
+  ( ;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+   (python-mode . lsp)
+   (nix-mode . lsp)
+   ;; if you want which-key integration
+   (lsp-mode . lsp-enable-which-key-integration))
+  :commands lsp)
 
 ;;; lsp-ui
-(use-package lsp-ui :demand t :ensure nil :commands lsp-ui-mode)
+(use-package lsp-ui
+  :demand t
+  :ensure nil
+  :commands lsp-ui-mode)
 
 ;;; lsp
 
