@@ -133,6 +133,8 @@
 
 ;;; emacs
 (use-package emacs
+  :demand t
+  :ensure nil
  :custom-face (default ((nil (:font "Iosevka Nerd Font" :height 220))))
  :hook (org-mode . auto-fill-mode)
  :config
