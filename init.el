@@ -567,8 +567,7 @@
  :hook (org-mode . toc-org-mode))
 
 ;;; annotate
-(use-package
-  annotate
+(use-package annotate
  :demand t
  :ensure nil
  :hook ((org-mode . annotate-mode))
@@ -616,8 +615,9 @@ exist after each headings's drawers."
          (call-interactively 'unpackaged/org-fix-blank-lines)))))
 
 ;;; org-ql
-(use-package
- org-ql
+(use-package org-ql
+ :demand t
+ :ensure nil
  :init
  (setq org-agenda-custom-commands
        '(("z" "Zen View"
