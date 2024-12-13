@@ -342,10 +342,15 @@
   :hook (org-mode . org-superstar-mode))
 
 ;;; avy
-(use-package avy)
+(use-package
+ :demand t
+ :ensure nil
+  avy)
 
 ;;; Dashboard
 (use-package dashboard
+ :demand t
+ :ensure nil
   :config
   (dashboard-setup-startup-hook)
   (setq dashboard-startup-banner 3)
@@ -354,7 +359,9 @@
                           (registers . 5))))
 ;;; vertico
 (use-package
- vertico
+  vertico
+ :demand t
+ :ensure nil
  :custom
  (vertico-count 13) ; Number of candidates to display
  (vertico-resize t)
