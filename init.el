@@ -3,33 +3,57 @@
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
 (defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
 (defvar elpaca-repos-directory (expand-file-name "repos/" elpaca-directory))
-(defvar elpaca-order '(elpaca :repo "https://github.com/progfolio/elpaca.git"
-                              :ref nil :depth 1
-                              :files (:defaults "elpaca-test.el" (:exclude "extensions"))
-                              :build (:not elpaca--activate-package)))
-(let* ((repo  (expand-file-name "elpaca/" elpaca-repos-directory))
+(defvar elpaca-order
+  '(elpaca
+    :repo "https://github.com/progfolio/elpaca.git"
+    :ref nil
+    :depth 1
+    :files (:defaults "elpaca-test.el" (:exclude "extensions"))
+    :build (:not elpaca--activate-package)))
+(let* ((repo (expand-file-name "elpaca/" elpaca-repos-directory))
        (build (expand-file-name "elpaca/" elpaca-builds-directory))
        (order (cdr elpaca-order))
        (default-directory repo))
-  (add-to-list 'load-path (if (file-exists-p build) build repo))
+  (add-to-list
+   'load-path
+   (if (file-exists-p build)
+       build
+     repo))
   (unless (file-exists-p repo)
     (make-directory repo t)
-    (when (< emacs-major-version 28) (require 'subr-x))
+    (when (< emacs-major-version 28)
+      (require 'subr-x))
     (condition-case-unless-debug err
         (if-let* ((buffer (pop-to-buffer-same-window "*elpaca-bootstrap*"))
-                  ((zerop (apply #'call-process `("git" nil ,buffer t "clone"
-                                                  ,@(when-let* ((depth (plist-get order :depth)))
-                                                      (list (format "--depth=%d" depth) "--no-single-branch"))
-                                                  ,(plist-get order :repo) ,repo))))
-                  ((zerop (call-process "git" nil buffer t "checkout"
-                                        (or (plist-get order :ref) "--"))))
+                  ((zerop
+                    (apply #'call-process
+                           `("git" nil ,buffer t "clone" ,@
+                             (when-let* ((depth (plist-get order :depth)))
+                               (list (format "--depth=%d" depth) "--no-single-branch"))
+                             ,(plist-get order :repo) ,repo))))
+                  ((zerop
+                    (call-process "git" nil buffer t "checkout" (or (plist-get order :ref) "--"))))
                   (emacs (concat invocation-directory invocation-name))
-                  ((zerop (call-process emacs nil buffer nil "-Q" "-L" "." "--batch"
-                                        "--eval" "(byte-recompile-directory \".\" 0 'force)")))
+                  ((zerop
+                    (call-process emacs
+                                  nil
+                                  buffer
+                                  nil
+                                  "-Q"
+                                  "-L"
+                                  "."
+                                  "--batch"
+                                  "--eval"
+                                  "(byte-recompile-directory \".\" 0 'force)")))
                   ((require 'elpaca))
                   ((elpaca-generate-autoloads "elpaca" repo)))
-            (progn (message "%s" (buffer-string)) (kill-buffer buffer))
-          (error "%s" (with-current-buffer buffer (buffer-string))))
+          (progn
+            (message "%s" (buffer-string))
+            (kill-buffer buffer))
+          (error
+           "%s"
+           (with-current-buffer buffer
+             (buffer-string))))
       ((error) (warn "%s" err) (delete-directory repo 'recursive))))
   (unless (require 'elpaca-autoloads nil t)
     (require 'elpaca)
@@ -45,7 +69,7 @@
 ;;       '(("melpa" . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/melpa/")
 ;;         ("org"   . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/org/")
 ;;         ("gnu"   . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/gnu/")))
- 
+
 ;; (setq package-archives
 ;;       '(("melpa" . "https://melpa.org/packages/")))
 ;;  ;;; (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
@@ -65,18 +89,37 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(calendar-date-style 'iso)
- '(custom-safe-themes
-   '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
+ '(custom-safe-themes '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
  '(gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-files
-   '("/home/workboots/org/Archive/Areas Archive.org" "/home/workboots/org/Archive/Dutch Vocabulary.org" "/home/workboots/org/Archive/Inbox Archive.org" "/home/workboots/org/Archive/Projects Archive.org" "/home/workboots/org/Archive/Resources Archive.org" "/home/workboots/org/Journal/202410.org" "/home/workboots/org/Journal/Journal 2024.org" "/home/workboots/org/Areas.org" "/home/workboots/org/Fleeting.org" "/home/workboots/org/Inbox.org" "/home/workboots/org/Index.org" "/home/workboots/org/Projects.org" "/home/workboots/org/Resources.org" "/home/workboots/org/Scratchpad.org" "/home/workboots/org/Slip Box.org"))
+   '("/home/workboots/org/Archive/Areas Archive.org"
+     "/home/workboots/org/Archive/Dutch Vocabulary.org"
+     "/home/workboots/org/Archive/Inbox Archive.org"
+     "/home/workboots/org/Archive/Projects Archive.org"
+     "/home/workboots/org/Archive/Resources Archive.org"
+     "/home/workboots/org/Journal/202410.org"
+     "/home/workboots/org/Journal/Journal 2024.org"
+     "/home/workboots/org/Areas.org"
+     "/home/workboots/org/Fleeting.org"
+     "/home/workboots/org/Inbox.org"
+     "/home/workboots/org/Index.org"
+     "/home/workboots/org/Projects.org"
+     "/home/workboots/org/Resources.org"
+     "/home/workboots/org/Scratchpad.org"
+     "/home/workboots/org/Slip Box.org"))
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
-   '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
-                 ("begin" "$1" "$" "$$" "\\(" "\\[")))
+   '(:foreground
+     default
+     :background default
+     :scale 2.2
+     :html-foreground "Black"
+     :html-background "Transparent"
+     :html-scale 2.0
+     :matchers ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-link-frame-setup
    '((vm . vm-visit-folder-other-frame)
      (vm-imap . vm-visit-imap-folder-other-frame)
@@ -84,57 +127,96 @@
      (file . find-file)
      (wl . wl-other-frame)))
  '(org-preview-latex-process-alist
-   '((dvipng :programs
-             ("latex" "dvipng")
-             :description "dvi > png" :message "you need to install the programs: latex and dvipng." :image-input-type "dvi" :image-output-type "png" :image-size-adjust
-             (1.0 . 1.0)
-             :latex-compiler
-             ("latex -interaction nonstopmode -output-directory %O %F")
-             :image-converter
-             ("dvipng -D %D -T tight -o %O %F")
-             :transparent-image-converter
-             ("dvipng -D %D -T tight -bg Transparent -o %O %F"))
-     (dvisvgm :programs
-              ("latex" "dvisvgm")
-              :description "dvi > svg" :message "you need to install the programs: latex and dvisvgm." :image-input-type "dvi" :image-output-type "svg" :image-size-adjust
-              (1.7 . 1.5)
-              :latex-compiler
-              ("latex -interaction nonstopmode -output-directory %o %f")
-              :image-converter
-              ("dvisvgm %f --no-fonts --exact-bbox --scale=%S --output=%O"))
-     (imagemagick :programs
-                  ("latex" "convert")
-                  :description "pdf > png" :message "you need to install the programs: latex and imagemagick." :image-input-type "pdf" :image-output-type "png" :image-size-adjust
-                  (1.0 . 1.0)
-                  :latex-compiler
-                  ("pdflatex -interaction nonstopmode -output-directory %o %f")
-                  :image-converter
-                  ("convert -density %D -trim -antialias %f -quality 100 %O"))))
- '(org-priority-faces
-   '((65 :foreground "red")
-     (66 :foreground "yellow")
-     (67 :foreground "green")))
+   '((dvipng
+      :programs ("latex" "dvipng")
+      :description "dvi > png"
+      :message "you need to install the programs: latex and dvipng."
+      :image-input-type "dvi"
+      :image-output-type "png"
+      :image-size-adjust (1.0 . 1.0)
+      :latex-compiler ("latex -interaction nonstopmode -output-directory %O %F")
+      :image-converter ("dvipng -D %D -T tight -o %O %F")
+      :transparent-image-converter ("dvipng -D %D -T tight -bg Transparent -o %O %F"))
+     (dvisvgm
+      :programs ("latex" "dvisvgm")
+      :description "dvi > svg"
+      :message "you need to install the programs: latex and dvisvgm."
+      :image-input-type "dvi"
+      :image-output-type "svg"
+      :image-size-adjust (1.7 . 1.5)
+      :latex-compiler ("latex -interaction nonstopmode -output-directory %o %f")
+      :image-converter ("dvisvgm %f --no-fonts --exact-bbox --scale=%S --output=%O"))
+     (imagemagick
+      :programs ("latex" "convert")
+      :description "pdf > png"
+      :message "you need to install the programs: latex and imagemagick."
+      :image-input-type "pdf"
+      :image-output-type "png"
+      :image-size-adjust (1.0 . 1.0)
+      :latex-compiler ("pdflatex -interaction nonstopmode -output-directory %o %f")
+      :image-converter ("convert -density %D -trim -antialias %f -quality 100 %O"))))
+ '(org-priority-faces '((65 :foreground "red") (66 :foreground "yellow") (67 :foreground "green")))
  '(org-ql-search-directories-files-recursive t)
- '(org-roam-capture-new-node-hook
-   '(org-id-get-create org-roam-capture--insert-captured-ref-h))
+ '(org-roam-capture-new-node-hook '(org-id-get-create org-roam-capture--insert-captured-ref-h))
  '(org-super-agenda-date-format "%e %Y-%m-%d")
  '(org-use-property-inheritance '("NAME"))
  '(package-selected-packages
-   '(gnu-elpa gnu-elpa-keyring-update avy hydra citar-org-roam citar elisp-autofmt aggressive-indent evil-nerd-commenter envrc which-key org-anki org-ql annotate toc-org hotfuzz ruff-format nix-mode git-auto-commit lsp-ui lsp-mode latex-extra latexdiff auctex org-view-mode rainbow-delimiters flycheck origami vertico git-gutter magit git-auto-commit-mode company org-roam-ui spacious-padding fzf dashboard org-transclusion org-superstar org-roam evil catppuccin-theme))
+   '(gnu-elpa
+     gnu-elpa-keyring-update
+     avy
+     hydra
+     citar-org-roam
+     citar
+     elisp-autofmt
+     aggressive-indent
+     evil-nerd-commenter
+     envrc
+     which-key
+     org-anki
+     org-ql
+     annotate
+     toc-org
+     hotfuzz
+     ruff-format
+     nix-mode
+     git-auto-commit
+     lsp-ui
+     lsp-mode
+     latex-extra
+     latexdiff
+     auctex
+     org-view-mode
+     rainbow-delimiters
+     flycheck
+     origami
+     vertico
+     git-gutter
+     magit
+     git-auto-commit-mode
+     company
+     org-roam-ui
+     spacious-padding
+     fzf
+     dashboard
+     org-transclusion
+     org-superstar
+     org-roam
+     evil
+     catppuccin-theme))
  '(python-isort-extra-args nil))
 
 ;;; Use elpaca use-package
-(elpaca elpaca-use-package
-  (elpaca-use-package-mode))
+(elpaca elpaca-use-package (elpaca-use-package-mode))
 (setq use-package-always-ensure t)
 
 ;;; Theme
 (load-theme 'catppuccin :no-confirm)
 
 ;;; emacs
-(use-package emacs
-  :demand t
-  :ensure nil
+(use-package
+ emacs
+ :demand t
+ :ensure nil
  :custom-face (default ((nil (:font "Iosevka Nerd Font" :height 220))))
  :hook (org-mode . auto-fill-mode)
  :config
@@ -159,14 +241,12 @@
 
 
 ;;; Evil
-(use-package evil
-  :demand t
-  :ensure nil
-  :config (evil-mode 1))
+(use-package evil :demand t :ensure nil :config (evil-mode 1))
 
 
 ;;; org
-(use-package org
+(use-package
+ org
  :demand t
  :ensure nil
  :custom-face (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
@@ -222,8 +302,16 @@
 
  ;; org-todo
  (setq org-todo-keywords
-       '((sequence "TODO(t)" "NEXT(n/!)" "TODAY(T/!)" "FOCUS(f/!)" "IN PROGRESS(p/!)" "LATER(l/!)" "|" "DONE(d/!)" "ARCHIVED(a/!)")
-         ))
+       '((sequence
+          "TODO(t)"
+          "NEXT(n/!)"
+          "TODAY(T/!)"
+          "FOCUS(f/!)"
+          "IN PROGRESS(p/!)"
+          "LATER(l/!)"
+          "|"
+          "DONE(d/!)"
+          "ARCHIVED(a/!)")))
  (setq org-todo-keyword-faces
        '(("TODO" . (:foreground "#f9e2af" :weight bold))
          ("NEXT" . (:foreground "#cba6f7" :weight bold))
@@ -236,27 +324,28 @@
  ;; babel
  (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t) (python . t))))
 
- ;;; org-expiry
- ;; (require 'org-expiry)
-(use-package org-expiry
+;;; org-expiry
+;; (require 'org-expiry)
+(use-package
+ org-expiry
 
  :demand t
  :ensure nil
-   :config
-   (setq
-   org-expiry-created-property-name "CREATED" ; Name of property when an item is created
-   org-expiry-inactive-timestamps t ; Don't have everything in the agenda view
+ :config
+ (setq
+  org-expiry-created-property-name "CREATED" ; Name of property when an item is created
+  org-expiry-inactive-timestamps t ; Don't have everything in the agenda view
   ))
 
- ;;; org-checklist
-(use-package org-checklist
+;;; org-checklist
+(use-package
+ org-checklist
 
  :demand t
- :ensure nil
-  )
+ :ensure nil)
 ;; org-roam
 (use-package
-  org-roam
+ org-roam
  :demand t
  :ensure nil
  :config
@@ -338,30 +427,23 @@
  (setq org-roam-db-update-on-save 1))
 
 ;;; org-superstar
-(use-package org-superstar
- :demand t
- :ensure nil
-  :hook (org-mode . org-superstar-mode))
+(use-package org-superstar :demand t :ensure nil :hook (org-mode . org-superstar-mode))
 
 ;;; avy
-(use-package
- :demand t
- :ensure nil
-  avy)
+(use-package :demand t :ensure nil avy)
 
 ;;; Dashboard
-(use-package dashboard
+(use-package
+ dashboard
  :demand t
  :ensure nil
-  :config
-  (dashboard-setup-startup-hook)
-  (setq dashboard-startup-banner 3)
-  (setq dashboard-items '((recents   . 5)
-                          (bookmarks . 5)
-                          (registers . 5))))
+ :config
+ (dashboard-setup-startup-hook)
+ (setq dashboard-startup-banner 3)
+ (setq dashboard-items '((recents . 5) (bookmarks . 5) (registers . 5))))
 ;;; vertico
 (use-package
-  vertico
+ vertico
  :demand t
  :ensure nil
  :custom
@@ -375,7 +457,7 @@
 
 ;;; citar
 (use-package
-  citar
+ citar
  :demand t
  :ensure nil
  :custom
@@ -392,7 +474,7 @@
 
 ;;; citar-org-roam
 (use-package
-  citar-org-roam
+ citar-org-roam
  :demand t
  :ensure nil
  :after
@@ -404,59 +486,39 @@
  (setq citar-org-roam-capture-template-key "l"))
 
 ;;; company
-(use-package company
-  :demand t
-  :ensure nil
-  :config (company-mode 1))
+(use-package company :demand t :ensure nil :config (company-mode 1))
 
 ;;; git-auto-commit-mode
 (use-package
-  git-auto-commit-mode
-  :demand t
-  :ensure nil
+ git-auto-commit-mode
+ :demand t
+ :ensure nil
  :hook (after-save . git-auto-commit-mode)
  :config
  (setq gac-automatically-push-p t)
  (git-auto-commit-mode 1))
 
 ;;; git-gutter
-(use-package git-gutter
-  :demand t
-  :ensure nil
-  :config (global-git-gutter-mode 1))
+(use-package git-gutter :demand t :ensure nil :config (global-git-gutter-mode 1))
 
 ;;; origami
-(use-package origami
-  :demand t
-  :ensure nil
-  :config (global-origami-mode 1))
+(use-package origami :demand t :ensure nil :config (global-origami-mode 1))
 
 ;;; flycheck
-(use-package flycheck
-  :demand t
-  :ensure nil
-  :config (global-flycheck-mode +1))
+(use-package flycheck :demand t :ensure nil :config (global-flycheck-mode +1))
 
 ;;; rainbow-delimiters
-(use-package rainbow-delimiters
-  :demand t
-  :ensure nil
-  :hook (after-init . rainbow-delimiter-mode))
+(use-package rainbow-delimiters :demand t :ensure nil :hook (after-init . rainbow-delimiter-mode))
 
 ;;; auctex
-(use-package auctex
-  :demand t
-  :ensure nil
-  :config (setq TeX-parse-self t))
+(use-package auctex :demand t :ensure nil :config (setq TeX-parse-self t))
 
 ;; envrc
-(use-package envrc
-  :demand t
-  :ensure nil
-  :hook (after-init . envrc-global-mode))
+(use-package envrc :demand t :ensure nil :hook (after-init . envrc-global-mode))
 
 ;;; lsp-mode
-(use-package lsp-mode
+(use-package
+ lsp-mode
  :demand t
  :ensure nil
  :init
@@ -471,10 +533,7 @@
  :commands lsp)
 
 ;;; lsp-ui
-(use-package lsp-ui
- :demand t
- :ensure nil
- :commands lsp-ui-mode)
+(use-package lsp-ui :demand t :ensure nil :commands lsp-ui-mode)
 
 ;;; lsp
 
@@ -563,13 +622,11 @@
 (add-hook 'nix-mode-hook 'nix-nixfmt-on-save-mode)
 
 ;;; org-toc
-(use-package toc-org
- :demand t
- :ensure nil
- :hook (org-mode . toc-org-mode))
+(use-package toc-org :demand t :ensure nil :hook (org-mode . toc-org-mode))
 
 ;;; annotate
-(use-package annotate
+(use-package
+ annotate
  :demand t
  :ensure nil
  :hook ((org-mode . annotate-mode))
@@ -617,7 +674,8 @@ exist after each headings's drawers."
          (call-interactively 'unpackaged/org-fix-blank-lines)))))
 
 ;;; org-ql
-(use-package org-ql
+(use-package
+ org-ql
  :demand t
  :ensure nil
  :init
@@ -717,75 +775,63 @@ exist after each headings's drawers."
             ((org-ql-block-header "Archived Resources"))))))))
 
 ;;; org-anki
-(use-package org-anki
- :demand t
- :ensure nil)
+(use-package org-anki :demand t :ensure nil)
 
 ;;; python-mode
-(use-package python-mode
-  :demand t
-  :ensure nil)
+(use-package python-mode :demand t :ensure nil)
 
 ;;; which-key
-(use-package which-key
-  :demand t
-  :ensure nil
-  :config (which-key-mode 1))
+(use-package which-key :demand t :ensure nil :config (which-key-mode 1))
 
 ;;; evil-nerd-commenter
-(use-package evil-nerd-commenter
-  :demand t
-  :ensure nil)
+(use-package evil-nerd-commenter :demand t :ensure nil)
 
 ;;; aggressive-indent
-(use-package aggressive-indent
-  :demand t
-  :ensure nil
-  :config (setq global-aggressive-indent-mode 1))
+(use-package aggressive-indent :demand t :ensure nil :config (setq global-aggressive-indent-mode 1))
 
 
 (defun workboots/insert-todo-metadata ()
-    (org-expiry-insert-created)
-    (org-id-get-create)
-    (org-back-to-heading)
-    (org-end-of-line))
+  (org-expiry-insert-created)
+  (org-id-get-create)
+  (org-back-to-heading)
+  (org-end-of-line))
 
- ;; Whenever a TODO entry is created, I want a timestamp
- ;; Advice org-insert-todo-heading to insert a created timestamp using org-expiry
- (defadvice org-insert-todo-heading (after workboots/insert-todo-metadata activate)
-   "Insert a CREATED property using org-expiry.el for TODO entries"
-   (workboots/insert-todo-metadata))
- ;; Make it active
+;; Whenever a TODO entry is created, I want a timestamp
+;; Advice org-insert-todo-heading to insert a created timestamp using org-expiry
+(defadvice org-insert-todo-heading (after workboots/insert-todo-metadata activate)
+  "Insert a CREATED property using org-expiry.el for TODO entries"
+  (workboots/insert-todo-metadata))
+;; Make it active
 (ad-activate 'org-insert-todo-heading)
 
- (defadvice org-insert-todo-subheading (after workboots/insert-todo-metadata activate)
-   "Insert a CREATED property using org-expiry.el for TODO entries"
-   (workboots/insert-todo-metadata))
- ;; Make it active
+(defadvice org-insert-todo-subheading (after workboots/insert-todo-metadata activate)
+  "Insert a CREATED property using org-expiry.el for TODO entries"
+  (workboots/insert-todo-metadata))
+;; Make it active
 (ad-activate 'org-insert-todo-subheading)
 
- (defadvice org-insert-heading (after workboots/insert-todo-metadata activate)
-   "Insert a CREATED property using org-expiry.el for TODO entries"
-   (workboots/insert-todo-metadata))
- ;; Make it active
+(defadvice org-insert-heading (after workboots/insert-todo-metadata activate)
+  "Insert a CREATED property using org-expiry.el for TODO entries"
+  (workboots/insert-todo-metadata))
+;; Make it active
 (ad-activate 'org-insert-heading)
 
- (defadvice org-insert-heading-after-current (after workboots/insert-todo-metadata activate)
-   "Insert a CREATED property using org-expiry.el for TODO entries"
-   (workboots/insert-todo-metadata))
- ;; Make it active
+(defadvice org-insert-heading-after-current (after workboots/insert-todo-metadata activate)
+  "Insert a CREATED property using org-expiry.el for TODO entries"
+  (workboots/insert-todo-metadata))
+;; Make it active
 (ad-activate 'org-insert-heading-after-current)
 
- (defadvice org-insert-heading-respect-content (after workboots/insert-todo-metadata activate)
-   "Insert a CREATED property using org-expiry.el for TODO entries"
-   (workboots/insert-todo-metadata))
- ;; Make it active
+(defadvice org-insert-heading-respect-content (after workboots/insert-todo-metadata activate)
+  "Insert a CREATED property using org-expiry.el for TODO entries"
+  (workboots/insert-todo-metadata))
+;; Make it active
 (ad-activate 'org-insert-heading-respect-content)
 
- (defadvice org-insert-subheading (after workboots/insert-todo-metadata activate)
-   "Insert a CREATED property using org-expiry.el for TODO entries"
-   (workboots/insert-todo-metadata))
- ;; Make it active
+(defadvice org-insert-subheading (after workboots/insert-todo-metadata activate)
+  "Insert a CREATED property using org-expiry.el for TODO entries"
+  (workboots/insert-todo-metadata))
+;; Make it active
 (ad-activate 'org-insert-subheading)
 
 ;;; Keybindings
@@ -810,9 +856,9 @@ exist after each headings's drawers."
 
 ;; time-based
 (defhydra
-  hydra-time
-  (:color pink :hint nil :exit t)
-  "
+ hydra-time
+ (:color pink :hint nil :exit t)
+ "
 ^Time-based^
 ------------
 _d_: Set deadline     _a_: Goto active                _x_: Remove overlays
@@ -820,18 +866,18 @@ _s_: Set schedule     _t_: Display time logged        _p_: Inactive timestamp
 _i_: Clock in         _c_: Cancel logging             _v_: Active timestamp
 _o_: Clock out        _r_: Insert report              _q_: Quit
 "
-  ("d" org-deadline)
-  ("s" org-schedule)
-  ("i" org-clock-in)
-  ("o" org-clock-out)
-  ("a" org-clock-goto)
-  ("t" org-clock-display)
-  ("x" org-clock-remove-overlays)
-  ("c" org-clock-cancel)
-  ("r" org-clock-report)
-  ("p" org-time-stamp-inactive)
-  ("v" org-time-stamp-active)
-  ("q" nil))
+ ("d" org-deadline)
+ ("s" org-schedule)
+ ("i" org-clock-in)
+ ("o" org-clock-out)
+ ("a" org-clock-goto)
+ ("t" org-clock-display)
+ ("x" org-clock-remove-overlays)
+ ("c" org-clock-cancel)
+ ("r" org-clock-report)
+ ("p" org-time-stamp-inactive)
+ ("v" org-time-stamp-active)
+ ("q" nil))
 (global-set-key (kbd "C-c M-t") 'hydra-time/body)
 
 ;; org-roam
@@ -918,6 +964,7 @@ _k_: Insert Key
  '(org-agenda-date ((t (:foreground "light gray" :weight normal))))
  '(org-agenda-date-today ((t (:foreground "medium spring green" :weight bold))))
  '(org-agenda-date-weekend ((t (:inherit org-agenda-date :foreground "dim gray"))))
- '(org-agenda-date-weekend-today ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
+ '(org-agenda-date-weekend-today
+   ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
  '(org-agenda-structure-filter ((t nil)))
  '(org-scheduled ((t nil))))
