@@ -486,17 +486,19 @@
   (setq citar-org-roam-capture-template-key "l"))
 
 ;;; company
-(use-package company :demand t :ensure nil :config (company-mode 1))
+(use-package company
+  :demand t
+  :ensure nil
+  :config (company-mode 1))
 
 ;;; git-auto-commit-mode
-(use-package
- git-auto-commit-mode
- :demand t
- :ensure nil
- :hook (after-save . git-auto-commit-mode)
- :config
- (setq gac-automatically-push-p t)
- (git-auto-commit-mode 1))
+(use-package git-auto-commit-mode
+  :demand t
+  :ensure nil
+  :hook (after-save . git-auto-commit-mode)
+  :config
+  (setq gac-automatically-push-p t)
+  (git-auto-commit-mode 1))
 
 ;;; git-gutter
 (use-package git-gutter :demand t :ensure nil :config (global-git-gutter-mode 1))
