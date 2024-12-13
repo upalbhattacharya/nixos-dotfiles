@@ -373,7 +373,9 @@
 
 ;;; citar
 (use-package
- citar
+  citar
+ :demand t
+ :ensure nil
  :custom
  (citar-bibliography '("~/org/bibliography.bib"))
  (citar-notes-paths '("~/org/Literature/"))
@@ -388,7 +390,9 @@
 
 ;;; citar-org-roam
 (use-package
- citar-org-roam
+  citar-org-roam
+ :demand t
+ :ensure nil
  :after
  citar
  org-roam
