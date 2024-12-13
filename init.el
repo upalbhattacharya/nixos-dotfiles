@@ -160,57 +160,12 @@
  '(org-roam-capture-new-node-hook '(org-id-get-create org-roam-capture--insert-captured-ref-h))
  '(org-super-agenda-date-format "%e %Y-%m-%d")
  '(org-use-property-inheritance '("NAME"))
- '(package-selected-packages
-   '(gnu-elpa
-     gnu-elpa-keyring-update
-     avy
-     hydra
-     citar-org-roam
-     citar
-     elisp-autofmt
-     aggressive-indent
-     evil-nerd-commenter
-     envrc
-     which-key
-     org-anki
-     org-ql
-     annotate
-     toc-org
-     hotfuzz
-     ruff-format
-     nix-mode
-     git-auto-commit
-     lsp-ui
-     lsp-mode
-     latex-extra
-     latexdiff
-     auctex
-     org-view-mode
-     rainbow-delimiters
-     flycheck
-     origami
-     vertico
-     git-gutter
-     magit
-     git-auto-commit-mode
-     company
-     org-roam-ui
-     spacious-padding
-     fzf
-     dashboard
-     org-transclusion
-     org-superstar
-     org-roam
-     evil
-     catppuccin-theme))
  '(python-isort-extra-args nil))
 
 ;;; Use elpaca use-package
 (elpaca elpaca-use-package (elpaca-use-package-mode))
 (setq use-package-always-ensure t)
 
-
-;;; emacs
 (use-package emacs
  :demand t
  :ensure nil
@@ -243,14 +198,11 @@
   :config
   (load-theme 'catppuccin :no-confirm))
 
-;;; Evil
 (use-package evil
   :demand t
   :ensure (:wait t)
   :config (evil-mode 1))
 
-
-;;; org
 (use-package org
  :demand t
  :ensure nil
@@ -329,7 +281,6 @@
  ;; babel
  (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t) (python . t))))
 
-;;; org-expiry
 (use-package org-expiry
  :demand t
  :ensure nil
@@ -339,12 +290,10 @@
   org-expiry-inactive-timestamps t ; Don't have everything in the agenda view
   ))
 
-;;; org-checklist
 (use-package org-checklist
  :demand t
  :ensure nil)
 
-;; org-roam
 (use-package org-roam
  :demand t
  :ensure (:wait t)
@@ -426,18 +375,15 @@
  (setq org-roam-db-autosync-mode 1)
  (setq org-roam-db-update-on-save 1))
 
-;;; org-superstar
 (use-package org-superstar
   :demand t
   :ensure (:wait t)
   :hook (org-mode . org-superstar-mode))
 
-;;; avy
 (use-package avy
   :demand t
   :ensure t)
 
-;;; Dashboard
 (use-package dashboard
   :demand t
   :ensure (:wait t)
@@ -455,13 +401,11 @@
   (vertico-cycle nil) ; Go from last to first candidate and first to last (cycle)?
   :config (vertico-mode))
 
-;;; hotfuzz
 (use-package hotfuzz
   :demand t
   :ensure (:wait t)
   :config (setq completion-styles '(hotfuzz)))
 
-;;; citar
 (use-package citar
   :demand t
   :ensure (:wait t)
@@ -476,8 +420,6 @@
   (LaTeX-mode . citar-capf-setup)
   (org-mode . citar-capf-setup))
 
-
-;;; citar-org-roam
 (use-package citar-org-roam
   :demand t
   :ensure (:wait t)
@@ -489,13 +431,11 @@
   (setq citar-org-roam-note-title-template "${title}")
   (setq citar-org-roam-capture-template-key "l"))
 
-;;; company
 (use-package company
   :demand t
   :ensure (:wait t)
   :config (company-mode 1))
 
-;;; git-auto-commit-mode
 (use-package git-auto-commit-mode
   :demand t
   :ensure (:wait t)
@@ -504,43 +444,36 @@
   (setq gac-automatically-push-p t)
   (git-auto-commit-mode 1))
 
-;;; git-gutter
 (use-package git-gutter
   :demand t
   :ensure (:wait t)
   :config (global-git-gutter-mode 1))
 
-;;; origami
 (use-package origami
   :demand t
   :ensure (:wait t)
   :config (global-origami-mode 1))
 
-;;; flycheck
 (use-package flycheck
   :demand t
   :ensure (:wait t)
   :config (global-flycheck-mode +1))
 
-;;; rainbow-delimiters
 (use-package rainbow-delimiters
   :demand t
   :ensure (:wait t)
   :hook (after-init . rainbow-delimiter-mode))
 
-;;; auctex
 (use-package auctex
   :demand t
   :ensure (:wait t)
   :config (setq TeX-parse-self t))
 
-;; envrc
 (use-package envrc
   :demand t
   :ensure (:wait t)
   :hook (after-init . envrc-global-mode))
 
-;;; lsp-mode
 (use-package lsp-mode
   :demand t
   :ensure (:wait t)
@@ -555,17 +488,14 @@
    (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
 
-;;; lsp-ui
 (use-package lsp-ui
   :demand t
   :ensure (:wait t)
   :commands lsp-ui-mode)
 
-;;; lsp
-
-;;; reformatter
-(require 'reformatter)
-
+(use-package reformatter
+  :demand t
+  :ensure (:wait t))
 ;; python
 ; isort
 (defcustom python-isort-command "isort"
@@ -647,61 +577,17 @@
 
 (add-hook 'nix-mode-hook 'nix-nixfmt-on-save-mode)
 
-;;; org-toc
 (use-package toc-org
   :demand t
   :ensure (:wait t)
   :hook (org-mode . toc-org-mode))
 
-;;; annotate
 (use-package annotate
   :demand t
   :ensure (:wait t)
   :hook ((org-mode . annotate-mode))
   :config (setq annotate-file "~/org/annotations"))
 
-;;; Custom
-;;;###autoload
-(defun unpackaged/org-fix-blank-lines (&optional prefix)
-  "Ensure that blank lines exist between headings and between headings and their contents.
-With prefix, operate on whole buffer. Ensures that blank lines
-exist after each headings's drawers."
-  (interactive "P")
-  (org-map-entries
-   (lambda ()
-     (org-with-wide-buffer
-      ;; `org-map-entries' narrows the buffer, which prevents us from seeing
-      ;; newlines before the current heading, so we do this part widened.
-      (while (not (looking-back "\n\n" nil))
-        ;; Insert blank lines before heading.
-        (insert "\n")))
-     (let ((end (org-entry-end-position)))
-       ;; Insert blank lines before entry content
-       (forward-line)
-       (while (and (org-at-planning-p) (< (point) (point-max)))
-         ;; Skip planning lines
-         (forward-line))
-       (while (re-search-forward org-drawer-regexp end t)
-         ;; Skip drawers. You might think that `org-at-drawer-p' would suffice, but
-         ;; for some reason it doesn't work correctly when operating on hidden text.
-         ;; This works, taken from `org-agenda-get-some-entry-text'.
-         (re-search-forward "^[ \t]*:END:.*\n?" end t)
-         (goto-char (match-end 0)))
-       (unless (or (= (point) (point-max)) (org-at-heading-p) (looking-at-p "\n"))
-         (insert "\n"))))
-   t
-   (if prefix
-       nil
-     'tree)))
-
-(add-hook
- 'before-save-hook
- (lambda ()
-   (if (eq major-mode 'org-mode) ; Org-mode
-       (let ((current-prefix-arg 4)) ; Emulate C-u
-         (call-interactively 'unpackaged/org-fix-blank-lines)))))
-
-;;; org-ql
 (use-package org-ql
   :demand t
   :ensure (:wait t)
@@ -801,28 +687,23 @@ exist after each headings's drawers."
              '(and (not (done)) (path "Resources Archive") (level 1))
              ((org-ql-block-header "Archived Resources"))))))))
 
-;;; org-anki
 (use-package org-anki
   :demand t
   :ensure t)
 
-;;; python-mode
 (use-package python-mode
   :demand t
   :ensure t)
 
-;;; which-key
 (use-package which-key
   :demand t
   :ensure t
   :config (which-key-mode 1))
 
-;;; evil-nerd-commenter
 (use-package evil-nerd-commenter
   :demand t
   :ensure t)
 
-;;; aggressive-indent
 (use-package aggressive-indent
   :demand t
   :ensure (:wait t)
@@ -876,7 +757,6 @@ exist after each headings's drawers."
   :demand t
   :ensure t)
 
-
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
   (org-id-get-create)
@@ -921,6 +801,58 @@ exist after each headings's drawers."
 ;; Make it active
 (ad-activate 'org-insert-subheading)
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-agenda-date ((t (:foreground "light gray" :weight normal))))
+ '(org-agenda-date-today ((t (:foreground "medium spring green" :weight bold))))
+ '(org-agenda-date-weekend ((t (:inherit org-agenda-date :foreground "dim gray"))))
+ '(org-agenda-date-weekend-today
+   ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
+ '(org-agenda-structure-filter ((t nil)))
+ '(org-scheduled ((t nil))))
+;;; Custom
+;;;###autoload
+(defun unpackaged/org-fix-blank-lines (&optional prefix)
+  "Ensure that blank lines exist between headings and between headings and their contents.
+With prefix, operate on whole buffer. Ensures that blank lines
+exist after each headings's drawers."
+  (interactive "P")
+  (org-map-entries
+   (lambda ()
+     (org-with-wide-buffer
+      ;; `org-map-entries' narrows the buffer, which prevents us from seeing
+      ;; newlines before the current heading, so we do this part widened.
+      (while (not (looking-back "\n\n" nil))
+        ;; Insert blank lines before heading.
+        (insert "\n")))
+     (let ((end (org-entry-end-position)))
+       ;; Insert blank lines before entry content
+       (forward-line)
+       (while (and (org-at-planning-p) (< (point) (point-max)))
+         ;; Skip planning lines
+         (forward-line))
+       (while (re-search-forward org-drawer-regexp end t)
+         ;; Skip drawers. You might think that `org-at-drawer-p' would suffice, but
+         ;; for some reason it doesn't work correctly when operating on hidden text.
+         ;; This works, taken from `org-agenda-get-some-entry-text'.
+         (re-search-forward "^[ \t]*:END:.*\n?" end t)
+         (goto-char (match-end 0)))
+       (unless (or (= (point) (point-max)) (org-at-heading-p) (looking-at-p "\n"))
+         (insert "\n"))))
+   t
+   (if prefix
+       nil
+     'tree)))
+
+(add-hook
+ 'before-save-hook
+ (lambda ()
+   (if (eq major-mode 'org-mode) ; Org-mode
+       (let ((current-prefix-arg 4)) ; Emulate C-u
+         (call-interactively 'unpackaged/org-fix-blank-lines)))))
 
 ;;; Keybindings
 
@@ -1043,17 +975,3 @@ _k_: Insert Key
 
 ;; avy
 (global-set-key (kbd "C-M-'") 'avy-goto-char-2)
-
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(org-agenda-date ((t (:foreground "light gray" :weight normal))))
- '(org-agenda-date-today ((t (:foreground "medium spring green" :weight bold))))
- '(org-agenda-date-weekend ((t (:inherit org-agenda-date :foreground "dim gray"))))
- '(org-agenda-date-weekend-today
-   ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
- '(org-agenda-structure-filter ((t nil)))
- '(org-scheduled ((t nil))))
