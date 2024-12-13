@@ -402,7 +402,10 @@
  (setq citar-org-roam-capture-template-key "l"))
 
 ;;; company
-(use-package company :config (company-mode 1))
+(use-package company
+  :demand t
+  :ensure nil
+  :config (company-mode 1))
 
 ;;; git-auto-commit-mode
 (use-package
