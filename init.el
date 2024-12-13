@@ -213,8 +213,7 @@
 (load-theme 'catppuccin :no-confirm)
 
 ;;; emacs
-(use-package
- emacs
+(use-package emacs
  :demand t
  :ensure nil
  :custom-face (default ((nil (:font "Iosevka Nerd Font" :height 220))))
@@ -241,12 +240,14 @@
 
 
 ;;; Evil
-(use-package evil :demand t :ensure nil :config (evil-mode 1))
+(use-package evil
+  :demand t
+  :ensure nil
+  :config (evil-mode 1))
 
 
 ;;; org
-(use-package
- org
+(use-package org
  :demand t
  :ensure nil
  :custom-face (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
@@ -326,9 +327,7 @@
 
 ;;; org-expiry
 ;; (require 'org-expiry)
-(use-package
- org-expiry
-
+(use-package org-expiry
  :demand t
  :ensure nil
  :config
@@ -338,14 +337,11 @@
   ))
 
 ;;; org-checklist
-(use-package
- org-checklist
-
+(use-package org-checklist
  :demand t
  :ensure nil)
 ;; org-roam
-(use-package
- org-roam
+(use-package org-roam
  :demand t
  :ensure nil
  :config
@@ -427,49 +423,54 @@
  (setq org-roam-db-update-on-save 1))
 
 ;;; org-superstar
-(use-package org-superstar :demand t :ensure nil :hook (org-mode . org-superstar-mode))
+(use-package org-superstar
+  :demand t
+  :ensure nil
+  :hook (org-mode . org-superstar-mode))
 
 ;;; avy
-(use-package :demand t :ensure nil avy)
+(use-package avy
+  :demand t
+  :ensure nil)
 
 ;;; Dashboard
-(use-package
- dashboard
- :demand t
- :ensure nil
- :config
- (dashboard-setup-startup-hook)
- (setq dashboard-startup-banner 3)
- (setq dashboard-items '((recents . 5) (bookmarks . 5) (registers . 5))))
+(use-package dashboard
+  :demand t
+  :ensure nil
+  :config
+  (dashboard-setup-startup-hook)
+  (setq dashboard-startup-banner 3)
+  (setq dashboard-items '((recents . 5) (bookmarks . 5) (registers . 5))))
 ;;; vertico
-(use-package
- vertico
- :demand t
- :ensure nil
- :custom
- (vertico-count 13) ; Number of candidates to display
- (vertico-resize t)
- (vertico-cycle nil) ; Go from last to first candidate and first to last (cycle)?
- :config (vertico-mode))
+(use-package vertico
+  :demand t
+  :ensure nil
+  :custom
+  (vertico-count 13) ; Number of candidates to display
+  (vertico-resize t)
+  (vertico-cycle nil) ; Go from last to first candidate and first to last (cycle)?
+  :config (vertico-mode))
 
 ;;; hotfuzz
-(use-package hotfuzz :config (setq completion-styles '(hotfuzz)))
+(use-package hotfuzz
+  :demand t
+  :ensure nil
+  :config (setq completion-styles '(hotfuzz)))
 
 ;;; citar
-(use-package
- citar
- :demand t
- :ensure nil
- :custom
- (citar-bibliography '("~/org/bibliography.bib"))
- (citar-notes-paths '("~/org/Literature/"))
- (citar-file-note-extensions '("org"))
- (org-cite-insert-processor 'citar)
- (org-cite-activate-processor 'citar)
- (org-cite-follow-processor 'citar)
- :hook
- (LaTeX-mode . citar-capf-setup)
- (org-mode . citar-capf-setup))
+(use-package citar
+  :demand t
+  :ensure nil
+  :custom
+  (citar-bibliography '("~/org/bibliography.bib"))
+  (citar-notes-paths '("~/org/Literature/"))
+  (citar-file-note-extensions '("org"))
+  (org-cite-insert-processor 'citar)
+  (org-cite-activate-processor 'citar)
+  (org-cite-follow-processor 'citar)
+  :hook
+  (LaTeX-mode . citar-capf-setup)
+  (org-mode . citar-capf-setup))
 
 
 ;;; citar-org-roam
