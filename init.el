@@ -474,17 +474,16 @@
 
 
 ;;; citar-org-roam
-(use-package
- citar-org-roam
- :demand t
- :ensure nil
- :after
- citar
- org-roam
- :config
- (citar-org-roam-mode)
- (setq citar-org-roam-note-title-template "${title}")
- (setq citar-org-roam-capture-template-key "l"))
+(use-package citar-org-roam
+  :demand t
+  :ensure nil
+  :after
+  citar
+  org-roam
+  :config
+  (citar-org-roam-mode)
+  (setq citar-org-roam-note-title-template "${title}")
+  (setq citar-org-roam-capture-template-key "l"))
 
 ;;; company
 (use-package company :demand t :ensure nil :config (company-mode 1))
