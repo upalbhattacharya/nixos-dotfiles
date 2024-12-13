@@ -501,7 +501,10 @@
   (git-auto-commit-mode 1))
 
 ;;; git-gutter
-(use-package git-gutter :demand t :ensure nil :config (global-git-gutter-mode 1))
+(use-package git-gutter
+  :demand t
+  :ensure nil
+  :config (global-git-gutter-mode 1))
 
 ;;; origami
 (use-package origami :demand t :ensure nil :config (global-origami-mode 1))
