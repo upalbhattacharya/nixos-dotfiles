@@ -238,9 +238,10 @@
 
 ;;; Theme
 (use-package catppuccin-theme
-	 :demand t
-	 :ensure (:wait t))
-(load-theme 'catppuccin :no-confirm)
+  :demand t
+  :ensure (:wait t)
+  :config
+  (load-theme 'catppuccin :no-confirm))
 
 ;;; Evil
 (use-package evil
