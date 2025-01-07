@@ -22,9 +22,12 @@ in
       };
     };
     extraConfig = ''
-          workspace = w[t1], gapsout:0, gapsin:0, border: 0, rounding:0
-          workspace = w[tg1], gapsout:0, gapsin:0, border: 0, rounding:0
-          workspace = f[1], gapsout:0, gapsin:0, border: 0, rounding:0
+	  workspace = w[tv0], gapsout:0, gapsin:0
+	  workspace = f[1], gapsout:0, gapsin:0
+	  windowrulev2 = bordersize 0, floating:0, onworkspace:w[tv1]
+	  windowrulev2 = rounding 0, floating:0, onworkspace:w[tv1]
+	  windowrulev2 = bordersize 0, floating:0, onworkspace:f[1]
+	  windowrulev2 = rounding 0, floating:0, onworkspace:f[1]
 
           exec-once = killall waybar; sleep 2 && ${pkgs.waybar}/bin/waybar
           exec-once = killall wpaperd; sleep 2 && wpaperd -d
