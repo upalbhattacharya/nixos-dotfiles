@@ -562,7 +562,6 @@
 (use-package org-ql
   :demand t
   :ensure (:wait t)
-  :after org
   :init
   (setq org-agenda-custom-commands
         '(("z" "Zen View"
