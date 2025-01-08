@@ -74,8 +74,7 @@
  '(gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
- '(org-agenda-files
-   '("~/org/Archive/Areas Archive.org" "~/org/Archive/Dutch Vocabulary.org" "~/org/Archive/Inbox Archive.org" "~/org/Archive/Projects Archive.org" "~/org/Archive/Resources Archive.org" "~/org/Journal/202410.org" "~/org/Journal/Journal 2024.org" "~/org/Journal/Journal 2025.org" "~/org/Literature/abdinphi4technicalreport2024.org" "~/org/Literature/okoliguideconductingstandalone2015.org" "~/org/Literature/ridleyliteraturereviewstepbystep2012.org" "~/org/Areas.org" "~/org/Fleeting.org" "~/org/Inbox.org" "~/org/Index.org" "~/org/Projects.org" "~/org/Resources.org" "~/org/Scratchpad.org" "~/org/Slip Box.org" "~/org/marginalia.org"))
+ '(org-agenda-files nil)
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
@@ -623,10 +622,11 @@
              ((org-ql-block-header "Due Soon")))
             (org-ql-block
              '(and (todo) (path "Inbox") (not (path "Archive"))) ((org-ql-block-header "Inbox")))))
-          ("c" "Desk Work" tags-todo "computer" ;; (1) (2) (3) (4)
-         ((org-agenda-files '("~/org/widgets.org" "~/org/clients.org")) ;; (5)
-          (org-agenda-sorting-strategy '(priority-up effort-down))) ;; (5) cont.
-         ("~/computer.html")) ;; (6)
+          ("c" "Desk Work" todo "NEXT" ;; (1) (2) (3) (4)
+           ) ;; (6)
+          ("u" "Desk Work Also"
+           ((org-ql-block
+             '(todo "NEXT"))))
           ("i" "Inbox"
            ((org-ql-block
              '(and (todo) (path "Inbox") (not (path "Archive"))) ((org-ql-block-header "Inbox")))))
