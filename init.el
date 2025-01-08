@@ -165,7 +165,7 @@
 
 (use-package org
  :demand t
- :ensure (:wait t)
+ :ensure nil
  :custom-face (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
  :hook (org-mode . org-indent-mode)
  :hook (org-capture-mode . org-id-get-create)
