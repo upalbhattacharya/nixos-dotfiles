@@ -12,7 +12,7 @@ in
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
-    catppuccin.enable = true;
+    # catppuccin.enable = true;
     settings = {
       general = {
         border_size = 5;

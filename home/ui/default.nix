@@ -11,5 +11,6 @@
 		./swaylock.nix
 		./waybar.nix
 		./wpaperd.nix
+		./catppuccin.nix
 	];
 }

@@ -1,4 +1,4 @@
-{pkgs, lib, contrib }:
+{ ... }:
 {
         catppuccin = {
         mako.enable = true;

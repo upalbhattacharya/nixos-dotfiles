@@ -3,7 +3,7 @@
 {
 	services.mako = {
 		enable = true;
-		catppuccin.enable = true;
+		# catppuccin.enable = true;
 		font = "Inconsolata Nerd Font Mono 22";
 		width = 600;
 		height = 400;
