@@ -633,7 +633,8 @@
             (org-ql-block
              '(and (todo) (path "Inbox") (not (path "Archive")))
              ;; ((org-ql-block-header "Inbox"))
-             )))
+             ))
+        (agenda))
           ("c" "Desk Work" todo "NEXT" ;; (1) (2) (3) (4)
            ) ;; (6)
           ("u" "Desk Work Also"
