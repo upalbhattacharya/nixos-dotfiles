@@ -638,10 +638,10 @@
           ("c" "Desk Work" todo "NEXT" ;; (1) (2) (3) (4)
            ) ;; (6)
           ("u" "Desk Work Also"
-           ((org-ql-block
+           (org-ql-block
              '(todo "NEXT"))
             ;; ((org-ql-block-header "Desk Work Also"))
-            )
+            
            )
           ("i" "Inbox"
            ((org-ql-block
