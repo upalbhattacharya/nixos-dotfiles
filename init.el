@@ -74,6 +74,8 @@
  '(gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
+ '(org-agenda-files
+   '("~/org/Archive/Areas Archive.org" "~/org/Archive/Dutch Vocabulary.org" "~/org/Archive/Inbox Archive.org" "~/org/Archive/Projects Archive.org" "~/org/Archive/Resources Archive.org" "~/org/Journal/202410.org" "~/org/Journal/Journal 2024.org" "~/org/Journal/Journal 2025.org" "~/org/Literature/abdinphi4technicalreport2024.org" "~/org/Literature/okoliguideconductingstandalone2015.org" "~/org/Literature/ridleyliteraturereviewstepbystep2012.org" "~/org/Areas.org" "~/org/Fleeting.org" "~/org/Inbox.org" "~/org/Index.org" "~/org/Projects.org" "~/org/Resources.org" "~/org/Scratchpad.org" "~/org/Slip Box.org" "~/org/marginalia.org"))
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
@@ -121,7 +123,7 @@
  '(org-super-agenda-date-format "%e %Y-%m-%d")
  '(org-use-property-inheritance '("NAME"))
  '(package-selected-packages
-   '(which-key wfnames vline vertico toc-org spacious-padding ruff-format rainbow-delimiters python-mode origami org-view-mode org-transclusion org-superstar org-roam-ui org-ql org-contrib org-anki nix-mode magit lsp-ui latexdiff latex-extra hydra hotfuzz gnu-elpa-keyring-update git-gutter git-auto-commit-mode fzf flycheck evil-nerd-commenter evil envrc elisp-autofmt dashboard company citar-org-roam catppuccin-theme bibtex-completion avy async annotate aggressive-indent))
+   '(which-key wfnames vline vertico toc-org spacious-padding ruff-format rainbow-delimiters python-mode origami org-view-mode org-transclusion org-superstar org-roam-ui org-contrib org-anki nix-mode magit lsp-ui latexdiff latex-extra hydra hotfuzz gnu-elpa-keyring-update git-gutter git-auto-commit-mode fzf flycheck evil-nerd-commenter evil envrc elisp-autofmt dashboard company citar-org-roam catppuccin-theme bibtex-completion avy async annotate aggressive-indent))
  '(python-isort-extra-args nil))
 
 ;;; Use elpaca use-package
@@ -561,6 +563,7 @@
 (use-package org-ql
   :demand t
   :ensure (:wait t)
+  :after org
   :init
   (setq org-agenda-custom-commands
         '(("z" "Zen View"
