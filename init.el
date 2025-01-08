@@ -241,6 +241,11 @@
  ;; babel
  (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t) (python . t))))
 
+(use-package org-remark
+  :demand t
+  :ensure (:wait t)
+  :hook (after-init . org-remark-global-tracking-mode))
+
 (use-package org-contrib
   :demand t
   :ensure (:wait t))
