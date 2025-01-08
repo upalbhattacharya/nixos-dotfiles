@@ -62,27 +62,6 @@
 (add-hook 'after-init-hook #'elpaca-process-queues)
 (elpaca `(,@elpaca-order))
 
-;; (require 'package)
-
-;; When the official repos are down
-;; (setq package-archives
-;;       '(("melpa" . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/melpa/")
-;;         ("org"   . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/org/")
-;;         ("gnu"   . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/gnu/")))
-
-;; (setq package-archives
-;;       '(("melpa" . "https://melpa.org/packages/")))
-;;  ;;; (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
-;;  (package-initialize)
-
-;;  (unless (package-installed-p 'use-package)
-;;   (package-refresh-contents)
-;;   (package-install 'use-package))
-;;  (eval-and-compile
-;;    (setq
-;;    use-package-always-ensure t
-;;    use-package-expand-minimally t))
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -141,8 +120,6 @@
    '(org-id-get-create org-roam-capture--insert-captured-ref-h))
  '(org-super-agenda-date-format "%e %Y-%m-%d")
  '(org-use-property-inheritance '("NAME"))
- '(package-selected-packages
-   '(which-key wfnames vline vertico toc-org spacious-padding ruff-format rainbow-delimiters python-mode origami org-view-mode org-transclusion org-superstar org-roam-ui org-ql org-contrib org-anki nix-mode magit lsp-ui latexdiff latex-extra hydra hotfuzz gnu-elpa-keyring-update git-gutter git-auto-commit-mode fzf flycheck evil-nerd-commenter evil envrc elisp-autofmt dashboard company citar-org-roam catppuccin-theme bibtex-completion avy async annotate aggressive-indent))
  '(python-isort-extra-args nil))
 
 ;;; Use elpaca use-package
