@@ -640,7 +640,8 @@
           ("u" "Desk Work Also"
            ((org-ql-block
              '(todo "NEXT"))
-           ((org-ql-block-header "Desk Work Also")))
+            ;; ((org-ql-block-header "Desk Work Also"))
+            )
            )
           ("i" "Inbox"
            ((org-ql-block
