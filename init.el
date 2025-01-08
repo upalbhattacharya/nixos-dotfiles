@@ -639,7 +639,7 @@
            ) ;; (6)
           ("u" "Desk Work Also"
            ((org-ql-block
-             '((todo "NEXT")))
+             '(todo "NEXT"))
             ;; ((org-ql-block-header "Desk Work Also"))
             )
            )
