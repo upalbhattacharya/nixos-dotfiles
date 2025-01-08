@@ -623,12 +623,10 @@
              ((org-ql-block-header "Due Soon")))
             (org-ql-block
              '(and (todo) (path "Inbox") (not (path "Archive"))) ((org-ql-block-header "Inbox")))))
-("c" "Desk Work" tags-todo "computer" ;; (1) (2) (3) (4)
+          ("c" "Desk Work" tags-todo "computer" ;; (1) (2) (3) (4)
          ((org-agenda-files '("~/org/widgets.org" "~/org/clients.org")) ;; (5)
           (org-agenda-sorting-strategy '(priority-up effort-down))) ;; (5) cont.
          ("~/computer.html")) ;; (6)
-        ;; ...other commands here
-        )
           ("i" "Inbox"
            ((org-ql-block
              '(and (todo) (path "Inbox") (not (path "Archive"))) ((org-ql-block-header "Inbox")))))
