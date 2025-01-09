@@ -239,9 +239,9 @@
          ("TODAY" . (:foreground "#181825" :background "#f2cdcd" :weight bold))
          ("LATER" . (:foreground "#181825" :background "#b4befe" :weight bold))
          ("FOCUS" . (:foreground "#181825" :background "#f38ba8" :weight bold))
-         ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold))
-         ("DONE" . (:foreground "#a6e3a1" :weight bold))
-         ("ARCHIVED" . (:foreground "#9399b2"))))
+         ("IN PROGRESS" . (:foreground "#181825" :background "#89b4fa" :weight bold))
+         ("DONE" . (:foreground "#181825" :background "#a6e3a1" :weight bold))
+         ("ARCHIVED" . (:foreground "#181825" :background "#9399b2"))))
  ;; babel
  (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t) (python . t))))
 
