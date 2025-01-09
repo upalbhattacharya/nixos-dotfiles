@@ -965,6 +965,26 @@ _k_: Insert Key
  ("q" nil))
 (global-set-key (kbd "C-c M-r") 'hydra-citar/body)
 
+
+;; org-remark
+(:color pink :hint nil :exit t)
+ "
+^org-remark^
+------------
+_b_: Blue highlight      _p_: Purple highlight
+_g_: Green highlight     _d_: Delete highlight
+_y_: Yellow highlight    _q_: Quit
+_r_: Red highlight
+"
+("b" org-remark-mark-blue)
+("g" org-remark-mark-green)
+("y" org-reamrk-mark-yellow)
+("r" org-remark-mark-red)
+("p" org-remark-mark-purple)
+("d" org-remark-remove)
+ ("q" nil))
+(global-set-key (kbd "C-c M-t") 'hydra-time/body)
+
 ;; org-view-mode
 (global-set-key (kbd "C-c M-e") 'org-view-mode)
 
