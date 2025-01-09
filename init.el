@@ -242,6 +242,13 @@
          ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold))
          ("DONE" . (:foreground "#a6e3a1" :weight bold))
          ("ARCHIVED" . (:foreground "#9399b2"))))
+
+ (use-package ob-mermaid
+   :demand t
+   :ensure (:wait t)
+   :config
+   (setq ob-mermaid-cli-path "~/mmdc"))
+ 
  ;; babel
  (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t) (python . t))))
 
