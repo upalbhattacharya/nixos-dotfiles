@@ -257,6 +257,14 @@
   (org-remark-create "red"
                    '(:background "#f38ba8" :foreground "#181825")
                    '(CATEGORY "urgent"))
+
+  (org-remark-create "green"
+                   '(:background "#a6e3a1" :foreground "#181825")
+                   '(CATEGORY "good"))
+
+  (org-remark-create "purple"
+                   '(:background "#cba6f7" :foreground "#181825")
+                   '(CATEGORY "good"))
   )
 
 
