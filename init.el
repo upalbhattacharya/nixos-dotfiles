@@ -984,7 +984,7 @@ _r_: Red highlight
 ("p" org-remark-mark-purple)
 ("d" org-remark-remove)
  ("q" nil))
-(global-set-key (kbd "C-c M-h") 'hydra-org-remark/body)
+(global-set-key (kbd "C-c M-v") 'hydra-org-remark/body)
 
 ;; org-view-mode
 (global-set-key (kbd "C-c M-e") 'org-view-mode)
