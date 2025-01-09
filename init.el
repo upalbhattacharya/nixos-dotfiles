@@ -255,7 +255,7 @@
                    '(CATEGORY "warning"))
 
   (org-remark-create "red"
-                   '(:background "#f38ae8" :foreground "#181825")
+                   '(:background "#f38ba8" :foreground "#181825")
                    '(CATEGORY "urgent"))
   )
 
