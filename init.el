@@ -1011,10 +1011,10 @@ _r_: Red highlight
  "
 ^org-annotate^
 --------------
-_a_: Add annotation          _p_: Go-to previous annotation 
+_a_: Add annotation          _p_: Go-to previous annotation     _q_: Quit
 _w_: Save annotations        _d_: Delete annotation
 _l_: Load annotations        _c_: Clear annotations
-_n_: Go-to next annotation   _q_: Quit
+_n_: Go-to next annotation   _t_: Toggle annotation
 "
 ("a" annotate-annotate)
 ("d" annotate-delete-annotation)
@@ -1023,6 +1023,7 @@ _n_: Go-to next annotation   _q_: Quit
 ("l" annotate-load-annotations)
 ("n" annotate-goto-next-annotation)
 ("p" annotate-goto-previous-annotation)
+("t" annotate-toggle-annotation-text
 
 ("d" org-remark-remove)
  ("q" nil))
