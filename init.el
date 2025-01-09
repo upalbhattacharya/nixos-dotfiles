@@ -1005,6 +1005,28 @@ _r_: Red highlight
  ("q" nil))
 (global-set-key (kbd "C-c M-v") 'hydra-org-remark/body)
 
+(defhydra
+ hydra-org-annotate
+ (:color pink :hint nil :exit t)
+ "
+^org-annotate^
+--------------
+_a_: Add annotation          _p_: Go-to previous annotation 
+_w_: Save annotations        _d_: Delete annotation
+_l_: Load annotations        _c_: Clear annotations
+_n_: Go-to next annotation   _q_: Quit
+"
+("a" annotate-annotate)
+("d" annotate-delete-annotation)
+("c" annotate-clear-annotations)
+("w" annotate-save-annotations)
+("l" annotate-load-annotations)
+("n" annotate-goto-next-annotation)
+("p" annotate-goto-previous-annotation)
+
+("d" org-remark-remove)
+ ("q" nil))
+(global-set-key (kbd "C-c M-m") 'hydra-org-annotate/body)
 ;; org-view-mode
 (global-set-key (kbd "C-c M-e") 'org-view-mode)
 
