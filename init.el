@@ -250,7 +250,12 @@
    (setq ob-mermaid-cli-path "~/mmdc"))
  
  ;; babel
- (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t) (python . t))))
+ (org-babel-do-load-languages
+  'org-babel-load-languages
+  '((emacs-lisp . t)
+    (python . t)
+    (mermaid . t)
+    (scheme . t)))
 
 (use-package org-remark
   :demand t
