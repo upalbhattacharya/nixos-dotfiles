@@ -251,7 +251,7 @@
   :hook (after-init . org-remark-global-tracking-mode)
   :config
   (org-remark-create "yellow"
-                   '(:background "#f2cdcd")
+                   '(:background "#cba6f7")
                    '(CATEGORY "important")))
 
 
