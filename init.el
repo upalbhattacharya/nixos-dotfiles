@@ -267,7 +267,7 @@
                    '(CATEGORY "important"))
 
   (org-remark-create "blue"
-                   '(:background "#74c7ec" :foreground "#181825")
+                   '(:background "#89dceb" :foreground "#181825")
                    '(CATEGORY "mark"))
   )
 
