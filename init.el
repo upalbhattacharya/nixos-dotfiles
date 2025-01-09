@@ -256,7 +256,7 @@
 
   (org-remark-create "red"
                    '(:background "#f9e2af" :foreground "#181825")
-                   '(CATEGORY "important"))
+                   '(CATEGORY "urgent"))
   )
 
 
