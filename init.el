@@ -1023,9 +1023,7 @@ _n_: Go-to next annotation   _t_: Toggle annotation
 ("l" annotate-load-annotations)
 ("n" annotate-goto-next-annotation)
 ("p" annotate-goto-previous-annotation)
-("t" annotate-toggle-annotation-text
-
-("d" org-remark-remove)
+("t" annotate-toggle-annotation-text)
  ("q" nil))
 (global-set-key (kbd "C-c M-m") 'hydra-org-annotate/body)
 ;; org-view-mode
