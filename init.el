@@ -265,6 +265,10 @@
   (org-remark-create "purple"
                    '(:background "#cba6f7" :foreground "#181825")
                    '(CATEGORY "important"))
+
+  (org-remark-create "blue"
+                   '(:background "#74c7ec" :foreground "#181825")
+                   '(CATEGORY "important"))
   )
 
 
