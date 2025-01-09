@@ -114,7 +114,7 @@
                   :image-converter
                   ("convert -density %D -trim -antialias %f -quality 100 %O"))))
  '(org-priority-faces
-   '((65 :foreground "#181825" :background "red")
+   '((65 :foreground "#181825" :background "#f38ba8")
      (66 :foreground "#181825" :background "yellow")
      (67 :foreground "#181825" :background "green")))
  '(org-ql-search-directories-files-recursive t)
