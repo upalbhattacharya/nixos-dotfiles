@@ -115,7 +115,7 @@
                   ("convert -density %D -trim -antialias %f -quality 100 %O"))))
  '(org-priority-faces
    '((65 :foreground "#181825" :background "#f38ba8")
-     (66 :foreground "#181825" :background "yellow")
+     (66 :foreground "#181825" :background "#f9e2af")
      (67 :foreground "#181825" :background "green")))
  '(org-ql-search-directories-files-recursive t)
  '(org-roam-capture-new-node-hook
