@@ -604,8 +604,7 @@
                    (level 2 8)
                    (deadline :on today)
                    (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA"))
-                   )
+                   (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Due Today"))
              )
             (org-ql-block
