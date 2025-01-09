@@ -595,7 +595,8 @@
            ((org-ql-block
              '(and (level 2 8)
                    (todo "FOCUS")
-                   (not (path "Archive" "Inbox")))
+                   (not (path "Archive" "Inbox"))
+                   (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Presently Focusing On"))
              )
             (org-ql-block
