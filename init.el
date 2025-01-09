@@ -116,7 +116,7 @@
  '(org-priority-faces
    '((65 :foreground "#181825" :background "#f38ba8")
      (66 :foreground "#181825" :background "#f9e2af")
-     (67 :foreground "#181825" :background "green")))
+     (67 :foreground "#181825" :background "#94e2d5")))
  '(org-ql-search-directories-files-recursive t)
  '(org-roam-capture-new-node-hook
    '(org-id-get-create org-roam-capture--insert-captured-ref-h))
