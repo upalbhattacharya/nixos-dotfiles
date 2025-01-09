@@ -114,9 +114,9 @@
                   :image-converter
                   ("convert -density %D -trim -antialias %f -quality 100 %O"))))
  '(org-priority-faces
-   '((65 :foreground "red")
-     (66 :foreground "yellow")
-     (67 :foreground "green")))
+   '((65 :foreground "#181825" :background "red")
+     (66 :foreground "#181825" :background "yellow")
+     (67 :foreground "#181825" :background "green")))
  '(org-ql-search-directories-files-recursive t)
  '(org-roam-capture-new-node-hook
    '(org-id-get-create org-roam-capture--insert-captured-ref-h))
@@ -306,6 +306,7 @@
 :PROPERTIES:
 :NAME: ${title}
 :CREATED:\t%U
+:ID:
 :END:
 ")))
          ("p" "project" plain "%?"
@@ -317,6 +318,7 @@
 :PROPERTIES:
 :NAME: ${title}
 :CREATED:\t%U
+:ID:
 :END:
 
 [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]
@@ -330,6 +332,7 @@
 :PROPERTIES:
 :NAME: ${title}
 :CREATED:\t%U
+:ID:
 :END:
 
 [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]
@@ -343,6 +346,7 @@
 :PROPERTIES:
 :NAME: ${title}
 :CREATED:\t%U
+:ID:
 :END:
 
 [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]
@@ -356,7 +360,7 @@
          ("f" "fleeting note" plain "%?"
           :target
           (file+olp
-           "Fleeting.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:END:\n\n")))))
+           "Fleeting.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:ID:\n:END:\n\n")))))
 
  (setq org-roam-dailies-capture-templates
        '(("d"
@@ -370,15 +374,10 @@
  (setq org-roam-db-autosync-mode 1)
  (setq org-roam-db-update-on-save 1))
 
-;; (use-package org-superstar
-;;   :demand t
-;;   :ensure (:wait t)
-;;   :hook (org-mode . org-superstar-mode))
-
-(use-package org-modern
+(use-package org-superstar
   :demand t
   :ensure (:wait t)
-  :hook (org-mode .org-modern-mode))
+  :hook (org-mode . org-superstar-mode))
 
 (use-package avy
   :demand t
