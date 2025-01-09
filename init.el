@@ -252,7 +252,12 @@
   :config
   (org-remark-create "yellow"
                    '(:background "#f9e2af" :foreground "#181825")
-                   '(CATEGORY "important")))
+                   '(CATEGORY "important"))
+
+  (org-remark-create "red"
+                   '(:background "#f9e2af" :foreground "#181825")
+                   '(CATEGORY "important"))
+  )
 
 
 (use-package org-contrib
