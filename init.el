@@ -966,8 +966,9 @@ _k_: Insert Key
 (global-set-key (kbd "C-c M-r") 'hydra-citar/body)
 
 
-;; org-remark
-(:color pink :hint nil :exit t)
+(defhydra
+ hydra-org-remark
+ (:color pink :hint nil :exit t)
  "
 ^org-remark^
 ------------
@@ -983,7 +984,7 @@ _r_: Red highlight
 ("p" org-remark-mark-purple)
 ("d" org-remark-remove)
  ("q" nil))
-(global-set-key (kbd "C-c M-t") 'hydra-time/body)
+(global-set-key (kbd "C-c M-t") 'hydra-org-remark/body)
 
 ;; org-view-mode
 (global-set-key (kbd "C-c M-e") 'org-view-mode)
