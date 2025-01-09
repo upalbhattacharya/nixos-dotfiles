@@ -370,10 +370,15 @@
  (setq org-roam-db-autosync-mode 1)
  (setq org-roam-db-update-on-save 1))
 
-(use-package org-superstar
+;; (use-package org-superstar
+;;   :demand t
+;;   :ensure (:wait t)
+;;   :hook (org-mode . org-superstar-mode))
+
+(use-package org-modern
   :demand t
   :ensure (:wait t)
-  :hook (org-mode . org-superstar-mode))
+  :hook (org-mode .org-modern-mode))
 
 (use-package avy
   :demand t
