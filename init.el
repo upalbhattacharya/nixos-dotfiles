@@ -241,7 +241,7 @@
          ("FOCUS" . (:foreground "#f38ba8" :weight bold))
          ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold))
          ("DONE" . (:foreground "#a6e3a1" :weight bold))
-         ("ARCHIVED" . (:foreground "#9399b2"))))
+         ("ARCHIVED" . (:foreground "#9399b2")))))
 
  (use-package ob-mermaid
    :demand t
@@ -254,8 +254,9 @@
   'org-babel-load-languages
   '((emacs-lisp . t)
     (python . t)
-    (mermaid . t)
-    (scheme . t)))
+    ;; (mermaid . t)
+    ;; (scheme . t)
+    ))
 
 (use-package org-remark
   :demand t
