@@ -75,7 +75,7 @@
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-files
-   '("/home/upal/org/Journal/Journal 2025.org" "/home/upal/org/Literature/abdinphi4technicalreport2024.org" "/home/upal/org/Literature/okoliguideconductingstandalone2015.org" "/home/upal/org/Literature/ridleyliteraturereviewstepbystep2012.org" "/home/upal/org/Areas.org" "/home/upal/org/Fleeting.org" "/home/upal/org/Inbox.org" "/home/upal/org/Index.org" "/home/upal/org/Projects.org" "/home/upal/org/Resources.org" "/home/upal/org/Scratchpad.org" "/home/upal/org/Slip Box.org" "/home/upal/org/marginalia.org"))
+   '("/home/upal/org/Literature/abdinphi4technicalreport2024.org" "/home/upal/org/Literature/okoliguideconductingstandalone2015.org" "/home/upal/org/Literature/ridleyliteraturereviewstepbystep2012.org" "/home/upal/org/Areas.org" "/home/upal/org/Fleeting.org" "/home/upal/org/Inbox.org" "/home/upal/org/Index.org" "/home/upal/org/Projects.org" "/home/upal/org/Resources.org" "/home/upal/org/Scratchpad.org" "/home/upal/org/Slip Box.org" "/home/upal/org/marginalia.org"))
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
