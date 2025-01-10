@@ -75,7 +75,7 @@
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-files
-   '("~/org/Inbox.org" "/home/workboots/org/Fleeting.org" "/home/workboots/org/Clock Report.org" "/home/workboots/org/Areas.org" "/home/workboots/org/Archive/Resources Archive.org" "/home/workboots/org/Archive/Projects Archive.org" "/home/workboots/org/Archive/Inbox Archive.org" "/home/workboots/org/Archive/Dutch Vocabulary.org" "/home/workboots/org/Archive/Areas Archive.org"))
+   '("~/org/Index.org" "/home/workboots/org/Inbox.org" "/home/workboots/org/Fleeting.org" "/home/workboots/org/Clock Report.org" "/home/workboots/org/Areas.org" "/home/workboots/org/Archive/Resources Archive.org" "/home/workboots/org/Archive/Projects Archive.org" "/home/workboots/org/Archive/Inbox Archive.org" "/home/workboots/org/Archive/Dutch Vocabulary.org" "/home/workboots/org/Archive/Areas Archive.org"))
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
