@@ -74,7 +74,8 @@
  '(gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
- '(org-agenda-files nil)
+ '(org-agenda-files
+   '("~/org/Archive/Areas Archive.org" "/home/workboots/org/Areas.org"))
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
