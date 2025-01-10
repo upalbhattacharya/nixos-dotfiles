@@ -67,6 +67,19 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(annotate-annotation-position-policy :margin)
+ '(annotate-annotation-text-faces
+   '((:background "#F9E2AF" :foreground "#181825")
+     (:background "#94E2D5" :foreground "#181825")
+     (:background "#A6E3A1" :foreground "#181825")
+     (:background "#F38BA8" :foreground "#181825")
+     (:background "#CBA6F7" :foreground "#181825")))
+ '(annotate-highlight-faces
+   '((:underline "#F9E2AF")
+     (:underline "#94E2D5")
+     (:underline "#A6E3A1")
+     (:underline "#F38BA8")
+     (:underline "#CBA6F7")))
  '(calendar-date-style 'iso)
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
@@ -263,6 +276,7 @@
   :ensure (:wait t)
   :init
   (setq org-remark-global-tracking-mode +1)
+  :hook (org-mode . org-remark-mode)
   :config
   (org-remark-create "yellow"
                    '(:background "#f9e2af" :foreground "#181825")
@@ -761,13 +775,13 @@
   :demand t
   :ensure (:wait t))
 
-(use-package latex-extra
-  :demand t
-  :ensure (:wait t))
+;; (use-package latex-extra
+;;   :demand t
+;;   :ensure (:wait t))
 
-(use-package latexdiff
-  :demand t
-  :ensure (:wait t))
+;; (use-package latexdiff
+;;   :demand t
+;;   :ensure (:wait t))
 
 (use-package org-view-mode
   :demand t
