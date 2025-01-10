@@ -75,7 +75,7 @@
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-files
-   '("/home/upal/org/Archive/Areas Archive.org" "/home/upal/org/Archive/Dutch Vocabulary.org" "/home/upal/org/Archive/Inbox Archive.org" "/home/upal/org/Archive/Projects Archive.org" "/home/upal/org/Archive/Resources Archive.org" "/home/upal/org/Journal/202410.org" "/home/upal/org/Journal/Journal 2024.org" "/home/upal/org/Journal/Journal 2025.org" "/home/upal/org/Literature/abdinphi4technicalreport2024.org" "/home/upal/org/Literature/okoliguideconductingstandalone2015.org" "/home/upal/org/Literature/ridleyliteraturereviewstepbystep2012.org" "/home/upal/org/Areas.org" "/home/upal/org/Fleeting.org" "/home/upal/org/Inbox.org" "/home/upal/org/Index.org" "/home/upal/org/Projects.org" "/home/upal/org/Resources.org" "/home/upal/org/Scratchpad.org" "/home/upal/org/Slip Box.org" "/home/upal/org/marginalia.org"))
+   '("/home/upal/org/Archive/Dutch Vocabulary.org" "/home/upal/org/Archive/Inbox Archive.org" "/home/upal/org/Archive/Projects Archive.org" "/home/upal/org/Archive/Resources Archive.org" "/home/upal/org/Journal/202410.org" "/home/upal/org/Journal/Journal 2024.org" "/home/upal/org/Journal/Journal 2025.org" "/home/upal/org/Literature/abdinphi4technicalreport2024.org" "/home/upal/org/Literature/okoliguideconductingstandalone2015.org" "/home/upal/org/Literature/ridleyliteraturereviewstepbystep2012.org" "/home/upal/org/Areas.org" "/home/upal/org/Fleeting.org" "/home/upal/org/Inbox.org" "/home/upal/org/Index.org" "/home/upal/org/Projects.org" "/home/upal/org/Resources.org" "/home/upal/org/Scratchpad.org" "/home/upal/org/Slip Box.org" "/home/upal/org/marginalia.org"))
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
@@ -728,7 +728,7 @@
 
 (use-package org-anki
   :demand t
-  :ensure t)
+  :ensure (:wait t))
 
 (use-package python-mode
   :demand t
@@ -736,12 +736,12 @@
 
 (use-package which-key
   :demand t
-  :ensure t
+  :ensure (:wait t)
   :config (which-key-mode 1))
 
 (use-package evil-nerd-commenter
   :demand t
-  :ensure t)
+  :ensure (:wait t))
 
 (use-package aggressive-indent
   :demand t
@@ -754,43 +754,43 @@
 
 (use-package elisp-autofmt
   :demand t
-  :ensure t)
+  :ensure (:wait t))
 
 (use-package nix-mode
   :demand t
-  :ensure t)
+  :ensure (:wait t))
 
 (use-package latex-extra
   :demand t
-  :ensure t)
+  :ensure (:wait t))
 
 (use-package latexdiff
   :demand t
-  :ensure t)
+  :ensure (:wait t))
 
 (use-package org-view-mode
   :demand t
-  :ensure t)
+  :ensure (:wait t))
 
 (use-package magit
   :demand t
-  :ensure t)
+  :ensure (:wait t))
 
 (use-package org-roam-ui
   :demand t
-  :ensure t)
+  :ensure (:wait t))
 
 (use-package spacious-padding
   :demand t
-  :ensure t)
+  :ensure (:wait t))
 
 (use-package fzf
   :demand t
-  :ensure t)
+  :ensure (:wait t))
 
 (use-package org-transclusion
   :demand t
-  :ensure t)
+  :ensure (:wait t))
 
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
