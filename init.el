@@ -261,7 +261,8 @@
 (use-package org-remark
   :demand t
   :ensure (:wait t)
-  :hook (after-init . org-remark-global-tracking-mode)
+  :init
+  (setq org-remark-global-tracking-mode +1)
   :config
   (org-remark-create "yellow"
                    '(:background "#f9e2af" :foreground "#181825")
