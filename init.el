@@ -806,6 +806,9 @@
 (use-package org-transclusion
   :demand t
   :ensure (:wait t))
+(use-package vterm
+  :demand t
+  :ensure (:wait t))
 
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
