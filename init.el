@@ -75,7 +75,7 @@
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-files
-   '("~/org/Slip Box.org" "/home/workboots/org/Scratchpad.org" "/home/workboots/org/Resources.org" "/home/workboots/org/Projects.org" "/home/workboots/org/Literature/ridleyliteraturereviewstepbystep2012.org" "/home/workboots/org/Literature/okoliguideconductingstandalone2015.org" "/home/workboots/org/Literature/abdinphi4technicalreport2024.org" "/home/workboots/org/Journal/Journal 2025.org" "/home/workboots/org/Journal/Journal 2024.org" "/home/workboots/org/Index.org" "/home/workboots/org/Inbox.org" "/home/workboots/org/Fleeting.org" "/home/workboots/org/Clock Report.org" "/home/workboots/org/Areas.org" "/home/workboots/org/Archive/Resources Archive.org" "/home/workboots/org/Archive/Projects Archive.org" "/home/workboots/org/Archive/Inbox Archive.org" "/home/workboots/org/Archive/Dutch Vocabulary.org" "/home/workboots/org/Archive/Areas Archive.org"))
+   '("~/org/Slip Box.org" "~/org/Scratchpad.org" "~/org/Resources.org" "~/org/Projects.org" "~/org/Literature/ridleyliteraturereviewstepbystep2012.org" "~/org/Literature/okoliguideconductingstandalone2015.org" "~/org/Literature/abdinphi4technicalreport2024.org" "~/org/Journal/Journal 2025.org" "~/org/Journal/Journal 2024.org" "~/org/Index.org" "~/org/Inbox.org" "~/org/Fleeting.org" "~/org/Clock Report.org" "~/org/Areas.org" "~/org/Archive/Resources Archive.org" "~/org/Archive/Projects Archive.org" "~/org/Archive/Inbox Archive.org" "~/org/Archive/Dutch Vocabulary.org" "~/org/Archive/Areas Archive.org"))
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
@@ -1006,8 +1006,8 @@ _k_: Insert Key
 ------------
 _b_: Blue highlight      _p_: Purple highlight
 _g_: Green highlight     _d_: Delete highlight
-_y_: Yellow highlight    _q_: Quit
-_r_: Red highlight
+_y_: Yellow highlight    _w_: Save highlights
+_r_: Red highlight       _q_: Quit
 "
 ("b" org-remark-mark-blue)
 ("g" org-remark-mark-green)
@@ -1015,6 +1015,7 @@ _r_: Red highlight
 ("r" org-remark-mark-red)
 ("p" org-remark-mark-purple)
 ("d" org-remark-remove)
+("w" org-remark-save)
  ("q" nil))
 (global-set-key (kbd "C-c M-v") 'hydra-org-remark/body)
 
