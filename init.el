@@ -75,7 +75,7 @@
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-files
-   '("/home/upal/org/Projects.org" "/home/upal/org/Resources.org" "/home/upal/org/Scratchpad.org" "/home/upal/org/Slip Box.org" "/home/upal/org/marginalia.org"))
+   '("/home/upal/org/Resources.org" "/home/upal/org/Scratchpad.org" "/home/upal/org/Slip Box.org" "/home/upal/org/marginalia.org"))
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
