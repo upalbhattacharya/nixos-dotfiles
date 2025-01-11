@@ -188,6 +188,7 @@ in
     plantuml
     cmake
     libvterm
+    libtool
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
