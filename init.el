@@ -806,7 +806,7 @@
 (use-package org-transclusion
   :demand t
   :ensure (:wait t))
-(use-package vterm
+(use-package eat
   :demand t
   :ensure (:wait t))
 
@@ -1070,3 +1070,6 @@ _n_: Go-to next annotation   _t_: Toggle annotation
 
 ;; avy
 (global-set-key (kbd "C-M-'") 'avy-goto-char-2)
+
+;; eat
+(global-set-ket (kbd "C-c M-RET") 'eat)
