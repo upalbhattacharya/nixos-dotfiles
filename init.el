@@ -1072,4 +1072,4 @@ _n_: Go-to next annotation   _t_: Toggle annotation
 (global-set-key (kbd "C-M-'") 'avy-goto-char-2)
 
 ;; eat
-(global-set-ket (kbd "C-c M-RET") 'eat)
+(global-set-key (kbd "C-c M-RET") 'eat)
