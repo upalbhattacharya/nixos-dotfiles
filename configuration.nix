@@ -189,7 +189,7 @@ in
     cmake
     libvterm
     libtool
-    protonvpn-cli_2
+    protonvpn-gui
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
