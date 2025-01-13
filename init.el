@@ -162,6 +162,7 @@
  (setq-default fill-column 100)
  (setq-default indent-tabs-mode nil)
  (setq tab-always-indent 'complete)
+ (setq-default tab-width 4)
  (setq python-indent-level 4)
  (setq visible-bell t)
  (setq visual-line-mode 1)
