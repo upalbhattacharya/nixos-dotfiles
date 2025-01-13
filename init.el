@@ -1074,5 +1074,5 @@ _n_: Go-to next annotation   _t_: Toggle annotation
 (global-set-key (kbd "C-c M-RET") 'eat)
 
 ;; fold source blocks
-(global-set-key (kbd "C-c M-f") 'org-fold-hide-block-toggle)
+;; (global-set-key (kbd "C-c M-f") 'org-fold-hide-block-toggle)
 
