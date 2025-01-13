@@ -88,7 +88,7 @@
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-files
-   '("~/org/Slip Box.org" "~/org/Scratchpad.org" "~/org/Resources.org" "~/org/Projects.org" "~/org/Literature/ridleyliteraturereviewstepbystep2012.org" "~/org/Literature/okoliguideconductingstandalone2015.org" "~/org/Literature/abdinphi4technicalreport2024.org" "~/org/Journal/Journal 2025.org" "~/org/Journal/Journal 2024.org" "~/org/Index.org" "~/org/Inbox.org" "~/org/Fleeting.org" "~/org/Clock Report.org" "~/org/Areas.org" "~/org/Archive/Resources Archive.org" "~/org/Archive/Projects Archive.org" "~/org/Archive/Inbox Archive.org" "~/org/Archive/Dutch Vocabulary.org" "~/org/Archive/Areas Archive.org"))
+   '("/home/upal/org/Archive/Areas Archive.org" "/home/upal/org/Archive/Dutch Vocabulary.org" "/home/upal/org/Archive/Inbox Archive.org" "/home/upal/org/Archive/Projects Archive.org" "/home/upal/org/Archive/Resources Archive.org" "/home/upal/org/Archive/marginalia.org" "/home/upal/org/Journal/202410.org" "/home/upal/org/Journal/Journal 2024.org" "/home/upal/org/Journal/Journal 2025.org" "/home/upal/org/Journal/marginalia.org" "/home/upal/org/Literature/abdinphi4technicalreport2024.org" "/home/upal/org/Literature/okoliguideconductingstandalone2015.org" "/home/upal/org/Literature/ridleyliteraturereviewstepbystep2012.org" "/home/upal/org/Areas.org" "/home/upal/org/Clock Report.org" "/home/upal/org/Fleeting.org" "/home/upal/org/Inbox.org" "/home/upal/org/Index.org" "/home/upal/org/Projects.org" "/home/upal/org/Resources.org" "/home/upal/org/Scratchpad.org" "/home/upal/org/Slip Box.org" "/home/upal/org/marginalia.org"))
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
@@ -623,7 +623,7 @@
            ((org-ql-block
              '(and (level 2 8)
                    (todo "FOCUS")
-                   (not (path "Archive" "Inbox"))
+                   (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Presently Focusing On"))
              )
@@ -646,7 +646,7 @@
             (org-ql-block
              '(and (level 2 8)
                    (todo "TODAY")
-                   (not (path "Archive" "Inbox"))
+                   (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Planned Today"))
              )
