@@ -810,6 +810,12 @@
   :demand t
   :ensure (:wait t))
 
+(use-package plantuml-mode
+  :demand t
+  :ensure (:wait t)
+  :config
+  (setq plantuml-jar-path "~/plantuml.jar"))
+
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
   (org-id-get-create)
