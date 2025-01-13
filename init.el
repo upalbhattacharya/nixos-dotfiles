@@ -815,7 +815,8 @@
   :demand t
   :ensure (:wait t)
   :config
-  (setq plantuml-jar-path "~/plantuml.jar"))
+  (setq org-plantuml-jar-path (expand-file-name "~/plantuml.jar"))
+  (setq plantuml-jar-path (expand-file-name "~/plantuml.jar")))
 
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
