@@ -644,8 +644,7 @@
              ((org-ql-block-header "Scheduled Today"))
              )
             (org-ql-block
-             '(and (level 2 8)
-                   (todo "TODAY")
+             '(and (todo "TODAY")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Planned Today"))
@@ -1073,3 +1072,7 @@ _n_: Go-to next annotation   _t_: Toggle annotation
 
 ;; eat
 (global-set-key (kbd "C-c M-RET") 'eat)
+
+;; fold source blocks
+(global-set-key (kbd "C-c M-f") 'org-fold-hide-block-toggle)
+
