@@ -268,6 +268,7 @@
   'org-babel-load-languages
   '((emacs-lisp . t)
     (python . t)
+    (plantuml . t)
     ;; (mermaid . t)
     ;; (scheme . t)
     ))
