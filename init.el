@@ -835,6 +835,7 @@
 
 (defun workboots/org-present-end ()
   ;; Stop centering the document
+  (org-tidy-mode 0)
   (org-present-small)
   (org-present-show-cursor)
   (org-present-read-write))
