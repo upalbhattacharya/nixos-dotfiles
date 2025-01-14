@@ -828,6 +828,7 @@
 
 (defun workboots/org-present-start ()
   ;; Center the presentation and wrap lines
+  (org-tidy-mode 1)
   (org-present-big)
   (org-present-hide-cursor)
   (org-present-read-only))
