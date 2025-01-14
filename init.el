@@ -828,14 +828,14 @@
 
 (defun workboots/org-present-start ()
   ;; Center the presentation and wrap lines
-  (org-tidy-mode 1)
+  (org-tidy-buffer)
   (org-present-big)
   (org-present-hide-cursor)
   (org-present-read-only))
 
 (defun workboots/org-present-end ()
   ;; Stop centering the document
-  (org-tidy-mode 0)
+  (org-tidy-untidy-buffer)
   (org-present-small)
   (org-present-show-cursor)
   (org-present-read-write))
