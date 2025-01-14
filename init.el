@@ -67,7 +67,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(annotate-annotation-position-policy :margin)
+ '(annotate-annotation-position-policy :new-line)
  '(annotate-annotation-text-faces
    '((:background "#F9E2AF" :foreground "#181825")
      (:background "#94E2D5" :foreground "#181825")
@@ -145,7 +145,6 @@
  :demand t
  :ensure nil
  :custom-face (default ((nil (:font "Iosevka Nerd Font" :height 220))))
- :hook (org-mode . auto-fill-mode)
  :config
  (menu-bar-mode -1)
  (scroll-bar-mode -1)
@@ -825,14 +824,12 @@
 
 (defun workboots/org-present-start ()
   ;; Center the presentation and wrap lines
-  (visual-fill-column-mode 1)
   (org-present-big)
   (org-present-hide-cursor)
   (org-present-read-only))
 
 (defun workboots/org-present-end ()
   ;; Stop centering the document
-  (visual-fill-column-mode 0)
   (org-present-small)
   (org-present-show-cursor)
   (org-present-read-write))
