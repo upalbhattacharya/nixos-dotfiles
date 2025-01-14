@@ -816,30 +816,27 @@
   (setq org-plantuml-jar-path (expand-file-name "~/plantuml.jar"))
   (setq plantuml-jar-path (expand-file-name "~/plantuml.jar")))
 
-(use-package visual-fill-column
+(use-package olivettI
   :demand t
   :ensure (:wait t)
   :config
-  ;; Configure fill width
-  (setq visual-fill-column-width 110)
-  (setq visual-fill-column-center-text t))
+  (setq olivetti-body-width 120))
 
 (defun workboots/org-present-start ()
   ;; Center the presentation and wrap lines
-  (visual-fill-column-mode 1)
-  (visual-line-mode 1))
+  (org-present-big 1))
 
 (defun workboots/org-present-end ()
   ;; Stop centering the document
-  (visual-fill-column-mode 0)
-  (visual-line-mode 0))
+  (org-presnt-small 1))
 
 (use-package org-present
   :demand t
   :ensure (:wait t))
-  :hook (org-present-mode . 'workboots/org-present-start)
-  :hook (org-present-mode-quit . 'workboots/org-present-end))
 
+;; Register hooks with org-present
+(add-hook 'org-present-mode-hook 'workboots/org-present-start)
+(add-hook 'org-present-mode-quit-hook 'workboots/org-present-end)
 
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
