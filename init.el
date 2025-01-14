@@ -816,6 +816,10 @@
   (setq org-plantuml-jar-path (expand-file-name "~/plantuml.jar"))
   (setq plantuml-jar-path (expand-file-name "~/plantuml.jar")))
 
+(use-package visual-fill-column
+  :demand t
+  :ensure (:wait t))
+
 (defun workboots/org-present-start ()
   ;; Center the presentation and wrap lines
   (visual-fill-column-mode 1)
@@ -832,9 +836,6 @@
   :hook (org-present-mode . 'workboots/org-present-start)
   :hook (org-present-mode-quit . 'workboots/org-present-end))
 
-(use-package visual-fill-column
-  :demand t
-  :ensure (:wait t))
 
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
