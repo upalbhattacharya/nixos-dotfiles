@@ -816,6 +816,16 @@
   (setq org-plantuml-jar-path (expand-file-name "~/plantuml.jar"))
   (setq plantuml-jar-path (expand-file-name "~/plantuml.jar")))
 
+(defun workboots/org-present-start ()
+  ;; Center the presentation and wrap lines
+  (visual-fill-column-mode 1)
+  (visual-line-mode 1))
+
+(defun workboots/org-present-end ()
+  ;; Stop centering the document
+  (visual-fill-column-mode 0)
+  (visual-line-mode 0))
+
 (use-package org-present
   :demand t
   :ensure (:wait t)
@@ -832,15 +842,6 @@
   (org-back-to-heading)
   (org-end-of-line))
 
-(defun workboots/org-present-start ()
-  ;; Center the presentation and wrap lines
-  (visual-fill-column-mode 1)
-  (visual-line-mode 1))
-
-(defun workboots/org-present-end ()
-  ;; Stop centering the document
-  (visual-fill-column-mode 0)
-  (visual-line-mode 0))
 
 ;; Whenever a TODO entry is created, I want a timestamp
 ;; Advice org-insert-todo-heading to insert a created timestamp using org-expiry
