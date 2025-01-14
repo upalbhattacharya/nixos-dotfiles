@@ -832,9 +832,9 @@
 
 (use-package org-present
   :demand t
-  :ensure (:wait t)
-  :hook (org-present-mode . 'workboots/org-present-start)
-  :hook (org-present-mode-quit . 'workboots/org-present-end))
+  :ensure (:wait t))
+  ;; :hook (org-present-mode . 'workboots/org-present-start)
+  ;; :hook (org-present-mode-quit . 'workboots/org-present-end))
 
 
 (defun workboots/insert-todo-metadata ()
