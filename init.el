@@ -820,7 +820,11 @@
   :hook (visual-line-mode . visual-fill-column-mode)
   :config
   (setq visual-fill-column-width 110
-      visual-fill-column-center-text t))
+        visual-fill-column-center-text t))
+
+(use-package org-tidy
+  :ensure t
+  :demand (:wait t))
 
 (defun workboots/org-present-start ()
   ;; Center the presentation and wrap lines
@@ -842,9 +846,6 @@
 (add-hook 'org-present-mode-hook 'workboots/org-present-start)
 (add-hook 'org-present-mode-quit-hook 'workboots/org-present-end)
 
-(use-package org-tidy
-  :ensure t
-  :demand (:wait t))
 
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
