@@ -825,14 +825,16 @@
 
 (defun workboots/org-present-start ()
   ;; Center the presentation and wrap lines
-  (olivetti-mode 1)
+  (visual-fill-column-mode 1)
+  (visual-line-mode 1)
   (org-present-big)
   (org-present-hide-cursor)
   (org-present-read-only))
 
 (defun workboots/org-present-end ()
   ;; Stop centering the document
-  (olivetti-mode 0)
+  (visual-fill-column-mode 0)
+  (visual-line-mode 0)
   (org-present-small)
   (org-present-show-cursor)
   (org-present-read-write))
