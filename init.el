@@ -847,7 +847,7 @@
 (use-package window-margin
   :demand t
   :ensure (:wait t)
-  :hook (text-mode . window-margin-mode))
+  :hook (text-mode . turn-on-window-margin-mode))
 
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
