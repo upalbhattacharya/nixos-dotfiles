@@ -818,6 +818,7 @@
 (use-package visual-fill-column
   :demand t
   :ensure (:wait t)
+  :hook (visual-line-mode . 'visual-fill-column-mode)
   :config
   (setq visual-fill-column-width 110
       visual-fill-column-center-text t))
@@ -843,11 +844,6 @@
 ;; Register hooks with org-present
 (add-hook 'org-present-mode-hook 'workboots/org-present-start)
 (add-hook 'org-present-mode-quit-hook 'workboots/org-present-end)
-
-(use-package window-margin
-  :demand t
-  :ensure (:wait t)
-  :hook (text-mode . turn-on-window-margin-mode))
 
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
