@@ -818,7 +818,11 @@
 
 (use-package visual-fill-column
   :demand t
-  :ensure (:wait t))
+  :ensure (:wait t)
+  :config
+  ;; Configure fill width
+  (setq visual-fill-column-width 110)
+  (setq visual-fill-column-center-text t))
 
 (defun workboots/org-present-start ()
   ;; Center the presentation and wrap lines
@@ -833,8 +837,8 @@
 (use-package org-present
   :demand t
   :ensure (:wait t))
-  ;; :hook (org-present-mode . 'workboots/org-present-start)
-  ;; :hook (org-present-mode-quit . 'workboots/org-present-end))
+  :hook (org-present-mode . 'workboots/org-present-start)
+  :hook (org-present-mode-quit . 'workboots/org-present-end))
 
 
 (defun workboots/insert-todo-metadata ()
