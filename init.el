@@ -164,7 +164,6 @@
  (setq python-indent-level 4)
  (setq visible-bell t)
  (setq visual-line-mode 1)
- (setq auto-fill-mode 1)
  (setq truncate-partial-width-windows nil))
 
 ;;; Theme
