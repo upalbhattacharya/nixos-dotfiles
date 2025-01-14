@@ -818,7 +818,7 @@
 (use-package visual-fill-column
   :demand t
   :ensure (:wait t)
-  :hook (visual-line-mode . 'visual-fill-column-mode)
+  :hook (visual-line-mode . visual-fill-column-mode)
   :config
   (setq visual-fill-column-width 110
       visual-fill-column-center-text t))
