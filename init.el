@@ -824,10 +824,12 @@
 
 (defun workboots/org-present-start ()
   ;; Center the presentation and wrap lines
+  (olivetti-mode 1)
   (org-present-big 1))
 
 (defun workboots/org-present-end ()
   ;; Stop centering the document
+  (olivetti-mode 0)
   (org-presnt-small 1))
 
 (use-package org-present
