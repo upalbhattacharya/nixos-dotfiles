@@ -819,7 +819,8 @@
 (use-package org-present
   :demand t
   :ensure (:wait t)
-  :hook (org-present-mode . auto-fill-mode))
+  :hook (org-present-mode . 'workboots/org-present-start)
+  :hook (org-present-mode-quit . 'workboots/org-present-end))
 
 (use-package visual-fill-column
   :demand t
@@ -830,6 +831,16 @@
   (org-id-get-create)
   (org-back-to-heading)
   (org-end-of-line))
+
+(defun workboots/org-present-start ()
+  ;; Center the presentation and wrap lines
+  (visual-fill-column-mode 1)
+  (visual-line-mode 1))
+
+(defun workboots/org-present-end ()
+  ;; Stop centering the document
+  (visual-fill-column-mode 0)
+  (visual-line-mode 0))
 
 ;; Whenever a TODO entry is created, I want a timestamp
 ;; Advice org-insert-todo-heading to insert a created timestamp using org-expiry
