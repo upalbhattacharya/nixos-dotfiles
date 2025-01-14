@@ -842,6 +842,10 @@
 (add-hook 'org-present-mode-hook 'workboots/org-present-start)
 (add-hook 'org-present-mode-quit-hook 'workboots/org-present-end)
 
+(use-package org-tidy
+  :ensure t
+  :demand (:wait t))
+
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
   (org-id-get-create)
