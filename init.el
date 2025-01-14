@@ -163,7 +163,6 @@
  (setq-default tab-width 4)
  (setq python-indent-level 4)
  (setq visible-bell t)
- (setq visual-line-mode 1)
  (setq truncate-partial-width-windows nil))
 
 ;;; Theme
@@ -183,6 +182,7 @@
  :ensure nil
  :custom-face (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
  :hook (org-mode . org-indent-mode)
+ :hook (org-mode . (lambda () (visual-line-mode)))
  :hook (org-capture-mode . org-id-get-create)
  :config
  (define-key minibuffer-local-completion-map (kbd "?") nil)
