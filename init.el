@@ -816,11 +816,12 @@
   (setq org-plantuml-jar-path (expand-file-name "~/plantuml.jar"))
   (setq plantuml-jar-path (expand-file-name "~/plantuml.jar")))
 
-(use-package olivettI
+(use-package visual-fill-column
   :demand t
   :ensure (:wait t)
   :config
-  (setq olivetti-body-width 120))
+  (setq visual-fill-column-width 110
+      visual-fill-column-center-text t))
 
 (defun workboots/org-present-start ()
   ;; Center the presentation and wrap lines
