@@ -148,6 +148,8 @@
  ;; :custom-face (default ((nil (:font "Iosevka Nerd Font" :height 220))))
  :config
  (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 220)
+ (set-face-attribute 'fixed-pitch nil :font "Iosevka Nerd Font" :height 220)
+ (set-face-attribute 'variable-pitch nil :font "Iosevka Nerd Font" :height 1.3)
  (menu-bar-mode -1)
  (scroll-bar-mode -1)
  (tool-bar-mode -1)
@@ -844,6 +846,22 @@
   (org-present-show-cursor)
   (org-present-read-write))
 
+(defun workboots/dslide-start ()
+  ;; Center the presentation and wrap lines
+  (org-tidy-buffer)
+  (setq-local face-remapping-alist '((default (:height 1.5) variable-pitch)
+                                   (header-line (:height 4.0) variable-pitch)
+                                   (org-document-title (:height 1.75) org-document-title)
+                                   (org-code (:height 1.55) org-code)
+                                   (org-verbatim (:height 1.55) org-verbatim)
+                                   (org-block (:height 1.25) org-block)
+                                   (org-block-begin-line (:height 0.7) org-block))))
+
+(defun workboots/dslide-stop ()
+  ;; Stop centering the document
+  (org-tidy-untidy-buffer)
+  (setq-local face-remapping-alist '((default variable-pitch default))))
+
 (use-package org-present
   :demand t
   :ensure (:wait t))
@@ -855,6 +873,9 @@
 (use-package dslide
   :demand t
   :ensure (:wait t))
+
+(add-hook 'org-dslide-start-hook 'workboots/dslide-start)
+(add-hook 'org-dslide-stop-hook 'workboots/dslide-stop)
 
 ;; (use-package moc
 ;;   :demand t
