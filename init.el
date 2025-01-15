@@ -85,6 +85,11 @@
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(dslide-breadcrumb-separator " >")
  '(dslide-header t)
+ '(dslide-header-author nil)
+ '(dslide-header-date nil)
+ '(dslide-header-email nil)
+ '(dslide-hide-markup-types
+   '(comment comment-block drawer export-block property-drawer keyword))
  '(gac-automatically-push-p t)
  '(gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
  '(org-agenda-block-separator 46)
