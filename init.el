@@ -843,7 +843,7 @@
 (defun workboots/org-present-end ()
   ;; Stop centering the document
   (org-tidy-untidy-buffer)
-  (setq-local face-remapping-alist '((default default default)))
+  (setq-local face-remapping-alist '((default variable-pitch default)))
   (org-present-show-cursor)
   (org-present-read-write))
 
@@ -861,7 +861,8 @@
 (defun workboots/dslide-stop ()
   ;; Stop centering the document
   (org-tidy-untidy-buffer)
-  (setq-local face-remapping-alist '((default variable-pitch default))))
+  (setq-local face-remapping-alist '((default variable-pitch default)))
+  (variable-pitch-mode -1))
 
 (defun workboots/dslide-stop-if-forward ()
   (dslide-push-step (lambda (direction)
