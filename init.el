@@ -177,12 +177,12 @@
  (setq visible-bell t)
  (setq truncate-partial-width-windows nil))
 
-;;; Theme
-;; (use-package catppuccin-theme
-;;   :demand t
-;;   :ensure (:wait t)
-;;   :config
-;;   (load-theme 'catppuccin :no-confirm))
+;; Theme
+(use-package catppuccin-theme
+  :demand t
+  :ensure (:wait t)
+  :config
+  (load-theme 'catppuccin :no-confirm))
 
 (use-package evil
   :demand t
