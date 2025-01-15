@@ -819,7 +819,7 @@
   :ensure (:wait t)
   :hook (visual-line-mode . visual-fill-column-mode)
   :config
-  (setq visual-fill-column-width 110
+  (setq visual-fill-column-width 100
         visual-fill-column-center-text t))
 
 (use-package org-tidy
