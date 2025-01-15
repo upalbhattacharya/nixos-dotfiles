@@ -84,7 +84,8 @@
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(dslide-breadcrumb-separator " >")
- '(dslide-header t)
+ '(dslide-breadcrumb-separator-style 'separate)
+ '(dslide-header nil)
  '(dslide-header-author nil)
  '(dslide-header-date nil)
  '(dslide-header-email nil)
