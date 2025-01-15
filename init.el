@@ -843,7 +843,7 @@
 (defun workboots/org-present-end ()
   ;; Stop centering the document
   (org-tidy-untidy-buffer)
-  (setq-local face-remapping-alist '((default default)))
+  (setq-local face-remapping-alist '((default default default)))
   (org-present-show-cursor)
   (org-present-read-write))
 
