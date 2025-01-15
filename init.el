@@ -862,6 +862,15 @@
   (org-tidy-untidy-buffer)
   (setq-local face-remapping-alist '((default variable-pitch default))))
 
+(defun workboots/stop-if-forward ()
+  (dslide-push-step (lambda (direction)
+                  (when (eq direction 'forward)
+                    ;; Be sure to return t or the callback won't count as a
+                    ;; step and the hook will run again.
+                    (prog1 t (dslide-deck-stop))))))
+
+(setq dslide-after-last-slide-hook #'my-stop-if-forward)
+
 (use-package org-present
   :demand t
   :ensure (:wait t))
@@ -874,8 +883,9 @@
   :demand t
   :ensure (:wait t))
 
-(add-hook 'org-dslide-start-hook 'workboots/dslide-start)
-(add-hook 'org-dslide-stop-hook 'workboots/dslide-stop)
+(add-hook 'dslide-start-hook 'workboots/dslide-start)
+(add-hook 'dslide-stop-hook 'workboots/dslide-stop)
+(add-hook 'dslide-stop-hook 'workboots/dslide-stop)
 
 ;; (use-package moc
 ;;   :demand t
