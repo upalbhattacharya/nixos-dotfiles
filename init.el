@@ -84,7 +84,7 @@
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(dslide-breadcrumb-separator " >")
- '(dslide-header nil)
+ '(dslide-header t)
  '(gac-automatically-push-p t)
  '(gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
  '(org-agenda-block-separator 46)
@@ -862,7 +862,7 @@
 (defun workboots/dslide-stop ()
   ;; Stop centering the document
   (org-tidy-untidy-buffer)
-  (setq visual-fill-column-center-text -1)
+  (setq visual-fill-column-center-text nil)
   (setq-local face-remapping-alist '((variable-pitch default)))
   (variable-pitch-mode -1))
 
