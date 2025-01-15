@@ -862,7 +862,7 @@
   (org-tidy-untidy-buffer)
   (setq-local face-remapping-alist '((default variable-pitch default))))
 
-(defun workboots/stop-if-forward ()
+(defun workboots/dslide-stop-if-forward ()
   (dslide-push-step (lambda (direction)
                   (when (eq direction 'forward)
                     ;; Be sure to return t or the callback won't count as a
