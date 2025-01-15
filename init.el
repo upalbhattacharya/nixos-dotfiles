@@ -861,7 +861,7 @@
 (defun workboots/dslide-stop ()
   ;; Stop centering the document
   (org-tidy-untidy-buffer)
-  (setq-local face-remapping-alist '((default variable-pitch default)))
+  (setq-local face-remapping-alist '((variable-pitch default)))
   (variable-pitch-mode -1))
 
 (defun workboots/dslide-stop-if-forward ()
