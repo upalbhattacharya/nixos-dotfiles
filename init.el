@@ -186,7 +186,6 @@
  :ensure nil
  :custom-face (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
  :hook (org-mode . org-indent-mode)
- :hook (org-mode . (lambda () (visual-line-mode)))
  :hook (org-capture-mode . org-id-get-create)
  :config
  (define-key minibuffer-local-completion-map (kbd "?") nil)
@@ -818,7 +817,7 @@
 (use-package visual-fill-column
   :demand t
   :ensure (:wait t)
-  :hook (visual-line-mode . visual-fill-column-mode)
+  :hook (text-mode . visual-line-fill-column-mode)
   :config
   (setq visual-fill-column-width 100
         visual-fill-column-center-text t))
@@ -1171,9 +1170,3 @@ _n_: Go-to next annotation   _t_: Toggle annotation
 
 ;; (define-key dslide-mode (kbd "<right>") 'dslide-deck-forward)
 ;; (define-key dslide-mode (kbd "<left>") 'dslide-deck-backward)
-
-;; remove direction keys
-(global-unset-key (kbd "<up>"))
-(global-unset-key (kbd "<down>"))
-(global-unset-key (kbd "<left>"))
-(global-unset-key (kbd "<right>"))
