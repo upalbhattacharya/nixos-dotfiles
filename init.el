@@ -869,8 +869,6 @@
                     ;; step and the hook will run again.
                     (prog1 t (dslide-deck-stop))))))
 
-(setq dslide-after-last-slide-hook #'my-stop-if-forward)
-
 (use-package org-present
   :demand t
   :ensure (:wait t))
@@ -885,7 +883,7 @@
 
 (add-hook 'dslide-start-hook 'workboots/dslide-start)
 (add-hook 'dslide-stop-hook 'workboots/dslide-stop)
-(add-hook 'dslide-stop-hook 'workboots/dslide-stop)
+(add-hook 'dslide-after-last-slide-hook 'workboots/dslide-stop-if-forward)
 
 ;; (use-package moc
 ;;   :demand t
