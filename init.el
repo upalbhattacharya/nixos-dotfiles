@@ -93,6 +93,7 @@
    '(comment comment-block drawer export-block property-drawer keyword))
  '(gac-automatically-push-p t)
  '(gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+ '(ignored-local-variable-values '((org-confirm-babel-evaluate)))
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-export-backends '(ascii html icalendar latex odt org))
@@ -177,11 +178,11 @@
  (setq truncate-partial-width-windows nil))
 
 ;;; Theme
-(use-package catppuccin-theme
-  :demand t
-  :ensure (:wait t)
-  :config
-  (load-theme 'catppuccin :no-confirm))
+;; (use-package catppuccin-theme
+;;   :demand t
+;;   :ensure (:wait t)
+;;   :config
+;;   (load-theme 'catppuccin :no-confirm))
 
 (use-package evil
   :demand t
