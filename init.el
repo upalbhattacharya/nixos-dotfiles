@@ -1164,9 +1164,3 @@ _n_: Go-to next annotation   _t_: Toggle annotation
 
 ;; fold source blocks
 (global-set-key (kbd "C-c M-z") 'org-fold-hide-block-toggle)
-
-
-;; dslide
-
-;; (define-key dslide-mode (kbd "<right>") 'dslide-deck-forward)
-;; (define-key dslide-mode (kbd "<left>") 'dslide-deck-backward)
