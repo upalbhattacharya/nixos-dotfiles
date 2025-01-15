@@ -83,6 +83,7 @@
  '(calendar-date-style 'iso)
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
+ '(dslide-breadcrumb-separator " >")
  '(gac-automatically-push-p t)
  '(gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
  '(org-agenda-block-separator 46)
@@ -144,8 +145,9 @@
 (use-package emacs
  :demand t
  :ensure nil
- :custom-face (default ((nil (:font "Iosevka Nerd Font" :height 220))))
+ ;; :custom-face (default ((nil (:font "Iosevka Nerd Font" :height 220))))
  :config
+ (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 220)
  (menu-bar-mode -1)
  (scroll-bar-mode -1)
  (tool-bar-mode -1)
@@ -825,14 +827,20 @@
 (defun workboots/org-present-start ()
   ;; Center the presentation and wrap lines
   (org-tidy-buffer)
-  (org-present-big)
+  (setq-local face-remapping-alist '((default (:height 1.5) variable-pitch)
+                                   (header-line (:height 4.0) variable-pitch)
+                                   (org-document-title (:height 1.75) org-document-title)
+                                   (org-code (:height 1.55) org-code)
+                                   (org-verbatim (:height 1.55) org-verbatim)
+                                   (org-block (:height 1.25) org-block)
+                                   (org-block-begin-line (:height 0.7) org-block)))
   (org-present-hide-cursor)
   (org-present-read-only))
 
 (defun workboots/org-present-end ()
   ;; Stop centering the document
   (org-tidy-untidy-buffer)
-  (org-present-small)
+  (setq-local face-remapping-alist '((default variable-pitch default)))
   (org-present-show-cursor)
   (org-present-read-write))
 
@@ -963,6 +971,8 @@ exist after each headings's drawers."
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-c h") 'evil-next-buffer)
 (global-set-key (kbd "C-c l") 'evil-prev-buffer)
+(define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+(define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line)
 (global-set-key
  (kbd "C-c t")
  (lambda ()
