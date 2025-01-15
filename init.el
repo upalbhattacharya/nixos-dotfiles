@@ -1171,3 +1171,9 @@ _n_: Go-to next annotation   _t_: Toggle annotation
 
 ;; (define-key dslide-mode (kbd "<right>") 'dslide-deck-forward)
 ;; (define-key dslide-mode (kbd "<left>") 'dslide-deck-backward)
+
+;; remove direction keys
+(global-unset-key (kbd "<up>"))
+(global-unset-key (kbd "<down>"))
+(global-unset-key (kbd "<left>"))
+(global-unset-key (kbd "<right>"))
