@@ -347,6 +347,7 @@
           ("r" "resource" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n
 [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
            :target (file "Resources.org") :empty-lines 1)
+
           ("f" "fleeting note" plain "%?"
            :target
            (file+olp
