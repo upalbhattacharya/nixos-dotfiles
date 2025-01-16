@@ -376,7 +376,7 @@
 ")))
          ("r" "resource" plain "%?"
           :target
-          (file+head
+        (file+olp
            "Resources.org"
            (
             "${title}
@@ -393,7 +393,7 @@
           (file+olp
            "Literature.org"
            ("${note-title}\n:PROPERTIES:\n:NAME: ${note-title}\n:CREATED:\t%U\n:ID:\n:END:\n\n"))
-          :unnarrowed t)
+          :unnarrowed t :immediate-finish t)
          ("f" "fleeting note" plain "%?"
           :target
           (file+olp
