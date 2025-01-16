@@ -392,7 +392,7 @@
           :target
           (file+olp
            "Literature.org"
-           "${note-title}\n:PROPERTIES:\n:NAME: ${note-title}\n:CREATED:\t%U\n:ID:\n:END:\n\n")
+           ("${note-title}\n:PROPERTIES:\n:NAME: ${note-title}\n:CREATED:\t%U\n:ID:\n:END:\n\n"))
           :unnarrowed t)
          ("f" "fleeting note" plain "%?"
           :target
