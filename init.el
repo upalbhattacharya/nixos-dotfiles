@@ -138,8 +138,7 @@
      (66 :foreground "#181825" :background "#f9e2af")
      (67 :foreground "#181825" :background "#94e2d5")))
  '(org-ql-search-directories-files-recursive t)
- '(org-roam-capture-new-node-hook
-   '(org-id-get-create org-roam-capture--insert-captured-ref-h))
+ '(org-roam-capture-new-node-hook nil)
  '(org-super-agenda-date-format "%e %Y-%m-%d")
  '(org-use-property-inheritance '("NAME"))
  '(package-selected-packages
@@ -210,7 +209,6 @@
  (setq org-enforce-todo-dependencies t)
  (setq org-enforce-todo-checkbox-dependencies t)
  (setq org-startup-folded 'overview)
- (setq org-log-into-drawer t)
 
  ;;org-cite
  (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
@@ -334,18 +332,18 @@
  (setq org-roam-dailies-directory "~/org/Journal/")
  (setq org-roam-completion-everywhere t)
  (setq org-roam-capture-templates
-       '(("d" "default" plain "%?"
+       '(("d" "default" plain "* ${title}\n :PROPERTIES:\n:ID: %(org-id-uuid)\n:NAME: ${title}\n:CREATED: %U\n:END:\n"
           :target
-          (file+olp
-           "Inbox.org"
-           (
-            "TODO ${title}
-:PROPERTIES:
-:NAME: ${title}
-:CREATED:\t%U
-:ID:
-:END:
-")))
+          (file "Inbox.org"
+;;            (
+;;             "TODO ${title}
+;; :PROPERTIES:
+;; :NAME: ${title}
+;; :CREATED:\t%U
+;; :END:
+;; ")
+                )
+          :empty-lines 1)
          ("p" "project" plain "%?"
           :target
           (file+olp
@@ -392,7 +390,7 @@
           :target
           (file+olp
            "Literature.org"
-           ("${note-title}\n:PROPERTIES:\n:NAME: ${note-title}\n:CREATED:\t%U\n:ID:\n:END:\n\n"))
+           ("${note-title}\n:PROPERTIES:\n:NAME: ${note-title}\n:CREATED:\t%U\n:ID:\n:ROAM_REFS:\n:END:\n\n"))
           :unnarrowed t :immediate-finish t)
          ("f" "fleeting note" plain "%?"
           :target
