@@ -106,6 +106,7 @@
      (gnus . org-gnus-no-new-news)
      (file . find-file)
      (wl . wl-other-frame)))
+ '(org-log-into-drawer t)
  '(org-preview-latex-process-alist
    '((dvipng :programs
              ("latex" "dvipng")
@@ -138,7 +139,6 @@
      (66 :foreground "#181825" :background "#f9e2af")
      (67 :foreground "#181825" :background "#94e2d5")))
  '(org-ql-search-directories-files-recursive t)
- '(org-roam-capture-new-node-hook nil)
  '(org-super-agenda-date-format "%e %Y-%m-%d")
  '(org-use-property-inheritance '("NAME"))
  '(package-selected-packages
@@ -351,7 +351,7 @@
           ("f" "fleeting note" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n"
            :target (file "Fleeting.org") :empty-lines 1)
 
-          ("l" "literature note" entry "* TODO ${note-title}\n:PROPERTIES:\n:NAME:\t${note-title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\nROAM_REFS:\t\n:END:\n"
+          ("l" "literature note" entry "* TODO ${note-title}\n:PROPERTIES:\n:NAME:\t${note-title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:ROAM_REFS:\t\n:END:\n"
            :target (file "Literature.org") :empty-lines 1)
           ))
 
@@ -867,7 +867,6 @@
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
   (org-id-get-create)
-  (org-back-to-heading)
   (org-end-of-line))
 
 
@@ -885,6 +884,12 @@
 ;; Make it active
 (ad-activate 'org-insert-todo-subheading)
 
+(defadvice org-insert-todo-heading-respect-content (after workboots/insert-todo-metadata activate)
+  "Insert a CREATED property using org-expiry.el for TODO entries"
+  (workboots/insert-todo-metadata))
+;; Make it active
+(ad-activate 'org-insert-todo-heading-respect-content)
+
 (defadvice org-insert-heading (after workboots/insert-todo-metadata activate)
   "Insert a CREATED property using org-expiry.el for TODO entries"
   (workboots/insert-todo-metadata))
@@ -896,12 +901,6 @@
   (workboots/insert-todo-metadata))
 ;; Make it active
 (ad-activate 'org-insert-heading-after-current)
-
-(defadvice org-insert-heading-respect-content (after workboots/insert-todo-metadata activate)
-  "Insert a CREATED property using org-expiry.el for TODO entries"
-  (workboots/insert-todo-metadata))
-;; Make it active
-(ad-activate 'org-insert-heading-respect-content)
 
 (defadvice org-insert-subheading (after workboots/insert-todo-metadata activate)
   "Insert a CREATED property using org-expiry.el for TODO entries"
