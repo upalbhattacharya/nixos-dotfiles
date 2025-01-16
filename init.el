@@ -325,48 +325,49 @@
  :ensure nil)
 
 (use-package org-roam
- :demand t
- :ensure (:wait t)
- :config
- (setq org-roam-directory (file-truename "~/org"))
- (setq org-roam-dailies-directory "~/org/Journal/")
- (setq org-roam-completion-everywhere t)
- (setq org-roam-capture-templates
-       '(
-         ("d" "default" entry "* ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n"
-          :target (file "Inbox.org") :empty-lines 1)
+  :demand t
+  :ensure (:wait t)
+  :config
+  (setq org-roam-directory (file-truename "~/org"))
+  (setq org-roam-dailies-directory "~/org/Journal/")
+  (setq org-roam-completion-everywhere t)
+  (setq org-roam-capture-templates
+        '(
+          ("d" "default" entry "* ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n"
+           :target (file "Inbox.org") :empty-lines 1)
 
-         ("p" "project" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n
+          ("p" "project" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n
 [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
-          :target (file "Projects.org") :empty-lines 1)
+           :target (file "Projects.org") :empty-lines 1)
 
-         ("a" "area" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n
+          ("a" "area" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n
 [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
-          :target (file "Areas.org") :empty-lines 1)
+           :target (file "Areas.org") :empty-lines 1)
 
-         ("r" "resource" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n
+          ("r" "resource" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n
 [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
-          :target (file "Resources.org") :empty-lines 1)
+           :target (file "Resources.org") :empty-lines 1)
+          ("f" "fleeting note" plain "%?"
+           :target
+           (file+olp
+            "Fleeting.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:ID:\n:END:\n\n")))
 
-         ("l" "literature note" entry "* TODO ${note-title}\n:PROPERTIES:\n:NAME:\t${note-title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\nROAM_REFS:\t\n:END:\n"
-          :target (file "Literature.org") :empty-lines 1)
+          ("l" "literature note" entry "* TODO ${note-title}\n:PROPERTIES:\n:NAME:\t${note-title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\nROAM_REFS:\t\n:END:\n"
+           :target (file "Literature.org") :empty-lines 1)
 
-         ("f" "fleeting note" plain "%?"
-          :target
-          (file+olp
-           "Fleeting.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:ID:\n:END:\n\n")))))
+          ))
 
- (setq org-roam-dailies-capture-templates
-       '(("d"
-          "default"
-          plain
-          "%?"
-          :target (file+olp "Journal %<%Y>.org" ("%<%Y-%m>" "%<%Y-%m-%d>"))
-          :unnarrowed t)))
- (setq org-roam-mode-sections (list #'org-roam-backlinks-section #'org-roam-reflinks-section))
- (setq org-roam-completion-everywhere t)
- (setq org-roam-db-autosync-mode 1)
- (setq org-roam-db-update-on-save 1))
+  (setq org-roam-dailies-capture-templates
+        '(("d"
+           "default"
+           plain
+           "%?"
+           :target (file+olp "Journal %<%Y>.org" ("%<%Y-%m>" "%<%Y-%m-%d>"))
+           :unnarrowed t)))
+  (setq org-roam-mode-sections (list #'org-roam-backlinks-section #'org-roam-reflinks-section))
+  (setq org-roam-completion-everywhere t)
+  (setq org-roam-db-autosync-mode 1)
+  (setq org-roam-db-update-on-save 1))
 
 (use-package org-superstar
   :demand t
