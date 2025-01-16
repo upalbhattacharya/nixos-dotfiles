@@ -351,11 +351,6 @@
           ("f" "fleeting note" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n"
            :target (file "Fleeting.org") :empty-lines 1)
 
-          ("f" "fleeting note" plain "%?"
-           :target
-           (file+olp
-            "Fleeting.org" ("${title}\n:PROPERTIES:\n:NAME: ${title}\n:CREATED:\t%U\n:ID:\n:END:\n\n")))
-
           ("l" "literature note" entry "* TODO ${note-title}\n:PROPERTIES:\n:NAME:\t${note-title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\nROAM_REFS:\t\n:END:\n"
            :target (file "Literature.org") :empty-lines 1)
 
