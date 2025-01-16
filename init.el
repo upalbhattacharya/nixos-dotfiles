@@ -332,9 +332,9 @@
  (setq org-roam-dailies-directory "~/org/Journal/")
  (setq org-roam-completion-everywhere t)
  (setq org-roam-capture-templates
-       '(("d" "default" plain "\n:PROPERTIES:\n:NAME: ${title}\n:ID: %(org-id-uuid)\n:CREATED: %U\n:END:\n"
+       '(("d" "default" plain "* ${title}\n:PROPERTIES:\n:NAME: ${title}\n:ID: %(org-id-uuid)\n:CREATED: %U\n:END:\n"
           :target
-          (file+olp "Inbox.org" ( "${title}" )
+          (file "Inbox.org"
 ;;            (
 ;;             "TODO ${title}
 ;; :PROPERTIES:
@@ -343,7 +343,8 @@
 ;; :END:
 ;; ")
                 )
-          :empty-lines 1)
+          :empty-lines 1
+          :prepend nil)
          ("p" "project" plain "%?"
           :target
           (file+olp
