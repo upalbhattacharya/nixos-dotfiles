@@ -899,6 +899,10 @@
 ;;   :demand t
 ;;   :ensure (:wait t))
 
+(use-package transient
+  :demand t
+  :ensure (:wait t))
+
 (use-package magit
   :demand t
   :ensure (:wait t))
