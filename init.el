@@ -332,7 +332,7 @@
  (setq org-roam-dailies-directory "~/org/Journal/")
  (setq org-roam-completion-everywhere t)
  (setq org-roam-capture-templates
-       '(("d" "default" plain "* ${title}\n:PROPERTIES:\n:NAME: ${title}\n:ID: %(org-id-uuid)\n:CREATED: %U\n:END:\n"
+       '(("d" "default" plain "* ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n"
           :target
           (file "Inbox.org"
 ;;            (
