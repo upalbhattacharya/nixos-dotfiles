@@ -353,7 +353,6 @@
 
           ("l" "literature note" entry "* TODO ${note-title}\n:PROPERTIES:\n:NAME:\t${note-title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\nROAM_REFS:\t\n:END:\n"
            :target (file "Literature.org") :empty-lines 1)
-
           ))
 
   (setq org-roam-dailies-capture-templates
