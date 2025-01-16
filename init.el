@@ -348,12 +348,9 @@
 [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
           :target (file "Resources.org") :empty-lines 1)
 
-         ("l" "literature note" plain "%?"
-          :target
-          (file+olp
-           "Literature.org"
-           ("${note-title}\n:PROPERTIES:\n:NAME: ${note-title}\n:CREATED:\t%U\n:ID:\n:ROAM_REFS:\n:END:\n\n"))
-          :unnarrowed t :immediate-finish t)
+         ("l" "literature note" entry "* TODO ${note-title}\n:PROPERTIES:\n:NAME:\t${note-title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\nROAM_REFS:\t\n:END:\n"
+          :target (file "Literature.org") :empty-lines 1)
+
          ("f" "fleeting note" plain "%?"
           :target
           (file+olp
