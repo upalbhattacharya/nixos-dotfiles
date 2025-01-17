@@ -875,7 +875,6 @@
   :ensure (:wait t)
   :after org-roam)
 
-
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
   (org-id-get-create)
