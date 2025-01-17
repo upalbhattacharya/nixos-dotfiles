@@ -335,8 +335,8 @@
   (let ((file (org-roam-node-file node)))
     (file-name-base file)))
   (setq org-roam-node-display-template
-        (concat (propertize "${status:12}"'face 'org-todo)
-                "${title:94} ${filename:20}"))
+        (concat (propertize "${status:13}"'face 'org-todo)
+                "${title:80} ${filename:20}"))
   (setq org-roam-directory (file-truename "~/org"))
   (setq org-roam-dailies-directory "~/org/Journal/")
   (setq org-roam-completion-everywhere t)
