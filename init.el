@@ -329,13 +329,14 @@
   :ensure (:wait t)
   :config
 
-  (cl-defmethod org-roam-node-get-todo ((node org-roam-node))
+  (cl-defmethod org-roam-node-my-todo ((node org-roam-node))
     (org-roam-node-todo node))
+
   (cl-defmethod org-roam-node-filename ((node org-roam-node))
   (let ((file (org-roam-node-file node)))
     (file-name-base file)))
 
-  (setq org-roam-node-display-template "${get-todo} ${title:120} (${filename:*})")
+  (setq org-roam-node-display-template "${my-todo:*} ${title:120} (${filename:*})")
   (setq org-roam-directory (file-truename "~/org"))
   (setq org-roam-dailies-directory "~/org/Journal/")
   (setq org-roam-completion-everywhere t)
