@@ -330,15 +330,11 @@
   :config
   (cl-defmethod org-roam-node-status ((node org-roam-node))
     (let ((status (org-roam-node-todo node)))
-      (propertize status 'face (org-get-todo-face status))))
-          
+      (propertize (format "%s" status) 'face (org-get-todo-face (format "%s" status)))))
   (cl-defmethod org-roam-node-filename ((node org-roam-node))
   (let ((file (org-roam-node-file node)))
     (file-name-base file)))
-  (setq org-roam-node-display-template
-        (concat (propertize "${todo:13}" 'face (org-get-todo-face (org-roam-node-todo))
-                "${status:13} ${title:80} ${filename:20}"
-                ))
+  (setq org-roam-node-display-template "${status:13} ${title:80} ${filename:20}")
   (setq org-roam-directory (file-truename "~/org"))
   (setq org-roam-dailies-directory "~/org/Journal/")
   (setq org-roam-completion-everywhere t)
