@@ -328,15 +328,6 @@
   :demand t
   :ensure (:wait t)
   :config
-  (defun org-roam-annotate-tag+ (node)
-    (let ((tags (org-roam-node-read--tags-to-str (org-roam-node-tags node))))
-      (unless (string-empty-p tags)
-        (concat
-          " "
-          (propertize " " 'display `(space :align-to (- right ,(+ 1 (length tags)))))
-          tags)))))
-
-  (setq org-roam-node-annotation-function #'org-roam-annotate-tag+)
   (cl-defmethod org-roam-node-status ((node org-roam-node))
     (let ((status (org-roam-node-todo node)))
       (org-roam-node-todo node)))
@@ -344,7 +335,7 @@
   (let ((file (org-roam-node-file node)))
     (file-name-base file)))
   (setq org-roam-node-display-template
-        (concat (propertize "${status:13}"'face 'org-todo)
+        (concat (propertize "${status:13}" 'face 'org-todo-keyword-faces)
                 "${title:80} ${filename:20}"))
   (setq org-roam-directory (file-truename "~/org"))
   (setq org-roam-dailies-directory "~/org/Journal/")
