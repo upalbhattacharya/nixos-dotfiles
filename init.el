@@ -226,8 +226,7 @@
  ;; (setq org-agenda-hide-tags-regexp ".*")
  (setq org-agenda-prefix-format '((agenda . " %?-12c  %?-12t%?-b ") (todo . " %?-12t %s")))
  (setq org-agenda-view-columns-initially t)
- (setq
-  org-agenda-overriding-columns-format
+ (setq org-columns-default-format-for-agenda
   "%12TODO(STATUS) %100ITEM %50NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %DEADLINE %SCHEDULED")
  (setq org-agenda-with-colors t)
  (setq org-agenda-format-date
@@ -335,8 +334,7 @@
         )
       ))
   (cl-defmethod org-roam-node-filename ((node org-roam-node))
-    (let ((filename (file-name-base (org-roam-node-file node))))
-     (propertize (format "%s" filename) 'face '(org-get-level-face (format "%d" (org-roam-node-level node))))
+    (file-name-base (org-roam-node-file node)
       ))
   (setq org-roam-node-display-template "${status:13} ${title:80} ${filename:20}")
   (setq org-roam-directory (file-truename "~/org"))
@@ -620,10 +618,10 @@
              ((org-ql-block-header "Scheduled Today"))
              )
             (org-ql-block
-             '(and (todo "TODAY")
+             '(and (todo "TODAY" "FOCUS")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Planned Today"))
+             ((org-ql-block-header "Planned or Working on Today"))
              )
             (org-ql-block
              '(and (done)
@@ -1095,7 +1093,7 @@ _r_: Red highlight       _q_: Quit
 "
 ("b" org-remark-mark-blue)
 ("g" org-remark-mark-green)
-("y" org-reamrk-mark-yellow)
+("y" org-remark-mark-yellow)
 ("r" org-remark-mark-red)
 ("p" org-remark-mark-purple)
 ("d" org-remark-remove)
