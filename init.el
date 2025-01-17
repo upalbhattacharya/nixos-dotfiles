@@ -236,7 +236,7 @@
        '(("outline" org-columns--summary-sum
           workboots/org-outline)))
  (setq org-columns-default-format-for-agenda
-  "%12TODO(STATUS) %100ITEM %50NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %SCHEDULED %DEADLINE")
+  "%12TODO(STATUS) %100ITEM{outline} %50NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %SCHEDULED %DEADLINE")
  (setq org-agenda-with-colors t)
  (setq org-agenda-format-date
        (lambda (date)
