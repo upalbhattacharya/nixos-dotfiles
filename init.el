@@ -328,7 +328,6 @@
   :demand t
   :ensure (:wait t)
   :config
-
   (defun org-roam-annotate-tag+ (node)
     (let ((tags (org-roam-node-read--tags-to-str (org-roam-node-tags node))))
       (unless (string-empty-p tags)
