@@ -328,10 +328,15 @@
   :demand t
   :ensure (:wait t)
   :config
+  (cl-defmethod org-roam-node-status ((node org-roam-node))
+    (let ((status (org-roam-node-todo node)))
+      (org-roam-node-todo node)))
   (cl-defmethod org-roam-node-filename ((node org-roam-node))
   (let ((file (org-roam-node-file node)))
     (file-name-base file)))
-  (setq org-roam-node-display-template "${title:94} 'face ${filename:20}")
+  (setq org-roam-node-display-template
+        (concat (propertize "${status:12}"'face 'org-todo)
+                "${title:94} ${filename:20}"))
   (setq org-roam-directory (file-truename "~/org"))
   (setq org-roam-dailies-directory "~/org/Journal/")
   (setq org-roam-completion-everywhere t)
