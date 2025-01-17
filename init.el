@@ -872,7 +872,8 @@
 
 (use-package org-roam-ql
   :demand t
-  :ensure (:wait t))
+  :ensure (:wait t)
+  :after org-roam)
 
 
 (defun workboots/insert-todo-metadata ()
