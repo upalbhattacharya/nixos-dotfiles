@@ -328,6 +328,16 @@
   :demand t
   :ensure (:wait t)
   :config
+
+  (defun org-roam-annotate-tag+ (node)
+    (let ((tags (org-roam-node-read--tags-to-str (org-roam-node-tags node))))
+      (unless (string-empty-p tags)
+        (concat
+          " "
+          (propertize " " 'display `(space :align-to (- right ,(+ 1 (length tags)))))
+          tags)))))
+
+  (setq org-roam-node-annotation-function #'org-roam-annotate-tag+)
   (cl-defmethod org-roam-node-status ((node org-roam-node))
     (let ((status (org-roam-node-todo node)))
       (org-roam-node-todo node)))
