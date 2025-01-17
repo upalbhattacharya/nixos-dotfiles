@@ -336,7 +336,7 @@
       ))
   (cl-defmethod org-roam-node-filename ((node org-roam-node))
     (let ((filename (file-name-base (org-roam-node-file node))))
-     (propertize (format "%s" filename) 'face '(org-get-level-face (formaty "%d" (org-roam-node-level node))))
+     (propertize (format "%s" filename) 'face '(org-get-level-face (format "%d" (org-roam-node-level node))))
       ))
   (setq org-roam-node-display-template "${status:13} ${title:80} ${filename:20}")
   (setq org-roam-directory (file-truename "~/org"))
