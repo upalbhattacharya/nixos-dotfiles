@@ -339,7 +339,7 @@
        (when (> level 1) (concat (string-join (org-roam-node-olp node) " > ") " > "))
        (org-roam-node-title node))))
 
-  (setq org-roam-node-display-template "${hierarchy:*}")
+  (setq org-roam-node-display-template "${directories:*} ${hierarchy:*}")
   (setq org-roam-directory (file-truename "~/org"))
   (setq org-roam-dailies-directory "~/org/Journal/")
   (setq org-roam-completion-everywhere t)
