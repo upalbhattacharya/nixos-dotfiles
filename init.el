@@ -328,13 +328,10 @@
   :demand t
   :ensure (:wait t)
   :config
-  ;; (cl-defmethod org-roam-node-my-todo ((node org-roam-node))
-  ;;   (let ((todo (org-roam-node-todo node)))
-  ;;   (org-roam-node-todo node)))
   (cl-defmethod org-roam-node-filename ((node org-roam-node))
   (let ((file (org-roam-node-file node)))
     (file-name-base file)))
-  (setq org-roam-node-display-template "${title:80} ${filename:20}")
+  (setq org-roam-node-display-template "${title:94} 'face ${filename:20}")
   (setq org-roam-directory (file-truename "~/org"))
   (setq org-roam-dailies-directory "~/org/Journal/")
   (setq org-roam-completion-everywhere t)
@@ -869,11 +866,6 @@
 (use-package magit
   :demand t
   :ensure (:wait t))
-
-(use-package org-roam-ql
-  :demand t
-  :ensure (:wait t)
-  :after org-roam)
 
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
