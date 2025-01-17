@@ -328,18 +328,11 @@
   :demand t
   :ensure (:wait t)
   :config
-  (cl-defmethod org-roam-node-directories ((node org-roam-node))
-    (if-let ((dirs (file-name-directory (file-relative-name (org-roam-node-file node) org-roam-directory))))
-        (format "(%s)" (car (split-string dirs "/")))
-      ""))
-  (cl-defmethod org-roam-node-hierarchy ((node org-roam-node))
-    (let ((level (org-roam-node-level node)))
-      (concat
-       (when (> level 0) (concat (org-roam-node-file-title node) " > "))
-       (when (> level 1) (concat (string-join (org-roam-node-olp node) " > ") " > "))
-       (org-roam-node-title node))))
+  (cl-defmethod org-roam-node-filename ((node org-roam-node))
+  (let ((file (org-roam-node-file node)))
+    (file-name-base file)))
 
-  (setq org-roam-node-display-template "${directories:*} ${hierarchy:*}")
+  (setq org-roam-node-display-template "${title:50} ${filename:*}")
   (setq org-roam-directory (file-truename "~/org"))
   (setq org-roam-dailies-directory "~/org/Journal/")
   (setq org-roam-completion-everywhere t)
