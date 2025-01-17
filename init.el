@@ -335,7 +335,7 @@
   (let ((file (org-roam-node-file node)))
     (file-name-base file)))
 
-  (setq org-roam-node-display-template "${title:120} (${filename:*})")
+  (setq org-roam-node-display-template "${get-todo} ${title:120} (${filename:*})")
   (setq org-roam-directory (file-truename "~/org"))
   (setq org-roam-dailies-directory "~/org/Journal/")
   (setq org-roam-completion-everywhere t)
