@@ -330,10 +330,14 @@
   :config
   (cl-defmethod org-roam-node-status ((node org-roam-node))
     (let ((status (org-roam-node-todo node)))
-      (propertize (format "%s" status) 'face (org-get-todo-face (format "%s" status)))))
+      (if status
+          (propertize (format "%s" status) 'face (org-get-todo-face (format "%s" status)))
+        )
+      ))
   (cl-defmethod org-roam-node-filename ((node org-roam-node))
-  (let ((file (org-roam-node-file node)))
-    (file-name-base file)))
+    (if (not (eq (org-roam-node-file node) (org-roam-node-title node)))
+        (
+          (org-roam-node-title node))))
   (setq org-roam-node-display-template "${status:13} ${title:80} ${filename:20}")
   (setq org-roam-directory (file-truename "~/org"))
   (setq org-roam-dailies-directory "~/org/Journal/")
