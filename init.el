@@ -224,12 +224,19 @@
  (setq org-agenda-skip-timeline-if-deadline-is-shown t)
  ;; (setq org-agenda-hide-tags-regexp ".*")
  (setq org-agenda-prefix-format '((agenda . " %?-12c  %?-12t%?-b ")
-(todo . " %?-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
-;; (todo . " %?-12t %s")
+;; (todo . " %?-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
+(todo . " %b %?-12t %s")
 ))
  (setq org-agenda-view-columns-initially t)
+ (defun workboots/org-outline (property)
+    "Return `PROPERTY' for `CONFIRMED' entries"
+    (outlinepath (org-get-outline-path property))
+    )
+  (setq org-columns-summary-types
+       '(("outline" org-columns--summary-sum
+          workboots/org-outline)))
  (setq org-columns-default-format-for-agenda
-  "%12TODO(STATUS) %100ITEM %50NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %DEADLINE %SCHEDULED")
+  "%12TODO(STATUS) %100ITEM %50NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %SCHEDULED %DEADLINE")
  (setq org-agenda-with-colors t)
  (setq org-agenda-format-date
        (lambda (date)
