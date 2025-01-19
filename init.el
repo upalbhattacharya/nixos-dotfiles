@@ -228,14 +228,22 @@
 (todo . " %b %?-12t %s")
 ))
  (setq org-agenda-view-columns-initially t)
-(defun workboots/org-outline (property)
-    (outlinepath (org-get-outline-path property))
-    )
+ (defun workboots/org-outline (property)
+    (let ((node (org-roam-node-from-title-or-alias property))
+          (level (org-roam-node-olp node)))
+      (string-join (org-roam-node-olp node) " > ")
+      ))
+;; (cl-defmethod org-roam-node-hierarchy ((node org-roam-node))
+;;   (let ((level (org-roam-node-level node)))
+;;     (concat
+;;      (when (> level 0) (concat (org-roam-node-file-title node) " > "))
+;;      (when (> level 1) (concat (string-join (org-roam-node-olp node) " > ") " > "))
+;;      (org-roam-node-title node))))
   (setq org-columns-summary-types
        '(("outline" org-columns--summary-sum
           workboots/org-outline)))
  (setq org-columns-default-format-for-agenda
-  "%12TODO(STATUS) %100ITEM %50NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %SCHEDULED %DEADLINE")
+  "%12TODO(STATUS) %100ITEM %50NAME(HEAD){outline} %20CATEGORY(PARA) %PRIORITY(PR.) %SCHEDULED %DEADLINE")
  (setq org-agenda-with-colors t)
  (setq org-agenda-format-date
        (lambda (date)
