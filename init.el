@@ -166,7 +166,7 @@
  (setq backup-directory-alist '((".*" . "/tmp")))
  (setq kill-buffer-delete-auto-save-files t)
  (setq display-line-numbers-type 'visual)
- (setq-default fill-column 100)
+ (setq-default fill-column 130)
  (setq-default indent-tabs-mode nil)
  (setq tab-always-indent 'complete)
  (setq-default tab-width 4)
