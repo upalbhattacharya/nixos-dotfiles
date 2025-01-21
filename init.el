@@ -92,6 +92,7 @@
  '(dslide-hide-markup-types
    '(comment comment-block drawer export-block property-drawer keyword))
  '(gac-automatically-push-p t)
+ '(global-text-scale-adjust-resizes-frames t)
  '(gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
  '(ignored-local-variable-values '((org-confirm-babel-evaluate)))
  '(org-agenda-block-separator 46)
@@ -100,6 +101,7 @@
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
                  ("begin" "$1" "$" "$$" "\\(" "\\[")))
+ '(org-indirect-buffer-display 'other-window)
  '(org-link-frame-setup
    '((vm . vm-visit-folder-other-frame)
      (vm-imap . vm-visit-imap-folder-other-frame)
@@ -230,7 +232,7 @@
 ))
  (setq org-agenda-view-columns-initially t)
  (setq org-columns-default-format-for-agenda
-  "%12TODO(STATUS) %100ITEM %50NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %SCHEDULED %DEADLINE")
+  "%12TODO(STATUS) %50ITEM %30NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %SCHEDULED %DEADLINE")
  (setq org-agenda-with-colors t)
  (setq org-agenda-format-date
        (lambda (date)
@@ -338,8 +340,14 @@
       ))
   (cl-defmethod org-roam-node-filename ((node org-roam-node))
     (file-name-base (org-roam-node-file node)
-      ))
-  (setq org-roam-node-display-template "${status:13} ${title:80} ${filename:20}")
+                    ))
+  (cl-defmethod org-roam-node-hierarchy ((node org-roam-node))
+    (let ((level (org-roam-node-level node)))
+      (concat
+       (when (> level 0) (concat (org-roam-node-file-title node) " > "))
+       (when (> level 1) (concat (string-join (org-roam-node-olp node) " > ") " > "))
+       (org-roam-node-title node))))
+  (setq org-roam-node-display-template "${status:13} ${hierarchy:*} ${filename:20}")
   (setq org-roam-directory (file-truename "~/org"))
   (setq org-roam-dailies-directory "~/org/Journal/")
   (setq org-roam-completion-everywhere t)
@@ -598,13 +606,6 @@
   (setq org-agenda-custom-commands
         '(("z" "Zen View"
            ((org-ql-block
-             '(and (level 2 8)
-                   (todo "FOCUS")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Presently Focusing On"))
-             )
-            (org-ql-block
              '(and (todo)
                    (level 2 8)
                    (deadline :on today)
@@ -622,7 +623,7 @@
              )
             (org-ql-block
              '(and (level 2 8)
-                   (todo "TODAY" "FOCUS")
+                   (todo "TODAY")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Planned or Working on Today"))
@@ -644,7 +645,7 @@
              )
             (org-ql-block
              '(and (level 2 8)
-                   (todo "IN PROGRESS")
+                   (todo "IN PROGRESS" "REVIEW")
                    (not (path "Archive" "Inbox"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "In Progress"))
@@ -875,6 +876,9 @@
 (use-package magit
   :demand t
   :ensure (:wait t))
+
+(use-package textsize
+  :init (textsize-mode))
 
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
@@ -1144,3 +1148,30 @@ _n_: Go-to next annotation   _t_: Toggle annotation
 
 ;; fold source blocks
 (global-set-key (kbd "C-c M-z") 'org-fold-hide-block-toggle)
+
+(defun workboots/org-narrow-to-subtree
+    ()
+    (interactive)
+    (let ((org-indirect-buffer-display 'current-window))
+      (if (not (boundp 'org-indirect-buffer-file-name))
+	  (let ((above-buffer (current-buffer))
+		(org-filename (buffer-file-name)))
+	    (org-tree-to-indirect-buffer (1+ (org-current-level)))
+	    (setq-local org-indirect-buffer-file-name org-filename)
+	    (setq-local org-indirect-above-buffer above-buffer))
+	(let ((above-buffer (current-buffer))
+	      (org-filename org-indirect-buffer-file-name))
+	  (org-tree-to-indirect-buffer (1+ (org-current-level)))
+	  (setq-local org-indirect-buffer-file-name org-filename)
+	  (setq-local org-indirect-above-buffer above-buffer)))))
+
+(defun workboots/org-widen-from-subtree
+    ()
+    (interactive)
+    (let ((above-buffer org-indirect-above-buffer)
+	  (org-indirect-buffer-display 'current-window))
+      (kill-buffer)
+      (switch-to-buffer above-buffer)))
+
+(define-key org-mode-map (kbd "C-x n s") 'workboots/org-narrow-to-subtree)
+(define-key org-mode-map (kbd "C-x n w") 'workboots/org-widen-from-subtree)
