@@ -1,5 +1,5 @@
 ;; Bootstrap elpaca
-(defvar elpaca-installer-version 0.8)
+(defvar elpaca-installer-version 0.9)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
 (defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
 (defvar elpaca-repos-directory (expand-file-name "repos/" elpaca-directory))
@@ -166,7 +166,7 @@
  (setq backup-directory-alist '((".*" . "/tmp")))
  (setq kill-buffer-delete-auto-save-files t)
  (setq display-line-numbers-type 'visual)
- (setq-default fill-column 130)
+ ;; (setq-default fill-column 130)
  (setq-default indent-tabs-mode nil)
  (setq tab-always-indent 'complete)
  (setq-default tab-width 4)
@@ -191,6 +191,7 @@
  :ensure nil
  :custom-face (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
  :hook (org-mode . org-indent-mode)
+ :hook (org-mode . visual-line-mode)
  :hook (org-capture-mode . org-id-get-create)
  :config
  (define-key minibuffer-local-completion-map (kbd "?") nil)
@@ -247,19 +248,19 @@
           "TODO(t)"
           "NEXT(n/!)"
           "TODAY(T/!)"
-          "FOCUS(f/!)"
           "IN PROGRESS(p/!)"
+          "REVIEW(r/!)"
           "LATER(l/!)"
           "|"
           "DONE(d/!)"
           "ARCHIVED(a/!)")))
  (setq org-todo-keyword-faces
        '(("TODO" . (:foreground "#f9e2af" :weight bold))
-         ("NEXT" . (:foreground "#cba6f7" :weight bold))
+         ("NEXT" . (:foreground "#f5c2e7" :weight bold))
          ("TODAY" . (:foreground "#f2cdcd" :weight bold))
-         ("LATER" . (:foreground "#b4befe" :weight bold))
-         ("FOCUS" . (:foreground "#f38ba8" :weight bold))
          ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold))
+         ("REVIEW" . (:foreground "#cba6f7" :weight bold))
+         ("LATER" . (:foreground "#b4befe" :weight bold))
          ("DONE" . (:foreground "#a6e3a1" :weight bold))
          ("ARCHIVED" . (:foreground "#9399b2")))))
 
@@ -789,13 +790,13 @@
   (setq org-plantuml-jar-path (expand-file-name "~/plantuml.jar"))
   (setq plantuml-jar-path (expand-file-name "~/plantuml.jar")))
 
-(use-package visual-fill-column
-  :demand t
-  :ensure (:wait t)
-  :hook (text-mode . visual-line-fill-column-mode)
-  :config
-  (setq visual-fill-column-width 120
-        visual-fill-column-center-text t))
+;; (use-package visual-fill-column
+;;   :demand t
+;;   :ensure (:wait t)
+;;   :hook (text-mode . visual-line-fill-column-mode))
+  ;; :config
+  ;; (setq visual-fill-column-width 140
+  ;;       visual-fill-column-center-text t))
 
 (use-package org-tidy
   :ensure t
