@@ -634,8 +634,7 @@
              )
             (org-ql-block
              '(and (todo "NEXT")
-                   (or (level 2 8) (path "Inbox"))
-                   (not (path "Archive"))
+                   (and (not (path "Projects" "Areas" "Resources" "Archive")) (not (level 1)))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Next"))
              )
