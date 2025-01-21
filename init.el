@@ -628,7 +628,7 @@
             (org-ql-block
              '(and (done)
                    (closed :on today)
-                   (not (path "Archive"))
+                   (and (not (path "Projects" "Areas" "Resources" "Archive")) (not (level 1)))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Completed Today"))
              )
