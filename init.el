@@ -607,9 +607,8 @@
         '(("z" "Zen View"
            ((org-ql-block
              '(and (todo)
-                   (or (level 2 8) (path "Inbox"))
                    (deadline :on today)
-                   (not (path "Archive"))
+                   (and (not (path "Projects" "Areas" "Resources" "Archive")) not((level 1)))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Due Today"))
              )
@@ -661,7 +660,7 @@
              '(and (todo)
                    (or (level 2 8) (path "Inbox"))
                    (scheduled :to -1)
-                   (not (path "Archive")
+                   (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Reschedule"))
              )
@@ -669,7 +668,7 @@
              '(and (todo)
                    (or (level 2 8) (path "Inbox"))
                    (deadline :from 1 :to 30)
-                   (not (path "Archive")
+                   (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Due Soon"))
              )
