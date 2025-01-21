@@ -629,15 +629,13 @@
              )
             (org-ql-block
              '(and (done)
-                   (level 2 8)
                    (closed :on today)
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Completed Today"))
              )
             (org-ql-block
-             '(and (level 2 8)
-                   (todo "NEXT")
+             '(and (todo "NEXT")
                    (not (path "Archive" "Inbox"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Next"))
