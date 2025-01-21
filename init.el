@@ -623,6 +623,7 @@
              )
             (org-ql-block
              '(and (todo "TODAY")
+                   (or (level 2 8) (path "Inbox"))
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Planned or Working on Today"))
