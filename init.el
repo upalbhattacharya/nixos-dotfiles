@@ -641,8 +641,7 @@
              ((org-ql-block-header "Next"))
              )
             (org-ql-block
-             '(and (level 2 8)
-                   (todo "IN PROGRESS" "REVIEW")
+             '(and (todo "IN PROGRESS" "REVIEW")
                    (not (path "Archive" "Inbox"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "In Progress"))
