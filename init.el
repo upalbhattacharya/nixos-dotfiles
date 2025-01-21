@@ -607,7 +607,7 @@
         '(("z" "Zen View"
            ((org-ql-block
              '(and (todo)
-                   (level 2 8)
+                   (or (level 2 8) (path "Inbox"))
                    (deadline :on today)
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
