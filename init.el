@@ -741,10 +741,6 @@
              '(and (not (done)) (path "Resources Archive") (level 1))
              ((org-ql-block-header "Archived Resources"))))))))
 
-(use-package org-anki
-  :demand t
-  :ensure (:wait t))
-
 (use-package python-mode
   :demand t
   :ensure t)
@@ -764,10 +760,6 @@
   :config (setq global-aggressive-indent-mode 1))
 
 (use-package hydra
-  :demand t
-  :ensure (:wait t))
-
-(use-package elisp-autofmt
   :demand t
   :ensure (:wait t))
 
@@ -898,9 +890,6 @@
 (use-package magit
   :demand t
   :ensure (:wait t))
-
-(use-package textsize
-  :init (textsize-mode))
 
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
