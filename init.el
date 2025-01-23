@@ -293,26 +293,25 @@
   :hook (org-mode . org-remark-mode)
   :config
   (org-remark-create "yellow"
-                   '(:background "#f9e2af" :foreground "#181825")
-                   '(CATEGORY "warning"))
+                     '(:background "#f9e2af" :foreground "#181825")
+                     '(CATEGORY "warning"))
 
   (org-remark-create "red"
-                   '(:background "#f38ba8" :foreground "#181825")
-                   '(CATEGORY "urgent"))
+                     '(:background "#f38ba8" :foreground "#181825")
+                     '(CATEGORY "urgent"))
 
   (org-remark-create "green"
-                   '(:background "#a6e3a1" :foreground "#181825")
-                   '(CATEGORY "good"))
+                     '(:background "#a6e3a1" :foreground "#181825")
+                     '(CATEGORY "good"))
 
   (org-remark-create "purple"
-                   '(:background "#cba6f7" :foreground "#181825")
-                   '(CATEGORY "important"))
+                     '(:background "#cba6f7" :foreground "#181825")
+                     '(CATEGORY "important"))
 
   (org-remark-create "blue"
-                   '(:background "#89dceb" :foreground "#181825")
-                   '(CATEGORY "mark"))
+                     '(:background "#89dceb" :foreground "#181825")
+                     '(CATEGORY "mark"))
   )
-
 
 (use-package org-contrib
   :demand t
@@ -515,11 +514,11 @@
   (setq lsp-keymap-prefix "C-c l")
   :hook
   ( ;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-   (python-mode . lsp)
-   (nix-mode . lsp)
+   (python-mode . lsp-deferred)
+   (nix-mode . lsp-deferred)
    ;; if you want which-key integration
    (lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp)
+  :commands lsp-deferred)
 
 (use-package lsp-ui
   :demand t
@@ -826,12 +825,17 @@
   :config
   (setq textsize-default-points 20))
 
+(use-package python-mode
+  :demand t
+  :ensure (:wait t)
+  :after lsp-mode
+  :mode ("\.py$")
+  :hook (python-mode . lsp-deferred))
+
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
   (org-id-get-create)
   (org-end-of-line))
-
-
 ;; Whenever a TODO entry is created, I want a timestamp
 ;; Advice org-insert-todo-heading to insert a created timestamp using org-expiry
 (defadvice org-insert-todo-heading (after workboots/insert-todo-metadata activate)
