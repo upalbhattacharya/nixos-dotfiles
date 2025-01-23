@@ -1,4 +1,5 @@
 ;; Bootstrap elpaca
+
 (defvar elpaca-installer-version 0.9)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
 (defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
@@ -273,12 +274,6 @@
          ("LATER" . (:foreground "#b4befe" :weight bold))
          ("DONE" . (:foreground "#a6e3a1" :weight bold))
          ("ARCHIVED" . (:foreground "#9399b2")))))
-
- (use-package ob-mermaid
-   :demand t
-   :ensure (:wait t)
-   :config
-   (setq ob-mermaid-cli-path "~/mmdc"))
  
  ;; babel
  (org-babel-do-load-languages
@@ -767,10 +762,6 @@
              '(and (not (done)) (path "Resources Archive") (level 1))
              ((org-ql-block-header "Archived Resources"))))))))
 
-(use-package python-mode
-  :demand t
-  :ensure t)
-
 (use-package which-key
   :demand t
   :ensure (:wait t)
@@ -793,18 +784,6 @@
   :demand t
   :ensure (:wait t))
 
-;; (use-package latex-extra
-;;   :demand t
-;;   :ensure (:wait t))
-
-;; (use-package latexdiff
-;;   :demand t
-;;   :ensure (:wait t))
-
-(use-package org-view-mode
-  :demand t
-  :ensure (:wait t))
-
 (use-package org-roam-ui
   :demand t
   :ensure (:wait t))
@@ -820,6 +799,7 @@
 (use-package org-transclusion
   :demand t
   :ensure (:wait t))
+
 (use-package eat
   :demand t
   :ensure (:wait t))
@@ -830,47 +810,6 @@
   :config
   (setq org-plantuml-jar-path (expand-file-name "~/plantuml.jar"))
   (setq plantuml-jar-path (expand-file-name "~/plantuml.jar")))
-
-;; (use-package visual-fill-column
-;;   :demand t
-;;   :ensure (:wait t)
-;;   :hook (text-mode . visual-line-fill-column-mode))
-  ;; :config
-  ;; (setq visual-fill-column-width 140
-  ;;       visual-fill-column-center-text t))
-
-(use-package org-tidy
-  :ensure t
-  :demand (:wait t))
-
-(defun workboots/org-present-start ()
-  ;; Center the presentation and wrap lines
-  (org-tidy-buffer)
-  (setq-local face-remapping-alist '((default (:height 1.5) variable-pitch)
-                                   (header-line (:height 4.0) variable-pitch)
-                                   (org-document-title (:height 1.75) org-document-title)
-                                   (org-code (:height 1.55) org-code)
-                                   (org-verbatim (:height 1.55) org-verbatim)
-                                   (org-block (:height 1.25) org-block)
-                                   (org-block-begin-line (:height 0.7) org-block)))
-  (org-present-hide-cursor)
-  (org-present-read-only))
-
-(defun workboots/org-present-end ()
-  ;; Stop centering the document
-  (org-tidy-untidy-buffer)
-  (setq-local face-remapping-alist '((variable-pitch default)))
-  (org-present-show-cursor)
-  (org-present-read-write))
-
-
-(use-package org-present
-  :demand t
-  :ensure (:wait t))
-
-;; Register hooks with org-present
-(add-hook 'org-present-mode-hook 'workboots/org-present-start)
-(add-hook 'org-present-mode-quit-hook 'workboots/org-present-end)
 
 (use-package transient
   :demand t
