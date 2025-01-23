@@ -7,7 +7,7 @@
 			mainBar = {
 				layer = "top";
 				position = "top";
-				height = 48;
+				height = 24;
 				# width = 1280;
 				# spacing = 4;
 				fixed-center = false;
@@ -158,13 +158,13 @@
 	  border-radius: 0;
 	  font-family: Inconsolata Nerd Font Mono;
 	  font-weight: 600;
-	  font-size: 36px;
+	  font-size: 20px;
 	  min-height: 0;
 	}
 	
 	#window {
-	  padding-left: 45px;
-	  padding-right: 45px;
+	  padding-left: 20px;
+	  padding-right: 20px;
 	}
 	
 	window#waybar {
@@ -214,8 +214,8 @@
 	#network,
 	#backlight,
 	#custom-clock {
-	  padding-left: 8px;
-	  padding-right: 8px;
+	  padding-left: 4px;
+	  padding-right: 4px;
 	  border-left: inset;
 	}
 	
@@ -225,8 +225,8 @@
 	/* } */
 	
 	#tray {
-	  padding-left: 8px;
-	  padding-right: 8px;
+	  padding-left: 4px;
+	  padding-right: 4px;
 	  min-width: 40px;
 	}
 

@@ -17,7 +17,6 @@
             criteria = "eDP-1";
             status = "enable";
             mode = "2560x1440@165.00Hz";
-            scale = 0.23;
             position = "0,0";
           }
         ];

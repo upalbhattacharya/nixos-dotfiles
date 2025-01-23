@@ -230,10 +230,21 @@ in
     };
   };
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.inconsolata
-    nerd-fonts.iosevka
-  ];
+  fonts = {
+    packages = with pkgs; [
+      nerd-fonts.inconsolata
+      nerd-fonts.iosevka
+    ];
+    fontconfig = {
+      antialias = true;
+      hinting = {
+        enable = true;
+        style = "full";
+        autohint = true;
+      };
+    };
+  };
+
 
   # programs.sway = {
   #  		enable = true;

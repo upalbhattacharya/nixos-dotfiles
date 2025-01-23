@@ -16,14 +16,14 @@ in
 		sessionVariables = {
  			
 			# session.
-          		XDG_CURRENT_DESKTOP = "hyprland";
-          		XDG_SESSION_DESKTOP = "hyprland";
-          		XDG_SESSION_TYPE = "wayland";
+          		# XDG_CURRENT_DESKTOP = "hyprland";
+          		# XDG_SESSION_DESKTOP = "hyprland";
+          		# XDG_SESSION_TYPE = "wayland";
 
           		# wayland stuff.
-          		QT_QPA_PLATFORM="wayland";
+          		# QT_QPA_PLATFORM="wayland";
           		# QT_WAYLAND_DISABLE_WINDOWDECORATION="1";
-          		SDL_VIDEODRIVER = "wayland";
+          		# SDL_VIDEODRIVER = "wayland";
 
           		# apps stuff.
           		_JAVA_AWT_WM_NONREPARENTING=1;
