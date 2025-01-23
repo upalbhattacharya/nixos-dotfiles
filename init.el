@@ -774,7 +774,7 @@
 (use-package aggressive-indent
   :demand t
   :ensure (:wait t)
-  :config (setq global-aggressive-indent-mode 1))
+  :hook (emacs-lisp-mode . aggressive-indent-mode))
 
 (use-package hydra
   :demand t
