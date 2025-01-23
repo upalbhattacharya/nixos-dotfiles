@@ -83,14 +83,6 @@
  '(calendar-date-style 'iso)
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
- '(dslide-breadcrumb-separator " >")
- '(dslide-breadcrumb-separator-style 'separate)
- '(dslide-header nil)
- '(dslide-header-author nil)
- '(dslide-header-date nil)
- '(dslide-header-email nil)
- '(dslide-hide-markup-types
-   '(comment comment-block drawer export-block property-drawer keyword))
  '(gac-automatically-push-p t)
  '(global-text-scale-adjust-resizes-frames t)
  '(gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
@@ -152,43 +144,45 @@
 (setq use-package-always-ensure t)
 
 (use-package emacs
- :demand t
- :ensure nil
- :config
- (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 200)
- (set-face-attribute 'fixed-pitch nil :font "Iosevka Nerd Font" :height 200)
- (set-face-attribute 'variable-pitch nil :font "Iosevka Nerd Font" :height 1.3)
+  :demand t
+  :ensure nil
+  :config
+  (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 200)
+  (set-face-attribute 'fixed-pitch nil :font "Iosevka Nerd Font" :height 200)
+  (set-face-attribute 'variable-pitch nil :font "Iosevka Nerd Font" :height 1.3)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (tab-bar-mode 1)
+  (global-display-line-numbers-mode 1)
+  (setq inhibit-startup-screen t)
+  (setq auto-save-file-name-transforms `((".*" "/tmp/" t)))
+  (setq backup-directory-alist '((".*" . "/tmp")))
+  (setq kill-buffer-delete-auto-save-files t)
+  (setq display-line-numbers-type 'visual)
+  ;; (setq-default fill-column 130)
+  (setq-default indent-tabs-mode nil)
+  (setq tab-always-indent 'complete)
+  (setq-default tab-width 4)
+  (setq python-indent-level 4)
+  (setq visible-bell t)
+  (setq truncate-partial-width-windows nil)
+  :custom
+  ;; TAB cycle if there are only few candidates
+  ;; (completion-cycle-threshold 3)
 
-;; Font size adjustment
-(defun workboots/auto-font-size (frame)
-  "Inspired by https://emacs.stackexchange.com/a/44930/17066. FRAME is ignored.
-If I let Windows handle DPI everything looks blurry."
-  ;; Using display names is unreliable...switched to checking the resolution
-  (let* ((attrs (frame-monitor-attributes)) ;; gets attribs for current frame
-         (width-mm (second (third attrs)))
-         (width-px (fourth (first attrs)))
-         (size 13)
-         (dpi (width-px / width-mm * 25.4))) ;; default for first screen at work
-    (set-frame-font (format "Iosevka Nerd Font %s" (dpi * size)))
-    ))
- (add-hook 'window-size-change-functions #'workboots/auto-font-size)
- (menu-bar-mode -1)
- (scroll-bar-mode -1)
- (tool-bar-mode -1)
- (tab-bar-mode 1)
- (global-display-line-numbers-mode 1)
- (setq inhibit-startup-screen t)
- (setq auto-save-file-name-transforms `((".*" "/tmp/" t)))
- (setq backup-directory-alist '((".*" . "/tmp")))
- (setq kill-buffer-delete-auto-save-files t)
- (setq display-line-numbers-type 'visual)
- ;; (setq-default fill-column 130)
- (setq-default indent-tabs-mode nil)
- (setq tab-always-indent 'complete)
- (setq-default tab-width 4)
- (setq python-indent-level 4)
- (setq visible-bell t)
- (setq truncate-partial-width-windows nil))
+  ;; Enable indentation+completion using the TAB key.
+  ;; `completion-at-point' is often bound to M-TAB.
+  (tab-always-indent 'complete)
+
+  ;; Emacs 30 and newer: Disable Ispell completion function.
+  ;; Try `cape-dict' as an alternative.
+  (text-mode-ispell-word-completion nil)
+
+  ;; Hide commands in M-x which do not apply to the current mode.  Corfu
+  ;; commands are hidden, since they are not used via M-x. This setting is
+  ;; useful beyond Corfu.
+  (read-extended-command-predicate #'command-completion-default-include-p))
 
 ;; Theme
 (use-package catppuccin-theme
@@ -457,10 +451,28 @@ If I let Windows handle DPI everything looks blurry."
   (setq citar-org-roam-note-title-template "${title}")
   (setq citar-org-roam-capture-template-key "l"))
 
-(use-package company
+(use-package corfu
   :demand t
   :ensure (:wait t)
-  :config (company-mode 1))
+  ;; Optional customizations
+  ;; :custom
+  ;; (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
+  ;; (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
+  ;; (corfu-quit-no-match nil)      ;; Never quit, even if there is no match
+  ;; (corfu-preview-current nil)    ;; Disable current candidate preview
+  ;; (corfu-preselect 'prompt)      ;; Preselect the prompt
+  ;; (corfu-on-exact-match nil)     ;; Configure handling of exact matches
+
+  ;; Enable Corfu only for certain modes. See also `global-corfu-modes'.
+  ;; :hook ((prog-mode . corfu-mode)
+  ;;        (shell-mode . corfu-mode)
+  ;;        (eshell-mode . corfu-mode))
+
+  ;; Recommended: Enable Corfu globally.  This is recommended since Dabbrev can
+  ;; be used globally (M-/).  See also the customization variable
+  ;; `global-corfu-modes' to exclude certain modes.
+  :init
+  (global-corfu-mode))
 
 (use-package git-auto-commit-mode
   :demand t
@@ -851,31 +863,6 @@ If I let Windows handle DPI everything looks blurry."
   (org-present-show-cursor)
   (org-present-read-write))
 
-(defun workboots/dslide-start ()
-  ;; Center the presentation and wrap lines
-  (org-tidy-buffer)
-  (setq visual-fill-column-center-text 1)
-  (setq-local face-remapping-alist '((default (:height 1.5) variable-pitch)
-                                   (header-line (:height 4.0) variable-pitch)
-                                   (org-document-title (:height 1.75) org-document-title)
-                                   (org-code (:height 1.55) org-code)
-                                   (org-verbatim (:height 1.55) org-verbatim)
-                                   (org-block (:height 1.25) org-block)
-                                   (org-block-begin-line (:height 0.7) org-block))))
-
-(defun workboots/dslide-stop ()
-  ;; Stop centering the document
-  (org-tidy-untidy-buffer)
-  (setq visual-fill-column-center-text nil)
-  (setq-local face-remapping-alist '((variable-pitch default)))
-  (variable-pitch-mode -1))
-
-(defun workboots/dslide-stop-if-forward ()
-  (dslide-push-step (lambda (direction)
-                  (when (eq direction 'forward)
-                    ;; Be sure to return t or the callback won't count as a
-                    ;; step and the hook will run again.
-                    (prog1 t (dslide-deck-stop))))))
 
 (use-package org-present
   :demand t
@@ -884,18 +871,6 @@ If I let Windows handle DPI everything looks blurry."
 ;; Register hooks with org-present
 (add-hook 'org-present-mode-hook 'workboots/org-present-start)
 (add-hook 'org-present-mode-quit-hook 'workboots/org-present-end)
-
-(use-package dslide
-  :demand t
-  :ensure (:wait t))
-
-(add-hook 'dslide-start-hook 'workboots/dslide-start)
-(add-hook 'dslide-stop-hook 'workboots/dslide-stop)
-(add-hook 'dslide-after-last-slide-hook 'workboots/dslide-stop-if-forward)
-
-;; (use-package moc
-;;   :demand t
-;;   :ensure (:wait t))
 
 (use-package transient
   :demand t
