@@ -155,8 +155,8 @@
  :demand t
  :ensure nil
  :config
- (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 260)
- (set-face-attribute 'fixed-pitch nil :font "Iosevka Nerd Font" :height 260)
+ (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 220)
+ (set-face-attribute 'fixed-pitch nil :font "Iosevka Nerd Font" :height 220)
  (set-face-attribute 'variable-pitch nil :font "Iosevka Nerd Font" :height 1.3)
 
 ;; Font size adjustment

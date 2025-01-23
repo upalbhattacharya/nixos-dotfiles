@@ -190,6 +190,7 @@ in
     libvterm
     libtool
     protonvpn-cli_2
+    emacs29-pgtk
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -1,6 +1,6 @@
 { ... }:
 {
-  programs.emacs = {
+  programs.emacs-pgtk = {
     enable = true;
   };
 }

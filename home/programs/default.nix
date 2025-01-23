@@ -6,7 +6,7 @@
 		./fzf.nix
 		./git.nix
 		./kitty.nix
-    ./emacs.nix
+    # ./emacs.nix
     ./compression.nix
     ./mpv.nix
 	];
