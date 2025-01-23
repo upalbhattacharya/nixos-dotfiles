@@ -523,6 +523,11 @@
 (use-package lsp-ui
   :demand t
   :ensure (:wait t)
+  :config
+  (setq lsp-ui-sideline-show-diagnostics +1)
+  (setq lsp-ui-doc-enable +1)
+  (setq lsp-ui-doc-position 'at-point)
+  (setq lsp-ui-doc-delay 3)
   :commands lsp-ui-mode)
 
 (use-package reformatter
