@@ -158,6 +158,20 @@
  (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 260)
  (set-face-attribute 'fixed-pitch nil :font "Iosevka Nerd Font" :height 260)
  (set-face-attribute 'variable-pitch nil :font "Iosevka Nerd Font" :height 1.3)
+
+;; Font size adjustment
+(defun workboots/auto-font-size (frame)
+  "Inspired by https://emacs.stackexchange.com/a/44930/17066. FRAME is ignored.
+If I let Windows handle DPI everything looks blurry."
+  ;; Using display names is unreliable...switched to checking the resolution
+  (let* ((attrs (frame-monitor-attributes)) ;; gets attribs for current frame
+         (width-mm (second (third attrs)))
+         (width-px (fourth (first attrs)))
+         (size 13)
+         (dpi (width-px / width-mm * 25.4))) ;; default for first screen at work
+    (set-frame-font (format "Iosevka Nerd Font %s" (dpi * size)))
+    ))
+ (add-hook 'window-size-change-functions #'workboots/auto-font-size)
  (menu-bar-mode -1)
  (scroll-bar-mode -1)
  (tool-bar-mode -1)
