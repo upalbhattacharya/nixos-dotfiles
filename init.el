@@ -155,8 +155,8 @@
  :demand t
  :ensure nil
  :config
- (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 220)
- (set-face-attribute 'fixed-pitch nil :font "Iosevka Nerd Font" :height 220)
+ (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 150)
+ (set-face-attribute 'fixed-pitch nil :font "Iosevka Nerd Font" :height 150)
  (set-face-attribute 'variable-pitch nil :font "Iosevka Nerd Font" :height 1.3)
 
 ;; Font size adjustment
@@ -904,6 +904,13 @@ If I let Windows handle DPI everything looks blurry."
 (use-package magit
   :demand t
   :ensure (:wait t))
+
+(use-package textsize
+  :demand t
+  :ensure (:wait t)
+  :init (textsize-mode)
+  :config
+  (setq textsize-default-points 15))
 
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
