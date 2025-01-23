@@ -6,7 +6,7 @@
 		themeFile = "Catppuccin-Mocha";
 		extraConfig = ''
 		font_family Inconsolata Nerd Font Mono
-		font_size 22
+		font_size 18
 		'';
 	};
 }

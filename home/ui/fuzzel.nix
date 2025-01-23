@@ -8,7 +8,7 @@
 				terminal = "${pkgs.kitty}/bin/kitty";
 				layer = "overlay";
 
-				font = "Inconsolata Nerd Font Mono:size=32";
+				font = "Inconsolata Nerd Font Mono:size=18";
 			};
 			colors = {
 				background="1e1e2edd";

@@ -12,10 +12,11 @@ in
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
-    # catppuccin.enable = true;
     settings = {
       general = {
         border_size = 5;
+	gaps_in = 5;
+	gaps_out = 10;
       };
       decoration = {
         rounding = 2;
