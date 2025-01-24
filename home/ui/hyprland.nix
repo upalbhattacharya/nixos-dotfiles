@@ -153,8 +153,7 @@ in
 
       # eww visibility
 
-      bind = ${modifier}_SHIFT,e,exec,${pkgs.hyprland}/bin/hyprctl dispatch exec eww update show=false
-      bindr = ${modifier}_SHIFT,e, exec,hyprctl dispatch exec eww update show=false
+      bind = ${modifier}_SHIFT,y,exec,${pkgs.hyprland}/bin/hyprctl dispatch exec eww update show=false
 
       # Exit cursor submap
       # If you do not use cursor timeout or cursor:hide_on_key_press, you can delete its respective cals
