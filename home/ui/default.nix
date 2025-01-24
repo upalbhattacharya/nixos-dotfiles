@@ -15,7 +15,6 @@
     ./hyprlock.nix
     ./swaylock.nix
     ./waybar.nix
-    ./eww.nix
     ./wpaperd.nix
     ./catppuccin.nix
   ];
