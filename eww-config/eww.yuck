@@ -17,7 +17,7 @@
            :stacking "overlay"
            :exclusive false
            (revealer
-           :transition "slidedown"
+           :transition "crossfade"
            :reveal show
            :duration "400ms"
            (greeter :text "Say hello!"
