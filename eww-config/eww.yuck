@@ -19,6 +19,6 @@
            (revealer
            :transition "slidedown"
            :reveal show
-           :duration 400ms
+           :duration "400ms"
            (greeter :text "Say hello!"
            :name "Workboots")))
