@@ -11,6 +11,7 @@
 .widget {
     background-color: #11111b;
     opacity: 0.8;
+    filter: blur(5px);
     border-radius: 25px;
     padding: 0px 5px 0px 5px;
 }
