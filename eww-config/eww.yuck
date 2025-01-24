@@ -16,7 +16,7 @@
            :exclusive false
            (revealer
            :orientation "v"
-           :reveal test
+           :reveal example
            :duration "100ms"
            :transition "slidedown"
            (greeter :text "Say hello!"
