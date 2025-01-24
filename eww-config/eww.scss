@@ -1,8 +1,12 @@
-bar {
+*{
+	all: unset;
+}
+
+.bar {
     background-color: transparent;
 }
 
-greeter {
+.widget {
     background-color: #11111b;
     opacity: 0.5;
     border-radius: 25px;
