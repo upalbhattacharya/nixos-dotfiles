@@ -4,6 +4,7 @@ SHOW=$(eww get show)
 KEY=$(xev -1 | awk '{gsub(/),/,""); print $23}')
 STATE=$(xev -1 | awk '{print $1}')
 
+echo "$STATE $KEY"
 while true:
 do
     echo "$STATE $KEY"
