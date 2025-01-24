@@ -1,7 +1,7 @@
 (defvar show true)
 
 (defwidget greeter [?text name]
-  (box :class "widget"
+  (box :class "widget
        :orientation "horizontal"
        :halign "center"
     text " "
