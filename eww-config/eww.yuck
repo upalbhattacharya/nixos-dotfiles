@@ -19,6 +19,6 @@
            (revealer
            :transition "crossfade"
            :reveal show
-           :duration "400ms"
+           :duration "1000ms"
            (greeter :text "Say hello!"
            :name "Workboots")))
