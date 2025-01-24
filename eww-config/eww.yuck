@@ -11,12 +11,12 @@
                  :spacing 0
                  :valign "center"
                  :halign "center"
-                 :space-evenly "false"
-                 :vexpand "false"
-                 :hexpand "false"
+                 :space-evenly false
+                 :vexpand false
+                 :hexpand false
 				(label :class "time"
                        :halign "center"
-                       :wrap "true"
+                       :wrap true
                        :limit-width 25
                        :text TIME))))
 
@@ -29,5 +29,5 @@
                                :height "45px"
                                :anchor "top right")
            :stacking "fg"
-           :exclusive "true"
+           :exclusive true
 (time))
