@@ -14,7 +14,5 @@
                                :anchor "top center")
            :stacking "fg"
            :excluse true
-           :windowtype "desktop"
-
  (greeter :text "Say hello!"
            :name "Workboots"))
