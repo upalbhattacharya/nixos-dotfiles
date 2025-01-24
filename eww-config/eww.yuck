@@ -13,6 +13,6 @@
                                :height "30px"
                                :anchor "top center")
            :stacking "fg"
-           :exclusive true
+           :exclusive false
  (greeter :text "Say hello!"
            :name "Workboots"))
