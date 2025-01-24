@@ -1,11 +1,4 @@
-@keyframes example {
-  from {background-color: red;}
-  to {background-color: yellow;}
+.greeter {
+    border-radius: 25px;
+    opacity: 0.5;
 }
-
-.example {
-  border-radius: 25px;
-  background-color: red;
-  animation-name: example;
-  animation-duration: 4s;
-};
