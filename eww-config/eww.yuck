@@ -14,7 +14,11 @@
                  :space-evenly "false"
                  :vexpand "false"
                  :hexpand "false"
-				(label :class "time" :halign "start" :wrap "true" :limit-width 25 :text TIME))))
+				(label :class "time"
+                       :halign "center"
+                       :wrap "true"
+                       :limit-width 25
+                       :text TIME))))
 
 (defwidget greeter [?text name]
   (box :class "widget
