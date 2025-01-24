@@ -3,8 +3,8 @@
               :run-while time-visible   ; optional, defaults to 'true'
   `date +%H:%M:%S`)
 
-;; weather
-(defwidget weather [] 
+;; time
+(defwidget time [] 
 		(box :class "dockbox"
 			(box :class "clockbox" :orientation "v" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
 				(label :class "time" :halign "start" :wrap "true" :limit-width 25 :text TIME))))
@@ -32,8 +32,8 @@
            :duration "1000ms"
            (greeter :text "Say hello!"
            :name "Workboots")))
-;; weather
-(defwindow weather
+;; time
+(defwindow time
            :monitor 0
            :geometry (geometry :x "5px"
                                :y "5px"
@@ -42,4 +42,4 @@
                                :anchor "top left")
            :stacking "fg"
            :exclusive true
-(weather))
+(time))
