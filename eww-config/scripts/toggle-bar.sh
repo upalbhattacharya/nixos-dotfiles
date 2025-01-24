@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 SHOW=$(eww get show)
+echo "$SHOW"
 KEY=$(xev -1 | awk '{gsub(/),/,""); print $23}')
 STATE=$(xev -1 | awk '{print $1}')
 
