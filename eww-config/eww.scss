@@ -1,0 +1,11 @@
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+.example {
+  border-radius: 25px;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 4s;
+};
