@@ -14,5 +14,13 @@
                                :anchor "top center")
            :stacking "overlay"
            :exclusive false
+           (revealer
+           :orientation "v"
+           :reveal test
+           :duration "100ms"
+           :transition "slidedown"
+           (label
+          :class "test1"
+          :text "test1"))
  (greeter :text "Say hello!"
            :name "Workboots"))
