@@ -152,6 +152,8 @@ in
       binde=,g,exec,wlrctl pointer scroll 0 10
 
       # eww visibility
+
+      bind = ${modifier}_SHIFT,e,exec,${pkgs.hyprland}/bin/hyprctl dispatch exec eww update show=false
       bind = ${modifier}_SHIFT,e, exec,hyprctl dispatch exec eww update show=true
       bindr = ${modifier}_SHIFT,e, exec,hyprctl dispatch exec eww update show=false
 
