@@ -19,8 +19,5 @@
            :reveal test
            :duration "100ms"
            :transition "slidedown"
-           (label
-          :class "test1"
-          :text "test1"))
- (greeter :text "Say hello!"
+           (greeter :text "Say hello!"
            :name "Workboots"))
