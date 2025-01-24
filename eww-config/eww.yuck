@@ -20,22 +20,7 @@
                        :limit-width 25
                        :text TIME))))
 
-(defwindow bar
-           :monitor 0
-           :geometry (geometry :x "0%"
-                               :y "1%"
-                               :width "90%"
-                               :height "30px"
-                               :anchor "top center")
-           :stacking "overlay"
-           :exclusive false
-           (revealer
-           :transition "crossfade"
-           :reveal show
-           :duration "1000ms"
-           (greeter :text "Say hello!"
-           :name "Workboots")))
-;; time
+;; time bar
 (defwindow time
            :monitor 0
            :geometry (geometry :x "5px"
