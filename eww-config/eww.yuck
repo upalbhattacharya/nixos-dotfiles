@@ -29,6 +29,6 @@
                                :height "45px"
                                :anchor "top right")
            :windowtype "desktop"
-           :stacking "fg"
+           :stacking "overlay"
            :exclusive true
 (time))
