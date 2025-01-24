@@ -2,6 +2,6 @@
 {
   programs.eww = {
     enable = true;
-    configDir = "~/.dotfiles/eww";
+    configDir = /home/workboots/.dotfiles/eww;
   };
 }
