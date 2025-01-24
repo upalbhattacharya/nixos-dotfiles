@@ -29,5 +29,5 @@
                                :height "45px"
                                :anchor "top right")
            :stacking "fg"
-           :exclusive true
+           :exclusive "true"
 (time))
