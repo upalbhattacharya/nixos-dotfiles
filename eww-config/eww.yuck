@@ -7,7 +7,7 @@
     (button :onclick "notify-send 'Hello' 'Hello, ${name}'"
       "Greet")))
 
-(defwindow example
+(defwindow bar
            :monitor 0
            :geometry (geometry :x "0%"
                                :y "1%"
