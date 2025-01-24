@@ -15,8 +15,8 @@ in
     settings = {
       general = {
         border_size = 5;
-	gaps_in = 5;
-	gaps_out = 10;
+        gaps_in = 5;
+        gaps_out = 10;
       };
       decoration = {
         rounding = 2;
@@ -28,7 +28,7 @@ in
       env = XDG_SESSION_DESKTOP,Hyprland
 
       env = QT_AUTO_SCREEN_SCALE_FACTOR,1
-      
+
       workspace = w[tv1], gapsout:0, gapsin:0
       workspace = f[1], gapsout:0, gapsin:0
       windowrulev2 = bordersize 0, floating:0, onworkspace:w[tv1]
@@ -150,6 +150,9 @@ in
       # Scroll left and right
       binde=,t,exec,wlrctl pointer scroll 0 -10
       binde=,g,exec,wlrctl pointer scroll 0 10
+
+      # eww visibility
+      bindr = SUPER, SPACE, exec, eww update show=false || eww update show=true
 
       # Exit cursor submap
       # If you do not use cursor timeout or cursor:hide_on_key_press, you can delete its respective cals
