@@ -14,10 +14,5 @@
                                :anchor "top center")
            :stacking "overlay"
            :exclusive false
-           (revealer
-           :orientation "v"
-           :reveal example
-           :duration "100ms"
-           :transition "slidedown"
            (greeter :text "Say hello!"
-           :name "Workboots")))
+           :name "Workboots"))
