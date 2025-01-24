@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-echo $(eww get show)
-if [[ $(eww get show) = true ]]
+SHOW=$(eww get show)
+if [[ $SHOW = true ]]
 then
     eww update show=false
 else
