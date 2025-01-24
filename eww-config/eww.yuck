@@ -20,14 +20,6 @@
                        :limit-width 25
                        :text TIME))))
 
-(defwidget greeter [?text name]
-  (box :class "widget"
-       :orientation "horizontal"
-       :halign "center"
-    text " "
-    (button :onclick "notify-send 'Hello' 'Hello, ${name}'"
-      "Greet")))
-
 (defwindow bar
            :monitor 0
            :geometry (geometry :x "0%"
