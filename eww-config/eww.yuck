@@ -12,7 +12,7 @@
                                :width "90%"
                                :height "30px"
                                :anchor "top center")
-           :stacking "fg"
+           :stacking "overlay"
            :exclusive false
  (greeter :text "Say hello!"
            :name "Workboots"))
