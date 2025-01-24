@@ -13,8 +13,8 @@
                                :height "30px"
                                :anchor "top center")
            :stacking "fg"
-           :reserve (struts :distance "40px" :side "top")
-           :windowtype "dock"
-           :wm-ignore false
+           :excluse true
+           :windowtype "desktop"
+
  (greeter :text "Say hello!"
            :name "Workboots"))
