@@ -121,6 +121,9 @@ in
       bindl = ,switch:on:[Lid Switch],exec,hyprctl keyword monitor "eDP-1, disable"
       bindl = ,switch:off:[Lid Switch],exec,hyprctl keyword monitor "eDP-1,enable"
 
+      # eww visibility
+      bind = Ctrl&Alt,y,exec,${pkgs.hyprland}/bin/hyprctl dispatch exec eww update show=false
+
       bind=${modifier},Backspace,exec,hyprctl keyword cursor:inactive_timeout 0; hyprctl keyword cursor:hide_on_key_press false; hyprctl dispatch submap cursor
       bind=${modifier},plus,exec,wl-kbptr && (hyprctl keyword cursor:inactive_timeout 0; hyprctl keyword cursor:hide_on_key_press false; hyprctl dispatch submap cursor)
 
@@ -151,9 +154,6 @@ in
       binde=,t,exec,wlrctl pointer scroll 0 -10
       binde=,g,exec,wlrctl pointer scroll 0 10
 
-      # eww visibility
-
-      bind = Ctrl&Alt,y,exec,${pkgs.hyprland}/bin/hyprctl dispatch exec eww update show=false
 
       # Exit cursor submap
       # If you do not use cursor timeout or cursor:hide_on_key_press, you can delete its respective cals
