@@ -28,7 +28,7 @@
                                :width "300px"
                                :height "45px"
                                :anchor "top right")
-           :windowtype "desktop"
+           :windowtype "dock"
            :stacking "overlay"
            :exclusive true
 (time))
