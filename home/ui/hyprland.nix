@@ -123,7 +123,7 @@ in
 
       # eww visibility
       bindn = ${modifier},${modifier}_L,exec,${pkgs.hyprland}/bin/hyprctl dispatch exec eww update show=true
-      bindrn = ${modifier},${modifier}_L,exec,${pkgs.hyprland}/bin/hyprctl dispatch exec eww update show=false
+      bindrnt = ${modifier},${modifier}_L,exec,${pkgs.hyprland}/bin/hyprctl dispatch exec eww update show=false
 
       bind=${modifier},Backspace,exec,hyprctl keyword cursor:inactive_timeout 0; hyprctl keyword cursor:hide_on_key_press false; hyprctl dispatch submap cursor
       bind=${modifier},plus,exec,wl-kbptr && (hyprctl keyword cursor:inactive_timeout 0; hyprctl keyword cursor:hide_on_key_press false; hyprctl dispatch submap cursor)
