@@ -6,7 +6,14 @@
 ;; time
 (defwidget time [] 
 		(box :class "dockbox"
-			(box :class "clockbox" :orientation "v" :spacing 0 :valign "center" :halign "start" :space-evenly "false" :vexpand "false" :hexpand "false"
+			(box :class "clockbox"
+                 :orientation "v"
+                 :spacing 0
+                 :valign "center"
+                 :halign "center"
+                 :space-evenly "false"
+                 :vexpand "false"
+                 :hexpand "false"
 				(label :class "time" :halign "start" :wrap "true" :limit-width 25 :text TIME))))
 
 (defwidget greeter [?text name]
