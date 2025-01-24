@@ -6,6 +6,7 @@ STATE=$(xev -1 | awk '{print $1}')
 
 while true:
 do
+    echo "$STATE $KEY"
     if [[ $STATE="KeyPress" && $KEY="SUPER_L" ]]
     then
         eww update show=true
