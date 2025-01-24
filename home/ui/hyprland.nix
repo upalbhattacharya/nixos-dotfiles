@@ -152,8 +152,8 @@ in
       binde=,g,exec,wlrctl pointer scroll 0 10
 
       # eww visibility
-      bind = SUPER, SUPER_L, exec, eww update show=true
-      bindr = SUPER, SUPER_L, exec, eww update show=false
+      bind = ${modifier}_SHIFT,e, exec, eww update show=true
+      bindr = ${modifier}_SHIFT,e, exec, eww update show=false
 
       # Exit cursor submap
       # If you do not use cursor timeout or cursor:hide_on_key_press, you can delete its respective cals
