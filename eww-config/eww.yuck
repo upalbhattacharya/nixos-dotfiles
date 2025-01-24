@@ -20,4 +20,4 @@
            :duration "100ms"
            :transition "slidedown"
            (greeter :text "Say hello!"
-           :name "Workboots"))
+           :name "Workboots")))
