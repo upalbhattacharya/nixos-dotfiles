@@ -35,6 +35,15 @@
                 :halign "start"
                 (date-widget)))
 )
+
+(defwidget center-segment []
+           (box :class "left-segment"
+                :orientation "horizontal"
+                :space-evenly false
+                :valign "center"
+                :halign "center"
+                (date-widget)))
+)
            
                       
 (defwidget time-widget []
