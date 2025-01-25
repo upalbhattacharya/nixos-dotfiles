@@ -173,8 +173,7 @@
       	}
       	
       	window#waybar {
-          background: none;
-      	  /* background-color: @mantle; */
+      	  background-color: @mantle;
       	  padding-top: 4px;
       	  padding-bottom: 4px;
       	  padding-left: 4px;
