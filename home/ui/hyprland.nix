@@ -29,8 +29,8 @@ in
 
       env = QT_AUTO_SCREEN_SCALE_FACTOR,1
 
-      workspace = w[tv1], gapsout:[5,0,0,0], gapsin:0
-      workspace = f[1], gapsout:[5,0,0,0], gapsin:0
+      workspace = w[tv1], gapsout:5,0,0,0, gapsin:0
+      workspace = f[1], gapsout:5,0,0,0, gapsin:0
       windowrulev2 = bordersize 0, floating:0, onworkspace:w[tv1]
       windowrulev2 = rounding 0, floating:0, onworkspace:w[tv1]
       windowrulev2 = bordersize 0, floating:0, onworkspace:f[1]
