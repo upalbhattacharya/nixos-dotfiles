@@ -8,7 +8,7 @@
               :run-while time-visible   ; optional, defaults to 'true'
   `date +%Y-%m%-d`)
 
-(defwindow central-bar
+(defwindow bar
            :monitor 0
            :geometry (geometry :x "0px"
                                :y "5px"
