@@ -18,4 +18,4 @@
            :halign "start"
            :valign "center"
            (box :orientation "horizontal"
-)
+           time))
