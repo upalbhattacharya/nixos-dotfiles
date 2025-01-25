@@ -9,7 +9,7 @@
   `date +%Y-%m%-d`)
 
 (defwindow bar
-           :monitor 0
+           :monitor '["eDP-1", "HDMI-A-1"]'
            :geometry (geometry :x "0px"
                                :y "0px"
                                :height "24px"
