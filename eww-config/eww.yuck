@@ -13,7 +13,7 @@
            :exclusive true
            (time))
 
-(defwidget time
+(defwidget time []
            :class "time-widget"
            :halign "start"
            :valign "center"
