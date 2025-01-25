@@ -3,6 +3,11 @@
               :run-while time-visible   ; optional, defaults to 'true'
   `date +%H:%M:%S`)
 
+(defpoll date :interval "1s"
+              :initial "initial-value"  ; optional, defaults to poll at startup
+              :run-while time-visible   ; optional, defaults to 'true'
+  `date +%Y-%m%-d`)
+
 (defwindow central-bar
            :monitor 0
            :geometry (geometry :x "0px"
