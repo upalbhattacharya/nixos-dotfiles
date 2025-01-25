@@ -26,18 +26,25 @@
            (left-segment)
            (center-segment)
            (right-segment)))
+
+(defwidget left-segment []
+           (box :class "left-segment"
+                :orientation "horizontal"
+                :space-evenly false
+                :valign "center"
+                :halign "start"
+                (date-widget)))
+)
            
                       
 (defwidget time-widget []
            (box :class "time-widget"
-                :halign "end"
                 :valign "center"
                 :orientation "horizontal"
                 (label :text time)))
 
 (defwidget date-widget []
            (box :class "date-widget"
-                :halign "start"
                 :valign "center"
                 :orientation "horizontal"
                 (label :text date)))
