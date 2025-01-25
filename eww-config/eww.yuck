@@ -24,6 +24,7 @@
     (box :class "full-bar"
          :orientation "horizontal"
          :halign "fill"
+         :width "100%"
         (left-segment)
         (center-segment)
         (right-segment)))
