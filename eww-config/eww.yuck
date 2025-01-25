@@ -10,27 +10,24 @@
                                :height "24px"
                                :anchor "top center")
            :stacking "fg"
-		   :exclusive true
            (time-widget))
 
 (defwindow left-bar
            :monitor 0
            :geometry (geometry :x "10px"
-                               :y "-40px"
+                               :y "10px"
                                :height "24px"
                                :anchor "top left")
            :stacking "fg"
-		   :exclusive true
            (time-widget))
 
 (defwindow right-bar
            :monitor 0
            :geometry (geometry :x "10px"
-                               :y "-40px"
+                               :y "10px"
                                :height "24px"
                                :anchor "top right")
            :stacking "fg"
-		   :exclusive true
            (time-widget))
                       
 (defwidget time-widget []
