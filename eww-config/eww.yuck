@@ -32,9 +32,6 @@
                 :space-evenly false
                 :valign "center"
                 :halign "start"
-                (metric :label "🔊"
-                :value volume
-                :onchange "amixer -D pulse sset Master {}%")
                 (metric :label ""
                 :value {EWW_RAM.used_mem_perc}
                 :onchange "")
