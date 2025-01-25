@@ -19,7 +19,7 @@ in
         gaps_out = "0,10,10,10";
       };
       decoration = {
-        rounding = 2;
+        rounding = 5;
       };
     };
     extraConfig = ''
