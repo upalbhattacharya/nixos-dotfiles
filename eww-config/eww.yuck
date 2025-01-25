@@ -27,9 +27,9 @@
                 :orientation "horizontal"
                 (label :text time)))
 
-(defwidget time-widget-2 []
-           (box :class "time-widget"
-                :halign "center"
+(defwidget date-widget []
+           (box :class "right-segment"
+                :halign "start"
                 :valign "center"
                 :orientation "horizontal"
                 (label :text time)))
