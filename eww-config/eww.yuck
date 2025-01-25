@@ -32,4 +32,4 @@
                 :halign "start"
                 :valign "center"
                 :orientation "horizontal"
-                (label :text time)))
+                (label :text date)))
