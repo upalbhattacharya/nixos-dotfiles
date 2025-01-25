@@ -43,3 +43,10 @@
                 :valign "center"
                 :orientation "horizontal"
                 (label :text time)))
+
+(defwidget time-widget-2 []
+           (box :class "time-widget"
+                :halign "start"
+                :valign "center"
+                :orientation "horizontal"
+                (label :text time)))
