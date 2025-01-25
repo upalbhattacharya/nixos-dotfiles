@@ -17,7 +17,7 @@
 (defwindow left-bar
            :monitor 0
            :geometry (geometry :x "10px"
-                               :y "10px"
+                               :y "-34px"
                                :height "24px"
                                :anchor "top left")
            :namespace "eww-bar"
@@ -27,7 +27,7 @@
 (defwindow right-bar
            :monitor 0
            :geometry (geometry :x "10px"
-                               :y "10px"
+                               :y "-34px"
                                :height "24px"
                                :anchor "top right")
            :namespace "eww-bar"
