@@ -27,7 +27,11 @@
            :reserve (struts :distance "80px" :side "top")
            :windowtype "dock"
            :wm-ignore false
-           (time))
+           :revealer (
+                     :transition "crossfade"
+                     :duration "1000ms"
+                     :reveal show
+                     (time)))
 
 (defwindow right-bar
            :monitor 0
@@ -39,6 +43,7 @@
            :reserve (struts :distance "80px" :side "top")
            :windowtype "dock"
            :wm-ignore false
+
            (time))
 
 (defwidget time []
