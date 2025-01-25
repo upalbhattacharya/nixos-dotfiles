@@ -22,7 +22,6 @@
                                :anchor "top left")
            :namespace "eww-bar"
            :stacking "fg"
-           :exclusive true
            (time-widget))
 
 (defwindow right-bar
@@ -33,7 +32,6 @@
                                :anchor "top right")
            :namespace "eww-bar"
            :stacking "fg"
-           :exclusive true
            (time-widget))
                       
 (defwidget time-widget []
