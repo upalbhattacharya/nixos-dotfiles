@@ -14,7 +14,7 @@
                                :y "0px"
                                :height "24px"
                                :width "100%"
-                               :anchor "top center")
+                               :anchor "top")
            :namespace "eww-bar"
            :stacking "fg"
            :exclusive true
