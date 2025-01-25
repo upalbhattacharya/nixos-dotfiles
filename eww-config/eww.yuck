@@ -21,14 +21,14 @@
            (time-widget))
                       
 (defwidget time-widget []
-           (box :class "time-segment"
+           (box :class "time-widget"
                 :halign "end"
                 :valign "center"
                 :orientation "horizontal"
                 (label :text time)))
 
 (defwidget date-widget []
-           (box :class "date-segment"
+           (box :class "date-widget"
                 :halign "start"
                 :valign "center"
                 :orientation "horizontal"
