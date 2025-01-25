@@ -11,6 +11,7 @@
                                :anchor "top center")
            :namespace "eww-bar"
            :stacking "fg"
+           :reserve (struts :distance "80px" :side "top")
            :exclusive true
            (time-widget))
 
@@ -21,6 +22,7 @@
                                :height "24px"
                                :anchor "top left")
            :namespace "eww-bar"
+           :reserve (struts :distance "80px" :side "top")
            :stacking "fg"
            (time-widget))
 
@@ -31,6 +33,7 @@
                                :height "24px"
                                :anchor "top right")
            :namespace "eww-bar"
+           :reserve (struts :distance "80px" :side "top")
            :stacking "fg"
            (time-widget))
                       
