@@ -21,7 +21,8 @@
            (bar))
 
 (defwidget bar []
-    (bar :orientation "horizontal"
+    (bar :class "full-bar"
+         :orientation "horizontal"
          :halign "center"
         (left-segment)
         (center-segment)
