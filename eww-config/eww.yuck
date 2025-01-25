@@ -51,7 +51,7 @@
                 :space-evenly false
                 :valign "center"
                 :halign "end"
-                (date-widget)))
+                (time-widget)))
 )
            
                       
