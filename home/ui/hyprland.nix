@@ -16,7 +16,7 @@ in
       general = {
         border_size = 5;
         gaps_in = 5;
-        gaps_out = 0,10,10,10;
+        gaps_out = (0,10,10,10);
       };
       decoration = {
         rounding = 2;
