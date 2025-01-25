@@ -15,7 +15,7 @@
            :reserve (struts :distance "80px" :side "top")
            :windowtype "dock"
            :wm-ignore false
-           (time))
+           (time-widget))
 
 (defwindow left-bar
            :monitor 0
@@ -27,7 +27,7 @@
            :reserve (struts :distance "80px" :side "top")
            :windowtype "dock"
            :wm-ignore false
-           (time))
+           (time-widget))
 
 (defwindow right-bar
            :monitor 0
@@ -38,7 +38,7 @@
            :stacking "fg"
            :reserve (struts :distance "80px" :side "top")
            :windowtype "dock"
-           (time))
+           (time-widget))
                       
 (defwidget time-widget []
            (box :halign "start"
