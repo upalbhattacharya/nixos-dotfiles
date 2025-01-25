@@ -14,8 +14,9 @@
            (time))
 
 (defwidget time []
-           :class "time-widget"
            :halign "start"
            :valign "center"
-           (box :orientation "horizontal"
+           (box
+           :class "time-widget"
+           :orientation "horizontal"
            time))
