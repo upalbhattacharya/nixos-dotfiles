@@ -18,6 +18,7 @@
            :namespace "eww-bar"
            :stacking "fg"
            :exclusive true
+           (date-widget)
            (time-widget))
                       
 (defwidget time-widget []
