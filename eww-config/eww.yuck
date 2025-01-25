@@ -1,5 +1,4 @@
 (defwindow central-bar
-           :class "bar"
            :monitor 0
            :geometry (geometry :x "0px"
                                :y "0px"
@@ -10,7 +9,6 @@
   "example content")
 
 (defwindow right-bar
-           :class "bar"
            :monitor 0
            :geometry (geometry :x "0px"
                                :y "0px"
@@ -21,7 +19,6 @@
   "example content")
 
 (defwindow left-bar
-           :class "bar"
            :monitor 0
            :geometry (geometry :x "0px"
                                :y "0px"
