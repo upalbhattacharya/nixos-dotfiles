@@ -15,11 +15,7 @@
            :reserve (struts :distance "80px" :side "top")
            :windowtype "dock"
            :wm-ignore false
-           :revealer (
-                     :transition "crossfade"
-                     :duration "1000ms"
-                     :reveal show
-                     (time)))
+           )
 
 (defwindow left-bar
            :monitor 0
@@ -30,12 +26,7 @@
            :stacking "fg"
            :reserve (struts :distance "80px" :side "top")
            :windowtype "dock"
-           :wm-ignore false
-           :revealer (
-                     :transition "crossfade"
-                     :duration "1000ms"
-                     :reveal show
-                     (time)))
+           :wm-ignore false)
 
 (defwindow right-bar
            :monitor 0
@@ -46,16 +37,15 @@
            :stacking "fg"
            :reserve (struts :distance "80px" :side "top")
            :windowtype "dock"
-           :wm-ignore false
-           :revealer (
-                     :transition "crossfade"
-                     :duration "1000ms"
-                     :reveal show
-                     (time)))
-
+           :wm-ignore false)
+                      
 (defwidget time []
            (box :class "time-widget"
                 :halign "start"
                 :valign "center"
                 :orientation "horizontal"
-                time))
+                :revealer (
+                     :transition "crossfade"
+                     :duration "1000ms"
+                     :reveal show
+                     (time))))
