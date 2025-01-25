@@ -21,9 +21,11 @@
            (bar))
 
 (defwidget bar []
-    (left-segment)
-    (center-segment)
-    (right-segment))
+    (bar :orientation "horizontal"
+         :halign "center"
+        (left-segment)
+        (center-segment)
+        (right-segment)))
 
 (defwidget left-segment []
            (box :class "left-segment"
