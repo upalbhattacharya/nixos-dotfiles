@@ -4,6 +4,10 @@
 }
 
 .central-bar, .left-bar, .right-bar {
+    background: transparent;
+}
+
+.time-widget {
     background-color: #11111b;
     opacity: 0.8;
     border-radius: 25px;
