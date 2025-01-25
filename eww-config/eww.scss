@@ -4,6 +4,17 @@
 }
 
 .central-bar, .left-bar, .right-bar {
+    // background-color: #11111b;
+    // opacity: 0.8;
+    // border-radius: 25px;
+    // border: 2px solid;
+    // border-color: #a6adc8;
+    // color: #cdd6f4;
+    // padding: 5px 10px 5px 10px;
+    background-color: transparent;
+}
+
+.time-widget {
     background-color: #11111b;
     opacity: 0.8;
     border-radius: 25px;
@@ -12,13 +23,3 @@
     color: #cdd6f4;
     padding: 5px 10px 5px 10px;
 }
-
-// .time-widget {
-//     background-color: #11111b;
-//     opacity: 0.8;
-//     border-radius: 25px;
-//     border: 2px solid;
-//     border-color: #a6adc8;
-//     color: #cdd6f4;
-//     padding: 5px 10px 5px 10px;
-// }
