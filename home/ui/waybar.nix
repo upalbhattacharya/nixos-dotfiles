@@ -171,6 +171,9 @@
       	  padding-left: 20px;
       	  padding-right: 20px;
           margin: 10px;
+          border: 2px solid;
+          border-color: red;
+          border-radius: 25px;
       	}
       	
       	window#waybar {
