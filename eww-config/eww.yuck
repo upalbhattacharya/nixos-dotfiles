@@ -9,6 +9,7 @@
                                :y "10px"
                                :height "24px"
                                :anchor "top center")
+           :namespace "eww-bar"
            :stacking "fg"
            (time-widget))
 
@@ -18,6 +19,7 @@
                                :y "10px"
                                :height "24px"
                                :anchor "top left")
+           :namespace "eww-bar"
            :stacking "fg"
            (time-widget))
 
@@ -27,6 +29,7 @@
                                :y "10px"
                                :height "24px"
                                :anchor "top right")
+           :namespace "eww-bar"
            :stacking "fg"
            (time-widget))
                       
