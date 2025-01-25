@@ -23,7 +23,7 @@
 (defwidget bar []
     (box :class "full-bar"
          :orientation "horizontal"
-         :halign "center"
+         :halign "fill"
         (left-segment)
         (center-segment)
         (right-segment)))
