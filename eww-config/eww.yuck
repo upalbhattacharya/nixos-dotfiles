@@ -15,7 +15,7 @@
            :reserve (struts :distance "80px" :side "top")
            :windowtype "dock"
            :wm-ignore false
-           )
+           (time))
 
 (defwindow left-bar
            :monitor 0
@@ -26,7 +26,8 @@
            :stacking "fg"
            :reserve (struts :distance "80px" :side "top")
            :windowtype "dock"
-           :wm-ignore false)
+           :wm-ignore false
+           (time))
 
 (defwindow right-bar
            :monitor 0
@@ -37,7 +38,7 @@
            :stacking "fg"
            :reserve (struts :distance "80px" :side "top")
            :windowtype "dock"
-           :wm-ignore false)
+           (time))
                       
 (defwidget time []
            (box :class "time-widget"
@@ -48,4 +49,4 @@
                      :transition "crossfade"
                      :duration "1000ms"
                      :reveal show
-                     (time))))
+                     time)))
