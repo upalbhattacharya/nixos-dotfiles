@@ -174,10 +174,6 @@
       	
       	window#waybar {
       	  background-color: @mantle;
-          margin: 10px;
-          border: 2px solid;
-          border-color: red;
-          border-radius: 25px;
       	  padding-top: 4px;
       	  padding-bottom: 4px;
       	  padding-left: 4px;
