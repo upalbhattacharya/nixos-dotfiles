@@ -1,3 +1,8 @@
+(defpoll time :interval "1s"
+              :initial "initial-value"  ; optional, defaults to poll at startup
+              :run-while time-visible   ; optional, defaults to 'true'
+  `date +%H:%M:%S`)
+
 (defwindow bar
            :monitor 0
            :geometry (geometry :x "0px"
@@ -7,3 +12,10 @@
            :stacking "fg"
            :exclusive true
   "example content")
+
+(defwidget time
+           :class "time-widget"
+           :halign "start"
+           :valign "center"
+           (box :orientation "horizontal"
+)
