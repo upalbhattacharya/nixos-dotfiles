@@ -12,9 +12,6 @@
                                :height "24px"
                                :anchor "top center")
            :stacking "fg"
-           :reserve (struts :distance "80px" :side "top")
-           :windowtype "dock"
-           :wm-ignore false
            (time-widget))
 
 (defwindow left-bar
@@ -24,9 +21,6 @@
                                :height "24px"
                                :anchor "top left")
            :stacking "fg"
-           :reserve (struts :distance "80px" :side "top")
-           :windowtype "dock"
-           :wm-ignore false
            (time-widget))
 
 (defwindow right-bar
@@ -36,8 +30,6 @@
                                :height "24px"
                                :anchor "top right")
            :stacking "fg"
-           :reserve (struts :distance "80px" :side "top")
-           :windowtype "dock"
            (time-widget))
                       
 (defwidget time-widget []
