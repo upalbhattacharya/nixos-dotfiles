@@ -33,7 +33,6 @@
                 :valign "center"
                 :halign "start"
                 (date-widget)))
-)
 
 (defwidget center-segment []
            (box :class "left-segment"
@@ -42,7 +41,6 @@
                 :valign "center"
                 :halign "center"
                 (date-widget)))
-)
 
 (defwidget right-segment []
            (box :class "left-segment"
@@ -51,8 +49,6 @@
                 :valign "center"
                 :halign "end"
                 (time-widget)))
-)
-           
                       
 (defwidget time-widget []
            (box :class "time-widget"
