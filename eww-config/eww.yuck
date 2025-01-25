@@ -10,7 +10,6 @@
            :geometry (geometry :x "0px"
                                :y "5px"
                                :height "24px"
-                               :width "90%"
                                :anchor "top center")
            :stacking "fg"
            (time-widget))
