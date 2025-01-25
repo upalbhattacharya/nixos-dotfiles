@@ -1,14 +1,37 @@
+(defvar show true)
+
 (defpoll time :interval "1s"
               :initial "initial-value"  ; optional, defaults to poll at startup
               :run-while time-visible   ; optional, defaults to 'true'
   `date +%H:%M:%S`)
 
-(defwindow bar
+(defwindow central-bar
            :monitor 0
            :geometry (geometry :x "0px"
                                :y "5px"
                                :height "24px"
                                :anchor "top center")
+           :stacking "fg"
+           (time))
+
+(defwindow left-bar
+           :monitor 0
+           :geometry (geometry :x "0px"
+                               :y "5px"
+                               :height "24px"
+                               :anchor "top left")
+           :stacking "fg"
+           :reserve (struts :distance "80px" :side "top")
+           :windowtype "dock"
+           :wm-ignore false
+           (time))
+
+(defwindow right-bar
+           :monitor 0
+           :geometry (geometry :x "0px"
+                               :y "5px"
+                               :height "24px"
+                               :anchor "top right")
            :stacking "fg"
            (time))
 
