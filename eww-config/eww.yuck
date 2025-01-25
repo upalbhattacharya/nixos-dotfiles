@@ -8,6 +8,7 @@
            :geometry (geometry :x "0px"
                                :y "10px"
                                :height "24px"
+                               :width "95%"
                                :anchor "top center")
            :namespace "eww-bar"
            :stacking "fg"
@@ -17,7 +18,7 @@
 (defwindow left-bar
            :monitor 0
            :geometry (geometry :x "10px"
-                               :y "-49px"
+                               :y "-44px"
                                :height "24px"
                                :anchor "top left")
            :namespace "eww-bar"
@@ -28,7 +29,7 @@
 (defwindow right-bar
            :monitor 0
            :geometry (geometry :x "10px"
-                               :y "-49px"
+                               :y "-44px"
                                :height "24px"
                                :anchor "top right")
            :namespace "eww-bar"
