@@ -18,8 +18,7 @@
            :namespace "eww-bar"
            :stacking "fg"
            :exclusive true
-           (date-widget)
-           (time-widget))
+           (bar))
 
 (defwidget bar []
            (centerbox :orientation "horizontal"
