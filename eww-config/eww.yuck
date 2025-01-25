@@ -40,4 +40,4 @@
                      :transition "crossfade"
                      :duration "1000ms"
                      :reveal show
-                     (label :texttime))))
+                     (label :text time))))
