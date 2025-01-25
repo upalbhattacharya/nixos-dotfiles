@@ -27,5 +27,3 @@
            :stacking "fg"
            :exclusive true
   "example content")
-
-(defwidget 
