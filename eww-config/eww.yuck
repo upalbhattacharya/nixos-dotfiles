@@ -1,29 +1,9 @@
-(defwindow central-bar
+(defwindow bar
            :monitor 0
            :geometry (geometry :x "0px"
                                :y "0px"
                                :height "24px"
                                :anchor "top center")
-           :stacking "fg"
-           :exclusive true
-  "example content")
-
-(defwindow right-bar
-           :monitor 0
-           :geometry (geometry :x "0px"
-                               :y "0px"
-                               :height "24px"
-                               :anchor "top right")
-           :stacking "fg"
-           :exclusive true
-  "example content")
-
-(defwindow left-bar
-           :monitor 0
-           :geometry (geometry :x "0px"
-                               :y "0px"
-                               :height "24px"
-                               :anchor "top left")
            :stacking "fg"
            :exclusive true
   "example content")
