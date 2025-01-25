@@ -124,7 +124,7 @@ in
       bind=${modifier},Backspace,exec,hyprctl keyword cursor:inactive_timeout 0; hyprctl keyword cursor:hide_on_key_press false; hyprctl dispatch submap cursor
       bind=${modifier},plus,exec,wl-kbptr && (hyprctl keyword cursor:inactive_timeout 0; hyprctl keyword cursor:hide_on_key_press false; hyprctl dispatch submap cursor)
       # eww toggle
-      bindt = ${modifier}, ${modifier}_L, exec, /home/workboots/.dotfiles/eww-config/scripts/show-bar.sh
+      bindet = ${modifier}, ${modifier}_L, exec, /home/workboots/.dotfiles/eww-config/scripts/show-bar.sh
       bindrt = ${modifier}, ${modifier}_L, exec, ${pkgs.eww}/bin/eww close-all
 
       # Cursor submap (similar to the Mouse mode in Sway)
