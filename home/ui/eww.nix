@@ -1,6 +1,6 @@
 { ... }:
 {
-  programs.eww29-pgtk = {
+  programs.eww = {
     enable = true;
     configDir = ./../../eww-config;
   };
