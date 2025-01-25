@@ -20,6 +20,13 @@
            :exclusive true
            (date-widget)
            (time-widget))
+
+(defwidget bar []
+           (centerbox :orientation "horizontal"
+           (left-segment)
+           (center-segment)
+           (right-segment)))
+           
                       
 (defwidget time-widget []
            (box :class "time-widget"
