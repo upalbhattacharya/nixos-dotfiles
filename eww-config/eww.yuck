@@ -42,9 +42,6 @@
                 :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
                 :onchange "")
                 (date-widget)))
-(defwidget sidestuff []
-  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-    time))
 
 (defwidget center-segment []
            (box :class "left-segment"
