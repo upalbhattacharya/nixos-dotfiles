@@ -40,9 +40,8 @@
            :windowtype "dock"
            (time))
                       
-(defwidget time []
-           (box :class "time-widget"
-                :halign "start"
+(defwidget time-widget []
+           (box :halign "start"
                 :valign "center"
                 :orientation "horizontal"
                 :revealer (
