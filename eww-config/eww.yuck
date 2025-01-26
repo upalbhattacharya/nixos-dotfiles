@@ -6,6 +6,7 @@
   `date "+%Y-%m-%d %H:%M:%S"`)
 
 ;; ---------- Bars ----------
+;; ------- (Windows) -------
 
 (defwindow right-bar
            :monitor "HDMI-A-1"
@@ -45,7 +46,7 @@
            :wm-ignore true
            (left-bar))
 
-; The widgets in the bars
+
 (defwidget right-bar []
     (box :class "right-segment"
          :orientation "horizontal"
