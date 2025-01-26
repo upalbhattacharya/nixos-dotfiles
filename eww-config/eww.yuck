@@ -1,11 +1,8 @@
-(defpoll time :interval "1s"
+(defpoll datetime :interval "1s"
               :initial "initial-value"  ; optional, defaults to poll at startup
               :run-while time-visible   ; optional, defaults to 'true'
-  `date +%H:%M:%S`)
+  `date +%Y-%m-%d %H:%M:%S`)
 
-(defpoll date :interval "1s"
-              :initial "initial-value"  ; optional, defaults to poll at startup
-              :run-while time-visible   ; optional, defaults to 'true'
   `date +%Y-%m%-d`)
 
 (defwindow right-bar
