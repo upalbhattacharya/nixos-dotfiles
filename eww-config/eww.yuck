@@ -49,6 +49,22 @@
          (time-widget)
          ))
 
+(defwidget center-bar []
+    (box :class "center-bar"
+         :orientation "horizontal"
+         :halign "fill"
+         :width "100%"
+         (time-widget)
+         ))
+
+(defwidget left-bar []
+    (box :class "center-bar"
+         :orientation "horizontal"
+         :halign "fill"
+         :width "100%"
+         (time-widget)
+         ))
+
 (defwidget left-segment []
            (box :class "left-segment"
                 :orientation "horizontal"
