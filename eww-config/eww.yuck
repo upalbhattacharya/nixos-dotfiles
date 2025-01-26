@@ -58,7 +58,7 @@
          ))
 
 (defwidget left-bar []
-    (box :class "center-bar"
+    (box :class "left-bar"
          :orientation "horizontal"
          :halign "fill"
          :width "100%"
