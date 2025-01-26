@@ -19,7 +19,7 @@
            :stacking "fg"
            :exclusive true
            :wm-ignore true
-           (right-bar))
+           (right-bar-widget))
 
 (defwindow center-bar
            :monitor "HDMI-A-1"
@@ -31,7 +31,7 @@
            :stacking "fg"
            :exclusive true
            :wm-ignore true
-           (center-bar))
+           (center-bar-widget))
 
 (defwindow left-bar
            :monitor "HDMI-A-1"
@@ -44,28 +44,28 @@
            :stacking "fg"
            :exclusive true
            :wm-ignore true
-           (left-bar))
+           (left-bar-widget))
 
 ;; ------- (Catch all Widgets) -------
 
-(defwidget right-bar []
-    (box :class "right-segment"
+(defwidget right-bar-widget []
+    (box :class "right-bar-widget"
          :orientation "horizontal"
          :halign "fill"
          :width "100%"
          (datetime-widget)
          ))
 
-(defwidget center-bar []
-    (box :class "center-segment"
+(defwidget center-bar-widget []
+    (box :class "center-bar-widget"
          :orientation "horizontal"
          :halign "fill"
          :width "100%"
          (datetime-widget)
          ))
 
-(defwidget left-bar []
-    (box :class "left-segment"
+(defwidget left-bar-widget []
+    (box :class "left-bar-widget"
          :orientation "horizontal"
          :halign "fill"
          :width "100%"
