@@ -8,26 +8,24 @@
               :run-while time-visible   ; optional, defaults to 'true'
   `date +%Y-%m%-d`)
 
-(defwindow bar
+(defwindow right-bar
            :monitor "HDMI-A-1"
            :geometry (geometry :x "0px"
                                :y "0px"
                                :height "24px"
-                               :width "110%"
-                               :anchor "top center")
+                               :anchor "top right")
            :namespace "eww-bar"
            :stacking "fg"
            :exclusive true
-           (bar))
+           (right-bar))
 
-(defwidget bar []
-    (box :class "full-bar"
+(defwidget right-bar []
+    (box :class "right-bar"
          :orientation "horizontal"
          :halign "fill"
          :width "100%"
-        (left-segment)
-        (center-segment)
-        (right-segment)))
+         (time-widget)
+         ))
 
 (defwidget left-segment []
            (box :class "left-segment"
