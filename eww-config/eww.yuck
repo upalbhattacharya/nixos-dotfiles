@@ -48,7 +48,7 @@
          :orientation "horizontal"
          :halign "fill"
          :width "100%"
-         (time-widget)
+         (datetime-widget)
          ))
 
 (defwidget center-bar []
@@ -101,13 +101,7 @@
            (box :class "time-widget"
                 :valign "center"
                 :orientation "horizontal"
-                (label :text time)))
-
-(defwidget date-widget []
-           (box :class "date-widget"
-                :valign "center"
-                :orientation "horizontal"
-                (label :text date)))
+                (label :text datetime)))
 
 (defwidget metric [label value onchange]
   (box :orientation "h"
