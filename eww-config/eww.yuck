@@ -3,8 +3,6 @@
               :run-while time-visible   ; optional, defaults to 'true'
   `date +%Y-%m-%d %H:%M:%S`)
 
-  `date +%Y-%m%-d`)
-
 (defwindow right-bar
            :monitor "HDMI-A-1"
            :geometry (geometry :x "10px"
@@ -81,22 +79,6 @@
                 :onchange "")
                 (date-widget)))
 
-(defwidget center-segment []
-           (box :class "left-segment"
-                :orientation "horizontal"
-                :space-evenly false
-                :valign "center"
-                :halign "center"
-                (date-widget)))
-
-(defwidget right-segment []
-           (box :class "left-segment"
-                :orientation "horizontal"
-                :space-evenly false
-                :valign "center"
-                :halign "end"
-                (time-widget)))
-                      
 (defwidget datetime-widget []
            (box :class "time-widget"
                 :valign "center"
