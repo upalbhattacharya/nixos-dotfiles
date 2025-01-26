@@ -19,6 +19,28 @@
            :exclusive true
            (right-bar))
 
+(defwindow center-bar
+           :monitor "HDMI-A-1"
+           :geometry (geometry :x "0px"
+                               :y "0px"
+                               :height "24px"
+                               :anchor "top center")
+           :namespace "eww-bar"
+           :stacking "fg"
+           :exclusive true
+           (center-bar))
+
+(defwindow left-bar
+           :monitor "HDMI-A-1"
+           :geometry (geometry :x "0px"
+                               :y "0px"
+                               :height "24px"
+                               :anchor "top left")
+           :namespace "eww-bar"
+           :stacking "fg"
+           :exclusive true
+           (left-bar))
+
 (defwidget right-bar []
     (box :class "right-bar"
          :orientation "horizontal"
