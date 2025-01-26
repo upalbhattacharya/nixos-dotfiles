@@ -52,7 +52,6 @@
     (box :class "right-bar-widget"
          :orientation "horizontal"
          :halign "fill"
-         :width "100%"
          (datetime-widget)
          ))
 
@@ -60,7 +59,6 @@
     (box :class "center-bar-widget"
          :orientation "horizontal"
          :halign "fill"
-         :width "100%"
          (datetime-widget)
          ))
 
@@ -68,7 +66,6 @@
     (box :class "left-bar-widget"
          :orientation "horizontal"
          :halign "fill"
-         :width "100%"
          (datetime-widget)
          ))
 
