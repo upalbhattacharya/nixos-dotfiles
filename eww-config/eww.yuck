@@ -54,7 +54,7 @@
          :orientation "horizontal"
          :halign "fill"
          :width "100%"
-         (time-widget)
+         (datetime-widget)
          ))
 
 (defwidget left-bar []
@@ -62,7 +62,7 @@
          :orientation "horizontal"
          :halign "fill"
          :width "100%"
-         (time-widget)
+         (datetime-widget)
          ))
 
 (defwidget left-segment []
