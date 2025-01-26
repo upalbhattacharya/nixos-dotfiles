@@ -28,6 +28,7 @@
            :namespace "eww-bar"
            :stacking "fg"
            :exclusive true
+           :wm-ignore true
            (center-bar))
 
 (defwindow left-bar
@@ -39,6 +40,7 @@
            :namespace "eww-bar"
            :stacking "fg"
            :exclusive true
+           :wm-ignore true
            (left-bar))
 
 (defwidget right-bar []
