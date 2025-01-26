@@ -46,6 +46,7 @@
            :wm-ignore true
            (left-bar))
 
+;; ------- (Catch all Widgets) -------
 
 (defwidget right-bar []
     (box :class "right-segment"
