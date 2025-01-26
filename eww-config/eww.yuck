@@ -17,6 +17,7 @@
            :namespace "eww-bar"
            :stacking "fg"
            :exclusive true
+           :wm-ignore true
            (right-bar))
 
 (defwindow center-bar
