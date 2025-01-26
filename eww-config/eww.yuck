@@ -97,7 +97,7 @@
                 :halign "end"
                 (time-widget)))
                       
-(defwidget time-widget []
+(defwidget datetime-widget []
            (box :class "time-widget"
                 :valign "center"
                 :orientation "horizontal"
