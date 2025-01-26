@@ -1,6 +1,6 @@
 (defpoll datetime :interval "1s"
               :initial "initial-value"  ; optional, defaults to poll at startup
-  `date +%Y-%m-%d %H:%M:%S`)
+  `date "+%Y-%m-%d %H:%M:%S"`)
 
 (defwindow right-bar
            :monitor "HDMI-A-1"
