@@ -45,7 +45,7 @@
            (left-bar))
 
 (defwidget right-bar []
-    (box :class "right-bar"
+    (box :class "right-segment"
          :orientation "horizontal"
          :halign "fill"
          :width "100%"
@@ -53,7 +53,7 @@
          ))
 
 (defwidget center-bar []
-    (box :class "center-bar"
+    (box :class "center-segment"
          :orientation "horizontal"
          :halign "fill"
          :width "100%"
@@ -61,7 +61,7 @@
          ))
 
 (defwidget left-bar []
-    (box :class "left-bar"
+    (box :class "left-segment"
          :orientation "horizontal"
          :halign "fill"
          :width "100%"
