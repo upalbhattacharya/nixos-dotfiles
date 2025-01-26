@@ -69,7 +69,7 @@
     (box :class "left-bar-widget"
          :orientation "horizontal"
          :halign "fill"
-         (datetime-widget)
+         (workspaces)
          ))
 
 ;; ---------- Widgets ----------
