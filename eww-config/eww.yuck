@@ -1,12 +1,10 @@
-;; -----------------------------------
-;; Variables
+;; ---------- Variables ----------
 
 (defpoll datetime :interval "1s"
               :initial "initial-value"  ; optional, defaults to poll at startup
   `date "+%Y-%m-%d %H:%M:%S"`)
 
-;; -----------------------------------
-;; Bars
+;; ---------- Bars ----------
 
 (defwindow right-bar
            :monitor "HDMI-A-1"
@@ -71,8 +69,7 @@
          (datetime-widget)
          ))
 
-;; -----------------------------------
-;; Widgets
+;; ---------- Widgets ----------
 
 (defwidget datetime-widget []
            (box :class "time-widget"
