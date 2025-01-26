@@ -46,6 +46,7 @@
            :wm-ignore true
            (left-bar))
 
+; The widgets in the bars
 (defwidget right-bar []
     (box :class "right-segment"
          :orientation "horizontal"
@@ -69,6 +70,9 @@
          :width "100%"
          (datetime-widget)
          ))
+
+;; -----------------------------------
+;; Widgets
 
 (defwidget datetime-widget []
            (box :class "time-widget"
