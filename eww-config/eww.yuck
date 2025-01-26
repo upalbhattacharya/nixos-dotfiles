@@ -72,7 +72,7 @@
 ;; ---------- Widgets ----------
 
 (defwidget datetime-widget []
-           (box :class "time-widget"
+           (box :class "datetime-widget"
                 :valign "center"
                 :orientation "horizontal"
                 (label :text datetime)))
