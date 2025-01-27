@@ -537,7 +537,7 @@
 ; isort
 (defcustom python-isort-command "isort"
   "Name of the `isort` executable."
-  :group 'nasy
+  :group 'formatter
   :type 'string)
 
 (defvar python-isort--base-args '("--quiet" "--atomic" "--fass")
@@ -545,7 +545,7 @@
 
 (defcustom python-isort-extra-args nil
   "Extra arguments to pass to isort."
-  :group 'nasy
+  :group 'formatter
   :type '(repeat string))
 
 ;;;###autoload (autoload 'python-isort-buffer "python-isort" nil t)
@@ -568,7 +568,7 @@
 ; black
 (defcustom python-black-command "black"
   "Name of the `black` executable."
-  :group 'nasy
+  :group 'formatter
   :type 'string)
 
 (defvar python-black--base-args '("--quiet")
@@ -576,7 +576,7 @@
 
 (defcustom python-black-extra-args nil
   "Extra arguments to pass to black."
-  :group 'nasy
+  :group 'formatter
   :type '(repeat string))
 
 ;;;###autoload (autoload 'python-black-buffer "python-black" nil t)
@@ -596,10 +596,10 @@
 
 (add-hook 'python-mode-hook 'python-black-on-save-mode)
 
-; nix-nixfmt
+                                        ; nix-nixfmt
 (defcustom nix-nixfmt-command "nixfmt"
   "Name of the `nix-nixfmt` executable."
-  :group 'nasy
+  :group 'formatter
   :type 'string)
 
 ;;;###autoload (autoload 'nix-nixfmt-buffer "nix-nixfmt" nil t)
