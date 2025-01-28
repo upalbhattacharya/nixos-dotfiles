@@ -198,82 +198,83 @@
   :config (evil-mode 1))
 
 (use-package org
- :demand t
- :ensure nil
- :custom-face (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
- :hook (org-mode . org-indent-mode)
- :hook (org-mode . visual-line-mode)
- :hook (org-capture-mode . org-id-get-create)
- :config
- (define-key minibuffer-local-completion-map (kbd "?") nil)
- (setq org-deadline-warning-days 0)
- (setq org-cycle-separator-lines 1)
- (setq org-adapt-indentation nil)
- (setq org-hide-emphasis-markers t)
- (setq org-display-remote-inline-images 'download)
- (setq org-display-inline-images t)
- (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
- (setq org-return-follows-link t)
- (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
- (setq org-refile-use-outline-path 'file)
- (setq org-outline-path-complete-in-steps nil)
- (setq org-enforce-todo-dependencies t)
- (setq org-enforce-todo-checkbox-dependencies t)
- (setq org-startup-folded 'overview)
+  :demand t
+  :ensure nil
+  :custom-face (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
+  :hook (org-mode . org-indent-mode)
+  :hook (org-mode . visual-line-mode)
+  :hook (org-mode . flyspell-mode)
+  :hook (org-capture-mode . org-id-get-create)
+  :config
+  (define-key minibuffer-local-completion-map (kbd "?") nil)
+  (setq org-deadline-warning-days 0)
+  (setq org-cycle-separator-lines 1)
+  (setq org-adapt-indentation nil)
+  (setq org-hide-emphasis-markers t)
+  (setq org-display-remote-inline-images 'download)
+  (setq org-display-inline-images t)
+  (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
+  (setq org-return-follows-link t)
+  (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
+  (setq org-refile-use-outline-path 'file)
+  (setq org-outline-path-complete-in-steps nil)
+  (setq org-enforce-todo-dependencies t)
+  (setq org-enforce-todo-checkbox-dependencies t)
+  (setq org-startup-folded 'overview)
 
- ;;org-cite
- (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
+  ;;org-cite
+  (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
 
- ;; org-agenda
- (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
- (setq org-agenda-file-regexp "^[a-z0-9-_]+.org")
- (setq org-agenda-start-day "+0d")
- (setq org-agenda-window-setup 'other-tab)
- (setq org-agenda-skip-timestamp-if-done t)
- (setq org-agenda-skip-deadline-if-done t)
- (setq org-agenda-skip-scheduled-if-done t)
- (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
- (setq org-agenda-skip-timeline-if-deadline-is-shown t)
- ;; (setq org-agenda-hide-tags-regexp ".*")
- (setq org-agenda-prefix-format '((agenda . " %?-12c  %?-12t%?-b ")
-;; (todo . " %?-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
-(todo . " %b %?-12t %s")
-))
- (setq org-agenda-view-columns-initially t)
- (setq org-columns-default-format-for-agenda
-  "%12TODO(STATUS) %50ITEM %30NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %DEADLINE")
- (setq org-agenda-with-colors t)
- (setq org-agenda-format-date
-       (lambda (date)
-         (concat
-          "\n"
-          (org-agenda-format-date-aligned date)
-          "\n"
-          (make-string (string-width (org-agenda-format-date-aligned date)) 9472))))
- (setq org-log-done t)
- (setq org-agenda-start-with-log-mode t)
+  ;; org-agenda
+  (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
+  (setq org-agenda-file-regexp "^[a-z0-9-_]+.org")
+  (setq org-agenda-start-day "+0d")
+  (setq org-agenda-window-setup 'other-tab)
+  (setq org-agenda-skip-timestamp-if-done t)
+  (setq org-agenda-skip-deadline-if-done t)
+  (setq org-agenda-skip-scheduled-if-done t)
+  (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
+  (setq org-agenda-skip-timeline-if-deadline-is-shown t)
+  ;; (setq org-agenda-hide-tags-regexp ".*")
+  (setq org-agenda-prefix-format '((agenda . " %?-12c  %?-12t%?-b ")
+                                   ;; (todo . " %?-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
+                                   (todo . " %b %?-12t %s")
+                                   ))
+  (setq org-agenda-view-columns-initially t)
+  (setq org-columns-default-format-for-agenda
+        "%12TODO(STATUS) %50ITEM %30NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %DEADLINE")
+  (setq org-agenda-with-colors t)
+  (setq org-agenda-format-date
+        (lambda (date)
+          (concat
+           "\n"
+           (org-agenda-format-date-aligned date)
+           "\n"
+           (make-string (string-width (org-agenda-format-date-aligned date)) 9472))))
+  (setq org-log-done t)
+  (setq org-agenda-start-with-log-mode t)
 
- ;; org-todo
- (setq org-todo-keywords
-       '((sequence
-          "TODO(t)"
-          "NEXT(n/!)"
-          "TODAY(T/!)"
-          "IN PROGRESS(p/!)"
-          "REVIEW(r/!)"
-          "LATER(l/!)"
-          "|"
-          "DONE(d/!)"
-          "ARCHIVED(a/!)")))
- (setq org-todo-keyword-faces
-       '(("TODO" . (:foreground "#f9e2af" :weight bold))
-         ("NEXT" . (:foreground "#f5c2e7" :weight bold))
-         ("TODAY" . (:foreground "#f2cdcd" :weight bold))
-         ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold))
-         ("REVIEW" . (:foreground "#cba6f7" :weight bold))
-         ("LATER" . (:foreground "#b4befe" :weight bold))
-         ("DONE" . (:foreground "#a6e3a1" :weight bold))
-         ("ARCHIVED" . (:foreground "#9399b2")))))
+  ;; org-todo
+  (setq org-todo-keywords
+        '((sequence
+           "TODO(t)"
+           "NEXT(n/!)"
+           "TODAY(T/!)"
+           "IN PROGRESS(p/!)"
+           "REVIEW(r/!)"
+           "LATER(l/!)"
+           "|"
+           "DONE(d/!)"
+           "ARCHIVED(a/!)")))
+  (setq org-todo-keyword-faces
+        '(("TODO" . (:foreground "#f9e2af" :weight bold))
+          ("NEXT" . (:foreground "#f5c2e7" :weight bold))
+          ("TODAY" . (:foreground "#f2cdcd" :weight bold))
+          ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold))
+          ("REVIEW" . (:foreground "#cba6f7" :weight bold))
+          ("LATER" . (:foreground "#b4befe" :weight bold))
+          ("DONE" . (:foreground "#a6e3a1" :weight bold))
+          ("ARCHIVED" . (:foreground "#9399b2")))))
  
  ;; babel
  (org-babel-do-load-languages
