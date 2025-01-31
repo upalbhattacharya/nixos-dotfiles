@@ -66,8 +66,9 @@ in
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.autoSuspend = false;
 
-  services.displayManager.defaultSession = "hyprland";
+  services.displayManager.defaultSession = "dwl";
 
+  # services.displayManager.defaultSession = "hyprland";
   # Nvidia
   hardware.graphics = {
     enable = true;
@@ -257,6 +258,10 @@ in
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+  };
+
+  programs.dwl = {
+    enable = true;
   };
 
   programs.hyprland = {
