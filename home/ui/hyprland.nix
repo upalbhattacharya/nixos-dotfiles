@@ -36,6 +36,9 @@ in
       cursor {
              no_hardware_cursors = true
       }
+      xwayland {
+             force_zero_scaling = true
+      }
 
       # workspace = w[tv1], gapsout:0, gapsin:0
       # workspace = f[1], gapsout:0, gapsin:0
