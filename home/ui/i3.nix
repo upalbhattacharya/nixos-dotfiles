@@ -12,10 +12,10 @@
 			modifier = "Mod4";
 
 			# Vim Navigation
-			left = "h";
-			right = "l";
-			up = "k";
-			down = "j";
+			# left = "h";
+			# right = "l";
+			# up = "k";
+			# down = "j";
 			terminal = "kitty";
 			menu = "fuzzel";
 
