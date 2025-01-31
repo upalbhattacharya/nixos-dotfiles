@@ -63,17 +63,16 @@ in
   # Graphical Environment
 
   # Display Manager
-  services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.autoSuspend = false;
 
   services.greetd.enable = true;
   services.greetd.settings = {
     default_session = {
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd 'dwl \> /tmp/dwltags'";
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd hyprland";
     };
   };
 
-  # services.displayManager.defaultSession = "hyprland";
   # Nvidia
   hardware.graphics = {
     enable = true;
@@ -199,6 +198,12 @@ in
     emacs29-pgtk
     greetd.tuigreet
     dwl
+  ];
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      dwl = prev.dwl.override { conf = ./dwl-config.h; };
+    })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
