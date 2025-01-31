@@ -165,16 +165,16 @@ in
   # };
 
   # Cron
-  services.cron = {
-    enable = true;
-    systemCronJobs =
-      let
-        username = "workboots";
-      in
-      [
-        "* * * * * ${username}  sh -x ${lowBatteryNotifier} > /tmp/cron.batt.log 2>&1"
-      ];
-  };
+  # services.cron = {
+  #   enable = true;
+  #   systemCronJobs =
+  #     let
+  #       username = "workboots";
+  #     in
+  #     [
+  #       "* * * * * ${username}  sh -x ${lowBatteryNotifier} > /tmp/cron.batt.log 2>&1"
+  #     ];
+  # };
 
   # Lid Behaviour
   services.logind = {
