@@ -51,6 +51,10 @@ in
   };
   catppuccin.flavor = "mocha";
   catppuccin.enable = true;
+  programs.coolercontrol = {
+    enable = true;
+    nvidiaSupport = true;
+  };
   programs.home-manager.enable = true;
 
 }
