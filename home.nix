@@ -46,7 +46,9 @@ in
       pkgs.ripgrep
       pkgs.jq
       pkgs.socat
-      pkgs.dwl
+      # (pkgs.dwl.override {
+      #   conf = ./dwl-config.h;
+      # })
     ];
     file = { };
   };

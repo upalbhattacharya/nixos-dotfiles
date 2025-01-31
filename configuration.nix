@@ -109,7 +109,12 @@ in
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
-  services.xserver.windowManager.dwm.enable = true;
+  services.xserver.windowManager.dwm = {
+    enable = true;
+    package = pkgs.dwm.overrideAttrs {
+      src = ./dwm;
+    };
+  };
 
   # services.xserver.desktopManager.gnome.enable = true;
 
