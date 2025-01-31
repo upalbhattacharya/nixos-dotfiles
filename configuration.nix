@@ -64,7 +64,7 @@ in
 
   # Display Manager
   # services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.autoSuspend = false;
+  # services.xserver.displayManager.gdm.autoSuspend = false;
 
   services.greetd.enable = true;
   # services.greetd.settings = {
@@ -93,10 +93,11 @@ in
     open = false;
     nvidiaSettings = true;
     prime = {
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
+      #   offload = {
+      #     enable = true;
+      #     enableOffloadCmd = true;
+      #   };
+      sync.enable = true;
       amdgpuBusId = "PCI:7:0:0";
       nvidiaBusId = "PCI:1:0:0";
     };
@@ -104,6 +105,7 @@ in
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.autorun = true;
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
