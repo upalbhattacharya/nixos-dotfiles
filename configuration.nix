@@ -72,16 +72,19 @@ in
   #     command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd sway";
   #   };
   # };
-  services.greetd.settings = {
-    default_session = {
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd 'dwl -s kitty'";
-    };
-  };
+  # services.greetd.settings = {
+  #   default_session = {
+  #     command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd 'dwl -s kitty'";
+  #   };
+  # };
 
   # Nvidia
   hardware.graphics = {
     enable = true;
   };
+
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -93,23 +96,21 @@ in
     open = false;
     nvidiaSettings = true;
     prime = {
-      #   offload = {
-      #     enable = true;
-      #     enableOffloadCmd = true;
-      #   };
-      sync.enable = true;
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      # sync.enable = true;
       amdgpuBusId = "PCI:7:0:0";
       nvidiaBusId = "PCI:1:0:0";
     };
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.autorun = false;
-
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
+
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -136,26 +137,26 @@ in
   services.blueman.enable = true;
 
   # TLP
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+  # services.tlp = {
+  #   enable = true;
+  #   settings = {
+  #     CPU_SCALING_GOVERNOR_ON_AC = "performance";
+  #     CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
 
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+  #     CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+  #     CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
 
-      CPU_MIN_PERF_ON_AC = 0;
-      CPU_MAX_PERF_ON_AC = 100;
-      CPU_MIN_PERF_ON_BAT = 0;
-      CPU_MAX_PERF_ON_BAT = 20;
+  #     CPU_MIN_PERF_ON_AC = 0;
+  #     CPU_MAX_PERF_ON_AC = 100;
+  #     CPU_MIN_PERF_ON_BAT = 0;
+  #     CPU_MAX_PERF_ON_BAT = 20;
 
-      #Optional helps save long term battery health
-      START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
-      STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
+  #     #Optional helps save long term battery health
+  #     START_CHARGE_THRESH_BAT0 = 40; # 40 and bellow it starts to charge
+  #     STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
 
-    };
-  };
+  #   };
+  # };
 
   # Cron
   services.cron = {
@@ -223,7 +224,7 @@ in
     protonvpn-cli_2
     emacs29-pgtk
     greetd.tuigreet
-    dwl
+    # dwl
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
