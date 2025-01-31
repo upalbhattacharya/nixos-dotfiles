@@ -226,12 +226,6 @@ in
     dwl
   ];
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      dwl = prev.dwl.override { conf = ./dwl-config.h; };
-    })
-  ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
