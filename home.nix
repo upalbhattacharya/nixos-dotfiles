@@ -46,7 +46,6 @@ in
       pkgs.ripgrep
       pkgs.jq
       pkgs.socat
-      pkgs.coolercontrol
     ];
     file = { };
   };
