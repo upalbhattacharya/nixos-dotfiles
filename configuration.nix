@@ -66,18 +66,19 @@ in
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.displayManager.gdm.autoSuspend = false;
   services.xserver.windowManager.dwm.enable = true;
+  servers.picom.enable = true;
 
-  services.greetd.enable = true;
+  # services.greetd.enable = true;
   # services.greetd.settings = {
   #   default_session = {
   #     command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd hyprland";
   #   };
   # };
-  services.greetd.settings = {
-    default_session = {
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd 'dwl -s kitty'";
-    };
-  };
+  # services.greetd.settings = {
+  #   default_session = {
+  #     command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd 'dwl -s kitty'";
+  #   };
+  # };
 
   # Nvidia
   hardware.graphics = {
