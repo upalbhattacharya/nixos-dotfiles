@@ -66,17 +66,12 @@ in
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.displayManager.gdm.autoSuspend = false;
 
-  # services.greetd.enable = true;
-  # services.greetd.settings = {
-  #   default_session = {
-  #     command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd sway";
-  #   };
-  # };
-  # services.greetd.settings = {
-  #   default_session = {
-  #     command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd 'dwl -s kitty'";
-  #   };
-  # };
+  services.greetd.enable = true;
+  services.greetd.settings = {
+    default_session = {
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd hyprland";
+    };
+  };
 
   # Nvidia
   hardware.graphics = {
@@ -109,12 +104,6 @@ in
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
-  services.xserver.windowManager.i3.enable = true;
-  services.displayManager = {
-    defaultSession = "none+i3";
-  };
-
-  # services.xserver.desktopManager.gnome.enable = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -297,10 +286,10 @@ in
     nix-direnv.enable = true;
   };
 
-  # programs.hyprland = {
-  #   enable = true;
-  #   portalPackage = pkgs.xdg-desktop-portal-wlr;
-  # };
+  programs.hyprland = {
+    enable = true;
+    portalPackage = pkgs.xdg-desktop-portal-wlr;
+  };
   programs.dconf.enable = true;
 
   programs.steam = {
