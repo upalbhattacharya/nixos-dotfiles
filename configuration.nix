@@ -109,8 +109,9 @@ in
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
+  services.xserver.windowManager.dwm.enable = true;
 
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -293,10 +294,10 @@ in
     nix-direnv.enable = true;
   };
 
-  programs.hyprland = {
-    enable = true;
-    portalPackage = pkgs.xdg-desktop-portal-wlr;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  #   portalPackage = pkgs.xdg-desktop-portal-wlr;
+  # };
   programs.dconf.enable = true;
 
   programs.steam = {
