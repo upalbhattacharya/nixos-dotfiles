@@ -1,6 +1,6 @@
 { ... }:
 {
-	programs.dwl = {
-		enable = true;
-  }
-    
+  programs.dwl = {
+    enable = true;
+  };
+}
