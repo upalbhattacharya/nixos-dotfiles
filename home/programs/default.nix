@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./brave.nix
+    # ./brave.nix
     ./firefox.nix
     ./fzf.nix
     ./git.nix

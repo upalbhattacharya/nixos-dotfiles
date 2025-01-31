@@ -23,12 +23,19 @@ in
       };
     };
     extraConfig = ''
+      env = LIBVA_DRIVER_NAME,nvidia
+      env = GBM_BACKEND,nvidia-drm
+      env = __GLX_VENDOR_LIBRARY_NAME,nvidia
       env = XDG_CURRENT_DESKTOP,Hyprland
       env = XDG_SESSION_TYPE,wayland
       env = XDG_SESSION_DESKTOP,Hyprland
 
       env = QT_AUTO_SCREEN_SCALE_FACTOR,1
       env = AQ_ARM_DEVICES,/dev/dri/card1:/dev/dri/card2
+
+      cursor {
+             no_hardware_cursors = true
+      }
 
       # workspace = w[tv1], gapsout:0, gapsin:0
       # workspace = f[1], gapsout:0, gapsin:0
