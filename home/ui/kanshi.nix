@@ -32,7 +32,7 @@
             criteria = "LG Electronics LG ULTRAGEAR+ 406NTYT11186";
             status = "enable";
             mode = "3840x2160@144.05Hz";
-            scale = 1.5;
+            scale = 1;
             position = "0,0";
           }
         ];
@@ -48,7 +48,7 @@
             criteria = "LG Electronics LG ULTRAGEAR+ 405NTPC4L824";
             status = "enable";
             mode = "3840x2160@144.05Hz";
-            scale = 1.5;
+            scale = 1;
             position = "0,0";
           }
         ];
