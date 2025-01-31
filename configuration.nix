@@ -65,20 +65,18 @@ in
   # Display Manager
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.displayManager.gdm.autoSuspend = false;
-  services.xserver.windowManager.dwm.enable = true;
-  servers.picom.enable = true;
 
   # services.greetd.enable = true;
   # services.greetd.settings = {
   #   default_session = {
-  #     command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd hyprland";
+  #     command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd sway";
   #   };
   # };
-  # services.greetd.settings = {
-  #   default_session = {
-  #     command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd 'dwl -s kitty'";
-  #   };
-  # };
+  services.greetd.settings = {
+    default_session = {
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd 'dwl -s kitty'";
+    };
+  };
 
   # Nvidia
   hardware.graphics = {
@@ -107,7 +105,7 @@ in
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.autorun = true;
+  services.xserver.autorun = false;
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
@@ -225,7 +223,6 @@ in
     protonvpn-cli_2
     emacs29-pgtk
     greetd.tuigreet
-    dwm
   ];
 
   # nixpkgs.overlays = [
@@ -288,11 +285,11 @@ in
   };
 
   # programs.sway = {
-  #  		enable = true;
-  #  		wrapperFeatures.gtk = true;
-  #  		extraOptions = [
-  # 		"--unsupported-gpu"
-  #  		];
+  #   enable = true;
+  #   wrapperFeatures.gtk = true;
+  #   extraOptions = [
+  #     "--unsupported-gpu"
+  #   ];
   # };
 
   programs.direnv = {
