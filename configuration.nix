@@ -76,7 +76,7 @@ in
     default_session = {
       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd 'dwl \> /tmp/dwltags'";
     };
-  }
+  };
 
   # Nvidia
   hardware.graphics = {
