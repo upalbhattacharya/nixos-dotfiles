@@ -65,6 +65,7 @@ in
   # Display Manager
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.displayManager.gdm.autoSuspend = false;
+  services.xserver.windowManager.dwm.enable = true;
 
   services.greetd.enable = true;
   # services.greetd.settings = {
@@ -223,14 +224,14 @@ in
     protonvpn-cli_2
     emacs29-pgtk
     greetd.tuigreet
-    dwl
+    dwm
   ];
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      dwl = prev.dwl.override { conf = ./dwl-config.h; };
-    })
-  ];
+  # nixpkgs.overlays = [
+  #   (final: prev: {
+  #     dwl = prev.dwl.override { conf = ./dwl-config.h; };
+  #   })
+  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
