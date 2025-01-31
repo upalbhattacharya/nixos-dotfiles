@@ -46,15 +46,12 @@ in
       pkgs.ripgrep
       pkgs.jq
       pkgs.socat
+      pkgs.coolercontrol
     ];
     file = { };
   };
   catppuccin.flavor = "mocha";
   catppuccin.enable = true;
-  programs.coolercontrol = {
-    enable = true;
-    nvidiaSupport = true;
-  };
   programs.home-manager.enable = true;
 
 }
