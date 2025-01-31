@@ -223,13 +223,14 @@ in
     protonvpn-cli_2
     emacs29-pgtk
     greetd.tuigreet
+    dwl
   ];
 
-  # nixpkgs.overlays = [
-  #   (final: prev: {
-  #     dwl = prev.dwl.override { conf = ./dwl-config.h; };
-  #   })
-  # ];
+  nixpkgs.overlays = [
+    (final: prev: {
+      dwl = prev.dwl.override { conf = ./dwl-config.h; };
+    })
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
