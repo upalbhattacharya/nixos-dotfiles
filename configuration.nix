@@ -74,7 +74,7 @@ in
   # };
   services.greetd.settings = {
     default_session = {
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd dwl -s kitty";
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd 'dwl -s kitty'";
     };
   };
 
