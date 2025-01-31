@@ -66,7 +66,12 @@ in
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.gdm.autoSuspend = false;
 
-  services.displayManager.defaultSession = "dwl";
+  services.greetd.enable = true;
+  services.greetd.settings = {
+    default_session = {
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd 'dwl \> /tmp/dwltags'";
+    };
+  };
 
   # services.displayManager.defaultSession = "hyprland";
   # Nvidia
@@ -192,6 +197,8 @@ in
     libtool
     protonvpn-cli_2
     emacs29-pgtk
+    greetd.tuigreet
+    dwl
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -258,10 +265,6 @@ in
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
-  };
-
-  programs.dwl = {
-    enable = true;
   };
 
   programs.hyprland = {
