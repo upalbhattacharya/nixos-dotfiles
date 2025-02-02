@@ -194,30 +194,11 @@ in
     kitty
     lshw
     git
-    pulsemixer
-    discord
-    obsidian
     libnotify
     gcc
-    kanshi
-    graphviz
-    poetry
-    python312Full
-    pandoc
-    texliveMedium
-    waydroid
-    wl-kbptr
-    lilypond
-    frescobaldi
-    networkmanagerapplet
-    plantuml
-    cmake
-    libvterm
-    libtool
-    protonvpn-cli_2
-    emacs29-pgtk
     greetd.tuigreet
-    # dwl
+    pulsemixer
+    networkmanagerapplet
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -46,7 +46,25 @@ in
       pkgs.ripgrep
       pkgs.jq
       pkgs.socat
+      pkgs.discord
+      pkgs.kanshi
+      pkgs.graphviz
+      pkgs.poetry
+      pkgs.python312Full
+      pkgs.pandoc
+      pkgs.texliveMedium
+      pkgs.waydroid
+      pkgs.lilypond
+      pkgs.frescobaldi
+      pkgs.plantuml
+      pkgs.cmake
+      pkgs.libvterm
+      pkgs.libtool
+      pkgs.protonvpn-cli_2
+      pkgs.emacs29-pgtk
+
     ];
+
     file = { };
   };
   catppuccin.flavor = "mocha";
