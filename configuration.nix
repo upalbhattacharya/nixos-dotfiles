@@ -67,11 +67,11 @@ in
   # services.xserver.displayManager.gdm.autoSuspend = false;
 
   services.greetd.enable = true;
-  services.greetd.settings = {
-    default_session = {
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd hyprland";
-    };
-  };
+  # services.greetd.settings = {
+  #   default_session = {
+  #     command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd hyprland";
+  #   };
+  # };
 
   services.greetd.settings = {
     default_session = {
