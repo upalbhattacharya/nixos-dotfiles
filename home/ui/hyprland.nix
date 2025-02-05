@@ -19,8 +19,8 @@ in
       };
       decoration = {
         rounding = 5;
-        shadow = false;
-        blur = false;
+        shadow.enabled = false;
+        blur.enabled = false;
       };
       cursor = {
         no_hardware_cursors = true;
