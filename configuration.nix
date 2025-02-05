@@ -73,6 +73,12 @@ in
     };
   };
 
+  services.greetd.settings = {
+    default_session = {
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd dwl";
+    };
+  };
+
   # Nvidia
   hardware.graphics = {
     enable = true;
@@ -186,6 +192,11 @@ in
 
   # Enable users
   nix.settings.allowed-users = [ "workboots" ];
+  nixpkgs.overlays = [
+    (final: prev: {
+      dwl = prev.dwl.override { conf = ./dwl-config/config.def.h; };
+    })
+  ];
 
   environment.systemPackages = with pkgs; [
     vim
@@ -271,6 +282,7 @@ in
     enable = true;
     portalPackage = pkgs.xdg-desktop-portal-wlr;
   };
+
   programs.dconf.enable = true;
 
   programs.steam = {
