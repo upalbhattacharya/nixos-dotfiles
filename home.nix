@@ -26,10 +26,18 @@ in
       # XDG_SESSION_DESKTOP = "hyprland";
       # XDG_SESSION_TYPE = "wayland";
 
+      # dwl
+      LIBVA_DRIVER_NAME = "nvidia";
+      GBM_BACKEND = "nvidia-drm";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      XDG_CURRENT_DESKTOP = "dwl";
+      XDG_SESSION_DESKTOP = "dwl";
+      QT_AUTO_SCREEN_SCALE_FACTOR = 1;
+
       # wayland stuff.
-      # QT_QPA_PLATFORM="wayland";
-      # QT_WAYLAND_DISABLE_WINDOWDECORATION="1";
-      # SDL_VIDEODRIVER = "wayland";
+      QT_QPA_PLATFORM = "wayland";
+      QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
+      SDL_VIDEODRIVER = "wayland";
 
       # apps stuff.
       _JAVA_AWT_WM_NONREPARENTING = 1;
@@ -62,7 +70,6 @@ in
       pkgs.libtool
       pkgs.protonvpn-cli_2
       pkgs.emacs29-pgtk
-
     ];
 
     file = { };

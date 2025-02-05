@@ -67,15 +67,9 @@ in
   # services.xserver.displayManager.gdm.autoSuspend = false;
 
   services.greetd.enable = true;
-  # services.greetd.settings = {
-  #   default_session = {
-  #     command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd hyprland";
-  #   };
-  # };
-
   services.greetd.settings = {
     default_session = {
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd dwl";
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --cmd hyprland";
     };
   };
 
@@ -192,11 +186,6 @@ in
 
   # Enable users
   nix.settings.allowed-users = [ "workboots" ];
-  nixpkgs.overlays = [
-    (final: prev: {
-      dwl = prev.dwl.override { conf = ./dwl-config/config.def.h; };
-    })
-  ];
 
   environment.systemPackages = with pkgs; [
     vim
@@ -210,29 +199,7 @@ in
     greetd.tuigreet
     pulsemixer
     networkmanagerapplet
-    dwl
   ];
-  environment.sessionVariables = rec {
-    # dwl
-    LIBVA_DRIVER_NAME = "nvidia";
-    GBM_BACKEND = "nvidia-drm";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    XDG_CURRENT_DESKTOP = "dwl";
-    XDG_SESSION_DESKTOP = "dwl";
-    QT_AUTO_SCREEN_SCALE_FACTOR = 1;
-
-    # wayland stuff.
-    QT_QPA_PLATFORM = "wayland";
-    QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
-    SDL_VIDEODRIVER = "wayland";
-
-    # apps stuff.
-    _JAVA_AWT_WM_NONREPARENTING = 1;
-    WLR_RENDERER = "vulkan";
-    WLR_NO_HARDWARE_CURSORS = 1;
-    XWAYLAND_NO_GLAMOR = 1;
-
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -300,10 +267,10 @@ in
     nix-direnv.enable = true;
   };
 
-  # programs.hyprland = {
-  #   enable = true;
-  #   portalPackage = pkgs.xdg-desktop-portal-wlr;
-  # };
+  programs.hyprland = {
+    enable = true;
+    portalPackage = pkgs.xdg-desktop-portal-wlr;
+  };
 
   programs.dconf.enable = true;
 
