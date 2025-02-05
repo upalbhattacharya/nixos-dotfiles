@@ -11,12 +11,8 @@
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		nixvim = {
-    			url = "github:nix-community/nixvim";
-    			inputs.nixpkgs.follows = "nixpkgs";
-  		};
 	};
-	outputs = {self, nixpkgs, home-manager, catppuccin, nixvim, ...}:
+	outputs = {self, nixpkgs, home-manager, catppuccin, ...}:
 	let
 		lib = nixpkgs.lib;
 		system = "x86_64-linux";
@@ -36,7 +32,6 @@
 				modules = [
 					./home.nix
 	        			catppuccin.homeManagerModules.catppuccin
-					nixvim.homeManagerModules.nixvim
 				];
 			};
 		};
