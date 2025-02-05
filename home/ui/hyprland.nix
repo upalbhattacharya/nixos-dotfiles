@@ -20,6 +20,14 @@ in
       };
       decoration = {
         rounding = 5;
+        shadow = false;
+        blur = false;
+      };
+      cursor = {
+        no_hardware_cursors = true;
+      };
+      xwayland = {
+        force_zero_scaling = true;
       };
     };
     extraConfig = ''
@@ -32,13 +40,6 @@ in
 
       env = QT_AUTO_SCREEN_SCALE_FACTOR,1
       env = AQ_ARM_DEVICES,/dev/dri/card1:/dev/dri/card2
-
-      cursor {
-             no_hardware_cursors = true
-      }
-      xwayland {
-             force_zero_scaling = true
-      }
 
       # workspace = w[tv1], gapsout:0, gapsin:0
       # workspace = f[1], gapsout:0, gapsin:0
