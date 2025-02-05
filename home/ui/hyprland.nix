@@ -10,7 +10,6 @@ in
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland.enable = true;
     systemd.enable = true;
     settings = {
       general = {
@@ -27,6 +26,7 @@ in
         no_hardware_cursors = true;
       };
       xwayland = {
+        enable = true;
         force_zero_scaling = true;
       };
     };
