@@ -26,7 +26,7 @@ in
         no_hardware_cursors = true;
       };
       xwayland = {
-        enable = true;
+        enabled = true;
         force_zero_scaling = true;
       };
     };
