@@ -22,6 +22,10 @@ in
         shadow.enabled = false;
         blur.enabled = false;
       };
+      animations = {
+        enabled = false;
+        first_launch_animation = false;
+      };
       cursor = {
         no_hardware_cursors = true;
       };
