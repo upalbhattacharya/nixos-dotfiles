@@ -210,6 +210,7 @@ in
     greetd.tuigreet
     pulsemixer
     networkmanagerapplet
+    dwl
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -278,10 +279,10 @@ in
     nix-direnv.enable = true;
   };
 
-  programs.hyprland = {
-    enable = true;
-    portalPackage = pkgs.xdg-desktop-portal-wlr;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  #   portalPackage = pkgs.xdg-desktop-portal-wlr;
+  # };
 
   programs.dconf.enable = true;
 
