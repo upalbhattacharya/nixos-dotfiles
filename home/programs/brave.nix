@@ -1,7 +1,0 @@
-{ ... }:
-
-{
-	programs.brave = {
-		enable = true;
-	};
-}
