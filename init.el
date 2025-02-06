@@ -81,6 +81,7 @@
      (:underline "#A6E3A1")
      (:underline "#F38BA8")
      (:underline "#CBA6F7")))
+ '(annotate-popup-warning-indirect-buffer nil)
  '(calendar-date-style 'iso)
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
@@ -1105,69 +1106,37 @@ _n_: Go-to next annotation   _t_: Toggle annotation
 ;; fold source blocks
 (global-set-key (kbd "C-c M-z") 'org-fold-hide-block-toggle)
 
+;; Fix for annotations in indirect buffers
+(defun annotate-actual-file-name ()
+  "Get the actual file name of the current buffer."
+  (substring-no-properties (or (annotate-info-actual-filename)
+                               (buffer-file-name)
+                               (buffer-file-name (buffer-base-buffer))
+                               "")))
+
 (defun workboots/org-narrow-to-subtree
     ()
-    (interactive)
-    (let ((org-indirect-buffer-display 'current-window))
-      (if (not (boundp 'org-indirect-buffer-file-name))
+  (interactive)
+  (let ((org-indirect-buffer-display 'current-window))
+    (if (not (boundp 'org-indirect-buffer-file-name))
+	    (let ((above-buffer (current-buffer))
+		      (org-filename (buffer-file-name)))
+	      (org-tree-to-indirect-buffer (1+ (org-current-level)))
+	      (setq-local org-indirect-buffer-file-name org-filename)
+	      (setq-local org-indirect-above-buffer above-buffer))
 	  (let ((above-buffer (current-buffer))
-		(org-filename (buffer-file-name)))
+	        (org-filename org-indirect-buffer-file-name))
 	    (org-tree-to-indirect-buffer (1+ (org-current-level)))
 	    (setq-local org-indirect-buffer-file-name org-filename)
-	    (setq-local org-indirect-above-buffer above-buffer))
-	(let ((above-buffer (current-buffer))
-	      (org-filename org-indirect-buffer-file-name))
-	  (org-tree-to-indirect-buffer (1+ (org-current-level)))
-	  (setq-local org-indirect-buffer-file-name org-filename)
-	  (setq-local org-indirect-above-buffer above-buffer)))))
+	    (setq-local org-indirect-above-buffer above-buffer)))))
 
 (defun workboots/org-widen-from-subtree
     ()
-    (interactive)
-    (let ((above-buffer org-indirect-above-buffer)
-	  (org-indirect-buffer-display 'current-window))
-      (kill-buffer)
-      (switch-to-buffer above-buffer)))
+  (interactive)
+  (let ((above-buffer org-indirect-above-buffer)
+	    (org-indirect-buffer-display 'current-window))
+    (kill-buffer)
+    (switch-to-buffer above-buffer)))
 
-;; (define-key org-mode-map (kbd "C-x n s") 'workboots/org-narrow-to-subtree)
-;; (define-key org-mode-map (kbd "C-x n w") 'workboots/org-widen-from-subtree)
-
-;; narrow
-(defhydra hydra-narrow (:color pink :hint nil :exit t) "
-^narrow-to-subtree^
--------------------
-_e_: Narrow for editing
-_v_: Narrow for viewing (annotations glitchy)
-_q_: Quit
-"
-  ("e" hydra-narrow-edit/body :exit t) ("v" hydra-narrow-view/body :exit t) ("q" nil))
-
-(defhydra
-  hydra-narrow-edit
-  (:color pink :hint nil :exit t)
-  "
-^narrow-to-subtree-edit^
---------------
-_s_: Narrow
-_w_: Widen
-_q_: Quit
-"
-  ("s" org-narrow-to-subtree)
-  ("w" widen)
-  ("q" nil))
-
-(defhydra
-  hydra-narrow-view
-  (:color pink :hint nil :exit t)
-  "
-^narrow-to-subtree-view^
---------------
-_s_: Narrow
-_w_: Widen
-_q_: Quit
-"
-  ("s" 'workboots/org-narrow-to-subtree)
-  ("w" 'workboots/org-widen-from-subtree)
-  ("q" nil))
-
-(global-set-key (kbd "C-x n") 'hydra-narrow/body)
+(define-key org-mode-map (kbd "C-x n s") 'workboots/org-narrow-to-subtree)
+(define-key org-mode-map (kbd "C-x n w") 'workboots/org-widen-from-subtree)
