@@ -1129,8 +1129,8 @@ _n_: Go-to next annotation   _t_: Toggle annotation
       (kill-buffer)
       (switch-to-buffer above-buffer)))
 
-(define-key org-mode-map (kbd "C-x n s") 'workboots/org-narrow-to-subtree)
-(define-key org-mode-map (kbd "C-x n w") 'workboots/org-widen-from-subtree)
+;; (define-key org-mode-map (kbd "C-x n s") 'workboots/org-narrow-to-subtree)
+;; (define-key org-mode-map (kbd "C-x n w") 'workboots/org-widen-from-subtree)
 
 ;; narrow
 (defhydra hydra-narrow (:color pink :hint nil :exit t) "
