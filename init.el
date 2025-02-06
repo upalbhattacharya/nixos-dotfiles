@@ -345,16 +345,19 @@
   (cl-defmethod org-roam-node-filename ((node org-roam-node))
     (file-name-base (org-roam-node-file node)
                     ))
-(cl-defmethod org-roam-node-hierarchy ((node org-roam-node))
-  (let ((level (org-roam-node-level node)))
-    (concat
-     (when (> level 0) (org-roam-node-file-title node))
-     (when (> level 1) (concat " > " (string-join (org-roam-node-olp node) " > ")) ))
-     ))
+  (cl-defmethod org-roam-node-hierarchy ((node org-roam-node))
+    (let ((level (org-roam-node-level node)))
+      (concat
+       (when (> level 0) (org-roam-node-file-title node))
+       (when (> level 1) (concat " > " (string-join (org-roam-node-olp node) " > ")) ))
+      ))
   (setq org-roam-node-display-template "${status:13} ${title:50} ${hierarchy:*}")
   (setq org-roam-directory (file-truename "~/org"))
   (setq org-roam-dailies-directory "~/org/Journal/")
   (setq org-roam-completion-everywhere t)
+  (setq org-roam-db-node-include-function
+        (lambda ()
+          (not (member "IGNORE_ORG_ROAM" (org-get-tags)))))
   (setq org-roam-capture-templates
         '(
           ("d" "default" entry "* ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n"
@@ -932,6 +935,61 @@ exist after each headings's drawers."
    (if (eq major-mode 'org-mode) ; Org-mode
        (let ((current-prefix-arg 4)) ; Emulate C-u
          (call-interactively 'unpackaged/org-fix-blank-lines)))))
+
+;; (defcustom org-subentry-count-at-start nil
+;;   "Show the subentry count before the title, not after."
+;;   :group 'org-subenty-count
+;;   :type 'boolean)
+
+;; (defvar org-subentry-count-in-headings-p nil
+;;   "t to enable org-subentry-count-in-headings
+;;      nil to disable org-subentry-count-in-headings")
+
+;; (defun org-subentry-count-in-headings ()
+;;   (org-map-entries
+;;    (lambda ()
+;;      (when (looking-at org-complex-heading-regexp)
+;;        (let* ((group (if org-subentry-count-at-start 1 0))
+;;               (beg (match-beginning group))
+;;               (end (match-end group))
+;;               (level (length (match-string 1))) ; stars in headline
+;;               (subheading-count (format "%s" (1- (length (org-map-entries nil nil 'tree)))))
+;;               (ov (car (seq-filter
+;;                         ;; search for subentry-count overlay
+;;                         (lambda (o)
+;;                           (eq (overlay-get o 'type) 'subentry-count)) 
+;;                         (overlays-in (line-beginning-position)
+;;                                      (line-end-position))))))
+;;          (if ov ; only create overlay if not exists yet
+;;              (move-overlay ov beg end)
+;;            (setq ov (make-overlay beg end))
+;;            (overlay-put ov 'type 'subentry-count) ; add a type, for easy filtering
+;;            (overlay-put ov 'evaporate t))
+;;          ;; only add/remove 'after-string' prop in toggle
+;;          (if org-subentry-count-in-headings-p
+;;              (overlay-put ov 'after-string (propertize (format " [%s]" subheading-count)
+;;                                                        'face (intern-soft (format "org-level-%d" level))))
+;;            (overlay-put ov 'after-string nil)))))))
+
+;; ;; Add heading count
+
+;; (defun toggle-org-subentry-count-in-headings ()
+;;   (interactive)
+;;   (if org-subentry-count-in-headings-p
+;;       (setq org-subentry-count-in-headings-p nil)
+;;     (setq org-subentry-count-in-headings-p t))
+;;   (org-subentry-count-in-headings))
+
+;; (defun toggle-org-subentry-position ()
+;;   (interactive)
+;;   (setq org-subentry-count-at-start (not org-subentry-count-at-start))
+;;   (setq org-subentry-count-in-headings-p t)
+;;   (org-subentry-count-in-headings))
+
+;; (add-hook 'org-mode-hook (lambda ()
+;;                            (setq org-subentry-count-in-headings-p t)
+;;                            (org-subentry-count-in-headings)
+;;                            (add-hook 'after-save-hook 'org-subentry-count-in-headings)))
 
 ;;; Keybindings
 
