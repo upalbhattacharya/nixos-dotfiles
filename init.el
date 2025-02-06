@@ -1131,3 +1131,43 @@ _n_: Go-to next annotation   _t_: Toggle annotation
 
 (define-key org-mode-map (kbd "C-x n s") 'workboots/org-narrow-to-subtree)
 (define-key org-mode-map (kbd "C-x n w") 'workboots/org-widen-from-subtree)
+
+;; narrow
+(defhydra hydra-narrow (:color pink :hint nil :exit t) "
+^narrow-to-subtree^
+-------------------
+_e_: Narrow for editing
+_v_: Narrow for viewing (annotations glitchy)
+_q_: Quit
+"
+  ("e" hydra-narrow-edit/body :exit t) ("v" hydra-narrow-view/body :exit t) ("q" nil))
+
+(defhydra
+  hydra-narrow-edit
+  (:color pink :hint nil :exit t)
+  "
+^narrow-to-subtree-edit^
+--------------
+_s_: Narrow
+_w_: Widen
+_q_: Quit
+"
+  ("s" org-narrow-to-subtree)
+  ("w" widen)
+  ("q" nil))
+
+(defhydra
+  hydra-narrow-view
+  (:color pink :hint nil :exit t)
+  "
+^narrow-to-subtree-view^
+--------------
+_s_: Narrow
+_w_: Widen
+_q_: Quit
+"
+  ("s" 'workboots/org-narrow-to-subtree)
+  ("w" 'workboots/org-widen-from-subtree)
+  ("q" nil))
+
+(global-set-key (kbd "C-x n") 'hydra-narrow/body)
