@@ -1198,3 +1198,5 @@ _n_: Go-to next annotation   _t_: Toggle annotation
 
 (define-key org-mode-map (kbd "C-x n s") 'workboots/org-narrow-to-subtree)
 (define-key org-mode-map (kbd "C-x n w") 'workboots/org-widen-from-subtree)
+
+(global-set-key (kbd "C-x M-k") 'kill-this-buffer)
