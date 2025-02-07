@@ -37,6 +37,7 @@ in
   # Networking
   networking.hostName = "nixos-workboots";
   networking.networkmanager.enable = true;
+  networking.enableIPv6 = false;
 
   # Timezone
   time.timeZone = "Europe/Amsterdam";
