@@ -5,5 +5,6 @@
     extensions = [
       { id = "bkkmolkhemgaeaeggcmfbghljjjoofoh" ; } # Catppuccin Mocha 
       {  }
+    ]
   };
 }
