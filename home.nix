@@ -71,6 +71,7 @@ in
       pkgs.protonvpn-cli_2
       pkgs.emacs29-pgtk
       pkgs.vivaldi
+      pkgs.openvpn
     ];
 
     file = { };
