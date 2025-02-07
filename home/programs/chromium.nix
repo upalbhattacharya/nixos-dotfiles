@@ -4,7 +4,6 @@
     enable = true;
     extensions = [
       { id = "bkkmolkhemgaeaeggcmfbghljjjoofoh" ; } # Catppuccin Mocha 
-      {  }
     ]
   };
 }
