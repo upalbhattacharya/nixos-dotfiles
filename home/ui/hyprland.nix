@@ -60,7 +60,7 @@ in
 
       bind = ${modifier},Return,exec,${pkgs.kitty}/bin/kitty
       bind = ${modifier},r,exec,${pkgs.fuzzel}/bin/fuzzel
-      bind = ${modifier},q,exec,${pkgs.firefox}/bin/firefox
+      bind = ${modifier},q,exec,${pkgs.vivaldi}/bin/vivaldi
       bind = ${modifier},e,exec,${pkgs.emacs29-pgtk}/bin/emacs
       bindr = Control,SPACE,exec,${pkgs.mako}/bin/makoctl dismiss -a
       bindr = Control&Alt,l,exec,${pkgs.hyprlock}/bin/hyprlock
