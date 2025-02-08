@@ -72,7 +72,7 @@ in
       pkgs.emacs29-pgtk
       pkgs.vivaldi
       pkgs.openvpn
-      pkgs.whatsapp-for-linux
+      pkgs.whatsapp-for-mac
       pkgs.telegram-desktop
     ];
 
