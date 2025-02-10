@@ -68,20 +68,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ;; '(annotate-annotation-position-policy :new-line)
- ;; '(annotate-annotation-text-faces
- ;;   '((:background "#F9E2AF" :foreground "#181825")
- ;;     (:background "#94E2D5" :foreground "#181825")
- ;;     (:background "#A6E3A1" :foreground "#181825")
- ;;     (:background "#F38BA8" :foreground "#181825")
- ;;     (:background "#CBA6F7" :foreground "#181825")))
- ;; '(annotate-highlight-faces
- ;;   '((:underline "#F9E2AF")
- ;;     (:underline "#94E2D5")
- ;;     (:underline "#A6E3A1")
- ;;     (:underline "#F38BA8")
- ;;     (:underline "#CBA6F7")))
- ;; '(annotate-popup-warning-indirect-buffer nil)
  '(calendar-date-style 'iso)
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
@@ -135,6 +121,7 @@
      (66 :foreground "#181825" :background "#f9e2af")
      (67 :foreground "#181825" :background "#94e2d5")))
  '(org-ql-search-directories-files-recursive t)
+ '(org-remark-icon-notes " 󰍩 ")
  '(org-use-property-inheritance '("NAME"))
  '(package-selected-packages
    '(which-key wfnames vline vertico toc-org spacious-padding ruff-format rainbow-delimiters python-mode origami org-view-mode org-transclusion org-superstar org-roam-ui org-contrib org-anki nix-mode magit lsp-ui latexdiff latex-extra hydra hotfuzz gnu-elpa-keyring-update git-gutter git-auto-commit-mode fzf flycheck evil-nerd-commenter evil envrc elisp-autofmt dashboard company citar-org-roam catppuccin-theme bibtex-completion avy async annotate aggressive-indent))
