@@ -135,6 +135,7 @@
      (66 :foreground "#181825" :background "#f9e2af")
      (67 :foreground "#181825" :background "#94e2d5")))
  '(org-ql-search-directories-files-recursive t)
+ '(org-remark-notes-display-buffer-action '((display-buffer-in-child-frame) (side . left) (slot . 1)))
  '(org-use-property-inheritance '("NAME"))
  '(package-selected-packages
    '(which-key wfnames vline vertico toc-org spacious-padding ruff-format rainbow-delimiters python-mode origami org-view-mode org-transclusion org-superstar org-roam-ui org-contrib org-anki nix-mode magit lsp-ui latexdiff latex-extra hydra hotfuzz gnu-elpa-keyring-update git-gutter git-auto-commit-mode fzf flycheck evil-nerd-commenter evil envrc elisp-autofmt dashboard company citar-org-roam catppuccin-theme bibtex-completion avy async annotate aggressive-indent))
@@ -1124,9 +1125,9 @@ _k_: Insert Key
   "
 ^org-remark^
 ------------
-_b_: Blue highlight      _p_: Purple highlight      _q_: Quit
-_g_: Green highlight     _d_: Delete highlight
-_y_: Yellow highlight    _w_: Save highlights
+_b_: Blue highlight      _p_: Purple highlight      _[_: View Previous
+_g_: Green highlight     _d_: Delete highlight      _]_: View Next
+_y_: Yellow highlight    _w_: Save highlights       _q_: Quit
 _r_: Red highlight       _o_: Open (Annotate)
 "
   ("b" org-remark-mark-blue)
@@ -1136,6 +1137,8 @@ _r_: Red highlight       _o_: Open (Annotate)
   ("p" org-remark-mark-purple)
   ("d" org-remark-remove)
   ("w" org-remark-save)
+  ("[" org-remark-view-prev)
+  ("]" org-remark-view-next)
   ("o" org-remark-open)
   ("q" nil))
 (global-set-key (kbd "C-c M-v") 'hydra-org-remark/body)
