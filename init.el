@@ -196,7 +196,11 @@
 (use-package evil
   :demand t
   :ensure (:wait t)
-  :config (evil-mode 1))
+  :config
+  (evil-mode 1)
+  (evil-ex-define-cmd "wq" 'save-and-kill-this-buffer)
+  (defun save-and-kill-this-buffer()(interactive)(save-buffer)(kill-current-buffer))
+  )
 
 (use-package org
   :demand t
