@@ -846,6 +846,17 @@
   :mode ("\.py$")
   :hook (python-mode . lsp-deferred))
 
+(use-package org-appear
+  :demand t
+  :ensure (:wait t)
+  :commands (org-appear-mode)
+  :hook     (org-mode . org-appear-mode)
+  :config
+  (setq org-hide-emphasis-markers t)  ; Must be activated for org-appear to work
+  (setq org-appear-autoemphasis   t   ; Show bold, italics, verbatim, etc.
+        org-appear-autolinks      t   ; Show links
+		org-appear-autosubmarkers t)) ; Show sub- and superscripts
+
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
   (org-id-get-create)
@@ -1108,24 +1119,25 @@ _k_: Insert Key
 
 
 (defhydra
- hydra-org-remark
- (:color pink :hint nil :exit t)
- "
+  hydra-org-remark
+  (:color pink :hint nil :exit t)
+  "
 ^org-remark^
 ------------
-_b_: Blue highlight      _p_: Purple highlight
+_b_: Blue highlight      _p_: Purple highlight      _q_: Quit
 _g_: Green highlight     _d_: Delete highlight
 _y_: Yellow highlight    _w_: Save highlights
-_r_: Red highlight       _q_: Quit
+_r_: Red highlight       _o_: Open (Annotate)
 "
-("b" org-remark-mark-blue)
-("g" org-remark-mark-green)
-("y" org-remark-mark-yellow)
-("r" org-remark-mark-red)
-("p" org-remark-mark-purple)
-("d" org-remark-remove)
-("w" org-remark-save)
- ("q" nil))
+  ("b" org-remark-mark-blue)
+  ("g" org-remark-mark-green)
+  ("y" org-remark-mark-yellow)
+  ("r" org-remark-mark-red)
+  ("p" org-remark-mark-purple)
+  ("d" org-remark-remove)
+  ("w" org-remark-save)
+  ("o" org-remark-open)
+  ("q" nil))
 (global-set-key (kbd "C-c M-v") 'hydra-org-remark/body)
 
 (defhydra
