@@ -1124,10 +1124,10 @@ _k_: Insert Key
   "
 ^org-remark^
 ------------
-_b_: Blue highlight      _p_: Purple highlight      _[_: View Previous
-_g_: Green highlight     _d_: Delete highlight      _]_: View Next
-_y_: Yellow highlight    _w_: Save highlights       _c_: Change colour
-_r_: Red highlight       _o_: Open (Annotate)       _q_: Quit
+_b_: Blue highlight      _p_: Purple highlight      _v_: View highlight/annotation
+_g_: Green highlight     _d_: Delete highlight      _[_: View Previous
+_y_: Yellow highlight    _w_: Save highlights       _]_: View Next
+_r_: Red highlight       _o_: Open (Annotate)       _c_: Change colour      _q_: Quit       
 "
   ("b" org-remark-mark-blue)
   ("g" org-remark-mark-green)
@@ -1136,6 +1136,7 @@ _r_: Red highlight       _o_: Open (Annotate)       _q_: Quit
   ("p" org-remark-mark-purple)
   ("d" org-remark-remove)
   ("w" org-remark-save)
+  ("v" org-remark-view)
   ("[" org-remark-view-prev)
   ("]" org-remark-view-next)
   ("o" org-remark-open)
@@ -1184,6 +1185,10 @@ _r_: Red highlight       _o_: Open (Annotate)       _q_: Quit
 ;; fold source blocks
 (global-set-key (kbd "C-c M-z") 'org-fold-hide-block-toggle)
 
+;; Narrow and widen
+(define-key org-mode-map (kbd "C-x n s") 'org-narrow-to-subtree)
+(define-key org-mode-map (kbd "C-x n w") 'widen)
+
 ;; Fix for annotations in indirect buffers
 ;; (defun annotate-actual-file-name ()
 ;;   "Get the actual file name of the current buffer."
@@ -1192,31 +1197,31 @@ _r_: Red highlight       _o_: Open (Annotate)       _q_: Quit
 ;;                                (buffer-file-name (buffer-base-buffer))
 ;;                                "")))
 
-(defun workboots/org-narrow-to-subtree
-    ()
-  (interactive)
-  (let ((org-indirect-buffer-display 'current-window))
-    (if (not (boundp 'org-indirect-buffer-file-name))
-	    (let ((above-buffer (current-buffer))
-		      (org-filename (buffer-file-name)))
-	      (org-tree-to-indirect-buffer (1+ (org-current-level)))
-	      (setq-local org-indirect-buffer-file-name org-filename)
-	      (setq-local org-indirect-above-buffer above-buffer))
-	  (let ((above-buffer (current-buffer))
-	        (org-filename org-indirect-buffer-file-name))
-	    (org-tree-to-indirect-buffer (1+ (org-current-level)))
-	    (setq-local org-indirect-buffer-file-name org-filename)
-	    (setq-local org-indirect-above-buffer above-buffer)))))
+;; (defun workboots/org-narrow-to-subtree
+;;     ()
+;;   (interactive)
+;;   (let ((org-indirect-buffer-display 'current-window))
+;;     (if (not (boundp 'org-indirect-buffer-file-name))
+;; 	    (let ((above-buffer (current-buffer))
+;; 		      (org-filename (buffer-file-name)))
+;; 	      (org-tree-to-indirect-buffer (1+ (org-current-level)))
+;; 	      (setq-local org-indirect-buffer-file-name org-filename)
+;; 	      (setq-local org-indirect-above-buffer above-buffer))
+;; 	  (let ((above-buffer (current-buffer))
+;; 	        (org-filename org-indirect-buffer-file-name))
+;; 	    (org-tree-to-indirect-buffer (1+ (org-current-level)))
+;; 	    (setq-local org-indirect-buffer-file-name org-filename)
+;; 	    (setq-local org-indirect-above-buffer above-buffer)))))
 
-(defun workboots/org-widen-from-subtree
-    ()
-  (interactive)
-  (let ((above-buffer org-indirect-above-buffer)
-	    (org-indirect-buffer-display 'current-window))
-    (kill-buffer)
-    (switch-to-buffer above-buffer)))
+;; (defun workboots/org-widen-from-subtree
+;;     ()
+;;   (interactive)
+;;   (let ((above-buffer org-indirect-above-buffer)
+;; 	    (org-indirect-buffer-display 'current-window))
+;;     (kill-buffer)
+;;     (switch-to-buffer above-buffer)))
 
-(define-key org-mode-map (kbd "C-x n s") 'workboots/org-narrow-to-subtree)
-(define-key org-mode-map (kbd "C-x n w") 'workboots/org-widen-from-subtree)
+;; (define-key org-mode-map (kbd "C-x n s") 'workboots/org-narrow-to-subtree)
+;; (define-key org-mode-map (kbd "C-x n w") 'workboots/org-widen-from-subtree)
 
-(global-set-key (kbd "C-x M-k") 'kill-this-buffer)
+;; (global-set-key (kbd "C-x M-k") 'kill-this-buffer)
