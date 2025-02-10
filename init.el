@@ -68,20 +68,20 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(annotate-annotation-position-policy :new-line)
- '(annotate-annotation-text-faces
-   '((:background "#F9E2AF" :foreground "#181825")
-     (:background "#94E2D5" :foreground "#181825")
-     (:background "#A6E3A1" :foreground "#181825")
-     (:background "#F38BA8" :foreground "#181825")
-     (:background "#CBA6F7" :foreground "#181825")))
- '(annotate-highlight-faces
-   '((:underline "#F9E2AF")
-     (:underline "#94E2D5")
-     (:underline "#A6E3A1")
-     (:underline "#F38BA8")
-     (:underline "#CBA6F7")))
- '(annotate-popup-warning-indirect-buffer nil)
+ ;; '(annotate-annotation-position-policy :new-line)
+ ;; '(annotate-annotation-text-faces
+ ;;   '((:background "#F9E2AF" :foreground "#181825")
+ ;;     (:background "#94E2D5" :foreground "#181825")
+ ;;     (:background "#A6E3A1" :foreground "#181825")
+ ;;     (:background "#F38BA8" :foreground "#181825")
+ ;;     (:background "#CBA6F7" :foreground "#181825")))
+ ;; '(annotate-highlight-faces
+ ;;   '((:underline "#F9E2AF")
+ ;;     (:underline "#94E2D5")
+ ;;     (:underline "#A6E3A1")
+ ;;     (:underline "#F38BA8")
+ ;;     (:underline "#CBA6F7")))
+ ;; '(annotate-popup-warning-indirect-buffer nil)
  '(calendar-date-style 'iso)
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
@@ -135,7 +135,6 @@
      (66 :foreground "#181825" :background "#f9e2af")
      (67 :foreground "#181825" :background "#94e2d5")))
  '(org-ql-search-directories-files-recursive t)
- '(org-remark-notes-display-buffer-action '((display-buffer-in-child-frame) (side . left) (slot . 1)))
  '(org-use-property-inheritance '("NAME"))
  '(package-selected-packages
    '(which-key wfnames vline vertico toc-org spacious-padding ruff-format rainbow-delimiters python-mode origami org-view-mode org-transclusion org-superstar org-roam-ui org-contrib org-anki nix-mode magit lsp-ui latexdiff latex-extra hydra hotfuzz gnu-elpa-keyring-update git-gutter git-auto-commit-mode fzf flycheck evil-nerd-commenter evil envrc elisp-autofmt dashboard company citar-org-roam catppuccin-theme bibtex-completion avy async annotate aggressive-indent))
@@ -628,11 +627,11 @@
   :demand t
   :ensure (:wait t))
 
-(use-package annotate
-  :demand t
-  :ensure (:wait t)
-  :hook ((org-mode . annotate-mode))
-  :config (setq annotate-file "~/org/annotations"))
+;; (use-package annotate
+;;   :demand t
+;;   :ensure (:wait t)
+;;   :hook ((org-mode . annotate-mode))
+;;   :config (setq annotate-file "~/org/annotations"))
 
 (use-package org-ql
   :demand t
@@ -738,7 +737,7 @@
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Inbox"))
              )
-        ))
+            ))
           ("i" "Inbox"
            ((org-ql-block
              '(and (todo) (path "Inbox") (not (path "Archive"))) ((org-ql-block-header "Inbox")))))
@@ -1127,8 +1126,8 @@ _k_: Insert Key
 ------------
 _b_: Blue highlight      _p_: Purple highlight      _[_: View Previous
 _g_: Green highlight     _d_: Delete highlight      _]_: View Next
-_y_: Yellow highlight    _w_: Save highlights       _q_: Quit
-_r_: Red highlight       _o_: Open (Annotate)
+_y_: Yellow highlight    _w_: Save highlights       _c_: Change colour
+_r_: Red highlight       _o_: Open (Annotate)       _q_: Quit
 "
   ("b" org-remark-mark-blue)
   ("g" org-remark-mark-green)
@@ -1140,30 +1139,32 @@ _r_: Red highlight       _o_: Open (Annotate)
   ("[" org-remark-view-prev)
   ("]" org-remark-view-next)
   ("o" org-remark-open)
+  ("c" org-remark-change)
   ("q" nil))
 (global-set-key (kbd "C-c M-v") 'hydra-org-remark/body)
 
-(defhydra
- hydra-org-annotate
- (:color pink :hint nil :exit t)
- "
-^org-annotate^
---------------
-_a_: Add annotation          _p_: Go-to previous annotation     _q_: Quit
-_w_: Save annotations        _d_: Delete annotation
-_l_: Load annotations        _c_: Clear annotations
-_n_: Go-to next annotation   _t_: Toggle annotation
-"
-("a" annotate-annotate)
-("d" annotate-delete-annotation)
-("c" annotate-clear-annotations)
-("w" annotate-save-annotations)
-("l" annotate-load-annotations)
-("n" annotate-goto-next-annotation)
-("p" annotate-goto-previous-annotation)
-("t" annotate-toggle-annotation-text)
- ("q" nil))
-(global-set-key (kbd "C-c M-m") 'hydra-org-annotate/body)
+;; (defhydra
+;;  hydra-org-annotate
+;;  (:color pink :hint nil :exit t)
+;;  "
+;; ^org-annotate^
+;; --------------
+;; _a_: Add annotation          _p_: Go-to previous annotation     _q_: Quit
+;; _w_: Save annotations        _d_: Delete annotation
+;; _l_: Load annotations        _c_: Clear annotations
+;; _n_: Go-to next annotation   _t_: Toggle annotation
+;; "
+;; ("a" annotate-annotate)
+;; ("d" annotate-delete-annotation)
+;; ("c" annotate-clear-annotations)
+;; ("w" annotate-save-annotations)
+;; ("l" annotate-load-annotations)
+;; ("n" annotate-goto-next-annotation)
+;; ("p" annotate-goto-previous-annotation)
+;; ("t" annotate-toggle-annotation-text)
+;;  ("q" nil))
+;; (global-set-key (kbd "C-c M-m") 'hydra-org-annotate/body)
+
 ;; org-view-mode
 (global-set-key (kbd "C-c M-e") 'org-view-mode)
 
