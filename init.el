@@ -1185,12 +1185,12 @@ _r_: Red highlight       _o_: Open (Annotate)       _q_: Quit
 (global-set-key (kbd "C-c M-z") 'org-fold-hide-block-toggle)
 
 ;; Fix for annotations in indirect buffers
-(defun annotate-actual-file-name ()
-  "Get the actual file name of the current buffer."
-  (substring-no-properties (or (annotate-info-actual-filename)
-                               (buffer-file-name)
-                               (buffer-file-name (buffer-base-buffer))
-                               "")))
+;; (defun annotate-actual-file-name ()
+;;   "Get the actual file name of the current buffer."
+;;   (substring-no-properties (or (annotate-info-actual-filename)
+;;                                (buffer-file-name)
+;;                                (buffer-file-name (buffer-base-buffer))
+;;                                "")))
 
 (defun workboots/org-narrow-to-subtree
     ()
