@@ -121,6 +121,7 @@
      (66 :foreground "#181825" :background "#f9e2af")
      (67 :foreground "#181825" :background "#94e2d5")))
  '(org-ql-search-directories-files-recursive t)
+ '(org-ql-search-directories-files-regexp ".org$")
  '(org-remark-icon-notes " 󰍩 ")
  '(org-use-property-inheritance '("NAME"))
  '(package-selected-packages
@@ -839,12 +840,11 @@
   :demand t
   :ensure (:wait t))
 
-(defun workboots/org-roam-rg-search ()
-  "Search org-roam directory using consult-ripgrep. With live-preview."
-  (interactive)
-  (let ((consult-ripgrep-command "rg --null --ignore-case --type org --line-buffered --color=always --max-columns=500 --no-heading --line-number . -e ARG OPTS"))
-    (consult-ripgrep org-roam-directory)))
-;; (global-set-key (kbd "C-c rr") 'bms/org-roam-rg-search)
+;; (defun workboots/org-roam-rg-search ()
+;;   "Search org-roam directory using consult-ripgrep. With live-preview."
+;;   (interactive)
+;;   (let ((consult-ripgrep-command "rg --null --smart-case --type org --line-buffered --color=always --max-columns=500 --no-heading --line-number . -e ARG OPTS"))
+;;     (consult-ripgrep org-roam-directory)))
 
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
@@ -1045,17 +1045,17 @@ _o_: Clock out        _r_: Insert report              _q_: Quit
 
 ;; org-roam
 (defhydra
-  hydra-org-roam-consult
+  hydra-org-roam
   (:color pink :hint nil :exit t)
   "
-^org-roam-consult^
+^org-roam^
 ---------
-_f_: (Consult) Find heading   _c_: Capture node
+_c_: Capture                  _j_: Goto Journal
 _i_: Insert node link         _s_: Sync database
-_b_: Buffer toggle            _j_: Goto Journal
+_b_: Buffer toggle            _f_: (org-ql) Find
 _w_: Refile                   _q_: Quit
 "
-  ("f" consult-org-heading)
+  ("f" org-ql-find-in-org-directory)
   ("c" org-roam-capture)
   ("i" org-roam-node-insert)
   ("b" org-roam-buffer-toggle)
@@ -1063,7 +1063,7 @@ _w_: Refile                   _q_: Quit
   ("s" org-roam-db-sync)
   ("j" org-roam-dailies-goto-today)
   ("q" nil))
-(global-set-key (kbd "C-c o") 'hydra-org-roam-consult/body)
+(global-set-key (kbd "C-c o") 'hydra-org-roam/body)
 
 ;; org-agenda
 (global-set-key (kbd "C-c a") 'org-agenda)
@@ -1178,9 +1178,6 @@ _r_: Red highlight       _o_: Open (Annotate)       _c_: Change colour      _q_:
 ;; Narrow and widen
 (define-key org-mode-map (kbd "C-x n s") 'org-narrow-to-subtree)
 (define-key org-mode-map (kbd "C-x n w") 'widen)
-
-;; Consult
-(global-set-key (kbd "C-c M-z") 'org-fold-hide-block-toggle)
 
 ;; Fix for annotations in indirect buffers
 ;; (defun annotate-actual-file-name ()
