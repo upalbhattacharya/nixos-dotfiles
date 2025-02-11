@@ -661,8 +661,8 @@
                         (not (parent "Resources"))
                         (not (parent "Archive")))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Completed Today"))
-             )
+             (org-ql-block-header "Completed Today"))
+            
             (org-ql-block
              '(and (todo "NEXT")
                    (and (not (parent "Projects"))
