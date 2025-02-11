@@ -626,7 +626,8 @@
   :init
   (setq org-agenda-custom-commands
         '(("z" "Zen View"
-           ((org-ql-block
+           (
+            (org-ql-block
              '(and (todo)
                    (deadline :on today)
                    (and (not (parent "Projects"))
@@ -634,8 +635,7 @@
                         (not (parent "Resources"))
                         (not (parent "Archive")))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Due Today"))
-             )
+             (org-ql-block-header "Due Today"))
             (org-ql-block
              '(and (todo)
                    (scheduled :on today)
@@ -644,8 +644,7 @@
                         (not (parent "Resources"))
                         (not (parent "Archive")))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Scheduled Today"))
-             )
+             (org-ql-block-header "Schedule Today"))
             (org-ql-block
              '(and (todo "TODAY")
                    (and (not (parent "Projects"))
@@ -653,8 +652,7 @@
                         (not (parent "Resources"))
                         (not (parent "Archive")))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Planned or Working on Today"))
-             )
+             (org-ql-block-header "Planned or Working on Today"))
             (org-ql-block
              '(and (done)
                    (closed :on today)
