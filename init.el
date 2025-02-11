@@ -670,7 +670,6 @@
                         (not (parent "Archive")))
                    (not (tags "IGNORE_AGENDA")))
              (org-ql-block-header "Next"))
-            
             (org-ql-block
              '(and (todo "IN PROGRESS" "REVIEW")
                    (and (not (parent "Projects"))
@@ -679,8 +678,7 @@
                         (not (parent "Archive")))
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "In Progress"))
-             )
+             (org-ql-block-header "In Progress"))
             (org-ql-block
              '(and (todo)
                    (and (not (parent "Projects"))
