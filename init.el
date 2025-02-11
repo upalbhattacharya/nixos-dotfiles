@@ -839,6 +839,13 @@
   :demand t
   :ensure (:wait t))
 
+(defun workboots/org-roam-rg-search ()
+  "Search org-roam directory using consult-ripgrep. With live-preview."
+  (interactive)
+  (let ((consult-ripgrep-command "rg --null --ignore-case --type org --line-buffered --color=always --max-columns=500 --no-heading --line-number . -e ARG OPTS"))
+    (consult-ripgrep org-roam-directory)))
+;; (global-set-key (kbd "C-c rr") 'bms/org-roam-rg-search)
+
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
   (org-id-get-create)
