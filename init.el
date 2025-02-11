@@ -1056,7 +1056,7 @@ _w_: Refile                   _q_: Quit
   ("s" org-roam-db-sync)
   ("j" org-roam-dailies-goto-today)
   ("q" nil))
-(global-set-key (kbd "C-c o") 'hydra-org-roam/body)
+(global-set-key (kbd "C-c o") 'hydra-org-roam-consult/body)
 
 ;; org-agenda
 (global-set-key (kbd "C-c a") 'org-agenda)
