@@ -1038,16 +1038,17 @@ _o_: Clock out        _r_: Insert report              _q_: Quit
 
 ;; org-roam
 (defhydra
-  hydra-org-roam
+  hydra-org-roam-consult
   (:color pink :hint nil :exit t)
   "
-^org-roam^
+^org-roam-consult^
 ---------
-_c_: Capture node             _s_: Sync database
-_i_: Insert node link         _j_: Goto Journal
-_b_: Buffer toggle            _q_: Quit
-_w_: Refile
+_f_: (Consult) Find heading   _c_: Capture node
+_i_: Insert node link         _s_: Sync database
+_b_: Buffer toggle            _j_: Goto Journal
+_w_: Refile                   _q_: Quit
 "
+  ("f" consult-org-heading)
   ("c" org-roam-capture)
   ("i" org-roam-node-insert)
   ("b" org-roam-buffer-toggle)
