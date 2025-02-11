@@ -338,22 +338,20 @@
   (cl-defmethod org-roam-node-filename ((node org-roam-node))
     (file-name-base (org-roam-node-file node)
                     ))
-  ;; (cl-defmethod org-roam-node-hierarchy ((node org-roam-node))
-  ;;   (let ((level (org-roam-node-level node)))
-  ;;     (concat
-  ;;      (concat
-  ;;       (when (> level 0) (org-roam-node-file-title node))
-  ;;       (when (> level 1) (concat " > " (string-join (org-roam-node-olp node) " > ")) ))
-  ;;      (org-roam-node-title node))
-  ;;     ))
   (cl-defmethod org-roam-node-hierarchy ((node org-roam-node))
     (let ((level (org-roam-node-level node)))
       (concat
-       (when (> level 0) (concat (org-roam-node-file-title node) " > "))
-       (when (> level 1) (concat (string-join (org-roam-node-olp node) " > ") " > "))
-       (org-roam-node-title node))))
+       (when (> level 0) (org-roam-node-file-title node))
+       (when (> level 1) (concat " > " (string-join (org-roam-node-olp node) " > ")) ))
+      ))
+  ;; (cl-defmethod org-roam-node-hierarchy ((node org-roam-node))
+  ;;   (let ((level (org-roam-node-level node)))
+  ;;     (concat
+  ;;      (when (> level 0) (concat (org-roam-node-file-title node) " > "))
+  ;;      (when (> level 1) (concat (string-join (org-roam-node-olp node) " > ") " > "))
+  ;;      (org-roam-node-title node))))
 
-  (setq org-roam-node-display-template "${status:13} ${hierarchy:*}")
+  (setq org-roam-node-display-template "${status:13} ${title:50} ${hierarchy:*}")
   (setq org-roam-directory (file-truename "~/org"))
   (setq org-roam-dailies-directory "~/org/Journal/")
   (setq org-roam-completion-everywhere t)
