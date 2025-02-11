@@ -688,8 +688,8 @@
                    (deadline :to -1)
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Overdue"))
-             )
+             (org-ql-block-header "Overdue"))
+            
             (org-ql-block
              '(and (todo)
                    (and (not (parent "Projects"))
