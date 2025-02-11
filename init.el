@@ -123,6 +123,7 @@
  '(org-ql-search-directories-files-recursive t)
  '(org-ql-search-directories-files-regexp ".org$")
  '(org-remark-icon-notes " 󰍩 ")
+ '(org-roam-node-default-sort nil)
  '(org-use-property-inheritance '("NAME"))
  '(package-selected-packages
    '(which-key wfnames vline vertico toc-org spacious-padding ruff-format rainbow-delimiters python-mode origami org-view-mode org-transclusion org-superstar org-roam-ui org-contrib org-anki nix-mode magit lsp-ui latexdiff latex-extra hydra hotfuzz gnu-elpa-keyring-update git-gutter git-auto-commit-mode fzf flycheck evil-nerd-commenter evil envrc elisp-autofmt dashboard company citar-org-roam catppuccin-theme bibtex-completion avy async annotate aggressive-indent))
@@ -337,13 +338,22 @@
   (cl-defmethod org-roam-node-filename ((node org-roam-node))
     (file-name-base (org-roam-node-file node)
                     ))
+  ;; (cl-defmethod org-roam-node-hierarchy ((node org-roam-node))
+  ;;   (let ((level (org-roam-node-level node)))
+  ;;     (concat
+  ;;      (concat
+  ;;       (when (> level 0) (org-roam-node-file-title node))
+  ;;       (when (> level 1) (concat " > " (string-join (org-roam-node-olp node) " > ")) ))
+  ;;      (org-roam-node-title node))
+  ;;     ))
   (cl-defmethod org-roam-node-hierarchy ((node org-roam-node))
     (let ((level (org-roam-node-level node)))
       (concat
-       (when (> level 0) (org-roam-node-file-title node))
-       (when (> level 1) (concat " > " (string-join (org-roam-node-olp node) " > ")) ))
-      ))
-  (setq org-roam-node-display-template "${status:13} ${title:50} ${hierarchy:*}")
+       (when (> level 0) (concat (org-roam-node-file-title node) " > "))
+       (when (> level 1) (concat (string-join (org-roam-node-olp node) " > ") " > "))
+       (org-roam-node-title node))))
+
+  (setq org-roam-node-display-template "${status:13} ${hierarchy:*}")
   (setq org-roam-directory (file-truename "~/org"))
   (setq org-roam-dailies-directory "~/org/Journal/")
   (setq org-roam-completion-everywhere t)
@@ -409,13 +419,19 @@
   :custom
   (vertico-count 13) ; Number of candidates to display
   (vertico-resize t)
-  (vertico-cycle nil) ; Go from last to first candidate and first to last (cycle)?
+  (vertico-cycle t) ; Go from last to first candidate and first to last (cycle)?
   :config (vertico-mode))
 
-(use-package hotfuzz
+;; (use-package hotfuzz
+;;   :demand t
+;;   :ensure (:wait t)
+;;   :config (setq completion-styles '(hotfuzz)))
+    (use-package orderless
   :demand t
   :ensure (:wait t)
-  :config (setq completion-styles '(hotfuzz)))
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
 
 (use-package citar
   :demand t
@@ -1214,4 +1230,4 @@ _r_: Red highlight       _o_: Open (Annotate)       _c_: Change colour      _q_:
 ;; (define-key org-mode-map (kbd "C-x n s") 'workboots/org-narrow-to-subtree)
 ;; (define-key org-mode-map (kbd "C-x n w") 'workboots/org-widen-from-subtree)
 
-;; (global-set-key (kbd "C-x M-k") 'kill-this-buffer)
+(global-set-key (kbd "C-x M-k") 'kill-this-buffer)
