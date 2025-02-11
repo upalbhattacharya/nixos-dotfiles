@@ -125,8 +125,6 @@
  '(org-remark-icon-notes " 󰍩 ")
  '(org-roam-node-default-sort nil)
  '(org-use-property-inheritance '("NAME"))
- '(package-selected-packages
-   '(which-key wfnames vline vertico toc-org spacious-padding ruff-format rainbow-delimiters python-mode origami org-view-mode org-transclusion org-superstar org-roam-ui org-contrib org-anki nix-mode magit lsp-ui latexdiff latex-extra hydra hotfuzz gnu-elpa-keyring-update git-gutter git-auto-commit-mode fzf flycheck evil-nerd-commenter evil envrc elisp-autofmt dashboard company citar-org-roam catppuccin-theme bibtex-completion avy async annotate aggressive-indent))
  '(python-isort-extra-args nil)
  '(visual-fill-column-center-text nil))
 
@@ -420,16 +418,10 @@
   (vertico-cycle t) ; Go from last to first candidate and first to last (cycle)?
   :config (vertico-mode))
 
-;; (use-package hotfuzz
-;;   :demand t
-;;   :ensure (:wait t)
-;;   :config (setq completion-styles '(hotfuzz)))
-(use-package orderless
+(use-package hotfuzz
   :demand t
   :ensure (:wait t)
-  :custom
-  (completion-styles '(orderless basic))
-  (completion-category-overrides '((file (styles basic partial-completion)))))
+  :config (setq completion-styles '(hotfuzz)))
 
 (use-package citar
   :demand t
@@ -1066,10 +1058,10 @@ _o_: Clock out        _r_: Insert report              _q_: Quit
 ---------
 _c_: Capture                  _j_: Goto Journal
 _i_: Insert node link         _s_: Sync database
-_b_: Buffer toggle            _f_: (org-ql) Find
+_b_: Buffer toggle            _f_: Find (or create)
 _w_: Refile                   _q_: Quit
 "
-  ("f" org-ql-find-in-org-directory)
+  ("f" org-roam-node-find)
   ("c" org-roam-capture)
   ("i" org-roam-node-insert)
   ("b" org-roam-buffer-toggle)
