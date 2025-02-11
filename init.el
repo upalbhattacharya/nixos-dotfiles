@@ -635,7 +635,7 @@
                         (not (parent "Resources"))
                         (not (parent "Archive")))
                    (not (tags "IGNORE_AGENDA")))
-             (org-ql-block-header "Due Today"))
+             ((org-ql-block-header "Due Today")))
             (org-ql-block
              '(and (todo)
                    (scheduled :on today)
@@ -644,7 +644,7 @@
                         (not (parent "Resources"))
                         (not (parent "Archive")))
                    (not (tags "IGNORE_AGENDA")))
-             (org-ql-block-header "Schedule Today"))
+             ((org-ql-block-header "Schedule Today")))
             (org-ql-block
              '(and (todo "TODAY")
                    (and (not (parent "Projects"))
@@ -652,7 +652,7 @@
                         (not (parent "Resources"))
                         (not (parent "Archive")))
                    (not (tags "IGNORE_AGENDA")))
-             (org-ql-block-header "Planned or Working on Today"))
+             ((org-ql-block-header "Planned or Working on Today")))
             (org-ql-block
              '(and (done)
                    (closed :on today)
@@ -661,7 +661,7 @@
                         (not (parent "Resources"))
                         (not (parent "Archive")))
                    (not (tags "IGNORE_AGENDA")))
-             (org-ql-block-header "Completed Today"))
+             ((org-ql-block-header "Completed Today")))
             (org-ql-block
              '(and (todo "NEXT")
                    (and (not (parent "Projects"))
@@ -669,7 +669,7 @@
                         (not (parent "Resources"))
                         (not (parent "Archive")))
                    (not (tags "IGNORE_AGENDA")))
-             (org-ql-block-header "Next"))
+             ((org-ql-block-header "Next")))
             (org-ql-block
              '(and (todo "IN PROGRESS" "REVIEW")
                    (and (not (parent "Projects"))
@@ -678,7 +678,7 @@
                         (not (parent "Archive")))
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             (org-ql-block-header "In Progress"))
+             ((org-ql-block-header "In Progress")))
             (org-ql-block
              '(and (todo)
                    (and (not (parent "Projects"))
@@ -688,7 +688,7 @@
                    (deadline :to -1)
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             (org-ql-block-header "Overdue"))
+             ((org-ql-block-header "Overdue")))
             (org-ql-block
              '(and (todo)
                    (and (not (parent "Projects"))
@@ -698,8 +698,7 @@
                    (scheduled :to -1)
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Reschedule"))
-             )
+             ((org-ql-block-header "Reschedule")))
             (org-ql-block
              '(and (todo)
                    (and (not (parent "Projects"))
@@ -709,15 +708,13 @@
                    (deadline :from 1 :to 30)
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Due Soon"))
-             )
+             ((org-ql-block-header "Due Soon")))
             (org-ql-block
              '(and (todo)
                    (path "Inbox")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Inbox"))
-             )
+             ((org-ql-block-header "Inbox")))
             ))
           ("i" "Inbox"
            ((org-ql-block
@@ -837,6 +834,10 @@
   (setq org-appear-autoemphasis   t   ; Show bold, italics, verbatim, etc.
         org-appear-autolinks      t   ; Show links
 		org-appear-autosubmarkers t)) ; Show sub- and superscripts
+
+(use-package consult
+  :demand t
+  :ensure (:wait t))
 
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
@@ -1037,23 +1038,23 @@ _o_: Clock out        _r_: Insert report              _q_: Quit
 
 ;; org-roam
 (defhydra
- hydra-org-roam
- (:color pink :hint nil :exit t)
- "
+  hydra-org-roam
+  (:color pink :hint nil :exit t)
+  "
 ^org-roam^
 ---------
-_f_: Find node (or create)    _s_: Sync database
+_c_: Capture node             _s_: Sync database
 _i_: Insert node link         _j_: Goto Journal
 _b_: Buffer toggle            _q_: Quit
 _w_: Refile
 "
- ("f" org-roam-node-find)
- ("i" org-roam-node-insert)
- ("b" org-roam-buffer-toggle)
- ("w" org-roam-refile)
- ("s" org-roam-db-sync)
- ("j" org-roam-dailies-goto-today)
- ("q" nil))
+  ("c" org-roam-capture)
+  ("i" org-roam-node-insert)
+  ("b" org-roam-buffer-toggle)
+  ("w" org-roam-refile)
+  ("s" org-roam-db-sync)
+  ("j" org-roam-dailies-goto-today)
+  ("q" nil))
 (global-set-key (kbd "C-c o") 'hydra-org-roam/body)
 
 ;; org-agenda
@@ -1169,6 +1170,9 @@ _r_: Red highlight       _o_: Open (Annotate)       _c_: Change colour      _q_:
 ;; Narrow and widen
 (define-key org-mode-map (kbd "C-x n s") 'org-narrow-to-subtree)
 (define-key org-mode-map (kbd "C-x n w") 'widen)
+
+;; Consult
+(global-set-key (kbd "C-c M-z") 'org-fold-hide-block-toggle)
 
 ;; Fix for annotations in indirect buffers
 ;; (defun annotate-actual-file-name ()
