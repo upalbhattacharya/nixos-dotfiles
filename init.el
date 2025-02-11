@@ -1070,10 +1070,10 @@ _w_: Refile                   _q_: Quit
   "
 ^hydra-para^
 ------------
-_p_: Projects   _q_: Quit
-_a_: Areas 
-_r_: Resources
-_i_: Inbox
+_p_: Projects   _s_: Slip Box       _q_: Quit
+_a_: Areas      _x_: Scratchpad
+_r_: Resources  _c_: Clock Report
+_i_: Inbox      _l_: Literature
 "
   ("p" 
    (lambda ()
@@ -1094,6 +1094,23 @@ _i_: Inbox
    (lambda ()
      (interactive)
      (find-file "~/org/Inbox.org")))
+  ("s" 
+   (lambda ()
+     (interactive)
+     (find-file "~/org/Slip Box.org")))
+  ("x" 
+   (lambda ()
+     (interactive)
+     (find-file "~/org/Scratchpad.org")))
+  ("c" 
+   (lambda ()
+     (interactive)
+     (find-file "~/org/Clock Report.org")))
+  ("l" 
+   (lambda ()
+     (interactive)
+     (find-file "~/org/Literature.org")))
+
   ("q" nil))
 (global-set-key (kbd "C-c o") 'hydra-org-roam/body)
 
