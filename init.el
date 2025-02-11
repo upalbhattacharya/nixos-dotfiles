@@ -123,9 +123,9 @@
  '(org-ql-search-directories-files-recursive t)
  '(org-ql-search-directories-files-regexp ".org$")
  '(org-remark-icon-notes " 󰍩 ")
- '(org-roam-node-default-sort nil)
  '(org-use-property-inheritance '("NAME"))
  '(python-isort-extra-args nil)
+ '(vertico-sort-function nil)
  '(visual-fill-column-center-text nil))
 
 ;;; Use elpaca use-package
@@ -342,13 +342,6 @@
        (when (> level 0) (org-roam-node-file-title node))
        (when (> level 1) (concat " > " (string-join (org-roam-node-olp node) " > ")) ))
       ))
-  ;; (cl-defmethod org-roam-node-hierarchy ((node org-roam-node))
-  ;;   (let ((level (org-roam-node-level node)))
-  ;;     (concat
-  ;;      (when (> level 0) (concat (org-roam-node-file-title node) " > "))
-  ;;      (when (> level 1) (concat (string-join (org-roam-node-olp node) " > ") " > "))
-  ;;      (org-roam-node-title node))))
-
   (setq org-roam-node-display-template "${status:13} ${title:50} ${hierarchy:*}")
   (setq org-roam-directory (file-truename "~/org"))
   (setq org-roam-dailies-directory "~/org/Journal/")
@@ -1056,7 +1049,7 @@ _o_: Clock out        _r_: Insert report              _q_: Quit
   "
 ^org-roam^
 ---------
-_c_: Capture                  _j_: Goto Journal
+_c_: Capture                  _j_: Goto Journal         _o_: Open PARA
 _i_: Insert node link         _s_: Sync database
 _b_: Buffer toggle            _f_: Find (or create)
 _w_: Refile                   _q_: Quit
@@ -1068,6 +1061,39 @@ _w_: Refile                   _q_: Quit
   ("w" org-roam-refile)
   ("s" org-roam-db-sync)
   ("j" org-roam-dailies-goto-today)
+  ("q" nil)
+  ("o" hydra-para/body))
+
+(defhydra
+  hydra-para
+  (:color pink :hint nil :exit t)
+  "
+^hydra-para^
+------------
+_p_: Projects   _q_: Quit
+_a_: Areas 
+_r_: Resources
+_i_: Inbox
+"
+  ("p" 
+   (lambda ()
+     (interactive)
+     (find-file "~/org/Projects.org")))
+
+  ("a" 
+   (lambda ()
+     (interactive)
+     (find-file "~/org/Areas.org")))
+
+  ("r" 
+   (lambda ()
+     (interactive)
+     (find-file "~/org/Resources.org")))
+
+  ("i" 
+   (lambda ()
+     (interactive)
+     (find-file "~/org/Inbox.org")))
   ("q" nil))
 (global-set-key (kbd "C-c o") 'hydra-org-roam/body)
 
