@@ -426,7 +426,7 @@
 ;;   :demand t
 ;;   :ensure (:wait t)
 ;;   :config (setq completion-styles '(hotfuzz)))
-    (use-package orderless
+(use-package orderless
   :demand t
   :ensure (:wait t)
   :custom
