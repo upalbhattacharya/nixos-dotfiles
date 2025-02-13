@@ -69,6 +69,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(calendar-date-style 'iso)
+ '(consult-narrow-key "C->")
+ '(consult-widen-key "C-<")
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
@@ -1051,10 +1053,10 @@ _o_: Clock out        _r_: Insert report              _q_: Quit
 ---------
 _c_: Capture                  _j_: Goto Journal         _o_: Open PARA
 _i_: Insert node link         _s_: Sync database
-_b_: Buffer toggle            _f_: Find (or create)
+_b_: Buffer toggle            _f_: Find (consult)
 _w_: Refile                   _q_: Quit
 "
-  ("f" org-roam-node-find)
+  ("f" consult-org-agenda)
   ("c" org-roam-capture)
   ("i" org-roam-node-insert)
   ("b" org-roam-buffer-toggle)
@@ -1263,4 +1265,8 @@ _r_: Red highlight       _o_: Open (Annotate)       _c_: Change colour      _q_:
 ;; (define-key org-mode-map (kbd "C-x n s") 'workboots/org-narrow-to-subtree)
 ;; (define-key org-mode-map (kbd "C-x n w") 'workboots/org-widen-from-subtree)
 
+;; Kill present buffer
 (global-set-key (kbd "C-x M-k") 'kill-this-buffer)
+
+;; consult
+(define-key org-mode-map (kbd "C-x M-j") 'consult-org-heading)
