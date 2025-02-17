@@ -231,7 +231,7 @@
   (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
   (setq org-agenda-skip-timeline-if-deadline-is-shown t)
   (setq org-agenda-compact-blocks nil)
-  (setq org-agenda-block-separator 9472)
+  (setq org-agenda-block-separator 46)
   (setq org-agenda-include-deadlines t)
   (setq org-columns-default-format-for-agenda
         "%12TODO(STATUS) %50ITEM %30NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %DEADLINE")
@@ -607,7 +607,7 @@
   :ensure (:wait t)
   :config
   (org-super-agenda-mode +1)
-  (setq org-super-agenda-header-separator "")
+  (setq org-super-agenda-header-separator ""))
 
 (use-package org-ql
   :demand t
@@ -870,11 +870,12 @@ ARGS is `element' in `org-ql-view--format-element'"
  '(org-agenda-date-today ((t (:foreground "medium spring green" :weight bold))))
  '(org-agenda-date-weekend ((t (:inherit org-agenda-date :foreground "dim gray"))))
  '(org-agenda-date-weekend-today ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
+ ;; '(org-agenda-dimmed-todo-face ((t nil)))
  '(org-agenda-filter-category ((t nil)))
- '(org-agenda-structure ((t (:foreground "#f38ba8"))))
+ '(org-agenda-structure ((t (:foreground "#f38ba8" :weight extra-bold))))
  '(org-agenda-structure-filter ((t nil)))
  '(org-scheduled ((t nil)))
- '(org-super-agenda-header ((t (:inherit org-agenda-structure :foreground "#f2cdcd" :slant italic)))))
+ '(org-super-agenda-header ((t (:foreground "#f2cdcd" :slant italic)))))
 ;;; Custom
 ;;;###autoload
 (defun unpackaged/org-fix-blank-lines (&optional prefix)
@@ -915,61 +916,6 @@ exist after each headings's drawers."
    (if (eq major-mode 'org-mode) ; Org-mode
        (let ((current-prefix-arg 4)) ; Emulate C-u
          (call-interactively 'unpackaged/org-fix-blank-lines)))))
-
-;; (defcustom org-subentry-count-at-start nil
-;;   "Show the subentry count before the title, not after."
-;;   :group 'org-subenty-count
-;;   :type 'boolean)
-
-;; (defvar org-subentry-count-in-headings-p nil
-;;   "t to enable org-subentry-count-in-headings
-;;      nil to disable org-subentry-count-in-headings")
-
-;; (defun org-subentry-count-in-headings ()
-;;   (org-map-entries
-;;    (lambda ()
-;;      (when (looking-at org-complex-heading-regexp)
-;;        (let* ((group (if org-subentry-count-at-start 1 0))
-;;               (beg (match-beginning group))
-;;               (end (match-end group))
-;;               (level (length (match-string 1))) ; stars in headline
-;;               (subheading-count (format "%s" (1- (length (org-map-entries nil nil 'tree)))))
-;;               (ov (car (seq-filter
-;;                         ;; search for subentry-count overlay
-;;                         (lambda (o)
-;;                           (eq (overlay-get o 'type) 'subentry-count)) 
-;;                         (overlays-in (line-beginning-position)
-;;                                      (line-end-position))))))
-;;          (if ov ; only create overlay if not exists yet
-;;              (move-overlay ov beg end)
-;;            (setq ov (make-overlay beg end))
-;;            (overlay-put ov 'type 'subentry-count) ; add a type, for easy filtering
-;;            (overlay-put ov 'evaporate t))
-;;          ;; only add/remove 'after-string' prop in toggle
-;;          (if org-subentry-count-in-headings-p
-;;              (overlay-put ov 'after-string (propertize (format " [%s]" subheading-count)
-;;                                                        'face (intern-soft (format "org-level-%d" level))))
-;;            (overlay-put ov 'after-string nil)))))))
-
-;; ;; Add heading count
-
-;; (defun toggle-org-subentry-count-in-headings ()
-;;   (interactive)
-;;   (if org-subentry-count-in-headings-p
-;;       (setq org-subentry-count-in-headings-p nil)
-;;     (setq org-subentry-count-in-headings-p t))
-;;   (org-subentry-count-in-headings))
-
-;; (defun toggle-org-subentry-position ()
-;;   (interactive)
-;;   (setq org-subentry-count-at-start (not org-subentry-count-at-start))
-;;   (setq org-subentry-count-in-headings-p t)
-;;   (org-subentry-count-in-headings))
-
-;; (add-hook 'org-mode-hook (lambda ()
-;;                            (setq org-subentry-count-in-headings-p t)
-;;                            (org-subentry-count-in-headings)
-;;                            (add-hook 'after-save-hook 'org-subentry-count-in-headings)))
 
 ;;; Keybindings
 
