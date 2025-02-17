@@ -232,11 +232,11 @@
   (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
   (setq org-agenda-skip-timeline-if-deadline-is-shown t)
   ;; (setq org-agenda-hide-tags-regexp ".*")
-  (setq org-agenda-prefix-format '((agenda . " %?-12c  %I %?-12t%?-b ")
+  (setq org-agenda-prefix-format '((agenda . " %?-12c  %l %?-12t%?-b ")
                                    ;; (todo . " %?-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
-                                   (todo . " %b %?-12t %s")
+                                   (todo . " %b %?-12t %l %s")
                                    ))
-  ;; (setq org-agenda-view-columns-initially t)
+  (setq org-agenda-view-columns-initially t)
   (setq org-columns-default-format-for-agenda
         "%12TODO(STATUS) %50ITEM %30NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %DEADLINE")
   (setq org-agenda-with-colors t)
@@ -615,7 +615,6 @@
   :demand t
   :ensure (:wait t))
 
-
 (use-package org-ql
   :demand t
   :ensure (:wait t)
@@ -630,7 +629,7 @@
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "(PARA) Due Today")))
+             ((org-ql-block-header "Due Today")))
             (org-ql-block
              '(and (todo)
                    (scheduled :on today)
