@@ -230,25 +230,12 @@
   (setq org-agenda-skip-scheduled-if-done t)
   (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
   (setq org-agenda-skip-timeline-if-deadline-is-shown t)
-  (setq org-agenda-compact-blocks t)
-  (setq org-agenda-block-separator nil)
+  (setq org-agenda-compact-blocks nil)
+  (setq org-agenda-block-separator 9472)
   (setq org-agenda-include-deadlines t)
-  ;; (setq org-agenda-hide-tags-regexp ".*")
-  ;; (setq org-agenda-prefix-format '((agenda . " %?-12c  %l %?-12t%?-b ")
-  ;;                                  ;; (todo . " %?-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
-  ;;                                  (todo . " %b %?-12t %l %s")
-  ;;                                  ))
-  ;; (setq org-agenda-view-columns-initially t)
   (setq org-columns-default-format-for-agenda
         "%12TODO(STATUS) %50ITEM %30NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %DEADLINE")
   (setq org-agenda-with-colors t)
-  ;; (setq org-agenda-format-date
-  ;;       (lambda (date)
-  ;;         (concat
-  ;;          "\n"
-  ;;          (org-agenda-format-date-aligned date)
-  ;;          "\n"
-  ;;          (make-string (string-width (org-agenda-format-date-aligned date)) 9472))))
   (setq org-log-done t)
   (setq org-agenda-start-with-log-mode t)
 
@@ -273,16 +260,14 @@
           ("LATER" . (:foreground "#b4befe" :weight bold))
           ("DONE" . (:foreground "#a6e3a1" :weight bold))
           ("ARCHIVED" . (:foreground "#9399b2")))))
- 
- ;; babel
- (org-babel-do-load-languages
-  'org-babel-load-languages
-  '((emacs-lisp . t)
-    (python . t)
-    (plantuml . t)
-    ;; (mermaid . t)
-    ;; (scheme . t)
-    ))
+
+;; babel
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (python . t)
+   (plantuml . t)
+   ))
 
 (use-package org-remark
   :demand t
@@ -628,12 +613,6 @@
   :ensure (:wait t)
   :init
   (setq org-agenda-custom-commands
-        '(("ces" "Custom: Agenda and Emacs SOMEDAY [#A] items"
-           ((org-ql-block '(and (todo "SOMEDAY")
-                                (tags "Emacs")
-                                (priority "A")))
-            (agenda)))))
-  (setq org-agenda-custom-commands
         '(("z" "Zen View"
            ((org-ql-block
              '(and (todo)
@@ -642,7 +621,7 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Due Today")
-              (org-super-agenda-groups '((:auto-parent t)))))
+              (org-super-agenda-groups '((:auto-category t)))))
             (org-ql-block
              '(and (todo)
                    (scheduled :on today)
@@ -704,7 +683,6 @@
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Due Soon")
               (org-super-agenda-groups '((:auto-parent t)))))
-            (agenda)
             ))
           ("p" "PARA"
            ((org-ql-block
@@ -726,44 +704,64 @@
                    (not (heading "Contents")))
              ((org-ql-block-header "Active Resources"))))))
         ))
+(defun workboots/org-ql-view--format-element (orig-fun &rest args)
+  "This function will intercept the original function and
+add the category to the result.
 
-  (use-package which-key
-    :demand t
-    :ensure (:wait t)
-    :config (which-key-mode 1))
+ARGS is `element' in `org-ql-view--format-element'"
+  (if (not args)
+      ""
+    (let* ((element args)
+           (properties (cadar element))
+           (result (apply orig-fun element))
+           (smt "")
+           (category (org-entry-get (plist-get properties :org-marker) "CATEGORY")))
+      (if (> (length category) 11)
+          (setq category (substring category 0 10)))
+      (if (< (length category) 11)
+          (setq smt (make-string (- 11 (length category)) ?\s)))
+      (org-add-props
+          (format "   %-8s %s" (concat category ":" smt) result)
+          (text-properties-at 0 result)))))
+(advice-add 'org-ql-view--format-element :around #'workboots/org-ql-view--format-element)
 
-  (use-package evil-nerd-commenter
-    :demand t
-    :ensure (:wait t))
+(use-package which-key
+  :demand t
+  :ensure (:wait t)
+  :config (which-key-mode 1))
 
-  (use-package aggressive-indent
-    :demand t
-    :ensure (:wait t)
-    :hook (emacs-lisp-mode . aggressive-indent-mode))
+(use-package evil-nerd-commenter
+  :demand t
+  :ensure (:wait t))
 
-  (use-package hydra
-    :demand t
-    :ensure (:wait t))
+(use-package aggressive-indent
+  :demand t
+  :ensure (:wait t)
+  :hook (emacs-lisp-mode . aggressive-indent-mode))
 
-  (use-package nix-mode
-    :demand t
-    :ensure (:wait t))
+(use-package hydra
+  :demand t
+  :ensure (:wait t))
 
-  (use-package org-roam-ui
-    :demand t
-    :ensure (:wait t))
+(use-package nix-mode
+  :demand t
+  :ensure (:wait t))
 
-  (use-package spacious-padding
-    :demand t
-    :ensure (:wait t))
+(use-package org-roam-ui
+  :demand t
+  :ensure (:wait t))
 
-  (use-package fzf
-    :demand t
-    :ensure (:wait t))
+(use-package spacious-padding
+  :demand t
+  :ensure (:wait t))
 
-  (use-package org-transclusion
-    :demand t
-    :ensure (:wait t))
+(use-package fzf
+  :demand t
+  :ensure (:wait t))
+
+(use-package org-transclusion
+  :demand t
+  :ensure (:wait t))
 
 (use-package eat
   :demand t
@@ -866,12 +864,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(header-line ((t (:inherit mode-line))))
  '(org-agenda-date ((t (:foreground "light gray" :weight normal))))
  '(org-agenda-date-today ((t (:foreground "medium spring green" :weight bold))))
  '(org-agenda-date-weekend ((t (:inherit org-agenda-date :foreground "dim gray"))))
  '(org-agenda-date-weekend-today ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
+ '(org-agenda-filter-category ((t nil)))
+ '(org-agenda-structure ((t (:foreground "#f38ba8"))))
  '(org-agenda-structure-filter ((t nil)))
- '(org-scheduled ((t nil))))
+ '(org-scheduled ((t nil)))
+ '(org-super-agenda-header ((t (:inherit org-agenda-structure :foreground "#f2cdcd" :slant italic)))))
 ;;; Custom
 ;;;###autoload
 (defun unpackaged/org-fix-blank-lines (&optional prefix)
