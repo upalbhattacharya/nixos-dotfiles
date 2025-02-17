@@ -79,7 +79,8 @@
  '(ignored-local-variable-values '((org-confirm-babel-evaluate)))
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
- 
+ '(org-agenda-files
+   '("/home/workboots/org/Journal/202410.org" "/home/workboots/org/Journal/Journal 2024.org" "/home/workboots/org/Journal/Journal 2025.org" "/home/workboots/org/Journal/marginalia.org" "/home/workboots/org/Active.org" "/home/workboots/org/Archive.org" "/home/workboots/org/Clock Report.org" "/home/workboots/org/Inbox.org" "/home/workboots/org/Literature.org" "/home/workboots/org/Scratchpad.org" "/home/workboots/org/Slip Box.org" "/home/workboots/org/marginalia.org"))
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
@@ -625,7 +626,7 @@
             (org-ql-block
              '(and (todo)
                    (deadline :on today)
-                   (category "Project" "Area" "Resource")
+                   (category "Project" "Area" "Resource" "Literature")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
@@ -633,14 +634,14 @@
             (org-ql-block
              '(and (todo)
                    (scheduled :on today)
-                   (category "Project" "Area" "Resource")
+                   (category "Project" "Area" "Resource" "Literature")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Scheduled Today")))
             (org-ql-block
              '(and (todo "TODAY")
-                   (category "Project" "Area" "Resource")
+                   (category "Project" "Area" "Resource" "Literature")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
@@ -648,21 +649,21 @@
             (org-ql-block
              '(and (done)
                    (closed :on today)
-                   (category "Project" "Area" "Resource")
+                   (category "Project" "Area" "Resource" "Literature")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Completed Today")))
             (org-ql-block
              '(and (todo "NEXT")
-                   (category "Project" "Area" "Resource")
+                   (category "Project" "Area" "Resource" "Literature")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Next")))
             (org-ql-block
              '(and (todo "IN PROGRESS" "REVIEW")
-                   (category "Project" "Area" "Resource")
+                   (category "Project" "Area" "Resource" "Literature")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
@@ -670,7 +671,7 @@
             (org-ql-block
              '(and (todo)
                    (deadline :to -1)
-                   (category "Project" "Area" "Resource")
+                   (category "Project" "Area" "Resource" "Literature")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
@@ -678,7 +679,7 @@
             (org-ql-block
              '(and (todo)
                    (scheduled :to -1)
-                   (category "Project" "Area" "Resource")
+                   (category "Project" "Area" "Resource" "Literature")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
@@ -686,7 +687,7 @@
             (org-ql-block
              '(and (todo)
                    (deadline :from 1 :to 30)
-                   (category "Project" "Area" "Resource")
+                   (category "Project" "Area" "Resource" "Literature")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
@@ -720,19 +721,7 @@
                    (category "Resource")
                    (level 1)
                    (not (heading "Contents")))
-             ((org-ql-block-header "Active Resources")))
-          ("r" "Archive"
-           ((org-ql-block
-             '(and (not (done)) (path "Projects Archive") (level 1))
-             ((org-ql-block-header "Archived Projects")))
-            (org-ql-block
-             '(and (not (done)) (path "Areas Archive") (level 1))
-             ((org-ql-block-header "Archived Areas")))
-            (org-ql-block
-             '(and (not (done)) (path "Resources Archive") (level 1))
-             ((org-ql-block-header "Archived Resources"))))))))
-
-
+             ((org-ql-block-header "Active Resources"))))))))
 
 
 (use-package which-key
@@ -1218,41 +1207,6 @@ _r_: Red highlight       _o_: Open (Annotate)       _c_: Change colour      _q_:
 ;; Narrow and widen
 (define-key org-mode-map (kbd "C-x n s") 'org-narrow-to-subtree)
 (define-key org-mode-map (kbd "C-x n w") 'widen)
-
-;; Fix for annotations in indirect buffers
-;; (defun annotate-actual-file-name ()
-;;   "Get the actual file name of the current buffer."
-;;   (substring-no-properties (or (annotate-info-actual-filename)
-;;                                (buffer-file-name)
-;;                                (buffer-file-name (buffer-base-buffer))
-;;                                "")))
-
-;; (defun workboots/org-narrow-to-subtree
-;;     ()
-;;   (interactive)
-;;   (let ((org-indirect-buffer-display 'current-window))
-;;     (if (not (boundp 'org-indirect-buffer-file-name))
-;; 	    (let ((above-buffer (current-buffer))
-;; 		      (org-filename (buffer-file-name)))
-;; 	      (org-tree-to-indirect-buffer (1+ (org-current-level)))
-;; 	      (setq-local org-indirect-buffer-file-name org-filename)
-;; 	      (setq-local org-indirect-above-buffer above-buffer))
-;; 	  (let ((above-buffer (current-buffer))
-;; 	        (org-filename org-indirect-buffer-file-name))
-;; 	    (org-tree-to-indirect-buffer (1+ (org-current-level)))
-;; 	    (setq-local org-indirect-buffer-file-name org-filename)
-;; 	    (setq-local org-indirect-above-buffer above-buffer)))))
-
-;; (defun workboots/org-widen-from-subtree
-;;     ()
-;;   (interactive)
-;;   (let ((above-buffer org-indirect-above-buffer)
-;; 	    (org-indirect-buffer-display 'current-window))
-;;     (kill-buffer)
-;;     (switch-to-buffer above-buffer)))
-
-;; (define-key org-mode-map (kbd "C-x n s") 'workboots/org-narrow-to-subtree)
-;; (define-key org-mode-map (kbd "C-x n w") 'workboots/org-widen-from-subtree)
 
 ;; Kill present buffer
 (global-set-key (kbd "C-x M-k") 'kill-this-buffer)
