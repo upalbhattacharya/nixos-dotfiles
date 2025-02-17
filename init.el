@@ -624,7 +624,7 @@
            ((org-ql-block
              '(and (todo)
                    (deadline :on today)
-                   (category "Project" "Area" "Resource")
+                   (category "Project" "Area" "Resource" "Inbox" "Fleeting")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
