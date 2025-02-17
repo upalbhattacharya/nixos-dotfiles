@@ -79,8 +79,7 @@
  '(ignored-local-variable-values '((org-confirm-babel-evaluate)))
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
- '(org-agenda-files
-   '("/home/upal/org/Active.org" "/home/upal/org/Archive/Areas Archive.org" "/home/upal/org/Archive/Inbox Archive.org" "/home/upal/org/Archive/Projects Archive.org" "/home/upal/org/Archive/Resources Archive.org" "/home/upal/org/Archive/marginalia.org" "/home/upal/org/Journal/202410.org" "/home/upal/org/Journal/Journal 2024.org" "/home/upal/org/Journal/Journal 2025.org" "/home/upal/org/Journal/marginalia.org" "/home/upal/org/Clock Report.org" "/home/upal/org/Fleeting.org" "/home/upal/org/Inbox.org" "/home/upal/org/Literature.org" "/home/upal/org/Resources.org" "/home/upal/org/Scratchpad.org" "/home/upal/org/Slip Box.org" "/home/upal/org/marginalia.org"))
+ 
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
@@ -358,20 +357,17 @@
           ("d" "default" entry "* ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n"
            :target (file "Inbox.org") :empty-lines 1)
 
-          ("p" "project" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n
+          ("p" "project" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Project\n:END:\n
 [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
-           :target (file "Projects.org") :empty-lines 1)
+           :target (file "Active.org") :empty-lines 1)
 
-          ("a" "area" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n
+          ("a" "area" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Area\n:END:\n
 [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
-           :target (file "Areas.org") :empty-lines 1)
+           :target (file "Active.org") :empty-lines 1)
 
-          ("r" "resource" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n
+          ("r" "resource" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Resource\n:END:\n
 [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
-           :target (file "Resources.org") :empty-lines 1)
-
-          ("f" "fleeting note" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n"
-           :target (file "Fleeting.org") :empty-lines 1)
+           :target (file "Active.org") :empty-lines 1)
 
           ("l" "literature note" entry "* TODO ${note-title}\n:PROPERTIES:\n:NAME:\t${note-title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:ROAM_REFS:\t\n:END:\n"
            :target (file "Literature.org") :empty-lines 1)
@@ -698,30 +694,33 @@
             ))
           ("i" "Inbox"
            ((org-ql-block
-             '(and (todo) (path "Inbox") (not (path "Archive"))) ((org-ql-block-header "Inbox")))))
-          ("f" "Fleeting Notes"
-           ((org-ql-block
-             '(and (level 1) (path "Fleeting") (not (path "Archive")))
-             ((org-ql-block-header "Fleeting Notes")))))
+             '(and (todo)
+                   (path "Inbox"))
+             ((org-ql-block-header "TODOs")))
+            (org-ql-block
+             '(and (level 1)
+                   (path "Inbox"))
+             ((org-ql-block-header "Fleeting")))
+            ))
           ("p" "PARA"
            ((org-ql-block
-             '(and (not (path "Archive"))
-                   (not (heading "Contents"))
+             '(and (path "Active")
                    (category "Project")
-                   (level 1))
+                   (level 1)
+                   (not (heading "Contents")))
              ((org-ql-block-header "Active Projects")))
             (org-ql-block
-             '(and (not (path "Archive"))
-                   (not (heading "Contents"))
+             '(and (path "Active")
                    (category "Area")
-                   (level 1))
+                   (level 1)
+                   (not (heading "Contents")))
              ((org-ql-block-header "Active Areas")))
             (org-ql-block
-             '(and (not (path "Archive"))
-                   (not (heading "Contents"))
+             '(and (path "Active")
                    (category "Resource")
-                   (level 1))
-             ((org-ql-block-header "Active Resources")))))
+                   (level 1)
+                   (not (heading "Contents")))
+             ((org-ql-block-header "Active Resources")))
           ("r" "Archive"
            ((org-ql-block
              '(and (not (done)) (path "Projects Archive") (level 1))
@@ -1041,7 +1040,7 @@ _o_: Clock out        _r_: Insert report              _q_: Quit
   "
 ^org-roam^
 ---------
-_c_: Capture                  _j_: Goto Journal         _o_: Open PARA
+_c_: Capture                  _j_: Goto Journal
 _i_: Insert node link         _s_: Sync database
 _b_: Buffer toggle            _f_: Find (consult)
 _w_: Refile                   _q_: Quit
@@ -1053,57 +1052,57 @@ _w_: Refile                   _q_: Quit
   ("w" org-roam-refile)
   ("s" org-roam-db-sync)
   ("j" org-roam-dailies-goto-today)
-  ("q" nil)
-  ("o" hydra-para/body))
-
-(defhydra
-  hydra-para
-  (:color pink :hint nil :exit t)
-  "
-^hydra-para^
-------------
-_p_: Projects   _s_: Slip Box       _q_: Quit
-_a_: Areas      _x_: Scratchpad
-_r_: Resources  _c_: Clock Report
-_i_: Inbox      _l_: Literature
-"
-  ("p" 
-   (lambda ()
-     (interactive)
-     (find-file "~/org/Projects.org")))
-
-  ("a" 
-   (lambda ()
-     (interactive)
-     (find-file "~/org/Areas.org")))
-
-  ("r" 
-   (lambda ()
-     (interactive)
-     (find-file "~/org/Resources.org")))
-
-  ("i" 
-   (lambda ()
-     (interactive)
-     (find-file "~/org/Inbox.org")))
-  ("s" 
-   (lambda ()
-     (interactive)
-     (find-file "~/org/Slip Box.org")))
-  ("x" 
-   (lambda ()
-     (interactive)
-     (find-file "~/org/Scratchpad.org")))
-  ("c" 
-   (lambda ()
-     (interactive)
-     (find-file "~/org/Clock Report.org")))
-  ("l" 
-   (lambda ()
-     (interactive)
-     (find-file "~/org/Literature.org")))
-
   ("q" nil))
+  ;; ("o" hydra-para/body))
+
+;; (defhydra
+;;   hydra-para
+;;   (:color pink :hint nil :exit t)
+;;   "
+;; ^hydra-para^
+;; ------------
+;; _p_: Projects   _s_: Slip Box       _q_: Quit
+;; _a_: Areas      _x_: Scratchpad
+;; _r_: Resources  _c_: Clock Report
+;; _i_: Inbox      _l_: Literature
+;; "
+;;   ("p" 
+;;    (lambda ()
+;;      (interactive)
+;;      (find-file "~/org/Projects.org")))
+
+;;   ("a" 
+;;    (lambda ()
+;;      (interactive)
+;;      (find-file "~/org/Areas.org")))
+
+;;   ("r" 
+;;    (lambda ()
+;;      (interactive)
+;;      (find-file "~/org/Resources.org")))
+
+;;   ("i" 
+;;    (lambda ()
+;;      (interactive)
+;;      (find-file "~/org/Inbox.org")))
+;;   ("s" 
+;;    (lambda ()
+;;      (interactive)
+;;      (find-file "~/org/Slip Box.org")))
+;;   ("x" 
+;;    (lambda ()
+;;      (interactive)
+;;      (find-file "~/org/Scratchpad.org")))
+;;   ("c" 
+;;    (lambda ()
+;;      (interactive)
+;;      (find-file "~/org/Clock Report.org")))
+;;   ("l" 
+;;    (lambda ()
+;;      (interactive)
+;;      (find-file "~/org/Literature.org")))
+
+;;   ("q" nil))
 (global-set-key (kbd "C-c o") 'hydra-org-roam/body)
 
 ;; org-agenda
