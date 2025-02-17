@@ -80,7 +80,7 @@
  '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-files
-   '("/home/workboots/org/Journal/202410.org" "/home/workboots/org/Journal/Journal 2024.org" "/home/workboots/org/Journal/Journal 2025.org" "/home/workboots/org/Journal/marginalia.org" "/home/workboots/org/Active.org" "/home/workboots/org/Archive.org" "/home/workboots/org/Clock Report.org" "/home/workboots/org/Inbox.org" "/home/workboots/org/Literature.org" "/home/workboots/org/Scratchpad.org" "/home/workboots/org/Slip Box.org" "/home/workboots/org/marginalia.org"))
+   '("/home/workboots/org/Journal/Journal 2024.org" "/home/workboots/org/Journal/Journal 2025.org" "/home/workboots/org/Journal/marginalia.org" "/home/workboots/org/Active.org" "/home/workboots/org/Archive.org" "/home/workboots/org/Clock Report.org" "/home/workboots/org/Inbox.org" "/home/workboots/org/Literature.org" "/home/workboots/org/Scratchpad.org" "/home/workboots/org/Slip Box.org" "/home/workboots/org/marginalia.org"))
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
@@ -232,7 +232,7 @@
   (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
   (setq org-agenda-skip-timeline-if-deadline-is-shown t)
   ;; (setq org-agenda-hide-tags-regexp ".*")
-  (setq org-agenda-prefix-format '((agenda . " %?-12c  %?-12t%?-b ")
+  (setq org-agenda-prefix-format '((agenda . " %?-12c  %I %?-12t%?-b ")
                                    ;; (todo . " %?-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
                                    (todo . " %b %?-12t %s")
                                    ))
@@ -694,14 +694,49 @@
              ((org-ql-block-header "Due Soon")))
             ))
           ("i" "Inbox"
-           ((org-ql-block
-             '(and (todo)
-                   (path "Inbox" "Literature"))
-             ((org-ql-block-header "TODOs")))
+           (
             (org-ql-block
-             '(and (level 1)
-                   (path "Inbox"))
-             ((org-ql-block-header "Fleeting")))
+             '(and (todo)
+                   (deadline :on today)
+                   (category "Inbox" "Literature"))
+             ((org-ql-block-header "Due Today")))
+            (org-ql-block
+             '(and (todo)
+                   (scheduled :on today)
+                   (category "Inbox" "Literature"))
+             ((org-ql-block-header "Scheduled Today")))
+            (org-ql-block
+             '(and (todo "TODAY")
+                   (category "Inbox" "Literature"))
+             ((org-ql-block-header "Planned or Working on Today")))
+            (org-ql-block
+             '(and (done)
+                   (closed :on today)
+                   (category "Inbox" "Literature"))
+             ((org-ql-block-header "Completed Today")))
+            (org-ql-block
+             '(and (todo "NEXT")
+                   (category "Inbox" "Literature"))
+             ((org-ql-block-header "Next")))
+            (org-ql-block
+             '(and (todo "IN PROGRESS" "REVIEW")
+                   (category "Inbox" "Literature"))
+             ((org-ql-block-header "In Progress")))
+            (org-ql-block
+             '(and (todo)
+                   (deadline :to -1)
+                   (category "Inbox" "Literature"))
+             ((org-ql-block-header "Overdue")))
+            (org-ql-block
+             '(and (todo)
+                   (scheduled :to -1)
+                   (category "Inbox" "Literature"))
+             ((org-ql-block-header "Reschedule")))
+            (org-ql-block
+             '(and (todo)
+                   (deadline :from 1 :to 30)
+                   (category "Inbox" "Literature"))
+             ((org-ql-block-header "Due Soon")))
             ))
           ("p" "PARA"
            ((org-ql-block
