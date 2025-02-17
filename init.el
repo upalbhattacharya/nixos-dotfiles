@@ -626,7 +626,7 @@
             (org-ql-block
              '(and (todo)
                    (deadline :on today)
-                   (category "Project" "Area" "Resource" "Literature")
+                   (category "Project" "Area" "Resource")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
@@ -634,14 +634,14 @@
             (org-ql-block
              '(and (todo)
                    (scheduled :on today)
-                   (category "Project" "Area" "Resource" "Literature")
+                   (category "Project" "Area" "Resource")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Scheduled Today")))
             (org-ql-block
              '(and (todo "TODAY")
-                   (category "Project" "Area" "Resource" "Literature")
+                   (category "Project" "Area" "Resource")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
@@ -649,21 +649,21 @@
             (org-ql-block
              '(and (done)
                    (closed :on today)
-                   (category "Project" "Area" "Resource" "Literature")
+                   (category "Project" "Area" "Resource")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Completed Today")))
             (org-ql-block
              '(and (todo "NEXT")
-                   (category "Project" "Area" "Resource" "Literature")
+                   (category "Project" "Area" "Resource")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Next")))
             (org-ql-block
              '(and (todo "IN PROGRESS" "REVIEW")
-                   (category "Project" "Area" "Resource" "Literature")
+                   (category "Project" "Area" "Resource")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
@@ -671,7 +671,7 @@
             (org-ql-block
              '(and (todo)
                    (deadline :to -1)
-                   (category "Project" "Area" "Resource" "Literature")
+                   (category "Project" "Area" "Resource")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
@@ -679,7 +679,7 @@
             (org-ql-block
              '(and (todo)
                    (scheduled :to -1)
-                   (category "Project" "Area" "Resource" "Literature")
+                   (category "Project" "Area" "Resource")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
@@ -687,7 +687,7 @@
             (org-ql-block
              '(and (todo)
                    (deadline :from 1 :to 30)
-                   (category "Project" "Area" "Resource" "Literature")
+                   (category "Project" "Area" "Resource")
                    (not (path "Archive"))
                    (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
@@ -696,7 +696,7 @@
           ("i" "Inbox"
            ((org-ql-block
              '(and (todo)
-                   (path "Inbox"))
+                   (path "Inbox" "Literature"))
              ((org-ql-block-header "TODOs")))
             (org-ql-block
              '(and (level 1)
