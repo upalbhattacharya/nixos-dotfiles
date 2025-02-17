@@ -628,6 +628,12 @@
   :ensure (:wait t)
   :init
   (setq org-agenda-custom-commands
+        '(("ces" "Custom: Agenda and Emacs SOMEDAY [#A] items"
+           ((org-ql-block '(and (todo "SOMEDAY")
+                                (tags "Emacs")
+                                (priority "A")))
+            (agenda)))))
+  (setq org-agenda-custom-commands
         '(("z" "Zen View"
            ((org-ql-block
              '(and (todo)
@@ -698,6 +704,7 @@
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Due Soon")
               (org-super-agenda-groups '((:auto-parent t)))))
+            (agenda)
             ))
           ("p" "PARA"
            ((org-ql-block
