@@ -240,13 +240,13 @@
   (setq org-columns-default-format-for-agenda
         "%12TODO(STATUS) %50ITEM %30NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %DEADLINE")
   (setq org-agenda-with-colors t)
-  (setq org-agenda-format-date
-        (lambda (date)
-          (concat
-           "\n"
-           (org-agenda-format-date-aligned date)
-           "\n"
-           (make-string (string-width (org-agenda-format-date-aligned date)) 9472))))
+  ;; (setq org-agenda-format-date
+  ;;       (lambda (date)
+  ;;         (concat
+  ;;          "\n"
+  ;;          (org-agenda-format-date-aligned date)
+  ;;          "\n"
+  ;;          (make-string (string-width (org-agenda-format-date-aligned date)) 9472))))
   (setq org-log-done t)
   (setq org-agenda-start-with-log-mode t)
 
