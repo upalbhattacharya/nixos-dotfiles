@@ -621,8 +621,7 @@
   :init
   (setq org-agenda-custom-commands
         '(("z" "Zen View"
-           (
-            (org-ql-block
+           ((org-ql-block
              '(and (todo)
                    (deadline :on today)
                    (category "Project" "Area" "Resource")
