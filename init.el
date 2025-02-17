@@ -77,7 +77,6 @@
  '(global-text-scale-adjust-resizes-frames t)
  '(gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
  '(ignored-local-variable-values '((org-confirm-babel-evaluate)))
- '(org-agenda-block-separator 46)
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-files
    '("/home/workboots/org/Journal/Journal 2024.org" "/home/workboots/org/Journal/Journal 2025.org" "/home/workboots/org/Journal/marginalia.org" "/home/workboots/org/Active.org" "/home/workboots/org/Archive.org" "/home/workboots/org/Clock Report.org" "/home/workboots/org/Inbox.org" "/home/workboots/org/Literature.org" "/home/workboots/org/Scratchpad.org" "/home/workboots/org/Slip Box.org" "/home/workboots/org/marginalia.org"))
@@ -231,11 +230,14 @@
   (setq org-agenda-skip-scheduled-if-done t)
   (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
   (setq org-agenda-skip-timeline-if-deadline-is-shown t)
+  (setq org-agenda-compact-blocks t)
+  (setq org-agenda-block-separator nil)
+  (setq org-agenda-include-deadlines t)
   ;; (setq org-agenda-hide-tags-regexp ".*")
-  (setq org-agenda-prefix-format '((agenda . " %?-12c  %l %?-12t%?-b ")
-                                   ;; (todo . " %?-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
-                                   (todo . " %b %?-12t %l %s")
-                                   ))
+  ;; (setq org-agenda-prefix-format '((agenda . " %?-12c  %l %?-12t%?-b ")
+  ;;                                  ;; (todo . " %?-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
+  ;;                                  (todo . " %b %?-12t %l %s")
+  ;;                                  ))
   ;; (setq org-agenda-view-columns-initially t)
   (setq org-columns-default-format-for-agenda
         "%12TODO(STATUS) %50ITEM %30NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %DEADLINE")
@@ -958,15 +960,6 @@ exist after each headings's drawers."
 ;;                            (setq org-subentry-count-in-headings-p t)
 ;;                            (org-subentry-count-in-headings)
 ;;                            (add-hook 'after-save-hook 'org-subentry-count-in-headings)))
-
-(org-ql-search (org-agenda-files)
-  '(or (and (not (done))
-            (or (habit)
-                (deadline auto)
-                (scheduled :to today)
-                (ts-active :on today)))
-       (closed :on today))
-  :sort '(todo priority date))
 
 ;;; Keybindings
 
