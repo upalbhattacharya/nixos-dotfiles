@@ -236,7 +236,7 @@
                                    ;; (todo . " %?-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
                                    (todo . " %b %?-12t %l %s")
                                    ))
-  (setq org-agenda-view-columns-initially t)
+  ;; (setq org-agenda-view-columns-initially t)
   (setq org-columns-default-format-for-agenda
         "%12TODO(STATUS) %50ITEM %30NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %DEADLINE")
   (setq org-agenda-with-colors t)
@@ -615,15 +615,16 @@
   :demand t
   :ensure (:wait t))
 
+(use-package org-super-agenda
+  :demand t
+  :ensure (:wait t)
+  :config
+  (org-super-agenda-mode +1))
+
 (use-package org-ql
   :demand t
   :ensure (:wait t)
   :init
-  ;; (setq org-agenda-custom-commands 
-  ;;       '(("u" "My Agenda" 
-  ;;          ((org-ql-block '(and (todo) (ancestors "Projects")) 
-  ;;   		              ((org-ql-block-header "Projects")
-  ;;   		               (org-super-agenda-groups '((:auto-parent t)))))))))
   (setq org-agenda-custom-commands
         '(("z" "Zen View"
            ((org-ql-block
@@ -714,46 +715,46 @@
                    (category "Resource")
                    (level 1)
                    (not (heading "Contents")))
-             ((org-ql-block-header "Active Resources"))))))))
+             ((org-ql-block-header "Active Resources"))))))
+        ))
 
+  (use-package which-key
+    :demand t
+    :ensure (:wait t)
+    :config (which-key-mode 1))
 
-(use-package which-key
-  :demand t
-  :ensure (:wait t)
-  :config (which-key-mode 1))
+  (use-package evil-nerd-commenter
+    :demand t
+    :ensure (:wait t))
 
-(use-package evil-nerd-commenter
-  :demand t
-  :ensure (:wait t))
+  (use-package aggressive-indent
+    :demand t
+    :ensure (:wait t)
+    :hook (emacs-lisp-mode . aggressive-indent-mode))
 
-(use-package aggressive-indent
-  :demand t
-  :ensure (:wait t)
-  :hook (emacs-lisp-mode . aggressive-indent-mode))
+  (use-package hydra
+    :demand t
+    :ensure (:wait t))
 
-(use-package hydra
-  :demand t
-  :ensure (:wait t))
+  (use-package nix-mode
+    :demand t
+    :ensure (:wait t))
 
-(use-package nix-mode
-  :demand t
-  :ensure (:wait t))
+  (use-package org-roam-ui
+    :demand t
+    :ensure (:wait t))
 
-(use-package org-roam-ui
-  :demand t
-  :ensure (:wait t))
+  (use-package spacious-padding
+    :demand t
+    :ensure (:wait t))
 
-(use-package spacious-padding
-  :demand t
-  :ensure (:wait t))
+  (use-package fzf
+    :demand t
+    :ensure (:wait t))
 
-(use-package fzf
-  :demand t
-  :ensure (:wait t))
-
-(use-package org-transclusion
-  :demand t
-  :ensure (:wait t))
+  (use-package org-transclusion
+    :demand t
+    :ensure (:wait t))
 
 (use-package eat
   :demand t
