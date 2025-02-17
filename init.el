@@ -707,19 +707,19 @@
            ((org-ql-block
              '(and (not (path "Archive"))
                    (not (heading "Contents"))
-                   (path "Projects")
+                   (category "Project")
                    (level 1))
              ((org-ql-block-header "Active Projects")))
             (org-ql-block
              '(and (not (path "Archive"))
                    (not (heading "Contents"))
-                   (path "Areas")
+                   (category "Area")
                    (level 1))
              ((org-ql-block-header "Active Areas")))
             (org-ql-block
              '(and (not (path "Archive"))
                    (not (heading "Contents"))
-                   (path "Resources")
+                   (category "Resource")
                    (level 1))
              ((org-ql-block-header "Active Resources")))))
           ("r" "Archive"
