@@ -627,7 +627,7 @@
             (org-ql-block
              '(and (todo)
                    (deadline :on today)
-                   (not (parent (lambda () (property "Projects"))))
+                   (not (parent "Projects"))
                    (not (parent "Areas"))
                    (not (parent "Resources"))
                    (not (parent "Archive"))
@@ -661,10 +661,11 @@
              ((org-ql-block-header "Completed Today")))
             (org-ql-block
              '(and (todo "NEXT")
-                   (not (parent (lambda () (property "Projects"))))
-                   (not (parent (lambda () (property "Areas"))))
-                   (not (parent (lambda () (property "Resources"))))
-                   (not (parent (lambda () (property "Archive"))))
+                   (category "Projects")
+                   (not (parent (lambda () (heading "Projects"))))
+                   (not (parent (lambda () (heading "Areas"))))
+                   (not (parent (lambda () (heading "Resources"))))
+                   (not (parent (lambda () (heading "Archive"))))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Next")))
             (org-ql-block
