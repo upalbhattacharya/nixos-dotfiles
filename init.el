@@ -236,7 +236,7 @@
                                    ;; (todo . " %?-12:c %(concat \"[ \"(org-format-outline-path (org-get-outline-path)) \" ]\") ")
                                    (todo . " %b %?-12t %s")
                                    ))
-  (setq org-agenda-view-columns-initially t)
+  ;; (setq org-agenda-view-columns-initially t)
   (setq org-columns-default-format-for-agenda
         "%12TODO(STATUS) %50ITEM %30NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %DEADLINE")
   (setq org-agenda-with-colors t)
