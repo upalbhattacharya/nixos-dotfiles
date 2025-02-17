@@ -619,121 +619,76 @@
   :demand t
   :ensure (:wait t)
   :init
+  ;; (setq org-agenda-custom-commands 
+  ;;       '(("u" "My Agenda" 
+  ;;          ((org-ql-block '(and (todo) (ancestors "Projects")) 
+  ;;   		              ((org-ql-block-header "Projects")
+  ;;   		               (org-super-agenda-groups '((:auto-parent t)))))))))
   (setq org-agenda-custom-commands
         '(("z" "Zen View"
            ((org-ql-block
              '(and (todo)
                    (deadline :on today)
-                   (category "Project" "Area" "Resource" "Inbox" "Fleeting")
+                   (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
-                   (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Due Today")))
+             ((org-ql-block-header "Due Today")
+              (org-super-agenda-groups '((:auto-parent t)))))
             (org-ql-block
              '(and (todo)
                    (scheduled :on today)
-                   (category "Project" "Area" "Resource")
+                   (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
-                   (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Scheduled Today")))
+             ((org-ql-block-header "Scheduled Today")
+              (org-super-agenda-groups '((:auto-parent t)))))
             (org-ql-block
              '(and (todo "TODAY")
-                   (category "Project" "Area" "Resource")
+                   (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
-                   (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Planned or Working on Today")))
+             ((org-ql-block-header "Planned or Working on Today")
+              (org-super-agenda-groups '((:auto-parent t)))))
             (org-ql-block
              '(and (done)
                    (closed :on today)
-                   (category "Project" "Area" "Resource")
+                   (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
-                   (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Completed Today")))
+             ((org-ql-block-header "Completed Today")
+              (org-super-agenda-groups '((:auto-parent t)))))
             (org-ql-block
              '(and (todo "NEXT")
-                   (category "Project" "Area" "Resource")
+                   (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
-                   (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Next")))
             (org-ql-block
              '(and (todo "IN PROGRESS" "REVIEW")
-                   (category "Project" "Area" "Resource")
+                   (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
-                   (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "In Progress")))
             (org-ql-block
              '(and (todo)
                    (deadline :to -1)
-                   (category "Project" "Area" "Resource")
+                   (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
-                   (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Overdue")))
             (org-ql-block
              '(and (todo)
                    (scheduled :to -1)
-                   (category "Project" "Area" "Resource")
+                   (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
-                   (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Reschedule")))
             (org-ql-block
              '(and (todo)
                    (deadline :from 1 :to 30)
-                   (category "Project" "Area" "Resource")
+                   (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
-                   (not (level 1))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Due Soon")))
-            ))
-          ("i" "Inbox"
-           (
-            (org-ql-block
-             '(and (todo)
-                   (deadline :on today)
-                   (category "Inbox" "Literature"))
-             ((org-ql-block-header "Due Today")))
-            (org-ql-block
-             '(and (todo)
-                   (scheduled :on today)
-                   (category "Inbox" "Literature"))
-             ((org-ql-block-header "Scheduled Today")))
-            (org-ql-block
-             '(and (todo "TODAY")
-                   (category "Inbox" "Literature"))
-             ((org-ql-block-header "Planned or Working on Today")))
-            (org-ql-block
-             '(and (done)
-                   (closed :on today)
-                   (category "Inbox" "Literature"))
-             ((org-ql-block-header "Completed Today")))
-            (org-ql-block
-             '(and (todo "NEXT")
-                   (category "Inbox" "Literature"))
-             ((org-ql-block-header "Next")))
-            (org-ql-block
-             '(and (todo "IN PROGRESS" "REVIEW")
-                   (category "Inbox" "Literature"))
-             ((org-ql-block-header "In Progress")))
-            (org-ql-block
-             '(and (todo)
-                   (deadline :to -1)
-                   (category "Inbox" "Literature"))
-             ((org-ql-block-header "Overdue")))
-            (org-ql-block
-             '(and (todo)
-                   (scheduled :to -1)
-                   (category "Inbox" "Literature"))
-             ((org-ql-block-header "Reschedule")))
-            (org-ql-block
-             '(and (todo)
-                   (deadline :from 1 :to 30)
-                   (category "Inbox" "Literature"))
              ((org-ql-block-header "Due Soon")))
             ))
           ("p" "PARA"
