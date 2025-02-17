@@ -6,11 +6,11 @@
 (defvar elpaca-repos-directory (expand-file-name "repos/" elpaca-directory))
 (defvar elpaca-order
   '(elpaca
-    :repo "https://github.com/progfolio/elpaca.git"
-    :ref nil
-    :depth 1
-    :files (:defaults "elpaca-test.el" (:exclude "extensions"))
-    :build (:not elpaca--activate-package)))
+       :repo "https://github.com/progfolio/elpaca.git"
+       :ref nil
+       :depth 1
+       :files (:defaults "elpaca-test.el" (:exclude "extensions"))
+       :build (:not elpaca--activate-package)))
 (let* ((repo (expand-file-name "elpaca/" elpaca-repos-directory))
        (build (expand-file-name "elpaca/" elpaca-builds-directory))
        (order (cdr elpaca-order))
@@ -48,9 +48,9 @@
                                   "(byte-recompile-directory \".\" 0 'force)")))
                   ((require 'elpaca))
                   ((elpaca-generate-autoloads "elpaca" repo)))
-          (progn
-            (message "%s" (buffer-string))
-            (kill-buffer buffer))
+            (progn
+              (message "%s" (buffer-string))
+              (kill-buffer buffer))
           (error
            "%s"
            (with-current-buffer buffer
@@ -622,6 +622,10 @@
 ;;   :hook ((org-mode . annotate-mode))
 ;;   :config (setq annotate-file "~/org/annotations"))
 
+(use-package org-super-agenda
+  :demand t
+  :ensure (:wait t))
+
 (use-package org-ql
   :demand t
   :ensure (:wait t)
@@ -632,80 +636,78 @@
             (org-ql-block
              '(and (todo)
                    (deadline :on today)
-                   (and (not (parent "Projects"))
-                        (not (parent "Areas"))
-                        (not (parent "Resources"))
-                        (not (parent "Archive")))
+                   (not (parent "Projects"))
+                   (not (parent "Areas"))
+                   (not (parent "Resources"))
+                   (not (parent "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Due Today")))
             (org-ql-block
              '(and (todo)
                    (scheduled :on today)
-                   (and (not (parent "Projects"))
-                        (not (parent "Areas"))
-                        (not (parent "Resources"))
-                        (not (parent "Archive")))
+                   (not (parent "Projects"))
+                   (not (parent "Areas"))
+                   (not (parent "Resources"))
+                   (not (parent "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Schedule Today")))
             (org-ql-block
              '(and (todo "TODAY")
-                   (and (not (parent "Projects"))
-                        (not (parent "Areas"))
-                        (not (parent "Resources"))
-                        (not (parent "Archive")))
+                   (not (parent "Projects"))
+                   (not (parent "Areas"))
+                   (not (parent "Resources"))
+                   (not (parent "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Planned or Working on Today")))
             (org-ql-block
              '(and (done)
                    (closed :on today)
-                   (and (not (parent "Projects"))
-                        (not (parent "Areas"))
-                        (not (parent "Resources"))
-                        (not (parent "Archive")))
+                   (not (parent "Projects"))
+                   (not (parent "Areas"))
+                   (not (parent "Resources"))
+                   (not (parent "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Completed Today")))
             (org-ql-block
              '(and (todo "NEXT")
-                   (and (not (parent "Projects" "Areas" "Resources" "Archive"))
-                        (not (level 1)))
-                   (not (tags "IGNORE_AGENDA"))
-                   )
+                   (not (parent "Projects"))
+                   (not (parent "Areas"))
+                   (not (parent "Resources"))
+                   (not (parent "Archive"))
+                   (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Next")))
             (org-ql-block
              '(and (todo "IN PROGRESS" "REVIEW")
-                   (and (not (parent "Projects"))
-                        (not (parent "Areas"))
-                        (not (parent "Resources"))
-                        (not (parent "Archive")))
+                   ;; (and (not (olp "Projects" "Areas" "Resources" "Archive"))
+                   ;;      (not (level 1)))
+                   (not (and (level 1) (and (parent "Projects")
+                                            (parent "Areas")
+                                            (parent "Resources")
+                                            (parent "Archive"))))
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "In Progress")))
+             ((org-ql-block-header "In Progress"))
+             :super-groups '((auto-parent t)))
             (org-ql-block
              '(and (todo)
-                   (and (not (parent "Projects"))
-                        (not (parent "Areas"))
-                        (not (parent "Resources"))
-                        (not (parent "Archive")))
+                   (and (not (olp "Projects" "Areas" "Resources" "Archive"))
+                        (not (level 1)))
                    (deadline :to -1)
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Overdue")))
             (org-ql-block
              '(and (todo)
-                   (and (not (parent "Projects"))
-                        (not (parent "Areas"))
-                        (not (parent "Resources"))
-                        (not (parent "Archive")))
+                   (and (not (olp "Projects" "Areas" "Resources" "Archive"))
+                        (not (level 1)))
                    (scheduled :to -1)
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Reschedule")))
             (org-ql-block
              '(and (todo)
-                   (and (not (parent "Projects"))
-                        (not (parent "Areas"))
-                        (not (parent "Resources"))
-                        (not (parent "Archive")))
+                   (and (not (olp "Projects" "Areas" "Resources" "Archive"))
+                        (not (level 1)))
                    (deadline :from 1 :to 30)
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
@@ -753,6 +755,7 @@
             (org-ql-block
              '(and (not (done)) (path "Resources Archive") (level 1))
              ((org-ql-block-header "Archived Resources"))))))))
+
 
 (use-package which-key
   :demand t
@@ -994,6 +997,15 @@ exist after each headings's drawers."
 ;;                            (setq org-subentry-count-in-headings-p t)
 ;;                            (org-subentry-count-in-headings)
 ;;                            (add-hook 'after-save-hook 'org-subentry-count-in-headings)))
+
+(org-ql-search (org-agenda-files)
+  '(or (and (not (done))
+            (or (habit)
+                (deadline auto)
+                (scheduled :to today)
+                (ts-active :on today)))
+       (closed :on today))
+  :sort '(todo priority date))
 
 ;;; Keybindings
 
