@@ -665,12 +665,14 @@
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Completed Today")))
             (org-ql-block
-             '(and (todo "NEXT")
-                   (and (not (parent "Projects"))
-                        (not (parent "Areas"))
-                        (not (parent "Resources"))
-                        (not (parent "Archive")))
-                   (not (tags "IGNORE_AGENDA")))
+             '(and 
+               (not (parent "Projects"))
+               (not (parent "Areas"))
+               (not (parent "Resources"))
+               (not (parent "Archive"))
+               (not (tags "IGNORE_AGENDA"))
+               (todo "NEXT")
+               )
              ((org-ql-block-header "Next")))
             (org-ql-block
              '(and (todo "IN PROGRESS" "REVIEW")
