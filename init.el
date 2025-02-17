@@ -606,7 +606,8 @@
   :demand t
   :ensure (:wait t)
   :config
-  (org-super-agenda-mode +1))
+  (org-super-agenda-mode +1)
+  (setq org-super-agenda-header-separator "")
 
 (use-package org-ql
   :demand t
