@@ -622,10 +622,6 @@
 ;;   :hook ((org-mode . annotate-mode))
 ;;   :config (setq annotate-file "~/org/annotations"))
 
-(use-package org-super-agenda
-  :demand t
-  :ensure (:wait t))
-
 (use-package org-ql
   :demand t
   :ensure (:wait t)
@@ -650,7 +646,7 @@
                    (not (parent "Resources"))
                    (not (parent "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Schedule Today")))
+             ((org-ql-block-header "Scheduled Today")))
             (org-ql-block
              '(and (todo "TODAY")
                    (not (parent "Projects"))
@@ -683,8 +679,7 @@
                    (not (parent "Resources"))
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "In Progress"))
-             :super-groups '((auto-parent t)))
+             ((org-ql-block-header "In Progress")))
             (org-ql-block
              '(and (todo)
                    (and (not (olp "Projects" "Areas" "Resources" "Archive"))
