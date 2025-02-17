@@ -626,127 +626,175 @@
   :demand t
   :ensure (:wait t)
   :init
-  (setq org-agenda-custom-commands
-        '(("z" "Zen View"
-           (
-            (org-ql-block
-             '(and (todo)
-                   (deadline :on today)
-                   (not (parent "Projects"))
-                   (not (parent "Areas"))
-                   (not (parent "Resources"))
-                   (not (parent "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Due Today")))
-            (org-ql-block
-             '(and (todo)
-                   (scheduled :on today)
-                   (not (parent "Projects"))
-                   (not (parent "Areas"))
-                   (not (parent "Resources"))
-                   (not (parent "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Scheduled Today")))
-            (org-ql-block
-             '(and (todo "TODAY")
-                   (not (parent "Projects"))
-                   (not (parent "Areas"))
-                   (not (parent "Resources"))
-                   (not (parent "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Planned or Working on Today")))
-            (org-ql-block
-             '(and (done)
-                   (closed :on today)
-                   (not (parent "Projects"))
-                   (not (parent "Areas"))
-                   (not (parent "Resources"))
-                   (not (parent "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Completed Today")))
-            (org-ql-block
-             '(and (todo "NEXT")
-                   (not (parent "Projects"))
-                   (not (parent "Areas"))
-                   (not (parent "Resources"))
-                   (not (parent "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Next")))
-            (org-ql-block
-             '(and (todo "IN PROGRESS" "REVIEW")
-                   (not (parent "Projects"))
-                   (not (parent "Areas"))
-                   (not (parent "Resources"))
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "In Progress")))
-            (org-ql-block
-             '(and (todo)
-                   (and (not (olp "Projects" "Areas" "Resources" "Archive"))
-                        (not (level 1)))
-                   (deadline :to -1)
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Overdue")))
-            (org-ql-block
-             '(and (todo)
-                   (and (not (olp "Projects" "Areas" "Resources" "Archive"))
-                        (not (level 1)))
-                   (scheduled :to -1)
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Reschedule")))
-            (org-ql-block
-             '(and (todo)
-                   (and (not (olp "Projects" "Areas" "Resources" "Archive"))
-                        (not (level 1)))
-                   (deadline :from 1 :to 30)
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Due Soon")))
-            (org-ql-block
-             '(and (todo)
-                   (path "Inbox")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Inbox")))
-            ))
-          ("i" "Inbox"
-           ((org-ql-block
-             '(and (todo) (path "Inbox") (not (path "Archive"))) ((org-ql-block-header "Inbox")))))
-          ("f" "Fleeting Notes"
-           ((org-ql-block
-             '(and (level 1) (path "Fleeting") (not (path "Archive")))
-             ((org-ql-block-header "Fleeting Notes")))))
-          ("p" "PARA"
-           ((org-ql-block
-             '(and (not (path "Archive"))
-                   (not (heading "Contents"))
-                   (path "Projects")
-                   (level 1))
-             ((org-ql-block-header "Active Projects")))
-            (org-ql-block
-             '(and (not (path "Archive"))
-                   (not (heading "Contents"))
-                   (path "Areas")
-                   (level 1))
-             ((org-ql-block-header "Active Areas")))
-            (org-ql-block
-             '(and (not (path "Archive"))
-                   (not (heading "Contents"))
-                   (path "Resources")
-                   (level 1))
-             ((org-ql-block-header "Active Resources")))))
-          ("r" "Archive"
-           ((org-ql-block
-             '(and (not (done)) (path "Projects Archive") (level 1))
-             ((org-ql-block-header "Archived Projects")))
-            (org-ql-block
-             '(and (not (done)) (path "Areas Archive") (level 1))
-             ((org-ql-block-header "Archived Areas")))
-            (org-ql-block
-             '(and (not (done)) (path "Resources Archive") (level 1))
-             ((org-ql-block-header "Archived Resources"))))))))
+  ;; (setq org-agenda-custom-commands
+  ;;       '(("z" "Zen View"
+  ;;          (
+  ;;           (org-ql-block
+  ;;            '(and (todo)
+  ;;                  (deadline :on today)
+  ;;                  (not (parent "Projects"))
+  ;;                  (not (parent "Areas"))
+  ;;                  (not (parent "Resources"))
+  ;;                  (not (parent "Archive"))
+  ;;                  (not (tags "IGNORE_AGENDA")))
+  ;;            ((org-ql-block-header "Due Today")))
+  ;;           (org-ql-block
+  ;;            '(and (todo)
+  ;;                  (scheduled :on today)
+  ;;                  (not (parent "Projects"))
+  ;;                  (not (parent "Areas"))
+  ;;                  (not (parent "Resources"))
+  ;;                  (not (parent "Archive"))
+  ;;                  (not (tags "IGNORE_AGENDA")))
+  ;;            ((org-ql-block-header "Scheduled Today")))
+  ;;           (org-ql-block
+  ;;            '(and (todo "TODAY")
+  ;;                  (not (parent "Projects"))
+  ;;                  (not (parent "Areas"))
+  ;;                  (not (parent "Resources"))
+  ;;                  (not (parent "Archive"))
+  ;;                  (not (tags "IGNORE_AGENDA")))
+  ;;            ((org-ql-block-header "Planned or Working on Today")))
+  ;;           (org-ql-block
+  ;;            '(and (done)
+  ;;                  (closed :on today)
+  ;;                  (not (parent "Projects"))
+  ;;                  (not (parent "Areas"))
+  ;;                  (not (parent "Resources"))
+  ;;                  (not (parent "Archive"))
+  ;;                  (not (tags "IGNORE_AGENDA")))
+  ;;            ((org-ql-block-header "Completed Today")))
+  ;;           (org-ql-block
+  ;;            '(and (todo "NEXT")
+  ;;                  (not (parent "Projects"))
+  ;;                  (not (parent "Areas"))
+  ;;                  (not (parent "Resources"))
+  ;;                  (not (parent "Archive"))
+  ;;                  (not (tags "IGNORE_AGENDA")))
+  ;;            ((org-ql-block-header "Next")))
+  ;;           (org-ql-block
+  ;;            '(and (todo "IN PROGRESS" "REVIEW")
+  ;;                  (not (parent "Projects"))
+  ;;                  (not (parent "Areas"))
+  ;;                  (not (parent "Resources"))
+  ;;                  (not (path "Archive"))
+  ;;                  (not (tags "IGNORE_AGENDA")))
+  ;;            ((org-ql-block-header "In Progress")))
+  ;;           (org-ql-block
+  ;;            '(and (todo)
+  ;;                  (and (not (olp "Projects" "Areas" "Resources" "Archive"))
+  ;;                       (not (level 1)))
+  ;;                  (deadline :to -1)
+  ;;                  (not (path "Archive"))
+  ;;                  (not (tags "IGNORE_AGENDA")))
+  ;;            ((org-ql-block-header "Overdue")))
+  ;;           (org-ql-block
+  ;;            '(and (todo)
+  ;;                  (and (not (olp "Projects" "Areas" "Resources" "Archive"))
+  ;;                       (not (level 1)))
+  ;;                  (scheduled :to -1)
+  ;;                  (not (path "Archive"))
+  ;;                  (not (tags "IGNORE_AGENDA")))
+  ;;            ((org-ql-block-header "Reschedule")))
+  ;;           (org-ql-block
+  ;;            '(and (todo)
+  ;;                  (and (not (olp "Projects" "Areas" "Resources" "Archive"))
+  ;;                       (not (level 1)))
+  ;;                  (deadline :from 1 :to 30)
+  ;;                  (not (path "Archive"))
+  ;;                  (not (tags "IGNORE_AGENDA")))
+  ;;            ((org-ql-block-header "Due Soon")))
+  ;;           (org-ql-block
+  ;;            '(and (todo)
+  ;;                  (path "Inbox")
+  ;;                  (not (path "Archive"))
+  ;;                  (not (tags "IGNORE_AGENDA")))
+  ;;            ((org-ql-block-header "Inbox")))
+  ;;           ))
+  ;;         ("i" "Inbox"
+  ;;          ((org-ql-block
+  ;;            '(and (todo) (path "Inbox") (not (path "Archive"))) ((org-ql-block-header "Inbox")))))
+  ;;         ("f" "Fleeting Notes"
+  ;;          ((org-ql-block
+  ;;            '(and (level 1) (path "Fleeting") (not (path "Archive")))
+  ;;            ((org-ql-block-header "Fleeting Notes")))))
+  ;;         ("p" "PARA"
+  ;;          ((org-ql-block
+  ;;            '(and (not (path "Archive"))
+  ;;                  (not (heading "Contents"))
+  ;;                  (path "Projects")
+  ;;                  (level 1))
+  ;;            ((org-ql-block-header "Active Projects")))
+  ;;           (org-ql-block
+  ;;            '(and (not (path "Archive"))
+  ;;                  (not (heading "Contents"))
+  ;;                  (path "Areas")
+  ;;                  (level 1))
+  ;;            ((org-ql-block-header "Active Areas")))
+  ;;           (org-ql-block
+  ;;            '(and (not (path "Archive"))
+  ;;                  (not (heading "Contents"))
+  ;;                  (path "Resources")
+  ;;                  (level 1))
+  ;;            ((org-ql-block-header "Active Resources")))))
+  ;;         ("r" "Archive"
+  ;;          ((org-ql-block
+  ;;            '(and (not (done)) (path "Projects Archive") (level 1))
+  ;;            ((org-ql-block-header "Archived Projects")))
+  ;;           (org-ql-block
+  ;;            '(and (not (done)) (path "Areas Archive") (level 1))
+  ;;            ((org-ql-block-header "Archived Areas")))
+  ;;           (org-ql-block
+  ;;            '(and (not (done)) (path "Resources Archive") (level 1))
+  ;;            ((org-ql-block-header "Archived Resources"))))))
+  )
+
+(use-package org-super-agenda
+  :demand t
+  :ensure (:wait t)
+  :config
+  (let ((org-super-agenda-groups
+         '(;; Each group has an implicit boolean OR operator between its selectors.
+           (:name "Today"  ; Optionally specify section name
+                  :time-grid t  ; Items that appear on the time grid
+                  :todo "TODAY")  ; Items that have this TODO keyword
+           (:name "Important"
+                  ;; Single arguments given alone
+                  :tag "bills"
+                  :priority "A")
+           ;; Set order of multiple groups at once
+           (:order-multi (2 (:name "Shopping in town"
+                                   ;; Boolean AND group matches items that match all subgroups
+                                   :and (:tag "shopping" :tag "@town"))
+                            (:name "Food-related"
+                                   ;; Multiple args given in list with implicit OR
+                                   :tag ("food" "dinner"))
+                            (:name "Personal"
+                                   :habit t
+                                   :tag "personal")
+                            (:name "Space-related (non-moon-or-planet-related)"
+                                   ;; Regexps match case-insensitively on the entire entry
+                                   :and (:regexp ("space" "NASA")
+                                                 ;; Boolean NOT also has implicit OR between selectors
+                                                 :not (:regexp "moon" :tag "planet")))))
+           ;; Groups supply their own section names when none are given
+           (:todo "WAITING" :order 8)  ; Set order of this section
+           (:todo ("SOMEDAY" "TO-READ" "CHECK" "TO-WATCH" "WATCHING")
+                  ;; Show this group at the end of the agenda (since it has the
+                  ;; highest number). If you specified this group last, items
+                  ;; with these todo keywords that e.g. have priority A would be
+                  ;; displayed in that group instead, because items are grouped
+                  ;; out in the order the groups are listed.
+                  :order 9)
+           (:priority<= "B"
+                        ;; Show this section after "Today" and "Important", because
+                        ;; their order is unspecified, defaulting to 0. Sections
+                        ;; are displayed lowest-number-first.
+                        :order 1)
+           ;; After the last group, the agenda will display items that didn't
+           ;; match any of these groups, with the default order position of 99
+           )))
+    (org-agenda nil "a")))
 
 
 (use-package which-key
