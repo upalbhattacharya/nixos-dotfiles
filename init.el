@@ -794,7 +794,7 @@
            ;; After the last group, the agenda will display items that didn't
            ;; match any of these groups, with the default order position of 99
            )))
-    (org-agenda nil "a")))
+    (org-agenda nil "z")))
 
 
 (use-package which-key
