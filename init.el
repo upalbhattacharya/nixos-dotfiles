@@ -605,7 +605,10 @@
   :ensure (:wait t)
   :config
   (org-super-agenda-mode +1)
-  (setq org-super-agenda-header-separator ""))
+  (setq org-super-agenda-header-separator "
+")
+  (setq org-super-agenda-header-prefix ""))
+
 
 
 ;; Custom org-super-agenda auto property with CATEGORY: propertyValue format
@@ -617,7 +620,7 @@
              (concat ": " (org-entry-get (org-super-agenda--get-marker item)
                                          (car args)
                                          org-super-agenda-properties-inherit)))
-  :header-form (format "%s" key))
+  :header-form (string-trim (format "%s" key)))
 
 (use-package org-ql
   :demand t
@@ -649,26 +652,19 @@
              ((org-ql-block-header "Planned or Working on Today")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
             (org-ql-block
-             '(and (done)
-                   (closed :on today)
+             '(and (todo)
+                   (deadline :from 1 :to 30)
                    (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Completed Today")
+             ((org-ql-block-header "Due Soon")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
             (org-ql-block
-             '(and (todo "NEXT")
+             '(and (todo "NEXT" "IN PROGRESS" "REVIEW")
                    (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Next")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-            (org-ql-block
-             '(and (todo "IN PROGRESS" "REVIEW")
-                   (category "Project" "Area" "Resource" "Inbox"  "Literature")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "In Progress")
+             ((org-ql-block-header "Running")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
             (org-ql-block
              '(and (todo)
@@ -686,14 +682,16 @@
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Reschedule")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
+            
             (org-ql-block
-             '(and (todo)
-                   (deadline :from 1 :to 30)
+             '(and (done)
+                   (closed :on today)
                    (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Due Soon")
+             ((org-ql-block-header "Completed Today")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
+            
             ))
           ("p" "PARA"
            ((org-ql-block
@@ -884,7 +882,7 @@
  '(org-agenda-structure ((t (:foreground "#f38ba8" :weight extra-bold))))
  '(org-agenda-structure-filter ((t nil)))
  '(org-scheduled ((t nil)))
- '(org-super-agenda-header ((t (:foreground "#f2cdcd" :slant italic)))))
+ '(org-super-agenda-header ((t (:foreground "#f2cdcd" :underline t :slant italic :weight normal)))))
 ;;; Custom
 ;;;###autoload
 (defun unpackaged/org-fix-blank-lines (&optional prefix)
