@@ -607,12 +607,17 @@
   (org-super-agenda-mode +1)
   (setq org-super-agenda-header-separator ""))
 
-;; Custom method to display PARA: Name for org-super-agenda headings
+
+;; Custom org-super-agenda auto group with key
 (org-super-agenda--def-auto-group para "the given property"
-  :key-form (org-entry-get (org-super-agenda--get-marker item)
-                           (car args)
-                           org-super-agenda-properties-inherit)
-  :header-form (format "%s: %s" (org-entry-get (org-super-agenda--get-marker item) "CATEGORY" org-super-agenda-properties-inherit) key))
+  :key-form (concat
+             (org-entry-get (org-super-agenda--get-marker item)
+                            "CATEGORY"
+                            org-super-agenda-properties-inherit)
+             (concat ": " (org-entry-get (org-super-agenda--get-marker item)
+                                         (car args)
+                                         org-super-agenda-properties-inherit)))
+  :header-form (format "%s" key))
 
 (use-package org-ql
   :demand t
