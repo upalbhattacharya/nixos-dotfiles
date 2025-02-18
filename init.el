@@ -124,7 +124,7 @@
  '(org-ql-search-directories-files-recursive t)
  '(org-ql-search-directories-files-regexp ".org$")
  '(org-remark-icon-notes " 󰍩 ")
- '(org-use-property-inheritance '("NAME"))
+ '(org-use-property-inheritance '("HEAD"))
  '(python-isort-extra-args nil)
  '(vertico-sort-function nil)
  '(visual-fill-column-center-text nil))
@@ -232,7 +232,7 @@
   (setq org-agenda-block-separator 46)
   (setq org-agenda-include-deadlines t)
   (setq org-columns-default-format-for-agenda
-        "%12TODO(STATUS) %50ITEM %30NAME(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %DEADLINE")
+        "%12TODO(STATUS) %50ITEM %30HEAD(HEAD) %20CATEGORY(PARA) %PRIORITY(PR.) %DEADLINE")
   (setq org-agenda-with-colors t)
   (setq org-log-done t)
   (setq org-agenda-start-with-log-mode t)
@@ -340,22 +340,22 @@
           (not (member "IGNORE_ORG_ROAM" (org-get-tags)))))
   (setq org-roam-capture-templates
         '(
-          ("d" "default" entry "* ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n"
+          ("d" "default" entry "* ${title}\n:PROPERTIES:\n:HEAD:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:END:\n"
            :target (file "Inbox.org") :empty-lines 1)
 
-          ("p" "project" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Project\n:END:\n
-[[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
+          ("p" "project" entry "* TODO ${title}\n:PROPERTIES:\n:HEAD:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Project\n:END:\n
+[[org-ql-search:(and (todo) (not(done)) (level 2) (property \"HEAD\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
            :target (file "Active.org") :empty-lines 1)
 
-          ("a" "area" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Area\n:END:\n
-[[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
+          ("a" "area" entry "* TODO ${title}\n:PROPERTIES:\n:HEAD:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Area\n:END:\n
+[[org-ql-search:(and (todo) (not(done)) (level 2) (property \"HEAD\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
            :target (file "Active.org") :empty-lines 1)
 
-          ("r" "resource" entry "* TODO ${title}\n:PROPERTIES:\n:NAME:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Resource\n:END:\n
-[[org-ql-search:(and (todo) (not(done)) (level 2) (property \"NAME\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
+          ("r" "resource" entry "* TODO ${title}\n:PROPERTIES:\n:HEAD:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Resource\n:END:\n
+[[org-ql-search:(and (todo) (not(done)) (level 2) (property \"HEAD\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
            :target (file "Active.org") :empty-lines 1)
 
-          ("l" "literature note" entry "* TODO ${note-title}\n:PROPERTIES:\n:NAME:\t${note-title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:ROAM_REFS:\t\n:END:\n"
+          ("l" "literature note" entry "* TODO ${note-title}\n:PROPERTIES:\n:HEAD:\t${note-title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:ROAM_REFS:\t\n:END:\n"
            :target (file "Literature.org") :empty-lines 1)
           ))
 
@@ -620,7 +620,7 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Due Today")
-              (org-super-agenda-groups '((:auto-property "NAME")))))
+              (org-super-agenda-groups '((:auto-property "HEAD")))))
             (org-ql-block
              '(and (todo)
                    (scheduled :on today)
@@ -628,14 +628,14 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Scheduled Today")
-              (org-super-agenda-groups '((:auto-property "NAME")))))
+              (org-super-agenda-groups '((:auto-property "HEAD")))))
             (org-ql-block
              '(and (todo "TODAY")
                    (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Planned or Working on Today")
-              (org-super-agenda-groups '((:auto-property "NAME")))))
+              (org-super-agenda-groups '((:auto-property "HEAD")))))
             (org-ql-block
              '(and (done)
                    (closed :on today)
@@ -643,21 +643,21 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Completed Today")
-              (org-super-agenda-groups '((:auto-property "NAME")))))
+              (org-super-agenda-groups '((:auto-property "HEAD")))))
             (org-ql-block
              '(and (todo "NEXT")
                    (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Next")
-              (org-super-agenda-groups '((:auto-property "NAME")))))
+              (org-super-agenda-groups '((:auto-property "HEAD")))))
             (org-ql-block
              '(and (todo "IN PROGRESS" "REVIEW")
                    (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "In Progress")
-              (org-super-agenda-groups '((:auto-property "NAME")))))
+              (org-super-agenda-groups '((:auto-property "HEAD")))))
             (org-ql-block
              '(and (todo)
                    (deadline :to -1)
@@ -665,7 +665,7 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Overdue")
-              (org-super-agenda-groups '((:auto-property "NAME")))))
+              (org-super-agenda-groups '((:auto-property "HEAD")))))
             (org-ql-block
              '(and (todo)
                    (scheduled :to -1)
@@ -673,7 +673,7 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Reschedule")
-              (org-super-agenda-groups '((:auto-property "NAME")))))
+              (org-super-agenda-groups '((:auto-property "HEAD")))))
             (org-ql-block
              '(and (todo)
                    (deadline :from 1 :to 30)
@@ -681,7 +681,7 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Due Soon")
-              (org-super-agenda-groups '((:auto-property "NAME")))))
+              (org-super-agenda-groups '((:auto-property "HEAD")))))
             ))
           ("p" "PARA"
            ((org-ql-block
