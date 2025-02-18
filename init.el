@@ -78,6 +78,7 @@
  '(gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
  '(ignored-local-variable-values '((org-confirm-babel-evaluate)))
  '(org-agenda-breadcrumbs-separator " -> ")
+ '(org-agenda-dim-blocked-tasks nil)
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
@@ -620,7 +621,7 @@
              (concat ": " (org-entry-get (org-super-agenda--get-marker item)
                                          (car args)
                                          org-super-agenda-properties-inherit)))
-  :header-form (string-trim (format "%s" key)))
+  :header-form (string-trim (format "%s" key) "[:\r\t\n]+"))
 
 (use-package org-ql
   :demand t
@@ -820,11 +821,11 @@
   :demand t
   :ensure (:wait t))
 
-;; (defun workboots/org-roam-rg-search ()
-;;   "Search org-roam directory using consult-ripgrep. With live-preview."
-;;   (interactive)
-;;   (let ((consult-ripgrep-command "rg --null --smart-case --type org --line-buffered --color=always --max-columns=500 --no-heading --line-number . -e ARG OPTS"))
-;;     (consult-ripgrep org-roam-directory)))
+(defun workboots/org-roam-rg-search ()
+  "Search org-roam directory using consult-ripgrep. With live-preview."
+  (interactive)
+  (let ((consult-ripgrep-command "rg --null --smart-case --type org --line-buffered --color=always --max-columns=500 --no-heading --line-number . -e ARG OPTS"))
+    (consult-ripgrep org-roam-directory)))
 
 (defun workboots/insert-todo-metadata ()
   (org-expiry-insert-created)
@@ -878,11 +879,12 @@
  '(org-agenda-date-today ((t (:foreground "medium spring green" :weight bold))))
  '(org-agenda-date-weekend ((t (:inherit org-agenda-date :foreground "dim gray"))))
  '(org-agenda-date-weekend-today ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
+ '(org-agenda-dimmed-todo-face ((t nil)))
  '(org-agenda-filter-category ((t nil)))
- '(org-agenda-structure ((t (:foreground "#f38ba8" :weight extra-bold))))
+ '(org-agenda-structure ((t (:foreground "#f38ba8" :box (:line-width (2 . 2) :color "#f38ba8" :style flat-button) :weight extra-bold))))
  '(org-agenda-structure-filter ((t nil)))
  '(org-scheduled ((t nil)))
- '(org-super-agenda-header ((t (:foreground "#f2cdcd" :underline t :slant italic :weight normal)))))
+ '(org-super-agenda-header ((t (:foreground "#94e2d5" :underline t :slant italic :weight normal)))))
 ;;; Custom
 ;;;###autoload
 (defun unpackaged/org-fix-blank-lines (&optional prefix)
@@ -992,56 +994,6 @@ _w_: Refile                   _q_: Quit
   ("s" org-roam-db-sync)
   ("j" org-roam-dailies-goto-today)
   ("q" nil))
-  ;; ("o" hydra-para/body))
-
-;; (defhydra
-;;   hydra-para
-;;   (:color pink :hint nil :exit t)
-;;   "
-;; ^hydra-para^
-;; ------------
-;; _p_: Projects   _s_: Slip Box       _q_: Quit
-;; _a_: Areas      _x_: Scratchpad
-;; _r_: Resources  _c_: Clock Report
-;; _i_: Inbox      _l_: Literature
-;; "
-;;   ("p" 
-;;    (lambda ()
-;;      (interactive)
-;;      (find-file "~/org/Projects.org")))
-
-;;   ("a" 
-;;    (lambda ()
-;;      (interactive)
-;;      (find-file "~/org/Areas.org")))
-
-;;   ("r" 
-;;    (lambda ()
-;;      (interactive)
-;;      (find-file "~/org/Resources.org")))
-
-;;   ("i" 
-;;    (lambda ()
-;;      (interactive)
-;;      (find-file "~/org/Inbox.org")))
-;;   ("s" 
-;;    (lambda ()
-;;      (interactive)
-;;      (find-file "~/org/Slip Box.org")))
-;;   ("x" 
-;;    (lambda ()
-;;      (interactive)
-;;      (find-file "~/org/Scratchpad.org")))
-;;   ("c" 
-;;    (lambda ()
-;;      (interactive)
-;;      (find-file "~/org/Clock Report.org")))
-;;   ("l" 
-;;    (lambda ()
-;;      (interactive)
-;;      (find-file "~/org/Literature.org")))
-
-;;   ("q" nil))
 (global-set-key (kbd "C-c o") 'hydra-org-roam/body)
 
 ;; org-agenda
