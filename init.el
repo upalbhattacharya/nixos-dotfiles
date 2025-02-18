@@ -608,7 +608,7 @@
   (setq org-super-agenda-header-separator ""))
 
 
-;; Custom org-super-agenda auto group with key
+;; Custom org-super-agenda auto group with CATEGORY: propertyValue format
 (org-super-agenda--def-auto-group para "the given property"
   :key-form (concat
              (org-entry-get (org-super-agenda--get-marker item)
