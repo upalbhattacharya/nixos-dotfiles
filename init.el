@@ -78,8 +78,6 @@
  '(gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
  '(ignored-local-variable-values '((org-confirm-babel-evaluate)))
  '(org-agenda-breadcrumbs-separator " -> ")
- '(org-agenda-files
-   '("/home/workboots/org/Journal/Journal 2024.org" "/home/workboots/org/Journal/Journal 2025.org" "/home/workboots/org/Journal/marginalia.org" "/home/workboots/org/Active.org" "/home/workboots/org/Archive.org" "/home/workboots/org/Clock Report.org" "/home/workboots/org/Inbox.org" "/home/workboots/org/Literature.org" "/home/workboots/org/Scratchpad.org" "/home/workboots/org/Slip Box.org" "/home/workboots/org/marginalia.org"))
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
@@ -622,7 +620,7 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Due Today")
-              (org-super-agenda-groups '((:auto-category t)))))
+              (org-super-agenda-groups '((:auto-property "NAME")))))
             (org-ql-block
              '(and (todo)
                    (scheduled :on today)
@@ -630,14 +628,14 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Scheduled Today")
-              (org-super-agenda-groups '((:auto-parent t)))))
+              (org-super-agenda-groups '((:auto-property "NAME")))))
             (org-ql-block
              '(and (todo "TODAY")
                    (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Planned or Working on Today")
-              (org-super-agenda-groups '((:auto-parent t)))))
+              (org-super-agenda-groups '((:auto-property "NAME")))))
             (org-ql-block
              '(and (done)
                    (closed :on today)
@@ -645,21 +643,21 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Completed Today")
-              (org-super-agenda-groups '((:auto-parent t)))))
+              (org-super-agenda-groups '((:auto-property "NAME")))))
             (org-ql-block
              '(and (todo "NEXT")
                    (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Next")
-              (org-super-agenda-groups '((:auto-parent t)))))
+              (org-super-agenda-groups '((:auto-property "NAME")))))
             (org-ql-block
              '(and (todo "IN PROGRESS" "REVIEW")
                    (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "In Progress")
-              (org-super-agenda-groups '((:auto-parent t)))))
+              (org-super-agenda-groups '((:auto-property "NAME")))))
             (org-ql-block
              '(and (todo)
                    (deadline :to -1)
@@ -667,7 +665,7 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Overdue")
-              (org-super-agenda-groups '((:auto-parent t)))))
+              (org-super-agenda-groups '((:auto-property "NAME")))))
             (org-ql-block
              '(and (todo)
                    (scheduled :to -1)
@@ -675,7 +673,7 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Reschedule")
-              (org-super-agenda-groups '((:auto-parent t)))))
+              (org-super-agenda-groups '((:auto-property "NAME")))))
             (org-ql-block
              '(and (todo)
                    (deadline :from 1 :to 30)
@@ -683,7 +681,7 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Due Soon")
-              (org-super-agenda-groups '((:auto-parent t)))))
+              (org-super-agenda-groups '((:auto-property "NAME")))))
             ))
           ("p" "PARA"
            ((org-ql-block
@@ -870,7 +868,6 @@ ARGS is `element' in `org-ql-view--format-element'"
  '(org-agenda-date-today ((t (:foreground "medium spring green" :weight bold))))
  '(org-agenda-date-weekend ((t (:inherit org-agenda-date :foreground "dim gray"))))
  '(org-agenda-date-weekend-today ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
- ;; '(org-agenda-dimmed-todo-face ((t nil)))
  '(org-agenda-filter-category ((t nil)))
  '(org-agenda-structure ((t (:foreground "#f38ba8" :weight extra-bold))))
  '(org-agenda-structure-filter ((t nil)))
