@@ -607,6 +607,13 @@
   (org-super-agenda-mode +1)
   (setq org-super-agenda-header-separator ""))
 
+;; Custom method to display PARA: Name for org-super-agenda headings
+(org-super-agenda--def-auto-group para "the given property"
+  :key-form (org-entry-get (org-super-agenda--get-marker item)
+                           (car args)
+                           org-super-agenda-properties-inherit)
+  :header-form (format "%s: %s" (org-entry-get (org-super-agenda--get-marker item) "CATEGORY" org-super-agenda-properties-inherit) key))
+
 (use-package org-ql
   :demand t
   :ensure (:wait t)
@@ -620,7 +627,7 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Due Today")
-              (org-super-agenda-groups '((:auto-property "HEAD")))))
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
             (org-ql-block
              '(and (todo)
                    (scheduled :on today)
@@ -628,14 +635,14 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Scheduled Today")
-              (org-super-agenda-groups '((:auto-property "HEAD")))))
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
             (org-ql-block
              '(and (todo "TODAY")
                    (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Planned or Working on Today")
-              (org-super-agenda-groups '((:auto-property "HEAD")))))
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
             (org-ql-block
              '(and (done)
                    (closed :on today)
@@ -643,21 +650,21 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Completed Today")
-              (org-super-agenda-groups '((:auto-property "HEAD")))))
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
             (org-ql-block
              '(and (todo "NEXT")
                    (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Next")
-              (org-super-agenda-groups '((:auto-property "HEAD")))))
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
             (org-ql-block
              '(and (todo "IN PROGRESS" "REVIEW")
                    (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "In Progress")
-              (org-super-agenda-groups '((:auto-property "HEAD")))))
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
             (org-ql-block
              '(and (todo)
                    (deadline :to -1)
@@ -665,7 +672,7 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Overdue")
-              (org-super-agenda-groups '((:auto-property "HEAD")))))
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
             (org-ql-block
              '(and (todo)
                    (scheduled :to -1)
@@ -673,7 +680,7 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Reschedule")
-              (org-super-agenda-groups '((:auto-property "HEAD")))))
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
             (org-ql-block
              '(and (todo)
                    (deadline :from 1 :to 30)
@@ -681,7 +688,7 @@
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Due Soon")
-              (org-super-agenda-groups '((:auto-property "HEAD")))))
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
             ))
           ("p" "PARA"
            ((org-ql-block
@@ -703,26 +710,26 @@
                    (not (heading "Contents")))
              ((org-ql-block-header "Active Resources"))))))
         ))
-(defun workboots/org-ql-view--format-element (orig-fun &rest args)
-  "This function will intercept the original function and
-add the category to the result.
+;; (defun workboots/org-ql-view--format-element (orig-fun &rest args)
+;;   "This function will intercept the original function and
+;; add the category to the result.
 
-ARGS is `element' in `org-ql-view--format-element'"
-  (if (not args)
-      ""
-    (let* ((element args)
-           (properties (cadar element))
-           (result (apply orig-fun element))
-           (smt "")
-           (category (org-entry-get (plist-get properties :org-marker) "CATEGORY")))
-      (if (> (length category) 11)
-          (setq category (substring category 0 10)))
-      (if (< (length category) 11)
-          (setq smt (make-string (- 11 (length category)) ?\s)))
-      (org-add-props
-          (format "   %-8s %s" (concat category ":" smt) result)
-          (text-properties-at 0 result)))))
-(advice-add 'org-ql-view--format-element :around #'workboots/org-ql-view--format-element)
+;; ARGS is `element' in `org-ql-view--format-element'"
+;;   (if (not args)
+;;       ""
+;;     (let* ((element args)
+;;            (properties (cadar element))
+;;            (result (apply orig-fun element))
+;;            (smt "")
+;;            (category (org-entry-get (plist-get properties :org-marker) "CATEGORY")))
+;;       (if (> (length category) 11)
+;;           (setq category (substring category 0 10)))
+;;       (if (< (length category) 11)
+;;           (setq smt (make-string (- 11 (length category)) ?\s)))
+;;       (org-add-props
+;;           (format "   %-8s %s" (concat category ":" smt) result)
+;;           (text-properties-at 0 result)))))
+;; (advice-add 'org-ql-view--format-element :around #'workboots/org-ql-view--format-element)
 
 (use-package which-key
   :demand t
