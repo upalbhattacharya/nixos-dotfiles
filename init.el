@@ -327,6 +327,9 @@
 (use-package org-roam
   :demand t
   :ensure (:wait t)
+  :bind (
+         :map org-mode-map
+         ("C-M-i" . completion-at-point))
   :config
   (cl-defmethod org-roam-node-status ((node org-roam-node))
     (let ((status (org-roam-node-todo node)))
