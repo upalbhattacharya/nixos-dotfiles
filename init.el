@@ -704,21 +704,105 @@
              (
               (org-ql-block-header "")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
+
+            ;; Due Soon
+            ;;; Project
             (org-ql-block
              '(and (todo)
                    (deadline :from 1 :to 30)
-                   (category "Project" "Area" "Resource" "Inbox"  "Literature")
+                   (category "Project")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Due Soon\n--------")
+             ((org-ql-block-header "Due Soon")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
+
+            ;;; Area
+            (org-ql-block
+             '(and (todo)
+                   (deadline :from 1 :to 30)
+                   (category "Area")
+                   (not (path "Archive"))
+                   (not (tags "IGNORE_AGENDA")))
+             ((org-ql-block-header "")
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
+
+            ;;; Inbox
+            (org-ql-block
+             '(and (todo)
+                   (deadline :from 1 :to 30)
+                   (category "Inbox")
+                   (not (path "Archive"))
+                   (not (tags "IGNORE_AGENDA")))
+             ((org-ql-block-header "")
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
+
+            ;;; Resource
+            (org-ql-block
+             '(and (todo)
+                   (deadline :from 1 :to 30)
+                   (category "Resource")
+                   (not (path "Archive"))
+                   (not (tags "IGNORE_AGENDA")))
+             ((org-ql-block-header "")
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
+
+            ;;; Literature
+            (org-ql-block
+             '(and (todo)
+                   (deadline :from 1 :to 30)
+                   (category "Literature")
+                   (not (path "Archive"))
+                   (not (tags "IGNORE_AGENDA")))
+             ((org-ql-block-header "")
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
+
+            ;; Running
+            ;;; Project
             (org-ql-block
              '(and (todo "NEXT" "IN PROGRESS" "REVIEW")
-                   (category "Project" "Area" "Resource" "Inbox"  "Literature")
+                   (category "Project")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "Running")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
+
+            ;;; Area
+            (org-ql-block
+             '(and (todo "NEXT" "IN PROGRESS" "REVIEW")
+                   (category "Area")
+                   (not (path "Archive"))
+                   (not (tags "IGNORE_AGENDA")))
+             ((org-ql-block-header "")
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
+
+            ;;; Inbox
+            (org-ql-block
+             '(and (todo "NEXT" "IN PROGRESS" "REVIEW")
+                   (category "Inbox")
+                   (not (path "Archive"))
+                   (not (tags "IGNORE_AGENDA")))
+             ((org-ql-block-header "")
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
+
+            ;;; Resource
+            (org-ql-block
+             '(and (todo "NEXT" "IN PROGRESS" "REVIEW")
+                   (category "Resource")
+                   (not (path "Archive"))
+                   (not (tags "IGNORE_AGENDA")))
+             ((org-ql-block-header "")
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
+
+            ;;; Literature
+            (org-ql-block
+             '(and (todo "NEXT" "IN PROGRESS" "REVIEW")
+                   (category "Literature")
+                   (not (path "Archive"))
+                   (not (tags "IGNORE_AGENDA")))
+             ((org-ql-block-header "")
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
+
+            ;; Overdue
             (org-ql-block
              '(and (todo)
                    (deadline :to -1)
