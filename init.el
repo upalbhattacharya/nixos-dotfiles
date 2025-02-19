@@ -84,6 +84,7 @@
      (todo . " %i %-12:c")
      (tags . " %i %-12:c")
      (search . " %i %-12:c")))
+ '(org-agenda-todo-keyword-format "        %-1s")
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
