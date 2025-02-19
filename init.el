@@ -613,7 +613,7 @@
   :config
   (org-super-agenda-mode +1)
   (setq org-super-agenda-header-separator "")
-  (setq org-super-agenda-header-prefix ""))
+  (setq org-super-agenda-header-prefix " "))
 
 
 
@@ -894,7 +894,7 @@
  '(org-agenda-structure ((t (:foreground "#f38ba8" :weight extra-bold))))
  '(org-agenda-structure-filter ((t nil)))
  '(org-scheduled ((t nil)))
- '(org-super-agenda-header ((t (:foreground "#94e2d5" :underline t :slant italic :weight normal)))))
+ '(org-super-agenda-header ((t (:foreground "#94e2d5" :slant italic :weight medium)))))
 ;;; Custom
 ;;;###autoload
 (defun unpackaged/org-fix-blank-lines (&optional prefix)
