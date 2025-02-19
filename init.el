@@ -83,7 +83,7 @@
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
                  ("begin" "$1" "$" "$$" "\\(" "\\[")))
- '(org-indirect-buffer-display 'other-window)
+ '(org-indirect-buffer-display 'current-window)
  '(org-link-frame-setup
    '((vm . vm-visit-folder-other-frame)
      (vm-imap . vm-visit-imap-folder-other-frame)
@@ -229,7 +229,7 @@
   (setq org-agenda-skip-scheduled-if-done t)
   (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
   (setq org-agenda-skip-timeline-if-deadline-is-shown t)
-  (setq org-agenda-compact-blocks nil)
+  (setq org-agenda-compact-blocks t)
   (setq org-agenda-block-separator 46)
   (setq org-agenda-include-deadlines t)
   (setq org-columns-default-format-for-agenda
@@ -606,8 +606,7 @@
   :ensure (:wait t)
   :config
   (org-super-agenda-mode +1)
-  (setq org-super-agenda-header-separator "
-")
+  (setq org-super-agenda-header-separator "")
   (setq org-super-agenda-header-prefix ""))
 
 
@@ -629,36 +628,91 @@
   :init
   (setq org-agenda-custom-commands
         '(("z" "Zen View"
-           ((org-ql-block
-             '(and (todo)
-                   (deadline :on today)
-                   (category "Project" "Area" "Resource" "Inbox"  "Literature")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Due Today")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
+           (
+
+            ;; "Today" in order of Project -> Area -> Literature -> Resource -> Inbox
+            ;;; Project
             (org-ql-block
-             '(and (todo)
-                   (scheduled :on today)
-                   (category "Project" "Area" "Resource" "Inbox"  "Literature")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Scheduled Today")
+             '(and
+               (todo)
+               (not (and
+                     (not (todo "TODAY"))
+                     (not (deadline :on today))
+                     (not (scheduled :on today))))
+               (category "Project")
+               (not (path "Archive"))
+               (not (tags "IGNORE_AGENDA")))
+             (
+              (org-ql-block-header "\n\nToday")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
+
+            ;;; Area
             (org-ql-block
-             '(and (todo "TODAY")
-                   (category "Project" "Area" "Resource" "Inbox"  "Literature")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Planned or Working on Today")
+             '(and
+               (todo)
+               (not (and
+                     (not (todo "TODAY"))
+                     (not (deadline :on today))
+                     (not (scheduled :on today))))
+               (category "Area")
+               (not (path "Archive"))
+               (not (tags "IGNORE_AGENDA")))
+             (
+              (org-ql-block-header "")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
+
+            ;;; Inbox
+            (org-ql-block
+             '(and
+               (todo)
+               (not (and
+                     (not (todo "TODAY"))
+                     (not (deadline :on today))
+                     (not (scheduled :on today))))
+               (category "Inbox")
+               (not (path "Archive"))
+               (not (tags "IGNORE_AGENDA")))
+             (
+              (org-ql-block-header "")
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
+
+            ;;; Resource
+            (org-ql-block
+             '(and
+               (todo)
+               (not (and
+                     (not (todo "TODAY"))
+                     (not (deadline :on today))
+                     (not (scheduled :on today))))
+               (category "Resource")
+               (not (path "Archive"))
+               (not (tags "IGNORE_AGENDA")))
+             (
+              (org-ql-block-header "")
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
+
+            ;;; Literature
+            (org-ql-block
+             '(and
+               (todo)
+               (not (and
+                     (not (todo "TODAY"))
+                     (not (deadline :on today))
+                     (not (scheduled :on today))))
+               (category "Literature")
+               (not (path "Archive"))
+               (not (tags "IGNORE_AGENDA")))
+             (
+              (org-ql-block-header "")
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
+
             (org-ql-block
              '(and (todo)
                    (deadline :from 1 :to 30)
                    (category "Project" "Area" "Resource" "Inbox"  "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Due Soon")
+             ((org-ql-block-header "Due Soon\n--------")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
             (org-ql-block
              '(and (todo "NEXT" "IN PROGRESS" "REVIEW")
