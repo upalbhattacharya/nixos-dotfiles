@@ -86,7 +86,7 @@
      (search . " %i %-12:c")))
  '(org-agenda-sorting-strategy
    '((agenda habit-down time-up priority-down category-keep)
-     (todo priority-down category-keep deadline-up)
+     (todo deadline-up category-keep priority-down)
      (tags priority-down category-keep)
      (search category-keep)))
  '(org-agenda-todo-keyword-format "%-1s")
