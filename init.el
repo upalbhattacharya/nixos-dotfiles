@@ -84,6 +84,11 @@
      (todo . " %i %-12:c")
      (tags . " %i %-12:c")
      (search . " %i %-12:c")))
+ '(org-agenda-sorting-strategy
+   '((agenda habit-down time-up priority-down category-keep)
+     (todo priority-down category-keep deadline-up)
+     (tags priority-down category-keep)
+     (search category-keep)))
  '(org-agenda-todo-keyword-format "%-1s")
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
