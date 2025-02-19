@@ -629,8 +629,7 @@
   (setq org-agenda-custom-commands
         '(("z" "Zen View"
            (
-            ;; "Today" in order of Project -> Area -> Literature -> Resource -> Inbox
-            ;;; Project
+            ;; Today
             (org-ql-block
              '(and
                (todo)
@@ -638,230 +637,50 @@
                      (not (todo "TODAY"))
                      (not (deadline :on today))
                      (not (scheduled :on today))))
-               (category "Project")
+               (category "Project" "Area" "Inbox" "Resource" "Literature")
                (not (path "Archive"))
                (not (tags "IGNORE_AGENDA")))
              (
               (org-ql-block-header "Today")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
 
-            ;;; Area
-            (org-ql-block
-             '(and
-               (todo)
-               (not (and
-                     (not (todo "TODAY"))
-                     (not (deadline :on today))
-                     (not (scheduled :on today))))
-               (category "Area")
-               (not (path "Archive"))
-               (not (tags "IGNORE_AGENDA")))
-             (
-              (org-ql-block-header "")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
-            ;;; Inbox
-            (org-ql-block
-             '(and
-               (todo)
-               (not (and
-                     (not (todo "TODAY"))
-                     (not (deadline :on today))
-                     (not (scheduled :on today))))
-               (category "Inbox")
-               (not (path "Archive"))
-               (not (tags "IGNORE_AGENDA")))
-             (
-              (org-ql-block-header "")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
-            ;;; Resource
-            (org-ql-block
-             '(and
-               (todo)
-               (not (and
-                     (not (todo "TODAY"))
-                     (not (deadline :on today))
-                     (not (scheduled :on today))))
-               (category "Resource")
-               (not (path "Archive"))
-               (not (tags "IGNORE_AGENDA")))
-             (
-              (org-ql-block-header "")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
-            ;;; Literature
-            (org-ql-block
-             '(and
-               (todo)
-               (not (and
-                     (not (todo "TODAY"))
-                     (not (deadline :on today))
-                     (not (scheduled :on today))))
-               (category "Literature")
-               (not (path "Archive"))
-               (not (tags "IGNORE_AGENDA")))
-             (
-              (org-ql-block-header "")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
             ;; Due Soon
-            ;;; Project
             (org-ql-block
              '(and (todo)
                    (deadline :from 1 :to 30)
-                   (category "Project")
+                   (category "Project" "Area" "Inbox" "Resource" "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Due Soon")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
-            ;;; Area
-            (org-ql-block
-             '(and (todo)
-                   (deadline :from 1 :to 30)
-                   (category "Area")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
-            ;;; Inbox
-            (org-ql-block
-             '(and (todo)
-                   (deadline :from 1 :to 30)
-                   (category "Inbox")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
-            ;;; Resource
-            (org-ql-block
-             '(and (todo)
-                   (deadline :from 1 :to 30)
-                   (category "Resource")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
-            ;;; Literature
-            (org-ql-block
-             '(and (todo)
-                   (deadline :from 1 :to 30)
-                   (category "Literature")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "")
+             ((org-ql-block-header "\nDue Soon")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
 
             ;; Running
-            ;;; Project
             (org-ql-block
              '(and (todo "NEXT" "IN PROGRESS" "REVIEW")
-                   (category "Project")
+                   (category "Project" "Area" "Inbox" "Resource" "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Running")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
-            ;;; Area
-            (org-ql-block
-             '(and (todo "NEXT" "IN PROGRESS" "REVIEW")
-                   (category "Area")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
-            ;;; Inbox
-            (org-ql-block
-             '(and (todo "NEXT" "IN PROGRESS" "REVIEW")
-                   (category "Inbox")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
-            ;;; Resource
-            (org-ql-block
-             '(and (todo "NEXT" "IN PROGRESS" "REVIEW")
-                   (category "Resource")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
-            ;;; Literature
-            (org-ql-block
-             '(and (todo "NEXT" "IN PROGRESS" "REVIEW")
-                   (category "Literature")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "")
+             ((org-ql-block-header "\nRunning")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
 
             ;; Overdue
-            ;;; Project
             (org-ql-block
              '(and (todo)
                    (deadline :to -1)
-                   (category "Project")
+                   (category "Project" "Area" "Inbox" "Resource" "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Overdue")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
-            ;;; Area
-            (org-ql-block
-             '(and (todo)
-                   (deadline :to -1)
-                   (category "Area")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
-            ;;; Inbox
-            (org-ql-block
-             '(and (todo)
-                   (deadline :to -1)
-                   (category "Inbox")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
-            ;;; Resource
-            (org-ql-block
-             '(and (todo)
-                   (deadline :to -1)
-                   (category "Resource")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
-            ;;; Literature
-            (org-ql-block
-             '(and (todo)
-                   (deadline :to -1)
-                   (category "Literature")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "")
+             ((org-ql-block-header "\nOverdue")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
 
             ;; Reschedule
-            ;;; Project
             (org-ql-block
              '(and (todo)
                    (scheduled :to -1)
-                   (category "Project")
+                   (category "Project" "Area" "Inbox" "Resource" "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Reschedule")
+             ((org-ql-block-header "\nReschedule")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
 
             ;;; Area
