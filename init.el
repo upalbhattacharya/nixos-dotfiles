@@ -629,7 +629,6 @@
   (setq org-agenda-custom-commands
         '(("z" "Zen View"
            (
-
             ;; "Today" in order of Project -> Area -> Literature -> Resource -> Inbox
             ;;; Project
             (org-ql-block
@@ -643,7 +642,7 @@
                (not (path "Archive"))
                (not (tags "IGNORE_AGENDA")))
              (
-              (org-ql-block-header "\n\nToday")
+              (org-ql-block-header "Today")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
 
             ;;; Area
@@ -705,7 +704,6 @@
              (
               (org-ql-block-header "")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
-
             (org-ql-block
              '(and (todo)
                    (deadline :from 1 :to 30)
@@ -935,7 +933,7 @@
  '(org-agenda-date-weekend-today ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
  '(org-agenda-dimmed-todo-face ((t nil)))
  '(org-agenda-filter-category ((t nil)))
- '(org-agenda-structure ((t (:foreground "#f38ba8" :box (:line-width (2 . 2) :color "#f38ba8" :style flat-button) :weight extra-bold))))
+ '(org-agenda-structure ((t (:foreground "#f38ba8" :weight extra-bold))))
  '(org-agenda-structure-filter ((t nil)))
  '(org-scheduled ((t nil)))
  '(org-super-agenda-header ((t (:foreground "#94e2d5" :underline t :slant italic :weight normal)))))
