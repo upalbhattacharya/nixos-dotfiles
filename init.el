@@ -683,54 +683,14 @@
              ((org-ql-block-header "\nReschedule")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
 
-            ;;; Area
-            (org-ql-block
-             '(and (todo)
-                   (scheduled :to -1)
-                   (category "Area")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
-            ;;; Inbox
-            (org-ql-block
-             '(and (todo)
-                   (scheduled :to -1)
-                   (category "Inbox")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
-            ;;; Resource
-            (org-ql-block
-             '(and (todo)
-                   (scheduled :to -1)
-                   (category "Resource")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
-            ;;; Literature
-            (org-ql-block
-             '(and (todo)
-                   (scheduled :to -1)
-                   (category "Literature")
-                   (not (path "Archive"))
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
             ;; Completed
             (org-ql-block
              '(and (done)
                    (closed :on today)
-                   (category "Project" "Area" "Resource" "Inbox"  "Literature")
+                   (category "Project" "Area" "Inbox" "Resource" "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "Completed Today")
+             ((org-ql-block-header "\nCompleted Today")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
             
             ))
