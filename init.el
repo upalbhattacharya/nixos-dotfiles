@@ -827,6 +827,10 @@
   :demand t
   :ensure (:wait t))
 
+(use-package olivetti
+  :demand t
+  :ensure (:wait t))
+
 (defun workboots/org-roam-rg-search ()
   "Search org-roam directory using consult-ripgrep. With live-preview."
   (interactive)
