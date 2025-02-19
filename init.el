@@ -79,6 +79,11 @@
  '(ignored-local-variable-values '((org-confirm-babel-evaluate)))
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-dim-blocked-tasks nil)
+ '(org-agenda-prefix-format
+   '((agenda . " %i %-12:c%?-12t% s")
+     (todo . " %i %-12:c")
+     (tags . " %i %-12:c")
+     (search . " %i %-12:c")))
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
    '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
