@@ -612,7 +612,8 @@
   :ensure (:wait t)
   :config
   (org-super-agenda-mode +1)
-  (setq org-super-agenda-header-separator "")
+  (setq org-super-agenda-header-separator "
+")
   (setq org-super-agenda-header-prefix " "))
 
 
