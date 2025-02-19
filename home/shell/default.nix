@@ -2,19 +2,19 @@
 
 {
   imports = [
-    ./zellij.nix
+    # ./zellij.nix
   ];
-	programs.zsh = {
-  	enable = true;
-  	syntaxHighlighting = {
+  programs.zsh = {
+    enable = true;
+    syntaxHighlighting = {
       enable = true;
     };
-  	autosuggestion.enable = true;
-  	enableCompletion = true;
+    autosuggestion.enable = true;
+    enableCompletion = true;
     shellAliases = {
       "emc" = "emacsclient";
     };
-	};
+  };
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
