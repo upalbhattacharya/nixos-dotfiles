@@ -1101,3 +1101,5 @@ _r_: Red highlight       _o_: Open (Annotate)       _c_: Change colour      _q_:
 
 ;; consult
 (define-key org-mode-map (kbd "C-x M-j") 'consult-org-heading)
+(put 'narrow-to-region 'disabled nil)
+(put 'narrow-to-page 'disabled nil)
