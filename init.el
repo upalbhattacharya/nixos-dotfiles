@@ -686,12 +686,23 @@
             ;; Overdue
             (org-ql-block
              '(and (todo)
-                   (deadline :to -1)
+                   (deadline :from -20 :to -1 )
                    (category "Project" "Area" "Inbox" "Resource" "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "\nOverdue")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
+
+            ;; Stale
+            (org-ql-block
+             '(and (todo)
+                   (deadline :to -21)
+                   (category "Project" "Area" "Inbox" "Resource" "Literature")
+                   (not (path "Archive"))
+                   (not (tags "IGNORE_AGENDA")))
+             ((org-ql-block-header "\nStale")
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
+
 
             ;; Reschedule
             (org-ql-block
@@ -712,7 +723,6 @@
                    (not (tags "IGNORE_AGENDA")))
              ((org-ql-block-header "\nCompleted Today")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
-            
             ))
           ("p" "PARA"
            ((org-ql-block
