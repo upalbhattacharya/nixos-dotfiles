@@ -136,6 +136,8 @@
  '(org-ql-search-directories-files-recursive t)
  '(org-ql-search-directories-files-regexp ".org$")
  '(org-remark-icon-notes " 󰍩 ")
+ '(org-transclusion-extensions
+   '(org-transclusion-src-lines org-transclusion-font-lock org-transclusion-indent-mode))
  '(org-use-property-inheritance '("HEAD"))
  '(python-isort-extra-args nil)
  '(vertico-sort-function nil)
@@ -231,8 +233,11 @@
   (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
 
   ;; org-agenda
-  (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
-  (setq org-agenda-file-regexp "^[a-z0-9-_]+.org")
+  (setq org-agenda-files 
+        (seq-filter (lambda(x) (not (string-match "marginalia.org" (file-name-nondirectory x)))) 
+                    (directory-files-recursively "~/org/" "\\.org$")
+                    ))
+  ;; (setq org-agenda-file-regexp "^[a-z0-9-_]+.org")
   (setq org-agenda-start-day "+0d")
   (setq org-agenda-window-setup 'other-tab)
   (setq org-agenda-skip-timestamp-if-done t)
@@ -358,7 +363,7 @@
           ("d" "default" entry "* ${title}\n:PROPERTIES:\n:HEAD:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Inbox\n:END:\n"
            :target (file "Inbox.org") :empty-lines 1)
 
-          ("p" "project" entry "* ${title}\n:PROPERTIES:\n:HEAD:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Project\n:END:\n
+          ("p" "project" entry "* [%] ${title}\n:PROPERTIES:\n:HEAD:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Project\n:END:\n
 [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"HEAD\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
            :target (file "Active.org") :empty-lines 1)
 
@@ -604,10 +609,10 @@
 ;;;###autoload (autoload 'nix-nixfmt-on-save-mode "nix-nixfmt" nil t)
 
 (reformatter-define
- nix-nixfmt
- :program nix-nixfmt-command
- :lighter " nix-nixfmt"
- :group 'nix-nixfmt)
+  nix-nixfmt
+  :program nix-nixfmt-command
+  :lighter " nix-nixfmt"
+  :group 'nix-nixfmt)
 
 (add-hook 'nix-mode-hook 'nix-nixfmt-on-save-mode)
 
@@ -1029,6 +1034,22 @@ _w_: Refile                   _q_: Quit
 (global-set-key (kbd "C-c M-a") 'org-transclusion-add-all)
 (global-set-key (kbd "C-c M-r") 'org-transclusion-remove-all)
 
+(defhydra hydra-org-transclusion (:color pink :hint nil :exit t) "
+^org-transclusion^
+------------------
+_a_: Add        _q_: Quit
+_A_: Add all
+_r_: Remove
+_R_: Remove all
+"
+  ("a" org-transclusion-add)
+  ("A" org-transclusion-add-all)
+  ("r" org-transclusion-remove)
+  ("R" org-transclusion-remove-all)
+  ("q" nil))
+
+(global-set-key (kbd "C-c M-e") 'hydra-org-transclusion/body)
+
 ;; citar
 (defhydra hydra-citar (:color pink :hint nil :exit t) "
 ^citar^
@@ -1037,7 +1058,7 @@ _o_: Open
 _i_: Insert commands
 _q_: Quit
 "
-          ("o" citar-open) ("i" hydra-citar-insert/body :exit t) ("q" nil))
+  ("o" citar-open) ("i" hydra-citar-insert/body :exit t) ("q" nil))
 
 (defhydra
  hydra-citar-insert
