@@ -791,7 +791,8 @@
 
 (use-package org-transclusion
   :demand t
-  :ensure (:wait t))
+  :ensure (:wait t)
+  :hook (org-mode . org-transclusion-mode))
 
 (use-package eat
   :demand t
@@ -1031,14 +1032,11 @@ _w_: Refile                   _q_: Quit
    (find-file "~/org/Inbox.org")))
 
 ;; org-transclusion
-(global-set-key (kbd "C-c M-a") 'org-transclusion-add-all)
-(global-set-key (kbd "C-c M-r") 'org-transclusion-remove-all)
-
 (defhydra hydra-org-transclusion (:color pink :hint nil :exit t) "
 ^org-transclusion^
 ------------------
-_a_: Add        _q_: Quit
-_A_: Add all
+_a_: Add        _o_: Open
+_A_: Add all    _l_: Live commands
 _r_: Remove
 _R_: Remove all
 "
@@ -1046,6 +1044,24 @@ _R_: Remove all
   ("A" org-transclusion-add-all)
   ("r" org-transclusion-remove)
   ("R" org-transclusion-remove-all)
+  ("o" org-transclusion-open-source)
+  ("l" hydra-org-transclusion-live/body :exit t)
+  ("q" nil))
+
+(defhydra
+  hydra-org-transclusion-live
+  (:color pink :hint nil :exit t)
+  "
+^org-transclusion-live^
+-----------------------
+_l_: Start sync
+_s_: Stop sync
+_p_: Paste sync
+_q_: Quit
+"
+  ("l" org-transclusion-live-sync-start)
+  ("s" org-transclusion-live-sync-exit)
+  ("p" org-transclusion-live-sync-paste)
   ("q" nil))
 
 (global-set-key (kbd "C-c M-e") 'hydra-org-transclusion/body)
