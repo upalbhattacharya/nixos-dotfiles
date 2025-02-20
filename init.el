@@ -975,9 +975,9 @@ exist after each headings's drawers."
 
 ;; time-based
 (defhydra
- hydra-time
- (:color pink :hint nil :exit t)
- "
+  hydra-time
+  (:color pink :hint nil :exit t)
+  "
 ^Time-based^
 ------------
 _d_: Set deadline     _a_: Goto active                _x_: Remove overlays
@@ -985,18 +985,18 @@ _s_: Set schedule     _t_: Display time logged        _p_: Inactive timestamp
 _i_: Clock in         _c_: Cancel logging             _v_: Active timestamp
 _o_: Clock out        _r_: Insert report              _q_: Quit
 "
- ("d" org-deadline)
- ("s" org-schedule)
- ("i" org-clock-in)
- ("o" org-clock-out)
- ("a" org-clock-goto)
- ("t" org-clock-display)
- ("x" org-clock-remove-overlays)
- ("c" org-clock-cancel)
- ("r" org-clock-report)
- ("p" org-time-stamp-inactive)
- ("v" org-time-stamp-active)
- ("q" nil))
+  ("d" org-deadline)
+  ("s" org-schedule)
+  ("i" org-clock-in)
+  ("o" org-clock-out)
+  ("a" org-clock-goto)
+  ("t" org-clock-display)
+  ("x" org-clock-remove-overlays)
+  ("c" org-clock-cancel)
+  ("r" org-clock-report)
+  ("p" org-time-stamp-inactive)
+  ("v" org-time-stamp)
+  ("q" nil))
 (global-set-key (kbd "C-c M-t") 'hydra-time/body)
 
 ;; org-roam
@@ -1148,3 +1148,4 @@ _r_: Red highlight       _o_: Open (Annotate)       _c_: Change colour      _q_:
 (define-key org-mode-map (kbd "C-x M-j") 'consult-org-heading)
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
+(put 'list-timers 'disabled nil)
