@@ -339,66 +339,66 @@
   :ensure (:wait t))
 
  (use-package org-roam
-  :demand t
-  :ensure (:wait t)
-  :bind (
+    :demand t
+    :ensure (:wait t)
+    :bind (
          :map org-mode-map
          ("C-M-i" . completion-at-point))
-  :config
-  (cl-defmethod org-roam-node-status ((node org-roam-node))
+    :config
+    (cl-defmethod org-roam-node-status ((node org-roam-node))
     (let ((status (org-roam-node-todo node)))
       (if status
           (propertize (format "%s" status) 'face (org-get-todo-face (format "%s" status)))
         )
       ))
-  (cl-defmethod org-roam-node-filename ((node org-roam-node))
+    (cl-defmethod org-roam-node-filename ((node org-roam-node))
     (file-name-base (org-roam-node-file node)
                     ))
-  (cl-defmethod org-roam-node-hierarchy ((node org-roam-node))
+    (cl-defmethod org-roam-node-hierarchy ((node org-roam-node))
     (let ((level (org-roam-node-level node)))
       (concat
        (when (> level 0) (org-roam-node-file-title node))
        (when (> level 1) (concat " > " (string-join (org-roam-node-olp node) " > ")) ))
       ))
-  (setq org-roam-node-display-template "${status:13} ${title:50} ${hierarchy:*}")
-  (setq org-roam-directory (file-truename "~/org"))
-  (setq org-roam-dailies-directory "~/org/Journal/")
-  (setq org-roam-completion-everywhere t)
-  (setq org-roam-db-node-include-function
+    (setq org-roam-node-display-template "${status:13} ${title:50} ${hierarchy:*}")
+    (setq org-roam-directory (file-truename "~/org"))
+    (setq org-roam-dailies-directory "~/org/Journal/")
+    (setq org-roam-completion-everywhere t)
+    (setq org-roam-db-node-include-function
         (lambda ()
           (not (member "IGNORE_ORG_ROAM" (org-get-tags)))))
-  (setq org-roam-capture-templates
+    (setq org-roam-capture-templates
         '(
           ("d" "default" entry "* ${title}\n:PROPERTIES:\n:HEAD:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Inbox\n:END:\n"
            :target (file "Inbox.org") :empty-lines 1)
 
           ("p" "project" entry "* [%] ${title}\n:PROPERTIES:\n:HEAD:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Project\n:END:\n
- [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"HEAD\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
+    [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"HEAD\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
            :target (file "Active.org") :empty-lines 1)
 
           ("a" "area" entry "* ${title}\n:PROPERTIES:\n:HEAD:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Area\n:END:\n
- [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"HEAD\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
+    [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"HEAD\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
            :target (file "Active.org") :empty-lines 1)
 
           ("r" "resource" entry "* ${title}\n:PROPERTIES:\n:HEAD:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Resource\n:END:\n
- [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"HEAD\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
+    [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"HEAD\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
            :target (file "Active.org") :empty-lines 1)
 
           ("l" "literature note" entry "* TODO ${note-title}\n:PROPERTIES:\n:HEAD:\t${note-title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:ROAM_REFS:\t\n:CATEGORY: Literature\n:END:\n"
            :target (file "Literature.org") :empty-lines 1)
           ))
 
-  (setq org-roam-dailies-capture-templates
+    (setq org-roam-dailies-capture-templates
         '(("d"
            "default"
            plain
            "%?"
            :target (file+olp "Journal %<%Y>.org" ("%<%Y-%m>" "%<%Y-%m-%d>"))
            :unnarrowed t)))
-  (setq org-roam-mode-sections (list #'org-roam-backlinks-section #'org-roam-reflinks-section))
-  (setq org-roam-completion-everywhere t)
-  (setq org-roam-db-autosync-mode 1)
-  (setq org-roam-db-update-on-save 1))
+    (setq org-roam-mode-sections (list #'org-roam-backlinks-section #'org-roam-reflinks-section))
+    (setq org-roam-completion-everywhere t)
+    (setq org-roam-db-autosync-mode 1)
+    (setq org-roam-db-update-on-save 1))
 
 ;; (use-package org-superstar
 ;;   :demand t
