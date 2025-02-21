@@ -396,10 +396,10 @@
   (setq org-roam-db-autosync-mode 1)
   (setq org-roam-db-update-on-save 1))
 
-;; (use-package org-superstar
-;;   :demand t
-;;   :ensure (:wait t)
-;;   :hook (org-mode . org-superstar-mode))
+(use-package org-superstar
+  :demand t
+  :ensure (:wait t)
+  :hook (org-mode . org-superstar-mode))
 
 (use-package avy
   :demand t
@@ -857,10 +857,6 @@
   :demand t
   :ensure (:wait t))
 
-(use-package olivetti
-  :demand t
-  :ensure (:wait t))
-
 (defun workboots/org-roam-rg-search ()
   "Search org-roam directory using consult-ripgrep. With live-preview."
   (interactive)
@@ -914,7 +910,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(fill-column-indicator ((t (:inherit shadow :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal))))
+ '(fill-column-indicator ((t (:stipple nil :foreground "#313244" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal))))
  '(header-line ((t (:inherit mode-line))))
  '(org-agenda-date ((t (:foreground "light gray" :weight normal))))
  '(org-agenda-date-today ((t (:foreground "medium spring green" :weight bold))))
