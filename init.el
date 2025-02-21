@@ -209,14 +209,16 @@
   :ensure nil
   :custom-face (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
   ;; :hook (org-mode . org-indent-mode)
-  :hook (org-mode . visual-line-mode)
   :hook (org-mode . flyspell-mode)
   :hook (org-capture-mode . org-id-get-create)
+  :hook (org-mode . (lambda nil
+                      (auto-fill-mode 1)
+                      (set-fill-column 78)
+                      (display-fill-column-indicator-mode)))
   :config
   (define-key minibuffer-local-completion-map (kbd "?") nil)
   (setq org-deadline-warning-days 0)
   (setq org-cycle-separator-lines 1)
-  (setq org-adapt-indentation nil)
   (setq org-hide-emphasis-markers t)
   (setq org-display-remote-inline-images 'download)
   (setq org-display-inline-images t)
@@ -228,6 +230,9 @@
   (setq org-enforce-todo-dependencies t)
   (setq org-enforce-todo-checkbox-dependencies t)
   (setq org-startup-folded 'overview)
+  (setq org-adapt-indentation t)
+  (setq org-hide-leading-stars t)
+  (setq org-odd-levels-only t)
 
   ;;org-cite
   (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
@@ -909,6 +914,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(fill-column-indicator ((t (:stipple nil :foreground "light gray" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal))))
  '(header-line ((t (:inherit mode-line))))
  '(org-agenda-date ((t (:foreground "light gray" :weight normal))))
  '(org-agenda-date-today ((t (:foreground "medium spring green" :weight bold))))
