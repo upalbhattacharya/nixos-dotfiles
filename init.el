@@ -334,10 +334,6 @@
   :demand t
   :ensure nil)
 
-(use-package highlight-indent-guides
-  :demand t
-  :ensure (:wait t))
-
 (use-package org-roam
   :demand t
   :ensure (:wait t)
