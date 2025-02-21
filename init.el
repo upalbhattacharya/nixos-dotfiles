@@ -208,7 +208,7 @@
   :demand t
   :ensure nil
   :custom-face (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
-  :hook (org-mode . org-indent-mode)
+  ;; :hook (org-mode . org-indent-mode)
   :hook (org-mode . visual-line-mode)
   :hook (org-mode . flyspell-mode)
   :hook (org-capture-mode . org-id-get-create)
@@ -326,8 +326,8 @@
   ))
 
 (use-package org-checklist
- :demand t
- :ensure nil)
+  :demand t
+  :ensure nil)
 
 (use-package org-roam
   :demand t
