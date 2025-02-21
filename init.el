@@ -73,12 +73,15 @@
  '(consult-widen-key "C-<")
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
+ '(display-fill-column-indicator-character 9474)
  '(gac-automatically-push-p t)
  '(global-text-scale-adjust-resizes-frames t)
  '(gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
  '(ignored-local-variable-values '((org-confirm-babel-evaluate)))
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-dim-blocked-tasks nil)
+ '(org-agenda-files
+   '("/home/workboots/org/Journal/Journal 2024.org" "/home/workboots/org/Journal/Journal 2025.org" "/home/workboots/org/Active.org" "/home/workboots/org/Archive.org" "/home/workboots/org/Clock Report.org" "/home/workboots/org/Inbox.org" "/home/workboots/org/Later.org" "/home/workboots/org/Literature.org" "/home/workboots/org/Slip Box.org"))
  '(org-agenda-prefix-format
    '((agenda . " %i %-12:c%?-12t% s")
      (todo . " %i %-12:c")
@@ -164,7 +167,6 @@
   (setq backup-directory-alist '((".*" . "/tmp")))
   (setq kill-buffer-delete-auto-save-files t)
   (setq display-line-numbers-type 'visual)
-  ;; (setq-default fill-column 130)
   (setq-default indent-tabs-mode nil)
   (setq tab-always-indent 'complete)
   (setq-default tab-width 4)
@@ -966,6 +968,31 @@ exist after each headings's drawers."
    (if (eq major-mode 'org-mode) ; Org-mode
        (let ((current-prefix-arg 4)) ; Emulate C-u
          (call-interactively 'unpackaged/org-fix-blank-lines)))))
+
+(defun org-add-hard-indentation (arg)
+  (interactive "p")
+  (save-excursion
+    (beginning-of-buffer)
+    (while
+        (let ((indent-size
+               (progn
+                 (when (re-search-forward "^\\*+ " nil t)
+                   (length (match-string 0))))))
+          (when indent-size
+            (let ((start
+                   (progn
+                     (next-line)
+                     (move-beginning-of-line 1)
+                     (point)))
+                  (end
+                   (progn
+                     (if (re-search-forward "^\\*+ " nil t)
+                         (progn (previous-line) (move-end-of-line 1))
+                       (end-of-buffer))
+                     (point))))
+
+              (indent-rigidly start end (* indent-size arg))))
+          indent-size))))
 
 ;;; Keybindings
 
