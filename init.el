@@ -73,7 +73,6 @@
  '(consult-widen-key "C-<")
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
- '(display-fill-column-indicator-character 9474)
  '(gac-automatically-push-p t)
  '(global-text-scale-adjust-resizes-frames t)
  '(gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
@@ -139,8 +138,7 @@
  '(org-ql-search-directories-files-recursive t)
  '(org-ql-search-directories-files-regexp ".org$")
  '(org-remark-icon-notes " 󰍩 ")
- '(org-transclusion-extensions
-   '(org-transclusion-src-lines org-transclusion-font-lock org-transclusion-indent-mode))
+ '(org-transclusion-extensions '(org-transclusion-src-lines org-transclusion-font-lock))
  '(org-use-property-inheritance '("HEAD"))
  '(python-isort-extra-args nil)
  '(vertico-sort-function nil)
@@ -398,10 +396,16 @@
   (setq org-roam-db-autosync-mode 1)
   (setq org-roam-db-update-on-save 1))
 
-(use-package org-superstar
+;; (use-package org-superstar
+;;   :demand t
+;;   :ensure (:wait t)
+;;   :hook (org-mode . org-superstar-mode))
+
+(use-package org-modern
   :demand t
   :ensure (:wait t)
-  :hook (org-mode . org-superstar-mode))
+  :custom
+  (with-eval-after-load 'org (global-org-modern-mode))
 
 (use-package avy
   :demand t
@@ -916,7 +920,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(fill-column-indicator ((t (:stipple nil :foreground "light gray" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal))))
+ '(fill-column-indicator ((t (:inherit shadow :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal))))
  '(header-line ((t (:inherit mode-line))))
  '(org-agenda-date ((t (:foreground "light gray" :weight normal))))
  '(org-agenda-date-today ((t (:foreground "medium spring green" :weight bold))))
