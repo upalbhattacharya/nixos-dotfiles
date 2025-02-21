@@ -231,7 +231,7 @@
   (setq org-enforce-todo-checkbox-dependencies t)
   (setq org-startup-folded 'overview)
   (setq org-adapt-indentation t)
-  (setq org-hide-leading-stars t)
+  ;; (setq org-hide-leading-stars t)
   (setq org-odd-levels-only t)
 
   ;;org-cite
@@ -334,7 +334,11 @@
   :demand t
   :ensure nil)
 
-(use-package org-roam
+(use-package highlight-indent-guides
+  :demand t
+  :ensure (:wait t))
+
+ (use-package org-roam
   :demand t
   :ensure (:wait t)
   :bind (
@@ -369,15 +373,15 @@
            :target (file "Inbox.org") :empty-lines 1)
 
           ("p" "project" entry "* [%] ${title}\n:PROPERTIES:\n:HEAD:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Project\n:END:\n
-[[org-ql-search:(and (todo) (not(done)) (level 2) (property \"HEAD\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
+ [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"HEAD\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
            :target (file "Active.org") :empty-lines 1)
 
           ("a" "area" entry "* ${title}\n:PROPERTIES:\n:HEAD:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Area\n:END:\n
-[[org-ql-search:(and (todo) (not(done)) (level 2) (property \"HEAD\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
+ [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"HEAD\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
            :target (file "Active.org") :empty-lines 1)
 
           ("r" "resource" entry "* ${title}\n:PROPERTIES:\n:HEAD:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Resource\n:END:\n
-[[org-ql-search:(and (todo) (not(done)) (level 2) (property \"HEAD\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
+ [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"HEAD\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
            :target (file "Active.org") :empty-lines 1)
 
           ("l" "literature note" entry "* TODO ${note-title}\n:PROPERTIES:\n:HEAD:\t${note-title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:ROAM_REFS:\t\n:CATEGORY: Literature\n:END:\n"
@@ -400,12 +404,6 @@
 ;;   :demand t
 ;;   :ensure (:wait t)
 ;;   :hook (org-mode . org-superstar-mode))
-
-(use-package org-modern
-  :demand t
-  :ensure (:wait t)
-  :custom
-  (with-eval-after-load 'org (global-org-modern-mode))
 
 (use-package avy
   :demand t
