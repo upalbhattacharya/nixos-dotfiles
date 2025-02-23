@@ -281,8 +281,4 @@ in
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
-  services.emacs = {
-    enable = true;
-    package = pkgs.emacs30-pgtk; # replace with emacs-gtk, or a version provided by the community overlay if desired.
-  };
 }

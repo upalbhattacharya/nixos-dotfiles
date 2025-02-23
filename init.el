@@ -152,6 +152,7 @@
   :demand t
   :ensure nil
   :config
+  (setq confirm-kill-emacs 'y-or-n-p)
   (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 200)
   (set-face-attribute 'fixed-pitch nil :font "Iosevka Nerd Font" :height 200)
   (set-face-attribute 'variable-pitch nil :font "Iosevka Nerd Font" :height 1.3)
