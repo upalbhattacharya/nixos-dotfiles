@@ -1,5 +1,10 @@
 { ... }:
 
 {
-  imports = [ ./syncthing.nix ./mako.nix ./hypridle.nix ./emacs.nix ];
+  imports = [
+    ./syncthing.nix
+    ./mako.nix
+    ./hypridle.nix
+    ./wpaperd.nix
+  ];
 }

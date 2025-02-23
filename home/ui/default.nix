@@ -11,7 +11,7 @@
     ./hyprland.nix
     ./hyprlock.nix
     ./waybar.nix
-    ./wpaperd.nix
+    # ./wpaperd.nix
     ./catppuccin.nix
   ];
 }
