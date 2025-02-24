@@ -69,6 +69,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(calendar-date-style 'iso)
+ '(citar-file-open-functions
+   '(("html" . citar-file-open-external)
+     (t . find-file)
+     ("pdf" . citar-file-open-external)))
  '(consult-narrow-key "C->")
  '(consult-widen-key "C-<")
  '(custom-safe-themes
@@ -135,6 +139,14 @@
      (67 :foreground "#181825" :background "#94e2d5")))
  '(org-ql-search-directories-files-recursive t)
  '(org-ql-search-directories-files-regexp ".org$")
+ '(org-remark-icon-notes " 󰍩 ")
+ '(org-remark-line-margin-side 'right-margin)
+ '(org-remark-line-minimum-margin-width 10)
+ '(org-remark-notes-display-buffer-action
+   '((display-buffer-in-side-window)
+     (side . right)
+     (slot . 1)
+     (window-width . 85)))
  '(org-transclusion-extensions '(org-transclusion-src-lines org-transclusion-font-lock))
  '(org-use-property-inheritance '("HEAD"))
  '(python-isort-extra-args nil)
@@ -209,10 +221,10 @@
   ;; :hook (org-mode . org-indent-mode)
   :hook (org-mode . flyspell-mode)
   :hook (org-capture-mode . org-id-get-create)
-  :hook (org-mode . (lambda nil
-                      (auto-fill-mode 1)
-                      (set-fill-column 78)
-                      (display-fill-column-indicator-mode)))
+  ;; :hook (org-mode . (lambda nil
+  ;;                     (auto-fill-mode 1)
+  ;;                     (set-fill-column 78)
+  ;;                     (display-fill-column-indicator-mode)))
   :config
   (define-key minibuffer-local-completion-map (kbd "?") nil)
   (setq org-deadline-warning-days 0)
@@ -228,10 +240,7 @@
   (setq org-enforce-todo-dependencies t)
   (setq org-enforce-todo-checkbox-dependencies t)
   (setq org-startup-folded 'overview)
-  (setq org-adapt-indentation t)
-  ;; (setq org-hide-leading-stars t)
-  (setq org-odd-levels-only t)
-
+  
   ;;org-cite
   (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
 
@@ -279,6 +288,14 @@
           ("DONE" . (:foreground "#a6e3a1" :weight bold))
           ("ARCHIVED" . (:foreground "#9399b2")))))
 
+(use-package visual-fill-column
+  :demand t
+  :ensure (:wait t)
+  :hook (org-mode . (lambda nil
+                      (set-fill-column 78)
+                      (display-fill-column-indicator-mode)))
+  :hook (org-mode . visual-line-fill-column-mode))
+
 ;; babel
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -314,12 +331,6 @@
                      '(:background "#89dceb" :foreground "#181825")
                      '(CATEGORY "mark"))
 
-  (setq org-remark-icon-notes " 󰍩 ")
-  (setq org-remark-line-margin-side 'right-margin)
-  (setq org-remark-notes-display-buffer-action
-        '((display-buffer-in-side-window)
-          (side . right)
-          (slot . 1)))
   )
 
 (use-package org-contrib
