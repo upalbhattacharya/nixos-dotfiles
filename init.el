@@ -300,7 +300,7 @@
 
 (use-package adaptive-wrap
   :demand t
-  :ensure (:wait t)
+  :ensure nil
   :hook (org-mode . adaptive-wrap-mode))
 
 ;; babel
