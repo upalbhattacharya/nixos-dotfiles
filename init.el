@@ -135,12 +135,6 @@
      (67 :foreground "#181825" :background "#94e2d5")))
  '(org-ql-search-directories-files-recursive t)
  '(org-ql-search-directories-files-regexp ".org$")
- '(org-remark-icon-notes " 󰍩 ")
- '(org-remark-line-margin-side 'right-margin)
- '(org-remark-notes-display-buffer-action
-   '((display-buffer-in-side-window)
-     (side . right)
-     (slot . 1)))
  '(org-transclusion-extensions '(org-transclusion-src-lines org-transclusion-font-lock))
  '(org-use-property-inheritance '("HEAD"))
  '(python-isort-extra-args nil)
@@ -319,6 +313,13 @@
   (org-remark-create "blue"
                      '(:background "#89dceb" :foreground "#181825")
                      '(CATEGORY "mark"))
+
+  (setq org-remark-icon-notes " 󰍩 ")
+  (setq org-remark-line-margin-side 'right-margin)
+  (setq org-remark-notes-display-buffer-action
+        '((display-buffer-in-side-window)
+          (side . right)
+          (slot . 1)))
   )
 
 (use-package org-contrib
@@ -326,13 +327,13 @@
   :ensure (:wait t))
 
 (use-package org-expiry
- :demand t
- :ensure nil
- :config
- (setq
-  org-expiry-created-property-name "CREATED" ; Name of property when an item is created
-  org-expiry-inactive-timestamps t ; Don't have everything in the agenda view
-  ))
+  :demand t
+  :ensure nil
+  :config
+  (setq
+   org-expiry-created-property-name "CREATED" ; Name of property when an item is created
+   org-expiry-inactive-timestamps t ; Don't have everything in the agenda view
+   ))
 
 (use-package org-checklist
   :demand t
