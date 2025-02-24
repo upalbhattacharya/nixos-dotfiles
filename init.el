@@ -149,6 +149,8 @@
      (window-width . 85)))
  '(org-transclusion-extensions '(org-transclusion-src-lines org-transclusion-font-lock))
  '(org-use-property-inheritance '("HEAD"))
+ '(package-selected-packages
+   '(adaptive-wrap which-key wfnames vertico toc-org spacious-padding ruff-format rainbow-delimiters python-mode projectile ox-pandoc origami org-view-mode org-transclusion org-superstar org-roam-ui org-roam-bibtex org-ql org-modern org-contrib org-anki orderless nix-mode magit lsp-ui latexdiff latex-extra hydra htmlize hotfuzz git-gutter git-auto-commit-mode fzf flycheck evil-nerd-commenter evil envrc elisp-autofmt dashboard company citar-org-roam catppuccin-theme avy async annotate aggressive-indent))
  '(python-isort-extra-args nil)
  '(vertico-sort-function nil)
  '(visual-fill-column-center-text nil))
@@ -295,6 +297,11 @@
                       (set-fill-column 78)
                       (display-fill-column-indicator-mode)))
   :hook (org-mode . visual-line-fill-column-mode))
+
+(use-package adaptive-wrap
+  :demand t
+  :ensure (:wait t)
+  :hook (org-mode . adaptive-wrap-mode))
 
 ;; babel
 (org-babel-do-load-languages
