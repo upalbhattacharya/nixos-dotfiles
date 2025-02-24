@@ -43,19 +43,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(adaptive-wrap-extra-indent 0)
  '(calendar-date-style 'iso)
  '(citar-file-open-functions
-   '(("html" . citar-file-open-external) (t . find-file)
+   '(("html" . citar-file-open-external)
+     (t . find-file)
      ("pdf" . citar-file-open-external)))
  '(consult-narrow-key "C->")
  '(consult-widen-key "C-<")
  '(custom-safe-themes
-   '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901"
-     default))
- '(elpaca-menu-functions
-   '(elpaca-menu-lock-file elpaca-menu-extensions elpaca-menu-org
-                           elpaca-menu-melpa elpaca-menu-declarations))
+   '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(gac-automatically-push-p t)
  '(global-text-scale-adjust-resizes-frames t)
  '(gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
@@ -63,48 +59,52 @@
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-dim-blocked-tasks nil)
  '(org-agenda-prefix-format
-   '((agenda . " %i %-12:c%?-12t% s") (todo . " %i %-12:c")
-     (tags . " %i %-12:c") (search . " %i %-12:c")))
+   '((agenda . " %i %-12:c%?-12t% s")
+     (todo . " %i %-12:c")
+     (tags . " %i %-12:c")
+     (search . " %i %-12:c")))
  '(org-agenda-sorting-strategy
    '((agenda habit-down time-up priority-down category-keep)
      (todo deadline-up category-keep priority-down)
-     (tags priority-down category-keep) (search category-keep)))
+     (tags priority-down category-keep)
+     (search category-keep)))
  '(org-agenda-todo-keyword-format "%-1s")
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
-   '(:foreground default :background default :scale 2.2 :html-foreground
-                 "Black" :html-background "Transparent" :html-scale
-                 2.0 :matchers ("begin" "$1" "$" "$$" "\\(" "\\[")))
+   '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
+                 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-indirect-buffer-display 'current-window)
  '(org-link-frame-setup
    '((vm . vm-visit-folder-other-frame)
      (vm-imap . vm-visit-imap-folder-other-frame)
-     (gnus . org-gnus-no-new-news) (file . find-file)
+     (gnus . org-gnus-no-new-news)
+     (file . find-file)
      (wl . wl-other-frame)))
  '(org-log-into-drawer t)
  '(org-preview-latex-process-alist
-   '((dvipng :programs ("latex" "dvipng") :description "dvi > png"
-             :message
-             "you need to install the programs: latex and dvipng."
-             :image-input-type "dvi" :image-output-type "png"
-             :image-size-adjust (1.0 . 1.0) :latex-compiler
+   '((dvipng :programs
+             ("latex" "dvipng")
+             :description "dvi > png" :message "you need to install the programs: latex and dvipng." :image-input-type "dvi" :image-output-type "png" :image-size-adjust
+             (1.0 . 1.0)
+             :latex-compiler
              ("latex -interaction nonstopmode -output-directory %O %F")
-             :image-converter ("dvipng -D %D -T tight -o %O %F")
+             :image-converter
+             ("dvipng -D %D -T tight -o %O %F")
              :transparent-image-converter
              ("dvipng -D %D -T tight -bg Transparent -o %O %F"))
-     (dvisvgm :programs ("latex" "dvisvgm") :description "dvi > svg"
-              :message
-              "you need to install the programs: latex and dvisvgm."
-              :image-input-type "dvi" :image-output-type "svg"
-              :image-size-adjust (1.7 . 1.5) :latex-compiler
+     (dvisvgm :programs
+              ("latex" "dvisvgm")
+              :description "dvi > svg" :message "you need to install the programs: latex and dvisvgm." :image-input-type "dvi" :image-output-type "svg" :image-size-adjust
+              (1.7 . 1.5)
+              :latex-compiler
               ("latex -interaction nonstopmode -output-directory %o %f")
               :image-converter
               ("dvisvgm %f --no-fonts --exact-bbox --scale=%S --output=%O"))
-     (imagemagick :programs ("latex" "convert") :description
-                  "pdf > png" :message
-                  "you need to install the programs: latex and imagemagick."
-                  :image-input-type "pdf" :image-output-type "png"
-                  :image-size-adjust (1.0 . 1.0) :latex-compiler
+     (imagemagick :programs
+                  ("latex" "convert")
+                  :description "pdf > png" :message "you need to install the programs: latex and imagemagick." :image-input-type "pdf" :image-output-type "png" :image-size-adjust
+                  (1.0 . 1.0)
+                  :latex-compiler
                   ("pdflatex -interaction nonstopmode -output-directory %o %f")
                   :image-converter
                   ("convert -density %D -trim -antialias %f -quality 100 %O"))))
@@ -118,22 +118,14 @@
  '(org-remark-line-margin-side 'right-margin)
  '(org-remark-line-minimum-margin-width 10)
  '(org-remark-notes-display-buffer-action
-   '((display-buffer-in-side-window) (side . right) (slot . 1)
+   '((display-buffer-in-side-window)
+     (side . right)
+     (slot . 1)
      (window-width . 85)))
  '(org-transclusion-extensions '(org-transclusion-src-lines org-transclusion-font-lock))
  '(org-use-property-inheritance '("HEAD"))
  '(package-selected-packages
-   '(adaptive-wrap which-key wfnames vertico toc-org spacious-padding
-                   ruff-format rainbow-delimiters python-mode
-                   projectile ox-pandoc origami org-view-mode
-                   org-transclusion org-superstar org-roam-ui
-                   org-roam-bibtex org-ql org-modern org-contrib
-                   org-anki orderless nix-mode magit lsp-ui latexdiff
-                   latex-extra hydra htmlize hotfuzz git-gutter
-                   git-auto-commit-mode fzf flycheck
-                   evil-nerd-commenter evil envrc elisp-autofmt
-                   dashboard company citar-org-roam catppuccin-theme
-                   avy async annotate aggressive-indent))
+   '(adaptive-wrap which-key wfnames vertico toc-org spacious-padding ruff-format rainbow-delimiters python-mode projectile ox-pandoc origami org-view-mode org-transclusion org-superstar org-roam-ui org-roam-bibtex org-ql org-modern org-contrib org-anki orderless nix-mode magit lsp-ui latexdiff latex-extra hydra htmlize hotfuzz git-gutter git-auto-commit-mode fzf flycheck evil-nerd-commenter evil envrc elisp-autofmt dashboard company citar-org-roam catppuccin-theme avy async annotate aggressive-indent))
  '(python-isort-extra-args nil)
  '(vertico-sort-function nil)
  '(visual-fill-column-center-text nil))
@@ -186,13 +178,13 @@
 ;; Theme
 (use-package catppuccin-theme
   :demand t
-  :ensure (:wait t :host github :repo "catppuccin/emacs")
+  :ensure (:host github :repo "catppuccin/emacs")
   :config
   (load-theme 'catppuccin :no-confirm))
 
 (use-package evil
   :demand t
-  :ensure (:wait t :host github :repo "emacs-evil/evil")
+  :ensure (:wait t)
   :config
   (evil-mode 1)
   (evil-ex-define-cmd "wq" 'save-and-kill-this-buffer)
@@ -203,12 +195,13 @@
   :demand t
   :ensure nil
   :custom-face (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
-  :hook (org-mode . org-indent-mode)
-  ;; :hook (org-mode . visual-line-mode)
+  ;; :hook (org-mode . org-indent-mode)
   :hook (org-mode . flyspell-mode)
   :hook (org-capture-mode . org-id-get-create)
-  :hook (org-mode . (lambda nil
-                      (set-fill-column 78)))
+  ;; :hook (org-mode . (lambda nil
+  ;;                     (auto-fill-mode 1)
+  ;;                     (set-fill-column 78)
+  ;;                     (display-fill-column-indicator-mode)))
   :config
   (define-key minibuffer-local-completion-map (kbd "?") nil)
   (setq org-deadline-warning-days 0)
@@ -274,8 +267,16 @@
 
 (use-package visual-fill-column
   :demand t
-  :ensure (:wait t :host "codeberg.org" :repo "joostkremers/visual-fill-column")
+  :ensure (:wait t)
+  :hook (org-mode . (lambda nil
+                      (set-fill-column 78)
+                      (display-fill-column-indicator-mode)))
   :hook (org-mode . visual-line-fill-column-mode))
+
+(use-package adaptive-wrap
+  :demand t
+  :ensure (:wait t)
+  :hook (org-mode . adaptive-wrap-mode))
 
 ;; babel
 (org-babel-do-load-languages
@@ -287,7 +288,7 @@
 
 (use-package org-remark
   :demand t
-  :ensure (:wait t :host github :repo "nobiot/org-remark")
+  :ensure (:wait t)
   :init
   (setq org-remark-global-tracking-mode +1)
   :hook (org-mode . org-remark-mode)
@@ -316,7 +317,7 @@
 
 (use-package org-contrib
   :demand t
-  :ensure (:wait t :host github :repo "emacsmirror/org-contrib"))
+  :ensure (:wait t))
 
 (use-package org-expiry
   :demand t
@@ -333,7 +334,7 @@
 
 (use-package org-roam
   :demand t
-  :ensure (:wait t :host github :repo "org-roam/org-roam")
+  :ensure (:wait t)
   :bind (
          :map org-mode-map
          ("C-M-i" . completion-at-point))
@@ -395,16 +396,16 @@
 
 (use-package org-superstar
   :demand t
-  :ensure (:wait t :host github :repo "integral-dw/org-superstar-mode")
+  :ensure (:wait t)
   :hook (org-mode . org-superstar-mode))
 
 (use-package avy
   :demand t
-  :ensure (:wait t :host github :repo "abo-abo/avy"))
+  :ensure t)
 
 (use-package dashboard
   :demand t
-  :ensure (:wait t :host github :repo "emacs-dashboard/emacs-dashboard")
+  :ensure (:wait t)
   :config
   (dashboard-setup-startup-hook)
   (setq dashboard-startup-banner 3)
@@ -412,7 +413,7 @@
 
 (use-package vertico
   :demand t
-  :ensure (:wait t :host github :repo "minad/vertico")
+  :ensure (:wait t)
   :custom
   (vertico-count 13) ; Number of candidates to display
   (vertico-resize t)
@@ -421,20 +422,12 @@
 
 (use-package hotfuzz
   :demand t
-  :ensure (:wait t :host github :repo "axelf4/hotfuzz")
+  :ensure (:wait t)
   :config (setq completion-styles '(hotfuzz)))
-
-(use-package queue
-  :demand t
-  :ensure (:wait t :host github :repo "emacs-straight/queue"))
-
-(use-package citeproc
-  :demand t
-  :ensure (:wait t :host github :repo "andras-simonyi/citeproc-el"))
 
 (use-package citar
   :demand t
-  :ensure (:wait t :host github :repo "emacs-citar/citar")
+  :ensure (:wait t)
   :custom
   (citar-bibliography '("~/org/bibliography.bib"))
   (citar-notes-paths '("~/org/Literature/"))
@@ -448,7 +441,7 @@
 
 (use-package citar-org-roam
   :demand t
-  :ensure (:wait t :host github :repo "emacs-citar/citar-org-roam")
+  :ensure (:wait t)
   :after
   citar
   org-roam
@@ -459,7 +452,7 @@
 
 (use-package corfu
   :demand t
-  :ensure (:wait t :host github :repo "minad/corfu")
+  :ensure (:wait t)
   ;; Optional customizations
   ;; :custom
   ;; (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
@@ -482,7 +475,7 @@
 
 (use-package git-auto-commit-mode
   :demand t
-  :ensure (:wait t :host github :repo "ryuslash/git-auto-commit-mode")
+  :ensure (:wait t)
   :hook (after-save . git-auto-commit-mode)
   :config
   (setq gac-automatically-push-p t)
@@ -490,40 +483,37 @@
 
 (use-package git-gutter
   :demand t
-  :ensure (:wait t :host github :repo "emacsorphanage/git-gutter")
+  :ensure (:wait t)
   :config (global-git-gutter-mode 1))
 
 (use-package origami
   :demand t
-  :ensure (:wait t :host github :repo "gregsexton/origami.el")
+  :ensure (:wait t)
   :config (global-origami-mode 1))
 
 (use-package flycheck
   :demand t
-  :ensure (:wait t :host github :repo "flycheck/flycheck")
+  :ensure (:wait t)
   :config (global-flycheck-mode +1))
 
 (use-package rainbow-delimiters
   :demand t
-  :ensure (:wait t :host github :repo "Fanael/rainbow-delimiters")
+  :ensure (:wait t)
   :hook (after-init . rainbow-delimiter-mode))
 
 (use-package auctex
   :demand t
-  :ensure (:wait t :host github :repo "emacs-straight/auctex")
+  :ensure (:wait t)
   :config (setq TeX-parse-self t))
 
 (use-package envrc
   :demand t
-  :ensure (:wait t :host github :repo "purcell/envrc")
+  :ensure (:wait t)
   :hook (after-init . envrc-global-mode))
-
-(use-package spinner
-  :ensure (:wait t :host github :repo "Malabarba/spinner.el"))
 
 (use-package lsp-mode
   :demand t
-  :ensure (:wait t :host github :repo "emacs-lsp/lsp-mode")
+  :ensure (:wait t)
   :init
   ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
   (setq lsp-keymap-prefix "C-c l")
@@ -537,7 +527,7 @@
 
 (use-package lsp-ui
   :demand t
-  :ensure (:wait t :host github :repo "emacs-lsp/lsp-ui")
+  :ensure (:wait t)
   :config
   (setq lsp-ui-sideline-show-diagnostics +1)
   (setq lsp-ui-doc-enable +1)
@@ -547,7 +537,7 @@
 
 (use-package reformatter
   :demand t
-  :ensure (:wait t :host github :repo "purcell/emacs-reformatter"))
+  :ensure (:wait t))
 ;; python
 ; isort
 (defcustom python-isort-command "isort"
@@ -631,16 +621,18 @@
 
 (use-package org-make-toc
   :demand t
-  :ensure (:wait t :host github :repo "alphapapa/org-make-toc"))
+  :ensure (:wait t))
 
 (use-package org-super-agenda
   :demand t
-  :ensure (:wait t :host github :repo "alphapapa/org-super-agenda")
+  :ensure (:wait t)
   :config
   (org-super-agenda-mode +1)
   (setq org-super-agenda-header-separator "
 ")
   (setq org-super-agenda-header-prefix " "))
+
+
 
 ;; Custom org-super-agenda auto property with CATEGORY: propertyValue format
 (org-super-agenda--def-auto-group para "the given property"
@@ -655,7 +647,7 @@
 
 (use-package org-ql
   :demand t
-  :ensure (:wait t :host github :repo "alphapapa/org-ql")
+  :ensure (:wait t)
   :init
   (setq org-agenda-custom-commands
         '(("z" "Zen View"
@@ -778,79 +770,79 @@
 
 (use-package which-key
   :demand t
-  :ensure (:wait t :host github :repo "justbur/emacs-which-key")
+  :ensure (:wait t)
   :config (which-key-mode 1))
 
 (use-package evil-nerd-commenter
   :demand t
-  :ensure (:wait t :host github :repo "redguardtoo/evil-nerd-commenter"))
+  :ensure (:wait t))
 
 (use-package aggressive-indent
   :demand t
-  :ensure (:wait t :host github :repo "Malabarba/aggressive-indent-mode")
+  :ensure (:wait t)
   :hook (emacs-lisp-mode . aggressive-indent-mode))
 
 (use-package hydra
   :demand t
-  :ensure (:wait t :host github :repo "abo-abo/hydra"))
+  :ensure (:wait t))
 
 (use-package nix-mode
   :demand t
-  :ensure (:wait t :host github :repo "NixOS/nix-mode"))
+  :ensure (:wait t))
 
 (use-package org-roam-ui
   :demand t
-  :ensure (:wait t :host github :repo "org-roam/org-roam-ui"))
+  :ensure (:wait t))
 
 (use-package spacious-padding
   :demand t
-  :ensure (:wait t :host github :repo "protesilaos/spacious-padding"))
+  :ensure (:wait t))
 
 (use-package fzf
   :demand t
-  :ensure (:wait t :host github :repo "bling/fzf.el"))
+  :ensure (:wait t))
 
 (use-package org-transclusion
   :demand t
-  :ensure (:wait t :host github :repo "nobiot/org-transclusion")
+  :ensure (:wait t)
   :hook (org-mode . org-transclusion-mode))
 
 (use-package eat
   :demand t
-  :ensure (:wait t :host "codeberg.org" :repo "akib/emacs-eat"))
+  :ensure (:wait t))
 
 (use-package plantuml-mode
   :demand t
-  :ensure (:wait t :host github :repo "skuro/plantuml-mode")
+  :ensure (:wait t)
   :config
   (setq org-plantuml-jar-path (expand-file-name "~/plantuml.jar"))
   (setq plantuml-jar-path (expand-file-name "~/plantuml.jar")))
 
 (use-package transient
   :demand t
-  :ensure (:wait t :host github :repo "magit/transient"))
+  :ensure (:wait t))
 
 (use-package magit
   :demand t
-  :ensure (:wait t :host github :repo "magit/magit"))
+  :ensure (:wait t))
 
 (use-package textsize
   :demand t
-  :ensure (:wait t :host github :repo "WJCFerguson/textsize")
+  :ensure (:wait t)
   :init (textsize-mode)
   :config
   (setq textsize-default-points 20))
 
 (use-package python-mode
   :demand t
-  :ensure (:wait t :host github :repo "emacsmirror/python-mode")
+  :ensure (:wait t)
   :after lsp-mode
   :mode ("\.py$")
   :hook (python-mode . lsp-deferred))
 
 (use-package org-appear
   :demand t
-  :ensure (:wait t :host github :repo "awth13/org-appear")
+  :ensure (:wait t)
   :commands (org-appear-mode)
   :hook     (org-mode . org-appear-mode)
   :config
@@ -861,7 +853,7 @@
 
 (use-package consult
   :demand t
-  :ensure (:wait t :host github :repo "minad/consult"))
+  :ensure (:wait t))
 
 (defun workboots/org-roam-rg-search ()
   "Search org-roam directory using consult-ripgrep. With live-preview."
@@ -916,8 +908,18 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-structure ((t (:foreground "#f38ba8" :weight bold))))
- '(org-super-agenda-header ((t (:foreground "#94e2d5" :slant italic)))))
+ '(fill-column-indicator ((t (:stipple nil :foreground "#313244" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal))))
+ '(header-line ((t (:inherit mode-line))))
+ '(org-agenda-date ((t (:foreground "light gray" :weight normal))))
+ '(org-agenda-date-today ((t (:foreground "medium spring green" :weight bold))))
+ '(org-agenda-date-weekend ((t (:inherit org-agenda-date :foreground "dim gray"))))
+ '(org-agenda-date-weekend-today ((t (:inherit org-agenda-date :foreground "dim gray" :weight bold))))
+ '(org-agenda-dimmed-todo-face ((t nil)))
+ '(org-agenda-filter-category ((t nil)))
+ '(org-agenda-structure ((t (:foreground "#f38ba8" :weight extra-bold))))
+ '(org-agenda-structure-filter ((t nil)))
+ '(org-scheduled ((t nil)))
+ '(org-super-agenda-header ((t (:foreground "#94e2d5" :slant italic :weight medium)))))
 ;;; Custom
 ;;;###autoload
 (defun unpackaged/org-fix-blank-lines (&optional prefix)
