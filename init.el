@@ -46,16 +46,15 @@
  '(adaptive-wrap-extra-indent 0)
  '(calendar-date-style 'iso)
  '(citar-file-open-functions
-   '(("html" . citar-file-open-external) (t . find-file)
+   '(("html" . citar-file-open-external)
+     (t . find-file)
      ("pdf" . citar-file-open-external)))
  '(consult-narrow-key "C->")
  '(consult-widen-key "C-<")
  '(custom-safe-themes
-   '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901"
-     default))
+   '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901" default))
  '(elpaca-menu-functions
-   '(elpaca-menu-lock-file elpaca-menu-extensions elpaca-menu-org
-                           elpaca-menu-melpa elpaca-menu-declarations))
+   '(elpaca-menu-lock-file elpaca-menu-extensions elpaca-menu-org elpaca-menu-declarations elpaca-menu-melpa elpaca-menu-gnu-elpa elpaca-menu-non-gnu-elpa))
  '(gac-automatically-push-p t)
  '(global-text-scale-adjust-resizes-frames t)
  '(gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
@@ -63,48 +62,52 @@
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-dim-blocked-tasks nil)
  '(org-agenda-prefix-format
-   '((agenda . " %i %-12:c%?-12t% s") (todo . " %i %-12:c")
-     (tags . " %i %-12:c") (search . " %i %-12:c")))
+   '((agenda . " %i %-12:c%?-12t% s")
+     (todo . " %i %-12:c")
+     (tags . " %i %-12:c")
+     (search . " %i %-12:c")))
  '(org-agenda-sorting-strategy
    '((agenda habit-down time-up priority-down category-keep)
      (todo deadline-up category-keep priority-down)
-     (tags priority-down category-keep) (search category-keep)))
+     (tags priority-down category-keep)
+     (search category-keep)))
  '(org-agenda-todo-keyword-format "%-1s")
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
-   '(:foreground default :background default :scale 2.2 :html-foreground
-                 "Black" :html-background "Transparent" :html-scale
-                 2.0 :matchers ("begin" "$1" "$" "$$" "\\(" "\\[")))
+   '(:foreground default :background default :scale 2.2 :html-foreground "Black" :html-background "Transparent" :html-scale 2.0 :matchers
+                 ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-indirect-buffer-display 'current-window)
  '(org-link-frame-setup
    '((vm . vm-visit-folder-other-frame)
      (vm-imap . vm-visit-imap-folder-other-frame)
-     (gnus . org-gnus-no-new-news) (file . find-file)
+     (gnus . org-gnus-no-new-news)
+     (file . find-file)
      (wl . wl-other-frame)))
  '(org-log-into-drawer t)
  '(org-preview-latex-process-alist
-   '((dvipng :programs ("latex" "dvipng") :description "dvi > png"
-             :message
-             "you need to install the programs: latex and dvipng."
-             :image-input-type "dvi" :image-output-type "png"
-             :image-size-adjust (1.0 . 1.0) :latex-compiler
+   '((dvipng :programs
+             ("latex" "dvipng")
+             :description "dvi > png" :message "you need to install the programs: latex and dvipng." :image-input-type "dvi" :image-output-type "png" :image-size-adjust
+             (1.0 . 1.0)
+             :latex-compiler
              ("latex -interaction nonstopmode -output-directory %O %F")
-             :image-converter ("dvipng -D %D -T tight -o %O %F")
+             :image-converter
+             ("dvipng -D %D -T tight -o %O %F")
              :transparent-image-converter
              ("dvipng -D %D -T tight -bg Transparent -o %O %F"))
-     (dvisvgm :programs ("latex" "dvisvgm") :description "dvi > svg"
-              :message
-              "you need to install the programs: latex and dvisvgm."
-              :image-input-type "dvi" :image-output-type "svg"
-              :image-size-adjust (1.7 . 1.5) :latex-compiler
+     (dvisvgm :programs
+              ("latex" "dvisvgm")
+              :description "dvi > svg" :message "you need to install the programs: latex and dvisvgm." :image-input-type "dvi" :image-output-type "svg" :image-size-adjust
+              (1.7 . 1.5)
+              :latex-compiler
               ("latex -interaction nonstopmode -output-directory %o %f")
               :image-converter
               ("dvisvgm %f --no-fonts --exact-bbox --scale=%S --output=%O"))
-     (imagemagick :programs ("latex" "convert") :description
-                  "pdf > png" :message
-                  "you need to install the programs: latex and imagemagick."
-                  :image-input-type "pdf" :image-output-type "png"
-                  :image-size-adjust (1.0 . 1.0) :latex-compiler
+     (imagemagick :programs
+                  ("latex" "convert")
+                  :description "pdf > png" :message "you need to install the programs: latex and imagemagick." :image-input-type "pdf" :image-output-type "png" :image-size-adjust
+                  (1.0 . 1.0)
+                  :latex-compiler
                   ("pdflatex -interaction nonstopmode -output-directory %o %f")
                   :image-converter
                   ("convert -density %D -trim -antialias %f -quality 100 %O"))))
@@ -118,22 +121,14 @@
  '(org-remark-line-margin-side 'right-margin)
  '(org-remark-line-minimum-margin-width 10)
  '(org-remark-notes-display-buffer-action
-   '((display-buffer-in-side-window) (side . right) (slot . 1)
+   '((display-buffer-in-side-window)
+     (side . right)
+     (slot . 1)
      (window-width . 85)))
  '(org-transclusion-extensions '(org-transclusion-src-lines org-transclusion-font-lock))
  '(org-use-property-inheritance '("HEAD"))
  '(package-selected-packages
-   '(adaptive-wrap which-key wfnames vertico toc-org spacious-padding
-                   ruff-format rainbow-delimiters python-mode
-                   projectile ox-pandoc origami org-view-mode
-                   org-transclusion org-superstar org-roam-ui
-                   org-roam-bibtex org-ql org-modern org-contrib
-                   org-anki orderless nix-mode magit lsp-ui latexdiff
-                   latex-extra hydra htmlize hotfuzz git-gutter
-                   git-auto-commit-mode fzf flycheck
-                   evil-nerd-commenter evil envrc elisp-autofmt
-                   dashboard company citar-org-roam catppuccin-theme
-                   avy async annotate aggressive-indent))
+   '(adaptive-wrap which-key wfnames vertico toc-org spacious-padding ruff-format rainbow-delimiters python-mode projectile ox-pandoc origami org-view-mode org-transclusion org-superstar org-roam-ui org-roam-bibtex org-ql org-modern org-contrib org-anki orderless nix-mode magit lsp-ui latexdiff latex-extra hydra htmlize hotfuzz git-gutter git-auto-commit-mode fzf flycheck evil-nerd-commenter evil envrc elisp-autofmt dashboard company citar-org-roam catppuccin-theme avy async annotate aggressive-indent))
  '(python-isort-extra-args nil)
  '(vertico-sort-function nil)
  '(visual-fill-column-center-text nil))
@@ -273,6 +268,31 @@
           ("CONTINUOUS" . (:foreground "#cba6f7" :weight bold))
           ("DONE" . (:foreground "#a6e3a1" :weight bold))
           ("ARCHIVED" . (:foreground "#9399b2")))))
+
+(use-package compat
+  :demand t
+  :ensure (:wait t :host github :repo "emacs-compat/compat"))
+
+(use-package transient
+  :demand t
+  :ensure (:wait t :host github :repo "magit/transient"))
+
+(use-package magit
+  :demand t
+  :ensure (:wait t :host github :repo "magit/magit"))
+
+; TODO Fix later
+(use-package peg
+  :demand t
+  :ensure (:wait t))
+
+(use-package queue
+  :demand t
+  :ensure (:wait t :host github :repo "emacs-straight/queue" :branch "master"))
+
+(use-package citeproc
+  :demand t
+  :ensure (:wait t :host github :repo "andras-simonyi/citeproc-el"))
 
 (use-package visual-fill-column
   :demand t
@@ -426,13 +446,6 @@
   :ensure (:wait t :host github :repo "axelf4/hotfuzz")
   :config (setq completion-styles '(hotfuzz)))
 
-(use-package queue
-  :demand t
-  :ensure (:wait t :host github :repo "emacs-straight/queue"))
-
-(use-package citeproc
-  :demand t
-  :ensure (:wait t :host github :repo "andras-simonyi/citeproc-el"))
 
 (use-package citar
   :demand t
@@ -512,7 +525,7 @@
 
 (use-package auctex
   :demand t
-  :ensure (:wait t :host github :repo "emacs-straight/auctex")
+  :ensure (:wait t :host github :repo "emacs-straight/auctex" :branch "master")
   :config (setq TeX-parse-self t))
 
 (use-package envrc
@@ -655,9 +668,6 @@
                                          org-super-agenda-properties-inherit)))
   :header-form (string-trim (format "%s" key) "[:\r\t\n]+"))
 
-(use-package transient
-  :demand t
-  :ensure (:wait t :host github :repo "magit/transient"))
 
 (use-package org-ql
   :demand t
@@ -844,9 +854,6 @@
   (setq plantuml-jar-path (expand-file-name "~/plantuml.jar")))
 
 
-(use-package magit
-  :demand t
-  :ensure (:wait t :host github :repo "magit/magit"))
 
 (use-package textsize
   :demand t
@@ -930,8 +937,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-structure ((t (:foreground "#f38ba8" :weight bold))))
- '(org-super-agenda-header ((t (:foreground "#94e2d5" :slant italic)))))
+ )
 ;;; Custom
 ;;;###autoload
 (defun unpackaged/org-fix-blank-lines (&optional prefix)
