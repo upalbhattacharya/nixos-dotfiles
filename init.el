@@ -259,15 +259,15 @@
            "DONE(d/!)"
            "ARCHIVED(a/!)")))
   (setq org-todo-keyword-faces
-        '(("TODO" . (:foreground "#f9e2af" :weight bold))
-          ("NEXT" . (:foreground "#f5c2e7" :weight bold))
-          ("TODAY" . (:foreground "#f2cdcd" :weight bold))
-          ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold))
-          ("REVIEW" . (:foreground "#cba6f7" :weight bold))
-          ("LATER" . (:foreground "#b4befe" :weight bold))
-          ("CONTINUOUS" . (:foreground "#cba6f7" :weight bold))
-          ("DONE" . (:foreground "#a6e3a1" :weight bold))
-          ("ARCHIVED" . (:foreground "#9399b2")))))
+        '(("TODO" . (:foreground "#f9e2af" :weight bold :underline t))
+          ("NEXT" . (:foreground "#f5c2e7" :weight bold :underline t))
+          ("TODAY" . (:foreground "#f2cdcd" :weight bold :underline t))
+          ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold :underline t))
+          ("REVIEW" . (:foreground "#cba6f7" :weight bold :underline t))
+          ("LATER" . (:foreground "#b4befe" :weight bold :underline t))
+          ("CONTINUOUS" . (:foreground "#cba6f7" :weight bold :underline t))
+          ("DONE" . (:foreground "#a6e3a1" :weight bold :underline t))
+          ("ARCHIVED" . (:foreground "#9399b2" :underline t)))))
 
 (use-package compat
   :demand t
@@ -937,7 +937,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-agenda-structure ((t (:foreground "#f38ba8" :weight bold))))
+ '(org-super-agenda-header ((t (:foreground "#94e2d5" :slant italic :weight light)))))
 ;;; Custom
 ;;;###autoload
 (defun unpackaged/org-fix-blank-lines (&optional prefix)
