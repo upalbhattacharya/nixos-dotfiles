@@ -259,6 +259,7 @@
            "IN PROGRESS(p/!)"
            "REVIEW(r/!)"
            "LATER(l/!)"
+           "CONTINUOUS(c/!)"
            "|"
            "DONE(d/!)"
            "ARCHIVED(a/!)")))
@@ -269,6 +270,7 @@
           ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold))
           ("REVIEW" . (:foreground "#cba6f7" :weight bold))
           ("LATER" . (:foreground "#b4befe" :weight bold))
+          ("CONTINUOUS" . (:foreground "#cba6f7" :weight bold))
           ("DONE" . (:foreground "#a6e3a1" :weight bold))
           ("ARCHIVED" . (:foreground "#9399b2")))))
 
@@ -653,28 +655,17 @@
                                          org-super-agenda-properties-inherit)))
   :header-form (string-trim (format "%s" key) "[:\r\t\n]+"))
 
+(use-package transient
+  :demand t
+  :ensure (:wait t :host github :repo "magit/transient"))
+
 (use-package org-ql
   :demand t
   :ensure (:wait t :host github :repo "alphapapa/org-ql")
   :init
   (setq org-agenda-custom-commands
-        '(("z" "Zen View"
+        '(("z" "A to Z View"
            (
-            ;; Today
-            (org-ql-block
-             '(and
-               (todo)
-               (not (and
-                     (not (todo "TODAY"))
-                     (not (deadline :on today))
-                     (not (scheduled :on today))))
-               (category "Project" "Area" "Inbox" "Resource" "Literature")
-               (not (path "Archive"))
-               (not (tags "IGNORE_AGENDA")))
-             (
-              (org-ql-block-header "Today")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-
             ;; Due Soon
             (org-ql-block
              '(and (todo)
@@ -682,7 +673,7 @@
                    (category "Project" "Area" "Inbox" "Resource" "Literature")
                    (not (path "Archive"))
                    (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "\nDue Soon")
+             ((org-ql-block-header "Due Soon")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
 
             ;; Running
@@ -725,6 +716,32 @@
              ((org-ql-block-header "\nReschedule")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
 
+            ;; Completed
+            (org-ql-block
+             '(and (done)
+                   (closed :on today)
+                   (category "Project" "Area" "Inbox" "Resource" "Literature")
+                   (not (path "Archive"))
+                   (not (tags "IGNORE_AGENDA")))
+             ((org-ql-block-header "\nCompleted Today")
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
+            ))
+          ("T" "Today View"
+           (
+            ;; Today
+            (org-ql-block
+             '(and
+               (todo)
+               (not (and
+                     (not (todo "TODAY" "CONTINUOUS"))
+                     (not (deadline :on today))
+                     (not (scheduled :on today))))
+               (category "Project" "Area" "Inbox" "Resource" "Literature")
+               (not (path "Archive"))
+               (not (tags "IGNORE_AGENDA")))
+             (
+              (org-ql-block-header "Today")
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
             ;; Completed
             (org-ql-block
              '(and (done)
@@ -781,9 +798,9 @@
   :ensure (:wait t :host github :repo "justbur/emacs-which-key")
   :config (which-key-mode 1))
 
-(use-package evil-nerd-commenter
-  :demand t
-  :ensure (:wait t :host github :repo "redguardtoo/evil-nerd-commenter"))
+;; (use-package evil-nerd-commenter
+;;   :demand t
+;;   :ensure (:wait t :host github :repo "redguardtoo/evil-nerd-commenter"))
 
 (use-package aggressive-indent
   :demand t
@@ -826,9 +843,6 @@
   (setq org-plantuml-jar-path (expand-file-name "~/plantuml.jar"))
   (setq plantuml-jar-path (expand-file-name "~/plantuml.jar")))
 
-(use-package transient
-  :demand t
-  :ensure (:wait t :host github :repo "magit/transient"))
 
 (use-package magit
   :demand t
