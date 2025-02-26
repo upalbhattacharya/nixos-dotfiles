@@ -422,14 +422,6 @@
   :demand t
   :ensure (:wait t :host github :repo "abo-abo/avy"))
 
-;; (use-package dashboard
-;;   :demand t
-;;   :ensure (:wait t :host github :repo "emacs-dashboard/emacs-dashboard")
-;;   :config
-;;   (dashboard-setup-startup-hook)
-;;   (setq dashboard-startup-banner 3)
-;;   (setq dashboard-items '((recents . 5) (bookmarks . 5) (registers . 5))))
-
 (use-package vertico
   :demand t
   :ensure (:wait t :host github :repo "minad/vertico")
@@ -1004,7 +996,7 @@ exist after each headings's drawers."
  (lambda ()
    (interactive)
    (tab-new)
-   (dashboard-open)))
+   (scratch-buffer)))
 (global-set-key (kbd "C-c w") 'tab-close)
 
 ;; magit
