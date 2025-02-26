@@ -265,7 +265,7 @@
           ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold :underline t))
           ("REVIEW" . (:foreground "#cba6f7" :weight bold :underline t))
           ("LATER" . (:foreground "#b4befe" :weight bold :underline t))
-          ("CONTINUOUS" . (:foreground "#cba6f7" :weight bold :underline t))
+          ("CONTINUOUS" . (:foreground "#f5c2e7" :weight bold :underline t))
           ("DONE" . (:foreground "#a6e3a1" :weight bold :underline t))
           ("ARCHIVED" . (:foreground "#9399b2" :underline t)))))
 
@@ -415,10 +415,10 @@
   (setq org-roam-db-autosync-mode 1)
   (setq org-roam-db-update-on-save 1))
 
-(use-package org-superstar
-  :demand t
-  :ensure (:wait t :host github :repo "integral-dw/org-superstar-mode")
-  :hook (org-mode . org-superstar-mode))
+;; (use-package org-superstar
+;;   :demand t
+;;   :ensure (:wait t :host github :repo "integral-dw/org-superstar-mode")
+;;   :hook (org-mode . org-superstar-mode))
 
 (use-package avy
   :demand t
