@@ -69,11 +69,10 @@ in
       pkgs.libvterm
       pkgs.libtool
       pkgs.protonvpn-cli_2
-      pkgs.emacs29-pgtk
+      pkgs.emacs30-pgtk
       pkgs.vivaldi
       pkgs.openvpn
-      pkgs.whatsapp-for-linux
-      pkgs.telegram-desktop
+      pkgs.ispell
     ];
 
     file = { };

@@ -130,8 +130,7 @@
  '(package-selected-packages
    '(adaptive-wrap which-key wfnames vertico toc-org spacious-padding ruff-format rainbow-delimiters python-mode projectile ox-pandoc origami org-view-mode org-transclusion org-superstar org-roam-ui org-roam-bibtex org-ql org-modern org-contrib org-anki orderless nix-mode magit lsp-ui latexdiff latex-extra hydra htmlize hotfuzz git-gutter git-auto-commit-mode fzf flycheck evil-nerd-commenter evil envrc elisp-autofmt dashboard company citar-org-roam catppuccin-theme avy async annotate aggressive-indent))
  '(python-isort-extra-args nil)
- '(vertico-sort-function nil)
- '(visual-fill-column-center-text nil))
+ '(vertico-sort-function nil))
 
 ;;; Use elpaca use-package
 (elpaca elpaca-use-package (elpaca-use-package-mode))
@@ -209,6 +208,8 @@
   (setq org-deadline-warning-days 0)
   (setq org-cycle-separator-lines 1)
   (setq org-hide-emphasis-markers t)
+  (setq org-indent-mode-turns-on-hiding-stars nil)
+  (setq org-hide-leading-stars nil)
   (setq org-display-remote-inline-images 'download)
   (setq org-display-inline-images t)
   (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
@@ -297,7 +298,9 @@
 (use-package visual-fill-column
   :demand t
   :ensure (:wait t :host "codeberg.org" :repo "joostkremers/visual-fill-column")
-  :hook (org-mode . visual-line-fill-column-mode))
+  :hook (org-mode . visual-line-fill-column-mode)
+  :config
+  (setq-default visual-fill-column-center-text t))
 
 ;; babel
 (org-babel-do-load-languages
@@ -860,7 +863,7 @@
   :ensure (:wait t :host github :repo "WJCFerguson/textsize")
   :init (textsize-mode)
   :config
-  (setq textsize-default-points 20))
+  (setq textsize-default-points 16))
 
 (use-package python-mode
   :demand t
