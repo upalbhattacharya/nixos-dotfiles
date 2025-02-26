@@ -838,8 +838,6 @@
   (setq org-plantuml-jar-path (expand-file-name "~/plantuml.jar"))
   (setq plantuml-jar-path (expand-file-name "~/plantuml.jar")))
 
-
-
 (use-package textsize
   :demand t
   :ensure (:wait t :host github :repo "WJCFerguson/textsize")
