@@ -831,10 +831,6 @@
   :ensure (:wait t :host github :repo "nobiot/org-transclusion")
   :hook (org-mode . org-transclusion-mode))
 
-(use-package eat
-  :demand t
-  :ensure (:wait t :host "codeberg.org" :repo "akib/emacs-eat"))
-
 (use-package plantuml-mode
   :demand t
   :ensure (:wait t :host github :repo "skuro/plantuml-mode")
