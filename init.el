@@ -43,7 +43,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(adaptive-wrap-extra-indent 0)
  '(calendar-date-style 'iso)
  '(citar-file-open-functions
    '(("html" . citar-file-open-external)
@@ -197,7 +196,7 @@
   :demand t
   :ensure nil
   :custom-face (org-document-title ((t (:foreground "dim gray" :weight bold :height 1.0))))
-  :hook (org-mode . org-indent-mode)
+  ;; :hook (org-mode . org-indent-mode)
   ;; :hook (org-mode . visual-line-mode)
   :hook (org-mode . flyspell-mode)
   :hook (org-capture-mode . org-id-get-create)
@@ -269,10 +268,6 @@
           ("CONTINUOUS" . (:foreground "#f5c2e7" :weight bold :underline t))
           ("DONE" . (:foreground "#a6e3a1" :weight bold :underline t))
           ("ARCHIVED" . (:foreground "#9399b2" :underline t)))))
-
-(use-package compat
-  :demand t
-  :ensure (:wait t :host github :repo "emacs-compat/compat"))
 
 (use-package transient
   :demand t
@@ -418,22 +413,22 @@
   (setq org-roam-db-autosync-mode 1)
   (setq org-roam-db-update-on-save 1))
 
-;; (use-package org-superstar
-;;   :demand t
-;;   :ensure (:wait t :host github :repo "integral-dw/org-superstar-mode")
-;;   :hook (org-mode . org-superstar-mode))
+(use-package adaptive-wrap
+  :demand t
+  :ensure (:wait t :host github :repo "emacsmirror/adaptive-wrap" :branch "master")
+  :hook (org-mode . adaptive-wrap-prefix-mode))
 
 (use-package avy
   :demand t
   :ensure (:wait t :host github :repo "abo-abo/avy"))
 
-(use-package dashboard
-  :demand t
-  :ensure (:wait t :host github :repo "emacs-dashboard/emacs-dashboard")
-  :config
-  (dashboard-setup-startup-hook)
-  (setq dashboard-startup-banner 3)
-  (setq dashboard-items '((recents . 5) (bookmarks . 5) (registers . 5))))
+;; (use-package dashboard
+;;   :demand t
+;;   :ensure (:wait t :host github :repo "emacs-dashboard/emacs-dashboard")
+;;   :config
+;;   (dashboard-setup-startup-hook)
+;;   (setq dashboard-startup-banner 3)
+;;   (setq dashboard-items '((recents . 5) (bookmarks . 5) (registers . 5))))
 
 (use-package vertico
   :demand t
@@ -448,7 +443,6 @@
   :demand t
   :ensure (:wait t :host github :repo "axelf4/hotfuzz")
   :config (setq completion-styles '(hotfuzz)))
-
 
 (use-package citar
   :demand t
@@ -811,10 +805,6 @@
   :ensure (:wait t :host github :repo "justbur/emacs-which-key")
   :config (which-key-mode 1))
 
-;; (use-package evil-nerd-commenter
-;;   :demand t
-;;   :ensure (:wait t :host github :repo "redguardtoo/evil-nerd-commenter"))
-
 (use-package aggressive-indent
   :demand t
   :ensure (:wait t :host github :repo "Malabarba/aggressive-indent-mode")
@@ -827,10 +817,6 @@
 (use-package nix-mode
   :demand t
   :ensure (:wait t :host github :repo "NixOS/nix-mode"))
-
-(use-package org-roam-ui
-  :demand t
-  :ensure (:wait t :host github :repo "org-roam/org-roam-ui"))
 
 (use-package spacious-padding
   :demand t
