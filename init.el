@@ -732,7 +732,7 @@
              '(and
                (todo)
                (not (and
-                     (not (todo "TODAY" "CONTINUOUS"))
+                     (not (todo "TODAY"))
                      (not (deadline :on today))
                      (not (scheduled :on today))))
                (category "Project" "Area" "Inbox" "Resource" "Literature")
@@ -740,6 +740,15 @@
                (not (tags "IGNORE_AGENDA")))
              (
               (org-ql-block-header "Today")
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
+            (org-ql-block
+             '(and
+               (todo "CONTINUOUS")
+               (category "Project" "Area" "Inbox" "Resource" "Literature")
+               (not (path "Archive"))
+               (not (tags "IGNORE_AGENDA")))
+             (
+              (org-ql-block-header "Continuous")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
             ;; Completed
             (org-ql-block
@@ -835,7 +844,7 @@
   :ensure (:wait t :host github :repo "WJCFerguson/textsize")
   :init (textsize-mode)
   :config
-  (setq textsize-default-points 16))
+  (setq textsize-default-points 20))
 
 (use-package python-mode
   :demand t
