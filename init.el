@@ -204,6 +204,7 @@
                       (set-fill-column 78)))
   :config
   (define-key minibuffer-local-completion-map (kbd "?") nil)
+  (setq org-cycle-include-plain-lists 'integrate)
   (setq org-deadline-warning-days 0)
   (setq org-cycle-separator-lines 1)
   (setq org-hide-emphasis-markers t)
@@ -254,7 +255,7 @@
            "IN PROGRESS(p/!)"
            "REVIEW(r/!)"
            "LATER(l/!)"
-           "CONTINUOUS(c/!)"
+           "READING(R/!)"
            "|"
            "DONE(d/!)"
            "ARCHIVED(a/!)")))
@@ -265,7 +266,7 @@
           ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold :underline t))
           ("REVIEW" . (:foreground "#cba6f7" :weight bold :underline t))
           ("LATER" . (:foreground "#b4befe" :weight bold :underline t))
-          ("CONTINUOUS" . (:foreground "#f5c2e7" :weight bold :underline t))
+          ("READING" . (:foreground "#f5c2e7" :weight bold :underline t))
           ("DONE" . (:foreground "#a6e3a1" :weight bold :underline t))
           ("ARCHIVED" . (:foreground "#9399b2" :underline t)))))
 
@@ -743,12 +744,12 @@
               (org-super-agenda-groups '((:auto-para "HEAD")))))
             (org-ql-block
              '(and
-               (todo "CONTINUOUS")
-               (category "Project" "Area" "Inbox" "Resource" "Literature")
+               (todo "READING")
+               (category "Literature")
                (not (path "Archive"))
                (not (tags "IGNORE_AGENDA")))
              (
-              (org-ql-block-header "Continuous")
+              (org-ql-block-header "\nReading (Literature)")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
             ;; Completed
             (org-ql-block
