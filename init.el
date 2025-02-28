@@ -873,6 +873,13 @@
   :demand t
   :ensure (:wait t :host github :repo "skeeto/elfeed"))
 
+(use-package elfeed-org
+  :demand t
+  :ensure (:wait t :host github :repo "remyhonig/elfeed-org")
+  :config
+  (elfeed-org)
+  (setq rmh-elfeed-org-files (list "~/org/RSS Feeds.org")))
+
 (defun workboots/org-roam-rg-search ()
   "Search org-roam directory using consult-ripgrep. With live-preview."
   (interactive)
