@@ -253,7 +253,6 @@
            "TODAY(T/!)"
            "IN PROGRESS(p/!)"
            "REVIEW(r/!)"
-           "LATER(l/!)"
            "CONTINUOUS(c/!)"
            "|"
            "DONE(d/!)"
@@ -264,7 +263,6 @@
           ("TODAY" . (:foreground "#f2cdcd" :weight bold :underline t))
           ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold :underline t))
           ("REVIEW" . (:foreground "#cba6f7" :weight bold :underline t))
-          ("LATER" . (:foreground "#b4befe" :weight bold :underline t))
           ("CONTINUOUS" . (:foreground "#f5c2e7" :weight bold :underline t))
           ("DONE" . (:foreground "#a6e3a1" :weight bold :underline t))
           ("ARCHIVED" . (:foreground "#9399b2" :underline t)))))
