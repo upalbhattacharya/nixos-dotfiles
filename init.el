@@ -869,9 +869,26 @@
   :demand t
   :ensure (:wait t :host github :repo "minad/consult"))
 
+;;functions to support syncing .elfeed between machines
+;;makes sure elfeed reads index from disk before launching
+(defun workboots/elfeed-load-db-and-open ()
+  "Wrapper to load the elfeed db from disk before opening"
+  (interactive)
+  (elfeed-db-load)
+  (elfeed)
+  (elfeed-search-update--force))
+
+(defun workboots/elfeed-save-db-and-bury ()
+  "Wrapper to save the elfeed db to disk before burying buffer"
+  (interactive)
+  (elfeed-db-save)
+  (quit-window))
+
 (use-package elfeed
   :demand t
-  :ensure (:wait t :host github :repo "skeeto/elfeed"))
+  :ensure (:wait t :host github :repo "skeeto/elfeed")
+  :bind (:map elfeed-search-mode-map
+              ("q" . workboots/elfeed-save-db-and-bury)))
 
 (use-package elfeed-org
   :demand t
