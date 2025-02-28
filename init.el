@@ -869,6 +869,10 @@
   :demand t
   :ensure (:wait t :host github :repo "minad/consult"))
 
+(use-package elfeed
+  :demand t
+  :ensure (:wait t :host github :repo "skeeto/elfeed"))
+
 (defun workboots/org-roam-rg-search ()
   "Search org-roam directory using consult-ripgrep. With live-preview."
   (interactive)
