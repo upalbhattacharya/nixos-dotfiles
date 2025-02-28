@@ -204,6 +204,7 @@
                       (set-fill-column 78)))
   :config
   (define-key minibuffer-local-completion-map (kbd "?") nil)
+  (setq org-cycle-include-plain-lists 'integrate)
   (setq org-deadline-warning-days 0)
   (setq org-cycle-separator-lines 1)
   (setq org-hide-emphasis-markers t)
@@ -253,7 +254,8 @@
            "TODAY(T/!)"
            "IN PROGRESS(p/!)"
            "REVIEW(r/!)"
-           "CONTINUOUS(c/!)"
+           "LATER(l/!)"
+           "READING(R/!)"
            "|"
            "DONE(d/!)"
            "ARCHIVED(a/!)")))
@@ -263,7 +265,8 @@
           ("TODAY" . (:foreground "#f2cdcd" :weight bold :underline t))
           ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold :underline t))
           ("REVIEW" . (:foreground "#cba6f7" :weight bold :underline t))
-          ("CONTINUOUS" . (:foreground "#f5c2e7" :weight bold :underline t))
+          ("LATER" . (:foreground "#b4befe" :weight bold :underline t))
+          ("READING" . (:foreground "#f5c2e7" :weight bold :underline t))
           ("DONE" . (:foreground "#a6e3a1" :weight bold :underline t))
           ("ARCHIVED" . (:foreground "#9399b2" :underline t)))))
 
@@ -730,7 +733,7 @@
              '(and
                (todo)
                (not (and
-                     (not (todo "TODAY" "CONTINUOUS"))
+                     (not (todo "TODAY"))
                      (not (deadline :on today))
                      (not (scheduled :on today))))
                (category "Project" "Area" "Inbox" "Resource" "Literature")
@@ -738,6 +741,15 @@
                (not (tags "IGNORE_AGENDA")))
              (
               (org-ql-block-header "Today")
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
+            (org-ql-block
+             '(and
+               (todo "READING")
+               (category "Literature")
+               (not (path "Archive"))
+               (not (tags "IGNORE_AGENDA")))
+             (
+              (org-ql-block-header "\nReading (Literature)")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
             ;; Completed
             (org-ql-block
@@ -833,7 +845,7 @@
   :ensure (:wait t :host github :repo "WJCFerguson/textsize")
   :init (textsize-mode)
   :config
-  (setq textsize-default-points 16))
+  (setq textsize-default-points 20))
 
 (use-package python-mode
   :demand t
