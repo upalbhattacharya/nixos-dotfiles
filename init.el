@@ -845,7 +845,7 @@
   :ensure (:wait t :host github :repo "WJCFerguson/textsize")
   :init (textsize-mode)
   :config
-  (setq textsize-default-points 20))
+  (setq textsize-default-points 18))
 
 (use-package python-mode
   :demand t
