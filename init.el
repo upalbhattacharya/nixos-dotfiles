@@ -313,39 +313,40 @@
    (plantuml . t)
    ))
 
-(use-package org-remark
-  :demand t
-  :ensure (:wait t :host github :repo "nobiot/org-remark")
-  :init
-  (setq org-remark-global-tracking-mode +1)
-  :hook (org-mode . org-remark-mode)
-  :config
-  (org-remark-create "yellow"
-                     '(:background "#f9e2af" :foreground "#181825")
-                     '(CATEGORY "warning"))
+;; (use-package org-remark
+;;   :demand t
+;;   :ensure (:wait t :host github :repo "nobiot/org-remark")
+;;   :init
+;;   (setq org-remark-global-tracking-mode +1)
+;;   :hook (org-mode . org-remark-mode)
+;;   :config
+;;   (org-remark-create "yellow"
+;;                      '(:background "#f9e2af" :foreground "#181825")
+;;                      '(CATEGORY "warning"))
 
-  (org-remark-create "red"
-                     '(:background "#f38ba8" :foreground "#181825")
-                     '(CATEGORY "urgent"))
+;;   (org-remark-create "red"
+;;                      '(:background "#f38ba8" :foreground "#181825")
+;;                      '(CATEGORY "urgent"))
 
-  (org-remark-create "green"
-                     '(:background "#a6e3a1" :foreground "#181825")
-                     '(CATEGORY "good"))
+;;   (org-remark-create "green"
+;;                      '(:background "#a6e3a1" :foreground "#181825")
+;;                      '(CATEGORY "good"))
 
-  (org-remark-create "purple"
-                     '(:background "#cba6f7" :foreground "#181825")
-                     '(CATEGORY "important"))
+;;   (org-remark-create "purple"
+;;                      '(:background "#cba6f7" :foreground "#181825")
+;;                      '(CATEGORY "important"))
 
-  (org-remark-create "blue"
-                     '(:background "#89dceb" :foreground "#181825")
-                     '(CATEGORY "mark"))
+;;   (org-remark-create "blue"
+;;                      '(:background "#89dceb" :foreground "#181825")
+;;                      '(CATEGORY "mark"))
 
-  )
+;;   )
 (use-package annotate
   :demand t
   :ensure (:wait t :host github :repo "bastibe/annotate.el")
   :hook (org-mode . annotate-mode)
   :config
+  (setq annotate-file "~/org/annotations")
   (setq annotate-annotation-position-policy :new-line)
   (setq annotate-highlight-faces
         '((:background "#F9E2AF" :foreground "#181825")
@@ -355,11 +356,11 @@
           (:background "#CB6AF7" :foreground "#181825")
           ))
   (setq annotate-annotation-text-faces
-        '((:background "#F9E2AF" :foreground "#181825")
-          (:background "#A6E3A1" :foreground "#181825")
-          (:background "#89B4FA" :foreground "#181825")
-          (:background "#F38BA8" :foreground "#181825")
-          (:background "#CB6AF7" :foreground "#181825")
+        '((:foreground "#F9E2AF" :slant italic :box (:line-width (1 . 1)))
+          (:foreground "#A6E3A1" :slant italic :box (:line-width (1 . 1)))
+          (:foreground "#89B4FA" :slant italic :box (:line-width (1 . 1)))
+          (:foreground "#F38BA8" :slant italic :box (:line-width (1 . 1)))
+          (:foreground "#CB6AF7" :slant italic :box (:line-width (1 . 1)))
           ))
   )
 
@@ -1201,7 +1202,7 @@ _w_: Save Annotations           _c_: Change Annotation Text Position
 "
   ("a" annotate-annotate)
   ("d" annotate-delete-annotation)
-  ("n" annotate-change-annotation-colors nil (:exit nil))
+  ("n" annotate-change-annotation-colors :exit nil)
   ("w" annotate-save-annotations)
   ("l" annotate-load-annotations)
   ("t" annotate-toggle-annotation-text)
