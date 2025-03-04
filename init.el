@@ -1189,32 +1189,41 @@ _k_: Insert Key
  ("q" nil))
 (global-set-key (kbd "C-c M-r") 'hydra-citar/body)
 
-
-(defhydra
-  hydra-org-remark
+(defhydra hydra-annotate
   (:color pink :hint nil :exit t)
   "
-^org-remark^
-------------
-_b_: Blue highlight      _p_: Purple highlight      _v_: View highlight/annotation
-_g_: Green highlight     _d_: Delete highlight      _[_: View Previous
-_y_: Yellow highlight    _w_: Save highlights       _]_: View Next
-_r_: Red highlight       _o_: Open (Annotate)       _c_: Change colour      _q_: Quit       
-"
-  ("b" org-remark-mark-blue)
-  ("g" org-remark-mark-green)
-  ("y" org-remark-mark-yellow)
-  ("r" org-remark-mark-red)
-  ("p" org-remark-mark-purple)
-  ("d" org-remark-remove)
-  ("w" org-remark-save)
-  ("v" org-remark-view)
-  ("[" org-remark-view-prev)
-  ("]" org-remark-view-next)
-  ("o" org-remark-open)
-  ("c" org-remark-change)
-  ("q" nil))
-(global-set-key (kbd "C-c M-v") 'hydra-org-remark/body)
+^annotate^
+----------
+_a_: Add/Edit Annotation
+_d_: Delete Annotation
+_n_: Change Annotation Color
+
+
+;; (defhydra
+;;   hydra-org-remark
+;;   (:color pink :hint nil :exit t)
+;;   "
+;; ^org-remark^
+;; ------------
+;; _b_: Blue highlight      _p_: Purple highlight      _v_: View highlight/annotation
+;; _g_: Green highlight     _d_: Delete highlight      _[_: View Previous
+;; _y_: Yellow highlight    _w_: Save highlights       _]_: View Next
+;; _r_: Red highlight       _o_: Open (Annotate)       _c_: Change colour      _q_: Quit       
+;; "
+;;   ("b" org-remark-mark-blue)
+;;   ("g" org-remark-mark-green)
+;;   ("y" org-remark-mark-yellow)
+;;   ("r" org-remark-mark-red)
+;;   ("p" org-remark-mark-purple)
+;;   ("d" org-remark-remove)
+;;   ("w" org-remark-save)
+;;   ("v" org-remark-view)
+;;   ("[" org-remark-view-prev)
+;;   ("]" org-remark-view-next)
+;;   ("o" org-remark-open)
+;;   ("c" org-remark-change)
+;;   ("q" nil))
+;; (global-set-key (kbd "C-c M-v") 'hydra-org-remark/body)
 
 ;; unpackaged/org-fix-blank-lines
 (global-set-key (kbd "C-c f") 'unpackaged/org-fix-blank-lines)
