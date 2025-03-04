@@ -1208,8 +1208,8 @@ _w_: Save Annotations           _c_: Change Annotation Text Position
   ("t" annotate-toggle-annotation-text)
   ("T" annotate-toggle-all-annotations-text)
   ("c" annotate-change-annotation-text-position)
-  ("]" annotate-goto-next-annotation)
-  ("[" annotate-goto-previous-annotation)
+  ("]" annotate-goto-next-annotation :exit nil)
+  ("[" annotate-goto-previous-annotation :exit nil)
   ("q" nil))
 (global-set-key (kbd "C-c M-v") 'hydra-annotate/body)
 
