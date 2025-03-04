@@ -1194,10 +1194,23 @@ _k_: Insert Key
   "
 ^annotate^
 ----------
-_a_: Add/Edit Annotation
-_d_: Delete Annotation
-_n_: Change Annotation Color
-
+_a_: Add/Edit Annotation        _l_: Load Annotations                   _]_: Goto Next Annotation
+_d_: Delete Annotation          _t_: Toggle Annotation Text             _[_: Goto Previous Annotation
+_n_: Change Annotation Color    _T_: Toggle All Annotations Text        _q_: Quit
+_w_: Save Annotations           _c_: Change Annotation Text Position
+"
+  ("a" annotate-annotate)
+  ("d" annotate-delete-annotation)
+  ("n" annotate-change-annotation-colors nil (:exit nil))
+  ("w" annotate-save-annotations)
+  ("l" annotate-load-annotations)
+  ("t" annotate-toggle-annotation-text)
+  ("T" annotate-toggle-all-annotations-text)
+  ("c" annotate-change-annotation-text-position)
+  ("]" annotate-goto-next-annotation)
+  ("[" annotate-goto-previous-annotation)
+  ("q" nil))
+(global-set-key (kbd "C-c M-v") 'hydra-annotate/body)
 
 ;; (defhydra
 ;;   hydra-org-remark
