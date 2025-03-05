@@ -313,34 +313,6 @@
    (plantuml . t)
    ))
 
-;; (use-package org-remark
-;;   :demand t
-;;   :ensure (:wait t :host github :repo "nobiot/org-remark")
-;;   :init
-;;   (setq org-remark-global-tracking-mode +1)
-;;   :hook (org-mode . org-remark-mode)
-;;   :config
-;;   (org-remark-create "yellow"
-;;                      '(:background "#f9e2af" :foreground "#181825")
-;;                      '(CATEGORY "warning"))
-
-;;   (org-remark-create "red"
-;;                      '(:background "#f38ba8" :foreground "#181825")
-;;                      '(CATEGORY "urgent"))
-
-;;   (org-remark-create "green"
-;;                      '(:background "#a6e3a1" :foreground "#181825")
-;;                      '(CATEGORY "good"))
-
-;;   (org-remark-create "purple"
-;;                      '(:background "#cba6f7" :foreground "#181825")
-;;                      '(CATEGORY "important"))
-
-;;   (org-remark-create "blue"
-;;                      '(:background "#89dceb" :foreground "#181825")
-;;                      '(CATEGORY "mark"))
-
-;;   )
 (use-package annotate
   :demand t
   :ensure (:wait t :host github :repo "bastibe/annotate.el")
@@ -926,6 +898,9 @@
   (elfeed-org)
   (setq rmh-elfeed-org-files (list "~/org/RSS Feeds.org")))
 
+;; (load-file "~/.emacs.d/scimax/scimax-spellcheck.el")
+;; (org-babel-load-file "~/.emacs.d/scimax/scimax-editmarks.org")
+
 (defun workboots/org-roam-rg-search ()
   "Search org-roam directory using consult-ripgrep. With live-preview."
   (interactive)
@@ -1213,31 +1188,6 @@ _w_: Save Annotations           _c_: Change Annotation Text Position
   ("q" nil))
 (global-set-key (kbd "C-c M-v") 'hydra-annotate/body)
 
-;; (defhydra
-;;   hydra-org-remark
-;;   (:color pink :hint nil :exit t)
-;;   "
-;; ^org-remark^
-;; ------------
-;; _b_: Blue highlight      _p_: Purple highlight      _v_: View highlight/annotation
-;; _g_: Green highlight     _d_: Delete highlight      _[_: View Previous
-;; _y_: Yellow highlight    _w_: Save highlights       _]_: View Next
-;; _r_: Red highlight       _o_: Open (Annotate)       _c_: Change colour      _q_: Quit       
-;; "
-;;   ("b" org-remark-mark-blue)
-;;   ("g" org-remark-mark-green)
-;;   ("y" org-remark-mark-yellow)
-;;   ("r" org-remark-mark-red)
-;;   ("p" org-remark-mark-purple)
-;;   ("d" org-remark-remove)
-;;   ("w" org-remark-save)
-;;   ("v" org-remark-view)
-;;   ("[" org-remark-view-prev)
-;;   ("]" org-remark-view-next)
-;;   ("o" org-remark-open)
-;;   ("c" org-remark-change)
-;;   ("q" nil))
-;; (global-set-key (kbd "C-c M-v") 'hydra-org-remark/body)
 
 ;; unpackaged/org-fix-blank-lines
 (global-set-key (kbd "C-c f") 'unpackaged/org-fix-blank-lines)
