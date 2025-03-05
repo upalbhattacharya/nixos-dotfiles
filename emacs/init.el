@@ -898,8 +898,9 @@
   (elfeed-org)
   (setq rmh-elfeed-org-files (list "~/org/RSS Feeds.org")))
 
-;; (load-file "~/.emacs.d/scimax/scimax-spellcheck.el")
-;; (org-babel-load-file "~/.emacs.d/scimax/scimax-editmarks.org")
+;; Scimax
+
+(org-babel-load-file "~/.emacs.d/scimax/scimax-editmarks.org")
 
 (defun workboots/org-roam-rg-search ()
   "Search org-roam directory using consult-ripgrep. With live-preview."
