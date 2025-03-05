@@ -313,29 +313,6 @@
    (plantuml . t)
    ))
 
-(use-package annotate
-  :demand t
-  :ensure (:wait t :host github :repo "bastibe/annotate.el")
-  :hook (org-mode . annotate-mode)
-  :config
-  (setq annotate-file "~/org/annotations")
-  (setq annotate-annotation-position-policy :new-line)
-  (setq annotate-highlight-faces
-        '((:background "#F9E2AF" :foreground "#181825")
-          (:background "#A6E3A1":foreground "#181825")
-          (:background "#89B4FA" :foreground "#181825")
-          (:background "#F38BA8" :foreground "#181825")
-          (:background "#CB6AF7" :foreground "#181825")
-          ))
-  (setq annotate-annotation-text-faces
-        '((:foreground "#F9E2AF" :slant italic :box (:line-width (1 . 1)))
-          (:foreground "#A6E3A1" :slant italic :box (:line-width (1 . 1)))
-          (:foreground "#89B4FA" :slant italic :box (:line-width (1 . 1)))
-          (:foreground "#F38BA8" :slant italic :box (:line-width (1 . 1)))
-          (:foreground "#CB6AF7" :slant italic :box (:line-width (1 . 1)))
-          ))
-  )
-
 (use-package org-contrib
   :demand t
   :ensure (:wait t :host github :repo "emacsmirror/org-contrib"))
@@ -901,6 +878,7 @@
 ;; Scimax
 
 (org-babel-load-file "~/.emacs.d/scimax/scimax-editmarks.org")
+(add-hook 'org-mode-hook 'sem-mode)
 
 (defun workboots/org-roam-rg-search ()
   "Search org-roam directory using consult-ripgrep. With live-preview."
@@ -1165,30 +1143,6 @@ _k_: Insert Key
  ("k" citar-insert-key)
  ("q" nil))
 (global-set-key (kbd "C-c M-r") 'hydra-citar/body)
-
-(defhydra hydra-annotate
-  (:color pink :hint nil :exit t)
-  "
-^annotate^
-----------
-_a_: Add/Edit Annotation        _l_: Load Annotations                   _]_: Goto Next Annotation
-_d_: Delete Annotation          _t_: Toggle Annotation Text             _[_: Goto Previous Annotation
-_n_: Change Annotation Color    _T_: Toggle All Annotations Text        _q_: Quit
-_w_: Save Annotations           _c_: Change Annotation Text Position
-"
-  ("a" annotate-annotate)
-  ("d" annotate-delete-annotation)
-  ("n" annotate-change-annotation-colors :exit nil)
-  ("w" annotate-save-annotations)
-  ("l" annotate-load-annotations)
-  ("t" annotate-toggle-annotation-text)
-  ("T" annotate-toggle-all-annotations-text)
-  ("c" annotate-change-annotation-text-position)
-  ("]" annotate-goto-next-annotation :exit nil)
-  ("[" annotate-goto-previous-annotation :exit nil)
-  ("q" nil))
-(global-set-key (kbd "C-c M-v") 'hydra-annotate/body)
-
 
 ;; unpackaged/org-fix-blank-lines
 (global-set-key (kbd "C-c f") 'unpackaged/org-fix-blank-lines)
