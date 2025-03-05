@@ -139,25 +139,25 @@
 		    :keymap sem-editmark-content-map
 		    :help-echo "Blue highlight. Right-click, s-click or s-o for menu.")
 
-    (green-highlight :open-marker "{gh>" :close-marker "<gh}"
+    (green-highlight :open-marker "{hg>" :close-marker "<hg}"
 		     :marker-face (:background "#A6E3A1" :foreground "#1E1E2E"  :weight ultra-light)
 		     :face (:background "#A6E3A1" :foreground "#1E1E2E")
 		     :keymap sem-editmark-content-map
 		     :help-echo "green highlight. Right-click, s-click or s-o for menu.")
 
-    (purple-highlight :open-marker "{ph>" :close-marker "<ph}"
+    (purple-highlight :open-marker "{hp>" :close-marker "<hp}"
 		    :marker-face (:background "#CBA6F7" :foreground "#1E1E2E"  :weight ultra-light)
 		    :face (:background "#CBA6F7" :foreground "#1E1E2E" )
 		    :keymap sem-editmark-content-map
 		    :help-echo "purple highlight. Right-click, s-click or s-o for menu.")
 
-    (yellow-highlight :open-marker "{yh>" :close-marker "<yh}"
+    (yellow-highlight :open-marker "{hy>" :close-marker "<hy}"
 		      :marker-face (:background "#F9E2AF" :foreground "#1E1E2E" :weight ultra-light)
 		      :face (:background "#F9E2AF" :foreground "#1E1E2E")
 		      :keymap sem-editmark-content-map
 		      :help-echo "yellow highlight. Right-click, s-click or s-o for menu.")
     
-    (red-highlight :open-marker "{rh>" :close-marker "<rh}"
+    (red-highlight :open-marker "{hr>" :close-marker "<hr}"
   	      :marker-face (:background "#F38BA8" :foreground "#1E1E2E" :weight ultra-light)
   	      :face (:background "#F38BA8" :foreground "#1E1E2E")
   	      :keymap sem-editmark-content-map
