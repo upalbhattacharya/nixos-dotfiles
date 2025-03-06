@@ -307,6 +307,7 @@
   :demand t
   :ensure (:wait t :host "codeberg.org" :repo "joostkremers/visual-fill-column")
   :hook (org-mode . visual-line-fill-column-mode)
+  :hook (org-roam-mode . visual-line-fill-column-mode)
   :config
   (setq-default visual-fill-column-center-text t))
 
@@ -395,6 +396,23 @@
   (setq org-roam-completion-everywhere nil)
   (org-roam-db-autosync-mode 1)
   (setq org-roam-db-update-on-save 1))
+
+(defun workboots/preview-fetcher ()
+  (let* ((elem (org-element-context))
+         (parent (org-element-property :parent elem)))
+    ;; TODO: alt handling for non-paragraph elements
+    (string-trim-right (buffer-substring-no-properties
+                        (org-element-property :begin parent)
+                        (org-element-property :end parent)))))
+
+(setq org-roam-preview-function #'workboots/preview-fetcher)
+
+(add-to-list 'display-buffer-alist
+             '("\\*org-roam\\*"
+               (display-buffer-in-direction)
+               (direction . right)
+               (window-width . 0.33)
+               (window-height . fit-window-to-buffer)))
 
 (use-package adaptive-wrap
   :demand t
