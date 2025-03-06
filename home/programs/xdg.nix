@@ -3,6 +3,7 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "application/pdf" = ["sioyek.desktop"];
+      "application/pdf" = [ "sioyek.desktop" ];
     };
+  };
 }
