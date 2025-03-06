@@ -6,7 +6,7 @@
       full = {
         name = "full";
         isDefault = true;
-        dir = "~/papis/default/"
+        dir = "~/papis/default/";
       };
     };
   };
