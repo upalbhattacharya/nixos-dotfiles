@@ -172,11 +172,11 @@
 
   ;; Enable indentation+completion using the TAB key.
   ;; `completion-at-point' is often bound to M-TAB.
-  ;; (tab-always-indent 'complete)
+  (tab-always-indent 'complete)
 
   ;; Emacs 30 and newer: Disable Ispell completion function.
   ;; Try `cape-dict' as an alternative.
-  ;; (text-mode-ispell-word-completion nil)
+  (text-mode-ispell-word-completion nil)
 
   ;; Hide commands in M-x which do not apply to the current mode.  Corfu
   ;; commands are hidden, since they are not used via M-x. This setting is
@@ -355,7 +355,6 @@
   (setq org-roam-node-display-template "${status:13} ${title:50} ${hierarchy:*}")
   (setq org-roam-directory (file-truename "~/org"))
   (setq org-roam-dailies-directory "~/org/Journal/")
-  ;; (setq org-roam-completion-everywhere t)
   (setq org-roam-db-node-include-function
         (lambda ()
           (not (member "IGNORE_ORG_ROAM" (org-get-tags)))))
@@ -388,7 +387,6 @@
            :target (file+olp "Journal %<%Y>.org" ("%<%Y-%m>" "%<%Y-%m-%d>"))
            :unnarrowed t)))
   (setq org-roam-mode-sections (list #'org-roam-backlinks-section #'org-roam-reflinks-section))
-  ;; (setq org-roam-completion-everywhere t)
   (setq org-roam-db-autosync-mode 1)
   (setq org-roam-db-update-on-save 1))
 
