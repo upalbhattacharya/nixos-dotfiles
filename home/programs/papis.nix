@@ -6,7 +6,9 @@
       full = {
         name = "full";
         isDefault = true;
-        dir = "~/papis/default/";
+        settings = {
+          dir = "~/papis/default/";
+        };
       };
     };
   };
