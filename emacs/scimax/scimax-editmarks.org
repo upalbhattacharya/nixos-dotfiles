@@ -56,10 +56,14 @@ CLOSED: [2022-09-30 Fri 13:40]
 
 
 
+
+
 This would require a more sophisticated parser. If you need this, you should probably look at a sexp based syntax, e.g. (@-insert "some text"), or a special block.
 
 ** DONE disable flyspell/check in at least the typo editmarks.
 CLOSED: [2023-05-30 Tue 14:50]
+
+
 
 
 
@@ -97,6 +101,8 @@ In flyspell, continue if not on an editmark."
 
 ** DONE Metadata in editmarks
    CLOSED: [2021-06-04 Fri 19:39]
+
+
 
 
 
@@ -413,6 +419,47 @@ Export functions should take one argument, the backend as a symbol, and they are
     	      :face (:background "#F38BA8" :foreground "#1E1E2E")
     	      :keymap sem-editmark-content-map
     	      :help-echo "red highlight. Right-click, s-click or s-o for menu.")
+      
+      (yellow-annotation :open-marker "{ay>" :close-marker "<ay}"
+  		 :marker-face (:foreground "#F9E2AF" :background "#1E1E2E" :weight ultra-light)
+  		 :face (:foreground "#F9E2AF" :background "#1E1E2E")
+  	     :keymap sem-editmark-content-map
+  	     :help-echo "Yellow annotation. Right-click, s-click or s-o for menu."
+  	     :accept-func sem-delete-editmark
+  	     :reject-func sem-delete-editmark
+  	     :include-author t
+  	     :export sem-export-comment)
+      
+      (blue-annotation :open-marker "{ab>" :close-marker "<ab}"
+  		 :marker-face (:foreground "#74C7EC" :background "#1E1E2E" :weight ultra-light)
+  		 :face (:foreground "#74C7EC" :background "#1E1E2E")
+  	     :keymap sem-editmark-content-map
+  	     :help-echo "Blue annotation. Right-click, s-click or s-o for menu."
+  	     :accept-func sem-delete-editmark
+  	     :reject-func sem-delete-editmark
+  	     :include-author t
+  	     :export sem-export-comment)
+      
+      (green-annotation :open-marker "{ag>" :close-marker "<ag}"
+  		 :marker-face (:foreground "#A6E3A1" :background "#1E1E2E" :weight ultra-light)
+  		 :face (:foreground "#A6E3A1" :background "#1E1E2E")
+  	     :keymap sem-editmark-content-map
+  	     :help-echo "Green annotation. Right-click, s-click or s-o for menu."
+  	     :accept-func sem-delete-editmark
+  	     :reject-func sem-delete-editmark
+  	     :include-author t
+  	     :export sem-export-comment)
+      
+      (purple-annotation :open-marker "{ap>" :close-marker "<ap}"
+  		 :marker-face (:foreground "#CBA6F7" :background "#1E1E2E" :weight ultra-light)
+  		 :face (:foreground "#CBA6F7" :background "#1E1E2E")
+  	     :keymap sem-editmark-content-map
+  	     :help-echo "Purple annotation. Right-click, s-click or s-o for menu."
+  	     :accept-func sem-delete-editmark
+  	     :reject-func sem-delete-editmark
+  	     :include-author t
+  	     :export sem-export-comment)
+
 
       (audio :open-marker "{a>" :close-marker "<a}"
   	   :marker-face (:foreground "violet" :weight ultra-light)
