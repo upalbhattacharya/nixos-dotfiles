@@ -8,6 +8,7 @@
     ./compression.nix
     ./mpv.nix
     ./sioyek.nix
+    ./papis.nix
     ./xdg.nix
   ];
 }
