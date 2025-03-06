@@ -13,8 +13,8 @@
     };
     settings = {
       bibtex = {
-        default-read-bibfile = "~/papis/full.bib";
-        default-save-bibfile = "~/papis/full.bib";
+        "default-read-bibfile" = "~/papis/full.bib";
+        "default-save-bibfile" = "~/papis/full.bib";
       };
     };
   };
