@@ -162,7 +162,57 @@
   	      :face (:background "#F38BA8" :foreground "#1E1E2E")
   	      :keymap sem-editmark-content-map
   	      :help-echo "red highlight. Right-click, s-click or s-o for menu.")
+    
+    (yellow-annotation :open-marker "{ay>" :close-marker "<ay}"
+		 :marker-face (:foreground "#F9E2AF" :background "#1E1E2E" :weight ultra-light)
+		 :face (:foreground "#F9E2AF" :background "#1E1E2E")
+	     :keymap sem-editmark-content-map
+	     :help-echo "Yellow annotation. Right-click, s-click or s-o for menu."
+	     :accept-func sem-delete-editmark
+	     :reject-func sem-delete-editmark
+	     :include-author t
+	     :export sem-export-comment)
+    
+    (blue-annotation :open-marker "{ab>" :close-marker "<ab}"
+		 :marker-face (:foreground "#74C7EC" :background "#1E1E2E" :weight ultra-light)
+		 :face (:foreground "#74C7EC" :background "#1E1E2E")
+	     :keymap sem-editmark-content-map
+	     :help-echo "Blue annotation. Right-click, s-click or s-o for menu."
+	     :accept-func sem-delete-editmark
+	     :reject-func sem-delete-editmark
+	     :include-author t
+	     :export sem-export-comment)
+    
+    (green-annotation :open-marker "{ag>" :close-marker "<ag}"
+		 :marker-face (:foreground "#A6E3A1" :background "#1E1E2E" :weight ultra-light)
+		 :face (:foreground "#A6E3A1" :background "#1E1E2E")
+	     :keymap sem-editmark-content-map
+	     :help-echo "Green annotation. Right-click, s-click or s-o for menu."
+	     :accept-func sem-delete-editmark
+	     :reject-func sem-delete-editmark
+	     :include-author t
+	     :export sem-export-comment)
+    
+    (purple-annotation :open-marker "{ap>" :close-marker "<ap}"
+		 :marker-face (:foreground "#CBA6F7" :background "#1E1E2E" :weight ultra-light)
+		 :face (:foreground "#CBA6F7" :background "#1E1E2E")
+	     :keymap sem-editmark-content-map
+	     :help-echo "Purple annotation. Right-click, s-click or s-o for menu."
+	     :accept-func sem-delete-editmark
+	     :reject-func sem-delete-editmark
+	     :include-author t
+	     :export sem-export-comment)
 
+  (red-annotation :open-marker "{ap>" :close-marker "<ap}"
+	 :marker-face (:foreground "#F38BA8" :background "#1E1E2E" :weight ultra-light)
+	 :face (:foreground "#F38BA8" :background "#1E1E2E")
+     :keymap sem-editmark-content-map
+     :help-echo "Red annotation. Right-click, s-click or s-o for menu."
+     :accept-func sem-delete-editmark
+     :reject-func sem-delete-editmark
+     :include-author t
+     :export sem-export-comment)
+  
     (audio :open-marker "{a>" :close-marker "<a}"
 	   :marker-face (:foreground "violet" :weight ultra-light)
 	   :face (:foreground "violet" :weight bold)
@@ -1325,7 +1375,7 @@ editmark is the full text including the markers."
 
 (defhydra sem-insert (:color blue :hint nil :columns 3)
      "Editmark insert"
-     ("a" (sem-insert 'audio) "audio")
+     ("s" (sem-insert 'audio) "audio")
      ("v" (sem-insert 'video) "video")
      ("m" (sem-insert 'comment) "comment")
      ("r" (sem-insert 'reply) "reply")
@@ -1341,6 +1391,11 @@ editmark is the full text including the markers."
      ("hy" (sem-insert 'yellow-highlight) "yellow")
      ("hr" (sem-insert 'red-highlight) "red")
      ("hp" (sem-insert 'purple-highlight) "purple")
+     ("ay" (sem-insert 'yellow-annotation) "yellow")
+     ("ab" (sem-insert 'blue-annotation) "blue")
+     ("ag" (sem-insert 'green-annotation) "green")
+     ("ar" (sem-insert 'red-annotation) "red")
+     ("ap" (sem-insert 'purple-annotation) "purple")
      ("n" sem-next-editmark "next")
      ("p" sem-previous-editmark "previous")
      ("g" sem-track-change-mode "toggle track changes")

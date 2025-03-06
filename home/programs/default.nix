@@ -7,5 +7,7 @@
     ./kitty.nix
     ./compression.nix
     ./mpv.nix
+    ./sioyek.nix
+    ./xdg.nix
   ];
 }
