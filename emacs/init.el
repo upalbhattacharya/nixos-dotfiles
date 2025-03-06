@@ -198,6 +198,11 @@
   (evil-ex-define-cmd "wq" 'save-and-kill-this-buffer)
   (defun save-and-kill-this-buffer()(interactive)(save-buffer)(kill-current-buffer))
   )
+(use-package evil-surround
+  :demand t
+  :ensure (:wait t :host github :repo "emacs-evil/evil-surround")
+  :config
+  (global-evil-surround-mode 1))
 
 (use-package org
   :demand t
@@ -439,30 +444,43 @@
   (setq citar-org-roam-note-title-template "${title}")
   (setq citar-org-roam-capture-template-key "l"))
 
-(use-package corfu
+;; (use-package corfu
+;;   :demand t
+;;   :ensure (:wait t :host github :repo "minad/corfu")
+;;   ;; Optional customizations
+;;   ;; :custom
+;;   ;; (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
+;;   ;; (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
+;;   ;; (corfu-quit-no-match nil)      ;; Never quit, even if there is no match
+;;   ;; (corfu-preview-current nil)    ;; Disable current candidate preview
+;;   ;; (corfu-preselect 'prompt)      ;; Preselect the prompt
+;;   ;; (corfu-on-exact-match nil)     ;; Configure handling of exact matches
+
+;;   ;; Enable Corfu only for certain modes. See also `global-corfu-modes'.
+;;   ;; :hook ((prog-mode . corfu-mode)
+;;   ;;        (shell-mode . corfu-mode)
+;;   ;;        (eshell-mode . corfu-mode))
+
+;;   ;; Recommended: Enable Corfu globally.  This is recommended since Dabbrev can
+;;   ;; be used globally (M-/).  See also the customization variable
+;;   ;; `global-corfu-modes' to exclude certain modes.
+;;   :init
+;;   (global-corfu-mode)
+;;   :config
+;;   (setq corfu-auto-prefix 2)
+;;   ;; Enable auto completion and configure quitting
+;;   (setq corfu-auto t
+;;         corfu-quit-no-match 'separator) ;; or t
+;;   )
+
+;; Remove for Emacs 31
+(use-package corfu-terminal
   :demand t
-  :ensure (:wait t :host github :repo "minad/corfu")
-  ;; Optional customizations
-  ;; :custom
-  ;; (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
-  ;; (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
-  ;; (corfu-quit-no-match nil)      ;; Never quit, even if there is no match
-  ;; (corfu-preview-current nil)    ;; Disable current candidate preview
-  ;; (corfu-preselect 'prompt)      ;; Preselect the prompt
-  ;; (corfu-on-exact-match nil)     ;; Configure handling of exact matches
-
-  ;; Enable Corfu only for certain modes. See also `global-corfu-modes'.
-  ;; :hook ((prog-mode . corfu-mode)
-  ;;        (shell-mode . corfu-mode)
-  ;;        (eshell-mode . corfu-mode))
-
-  ;; Recommended: Enable Corfu globally.  This is recommended since Dabbrev can
-  ;; be used globally (M-/).  See also the customization variable
-  ;; `global-corfu-modes' to exclude certain modes.
-  :init
-  (global-corfu-mode)
+  :ensure (:wait t :host "codeberg.org" :repo "akib/emacs-corfu-terminal")
   :config
-  (setq corfu-auto-prefix 2))
+  (unless (display-graphic-p)
+    (corfu-terminal-mode +1))
+  )
 
 ;; ;; Add extensions
 ;; (use-package cape
@@ -541,7 +559,11 @@
    (nix-mode . lsp-deferred)
    ;; if you want which-key integration
    (lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp-deferred)
+  :commands lsp-deferred
+  :config
+  (setq lsp-diagnostics-provider :none)
+  (setq lsp-signature-render-documentation nil)
+  (setq lsp-signature-auto-activate nil))
 
 (use-package lsp-ui
   :demand t
@@ -551,6 +573,7 @@
   (setq lsp-ui-doc-enable +1)
   (setq lsp-ui-doc-position 'at-point)
   (setq lsp-ui-doc-delay 3)
+  (setq lsp-ui-flyceck-enable 1)
   :commands lsp-ui-mode)
 
 (use-package reformatter
@@ -898,14 +921,14 @@
   (elfeed-org)
   (setq rmh-elfeed-org-files (list "~/org/RSS Feeds.org")))
 
-;; (use-package company
-;;   :demand t
-;;   :ensure (:wait t :host github :repo "company-mode/company-mode")
-;;   :init
-;;   (global-company-mode)
-;;   :config
-;;   (setq company-minimum-prefix-length 2)
-;;   (setq company-idle-delay 0.1))
+(use-package company
+  :demand t
+  :ensure (:wait t :host github :repo "company-mode/company-mode")
+  :init
+  (global-company-mode)
+  :config
+  (setq company-minimum-prefix-length 2)
+  (setq company-idle-delay 0.1))
 
 ;; Scimax
 (org-babel-load-file "~/.emacs.d/scimax/scimax-editmarks.org")
