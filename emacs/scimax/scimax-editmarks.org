@@ -59,10 +59,12 @@ CLOSED: [2022-09-30 Fri 13:40]
 
 
 
+
 This would require a more sophisticated parser. If you need this, you should probably look at a sexp based syntax, e.g. (@-insert "some text"), or a special block.
 
 ** DONE disable flyspell/check in at least the typo editmarks.
 CLOSED: [2023-05-30 Tue 14:50]
+
 
 
 
@@ -103,6 +105,7 @@ In flyspell, continue if not on an editmark."
 
 ** DONE Metadata in editmarks
    CLOSED: [2021-06-04 Fri 19:39]
+
 
 
 
@@ -337,175 +340,176 @@ To define an editmark we need to define open and close markers, and the faces fo
 Export functions should take one argument, the backend as a symbol, and they are responsible for replacing the editmark with the new markup suitable for the backend. Example functions are in [[id:53446467-2C90-49B5-B0E2-09FB347B2B21][Export functions]].
 
 #+BEGIN_SRC emacs-lisp
-    (defvar sem-editmarks
-      `((delete :open-marker "{>-" :close-marker "-<}"
-    	    :marker-face (:foreground "#F38BA8" :weight ultra-light :strike-through t)
-    	    :face (:foreground "#F38BA8" :weight bold :strike-through t)
-    	    :keymap sem-editmark-content-map
-    	    :help-echo "Deletion. Right-click, s-click or s-o for menu."
-    	    :accept-func sem-delete-editmark
-    	    :reject-func sem-clear-editmark
-    	    :export sem-export-delete)
+  (defvar sem-editmarks
+    `((delete :open-marker "{>-" :close-marker "-<}"
+  	    :marker-face (:foreground "#F38BA8" :weight ultra-light :strike-through t)
+  	    :face (:foreground "#F38BA8" :weight bold :strike-through t)
+  	    :keymap sem-editmark-content-map
+  	    :help-echo "Deletion. Right-click, s-click or s-o for menu."
+  	    :accept-func sem-delete-editmark
+  	    :reject-func sem-clear-editmark
+  	    :export sem-export-delete)
 
-        (insert :open-marker "{>+" :close-marker "+<}"
-    	    :marker-face (:foreground "#94E2D5" :weight ultra-light)
-    	    :face (:foreground "#94E2D5" :weight bold)
-    	    :keymap sem-editmark-content-map
-    	    :help-echo "Insertion. Right-click, s-click or s-o for menu."
-    	    :accept-func sem-clear-editmark
-    	    :reject-func sem-delete-editmark
-    	    :export sem-export-insert)
+      (insert :open-marker "{>+" :close-marker "+<}"
+  	    :marker-face (:foreground "#94E2D5" :weight ultra-light)
+  	    :face (:foreground "#94E2D5" :weight bold)
+  	    :keymap sem-editmark-content-map
+  	    :help-echo "Insertion. Right-click, s-click or s-o for menu."
+  	    :accept-func sem-clear-editmark
+  	    :reject-func sem-delete-editmark
+  	    :export sem-export-insert)
 
-        (comment :open-marker "{>~" :close-marker "~<}"
-    	     :marker-face (:background "#A6ADC8" :foreground "#1E1E2E" :weight ultra-light)
-    	     :face (:background "#A6ADC8" :foreground "#1E1E2E" :weight bold)
-    	     :keymap sem-editmark-content-map
-    	     :help-echo "Comment. Right-click, s-click or s-o for menu."
-    	     :accept-func sem-delete-editmark
-    	     :reject-func sem-delete-editmark
-    	     :include-author t
-    	     :export sem-export-comment)
-
-        (reply :open-marker "{r>" :close-marker "<r}"
-    	   :marker-face (:foreground "#F5C2E7"  :weight ultra-light)
-    	   :face (:foreground "#F5C2E7" :weight bold)
-    	   :keymap sem-editmark-content-map
-    	   :help-echo "Reply. Right-click, s-click or s-o for menu."
-    	   :accept-func sem-delete-editmark
-    	   :reject-func sem-delete-editmark
-    	   :include-author t
-    	   :export sem-export-comment)
-
-        (task :open-marker "{>*" :close-marker "*<}"
-    	  :marker-face (:foreground "#F9E2AF" :weight ultra-light)
-    	  :face (:foreground "#F9E2AF" :weight bold)
-    	  :keymap sem-editmark-content-map
-    	  :help-echo "Task. Right-click, s-click or s-o for menu."
-    	  :accept-func sem-delete-editmark
-    	  :export sem-export-task)
-
-        (typo :open-marker "{>." :close-marker ".<}"
-    	  :marker-face (:foreground "#B95F89"  :weight ultra-light)
-    	  :face (:foreground "#B95F89" :weight bold)
-    	  :keymap ,(let ((map (make-sparse-keymap)))
-    		     (define-key map (kbd "4") 'sem-editmark-spellcheck-typo)
-    		     (define-key map (kbd "<return>") 'sem-editmark-spellcheck-typo)
-    		     map)
-    	  :help-echo "Typo. Type 4 to fix this.")
-
-        (blue-highlight :open-marker "{bh>" :close-marker "<bh}"
-    		    :marker-face (:background "#74C7EC" :foreground "#1E1E2E" :weight ultra-light)
-    		    :face (:background "#74C7EC" :foreground "#1E1E2E")
-    		    :keymap sem-editmark-content-map
-    		    :help-echo "Blue highlight. Right-click, s-click or s-o for menu.")
-
-        (green-highlight :open-marker "{hg>" :close-marker "<hg}"
-    		     :marker-face (:background "#A6E3A1" :foreground "#1E1E2E"  :weight ultra-light)
-    		     :face (:background "#A6E3A1" :foreground "#1E1E2E")
-    		     :keymap sem-editmark-content-map
-    		     :help-echo "green highlight. Right-click, s-click or s-o for menu.")
-
-        (purple-highlight :open-marker "{hp>" :close-marker "<hp}"
-    		    :marker-face (:background "#CBA6F7" :foreground "#1E1E2E"  :weight ultra-light)
-    		    :face (:background "#CBA6F7" :foreground "#1E1E2E" )
-    		    :keymap sem-editmark-content-map
-    		    :help-echo "purple highlight. Right-click, s-click or s-o for menu.")
-
-        (yellow-highlight :open-marker "{hy>" :close-marker "<hy}"
-    		      :marker-face (:background "#F9E2AF" :foreground "#1E1E2E" :weight ultra-light)
-    		      :face (:background "#F9E2AF" :foreground "#1E1E2E")
-    		      :keymap sem-editmark-content-map
-    		      :help-echo "yellow highlight. Right-click, s-click or s-o for menu.")
-        
-        (red-highlight :open-marker "{hr>" :close-marker "<hr}"
-      	      :marker-face (:background "#F38BA8" :foreground "#1E1E2E" :weight ultra-light)
-      	      :face (:background "#F38BA8" :foreground "#1E1E2E")
-      	      :keymap sem-editmark-content-map
-      	      :help-echo "red highlight. Right-click, s-click or s-o for menu.")
-        
-        (yellow-annotation :open-marker "{ay>" :close-marker "<ay}"
-    		 :marker-face (:foreground "#F9E2AF" :background "#1E1E2E" :weight ultra-light)
-    		 :face (:foreground "#F9E2AF" :background "#1E1E2E")
-    	     :keymap sem-editmark-content-map
-    	     :help-echo "Yellow annotation. Right-click, s-click or s-o for menu."
-    	     :accept-func sem-delete-editmark
-    	     :reject-func sem-delete-editmark
-    	     :include-author t
-    	     :export sem-export-comment)
-        
-        (blue-annotation :open-marker "{ab>" :close-marker "<ab}"
-    		 :marker-face (:foreground "#74C7EC" :background "#1E1E2E" :weight ultra-light)
-    		 :face (:foreground "#74C7EC" :background "#1E1E2E")
-    	     :keymap sem-editmark-content-map
-    	     :help-echo "Blue annotation. Right-click, s-click or s-o for menu."
-    	     :accept-func sem-delete-editmark
-    	     :reject-func sem-delete-editmark
-    	     :include-author t
-    	     :export sem-export-comment)
-        
-        (green-annotation :open-marker "{ag>" :close-marker "<ag}"
-    		 :marker-face (:foreground "#A6E3A1" :background "#1E1E2E" :weight ultra-light)
-    		 :face (:foreground "#A6E3A1" :background "#1E1E2E")
-    	     :keymap sem-editmark-content-map
-    	     :help-echo "Green annotation. Right-click, s-click or s-o for menu."
-    	     :accept-func sem-delete-editmark
-    	     :reject-func sem-delete-editmark
-    	     :include-author t
-    	     :export sem-export-comment)
-        
-        (purple-annotation :open-marker "{ap>" :close-marker "<ap}"
-    		 :marker-face (:foreground "#CBA6F7" :background "#1E1E2E" :weight ultra-light)
-    		 :face (:foreground "#CBA6F7" :background "#1E1E2E")
-    	     :keymap sem-editmark-content-map
-    	     :help-echo "Purple annotation. Right-click, s-click or s-o for menu."
-    	     :accept-func sem-delete-editmark
-    	     :reject-func sem-delete-editmark
-    	     :include-author t
-    	     :export sem-export-comment)
-
-      (red-annotation :open-marker "{ap>" :close-marker "<ap}"
-  		 :marker-face (:foreground "#F38BA8" :background "#1E1E2E" :weight ultra-light)
-  		 :face (:foreground "#F38BA8" :background "#1E1E2E")
+      (comment :open-marker "{>~" :close-marker "~<}"
+  	     :marker-face (:background "#A6ADC8" :foreground "#1E1E2E" :weight ultra-light)
+  	     :face (:background "#A6ADC8" :foreground "#1E1E2E" :weight bold)
   	     :keymap sem-editmark-content-map
-  	     :help-echo "Red annotation. Right-click, s-click or s-o for menu."
+  	     :help-echo "Comment. Right-click, s-click or s-o for menu."
   	     :accept-func sem-delete-editmark
   	     :reject-func sem-delete-editmark
   	     :include-author t
   	     :export sem-export-comment)
-        (audio :open-marker "{a>" :close-marker "<a}"
-    	   :marker-face (:foreground "violet" :weight ultra-light)
-    	   :face (:foreground "violet" :weight bold)
-    	   :mouse-face highlight
-    	   :keymap sem-editmark-audio-map
-    	   :help-echo sem-audio-tooltip
-    	   :accept-func sem-delete-editmark
-    	   :reject-func sem-clear-editmark)
 
-        (video :open-marker "{v>"
-    	   :close-marker "<v}"
-    	   :help-echo "A video editmark"
-    	   :keymap sem-editmark-video-map
-    	   :marker-face (:foreground "MediumOrchid4" :weight ultra-light)
-    	   :face (:foreground "MediumOrchid4" :weight bold)
-    	   :mouse-face highlight)
+      (reply :open-marker "{r>" :close-marker "<r}"
+  	   :marker-face (:foreground "#F5C2E7"  :weight ultra-light)
+  	   :face (:foreground "#F5C2E7" :weight bold)
+  	   :keymap sem-editmark-content-map
+  	   :help-echo "Reply. Right-click, s-click or s-o for menu."
+  	   :accept-func sem-delete-editmark
+  	   :reject-func sem-delete-editmark
+  	   :include-author t
+  	   :export sem-export-comment)
 
-        (file :open-marker "{>|"
-    	  :close-marker "|<}"
-    	  :marker-face (:foreground "cadet blue" :weight ultra-light)
-    	  :face (:foreground "cadet blue" :weight bold)
-    	  :help-echo "File location. s-↓ to open. s-→ to open in other window."
-    	  :include-author nil
-    	  :export sem-file-export
-    	  :keymap ,(let ((map (make-sparse-keymap)))
-    		     (define-key map (kbd "s-<down>") 'sem-follow-file)
-    		     (define-key map (kbd "s-<right>") (lambda ()
-    							 (interactive)
-    							 (sem-follow-file t)))
-    		     (define-key map (kbd "C-n") 'sem-next-editmark)
-    		     (define-key map (kbd "C-p") 'sem-previous-editmark)
-    		     map)))
+      (task :open-marker "{>*" :close-marker "*<}"
+  	  :marker-face (:foreground "#F9E2AF" :weight ultra-light)
+  	  :face (:foreground "#F9E2AF" :weight bold)
+  	  :keymap sem-editmark-content-map
+  	  :help-echo "Task. Right-click, s-click or s-o for menu."
+  	  :accept-func sem-delete-editmark
+  	  :export sem-export-task)
 
-      "The default editmarks")
+      (typo :open-marker "{>." :close-marker ".<}"
+  	  :marker-face (:foreground "#B95F89"  :weight ultra-light)
+  	  :face (:foreground "#B95F89" :weight bold)
+  	  :keymap ,(let ((map (make-sparse-keymap)))
+  		     (define-key map (kbd "4") 'sem-editmark-spellcheck-typo)
+  		     (define-key map (kbd "<return>") 'sem-editmark-spellcheck-typo)
+  		     map)
+  	  :help-echo "Typo. Type 4 to fix this.")
+
+      (blue-highlight :open-marker "{bh>" :close-marker "<bh}"
+  		    :marker-face (:background "#74C7EC" :foreground "#1E1E2E" :weight ultra-light)
+  		    :face (:background "#74C7EC" :foreground "#1E1E2E")
+  		    :keymap sem-editmark-content-map
+  		    :help-echo "Blue highlight. Right-click, s-click or s-o for menu.")
+
+      (green-highlight :open-marker "{hg>" :close-marker "<hg}"
+  		     :marker-face (:background "#A6E3A1" :foreground "#1E1E2E"  :weight ultra-light)
+  		     :face (:background "#A6E3A1" :foreground "#1E1E2E")
+  		     :keymap sem-editmark-content-map
+  		     :help-echo "green highlight. Right-click, s-click or s-o for menu.")
+
+      (purple-highlight :open-marker "{hp>" :close-marker "<hp}"
+  		    :marker-face (:background "#CBA6F7" :foreground "#1E1E2E"  :weight ultra-light)
+  		    :face (:background "#CBA6F7" :foreground "#1E1E2E" )
+  		    :keymap sem-editmark-content-map
+  		    :help-echo "purple highlight. Right-click, s-click or s-o for menu.")
+
+      (yellow-highlight :open-marker "{hy>" :close-marker "<hy}"
+  		      :marker-face (:background "#F9E2AF" :foreground "#1E1E2E" :weight ultra-light)
+  		      :face (:background "#F9E2AF" :foreground "#1E1E2E")
+  		      :keymap sem-editmark-content-map
+  		      :help-echo "yellow highlight. Right-click, s-click or s-o for menu.")
+      
+      (red-highlight :open-marker "{hr>" :close-marker "<hr}"
+    	      :marker-face (:background "#F38BA8" :foreground "#1E1E2E" :weight ultra-light)
+    	      :face (:background "#F38BA8" :foreground "#1E1E2E")
+    	      :keymap sem-editmark-content-map
+    	      :help-echo "red highlight. Right-click, s-click or s-o for menu.")
+      
+      (yellow-annotation :open-marker "{ay>" :close-marker "<ay}"
+  		 :marker-face (:foreground "#F9E2AF" :background "#1E1E2E" :weight ultra-light)
+  		 :face (:foreground "#F9E2AF" :background "#1E1E2E")
+  	     :keymap sem-editmark-content-map
+  	     :help-echo "Yellow annotation. Right-click, s-click or s-o for menu."
+  	     :accept-func sem-delete-editmark
+  	     :reject-func sem-delete-editmark
+  	     :include-author t
+  	     :export sem-export-comment)
+      
+      (blue-annotation :open-marker "{ab>" :close-marker "<ab}"
+  		 :marker-face (:foreground "#74C7EC" :background "#1E1E2E" :weight ultra-light)
+  		 :face (:foreground "#74C7EC" :background "#1E1E2E")
+  	     :keymap sem-editmark-content-map
+  	     :help-echo "Blue annotation. Right-click, s-click or s-o for menu."
+  	     :accept-func sem-delete-editmark
+  	     :reject-func sem-delete-editmark
+  	     :include-author t
+  	     :export sem-export-comment)
+      
+      (green-annotation :open-marker "{ag>" :close-marker "<ag}"
+  		 :marker-face (:foreground "#A6E3A1" :background "#1E1E2E" :weight ultra-light)
+  		 :face (:foreground "#A6E3A1" :background "#1E1E2E")
+  	     :keymap sem-editmark-content-map
+  	     :help-echo "Green annotation. Right-click, s-click or s-o for menu."
+  	     :accept-func sem-delete-editmark
+  	     :reject-func sem-delete-editmark
+  	     :include-author t
+  	     :export sem-export-comment)
+      
+      (purple-annotation :open-marker "{ap>" :close-marker "<ap}"
+  		 :marker-face (:foreground "#CBA6F7" :background "#1E1E2E" :weight ultra-light)
+  		 :face (:foreground "#CBA6F7" :background "#1E1E2E")
+  	     :keymap sem-editmark-content-map
+  	     :help-echo "Purple annotation. Right-click, s-click or s-o for menu."
+  	     :accept-func sem-delete-editmark
+  	     :reject-func sem-delete-editmark
+  	     :include-author t
+  	     :export sem-export-comment)
+
+    (red-annotation :open-marker "{ap>" :close-marker "<ap}"
+  	 :marker-face (:foreground "#F38BA8" :background "#1E1E2E" :weight ultra-light)
+  	 :face (:foreground "#F38BA8" :background "#1E1E2E")
+       :keymap sem-editmark-content-map
+       :help-echo "Red annotation. Right-click, s-click or s-o for menu."
+       :accept-func sem-delete-editmark
+       :reject-func sem-delete-editmark
+       :include-author t
+       :export sem-export-comment)
+    
+      (audio :open-marker "{a>" :close-marker "<a}"
+  	   :marker-face (:foreground "violet" :weight ultra-light)
+  	   :face (:foreground "violet" :weight bold)
+  	   :mouse-face highlight
+  	   :keymap sem-editmark-audio-map
+  	   :help-echo sem-audio-tooltip
+  	   :accept-func sem-delete-editmark
+  	   :reject-func sem-clear-editmark)
+
+      (video :open-marker "{v>"
+  	   :close-marker "<v}"
+  	   :help-echo "A video editmark"
+  	   :keymap sem-editmark-video-map
+  	   :marker-face (:foreground "MediumOrchid4" :weight ultra-light)
+  	   :face (:foreground "MediumOrchid4" :weight bold)
+  	   :mouse-face highlight)
+
+      (file :open-marker "{>|"
+  	  :close-marker "|<}"
+  	  :marker-face (:foreground "cadet blue" :weight ultra-light)
+  	  :face (:foreground "cadet blue" :weight bold)
+  	  :help-echo "File location. s-↓ to open. s-→ to open in other window."
+  	  :include-author nil
+  	  :export sem-file-export
+  	  :keymap ,(let ((map (make-sparse-keymap)))
+  		     (define-key map (kbd "s-<down>") 'sem-follow-file)
+  		     (define-key map (kbd "s-<right>") (lambda ()
+  							 (interactive)
+  							 (sem-follow-file t)))
+  		     (define-key map (kbd "C-n") 'sem-next-editmark)
+  		     (define-key map (kbd "C-p") 'sem-previous-editmark)
+  		     map)))
+
+    "The default editmarks")
 
 
 #+END_SRC
