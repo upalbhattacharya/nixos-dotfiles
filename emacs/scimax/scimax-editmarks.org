@@ -61,10 +61,20 @@ CLOSED: [2022-09-30 Fri 13:40]
 
 
 
+
+
+
+
+
 This would require a more sophisticated parser. If you need this, you should probably look at a sexp based syntax, e.g. (@-insert "some text"), or a special block.
 
 ** DONE disable flyspell/check in at least the typo editmarks.
 CLOSED: [2023-05-30 Tue 14:50]
+
+
+
+
+
 
 
 
@@ -107,6 +117,11 @@ In flyspell, continue if not on an editmark."
 
 ** DONE Metadata in editmarks
    CLOSED: [2021-06-04 Fri 19:39]
+
+
+
+
+
 
 
 
@@ -369,7 +384,7 @@ Export functions should take one argument, the backend as a symbol, and they are
   	     :help-echo "Comment. Right-click, s-click or s-o for menu."
   	     :accept-func sem-delete-editmark
   	     :reject-func sem-delete-editmark
-  	     :include-author t
+  	     :include-author nil
   	     :export sem-export-comment)
 
       (reply :open-marker "{r>" :close-marker "<r}"
@@ -379,7 +394,7 @@ Export functions should take one argument, the backend as a symbol, and they are
   	   :help-echo "Reply. Right-click, s-click or s-o for menu."
   	   :accept-func sem-delete-editmark
   	   :reject-func sem-delete-editmark
-  	   :include-author t
+  	   :include-author nil
   	   :export sem-export-comment)
 
       (task :open-marker "{>*" :close-marker "*<}"
@@ -414,6 +429,7 @@ Export functions should take one argument, the backend as a symbol, and they are
       (purple-highlight :open-marker "{hp>" :close-marker "<hp}"
   		    :marker-face (:background "#CBA6F7" :foreground "#1E1E2E"  :weight ultra-light)
   		    :face (:background "#CBA6F7" :foreground "#1E1E2E" )
+  		    :face (org-link (:background "#CBA6F7" :foreground "#1E1E2E"))
   		    :keymap sem-editmark-content-map
   		    :help-echo "purple highlight. Right-click, s-click or s-o for menu.")
 
@@ -436,7 +452,7 @@ Export functions should take one argument, the backend as a symbol, and they are
   	     :help-echo "Yellow annotation. Right-click, s-click or s-o for menu."
   	     :accept-func sem-delete-editmark
   	     :reject-func sem-delete-editmark
-  	     :include-author t
+  	     :include-author nil
   	     :export sem-export-comment)
       
       (blue-annotation :open-marker "{ab>" :close-marker "<ab}"
@@ -446,7 +462,7 @@ Export functions should take one argument, the backend as a symbol, and they are
   	     :help-echo "Blue annotation. Right-click, s-click or s-o for menu."
   	     :accept-func sem-delete-editmark
   	     :reject-func sem-delete-editmark
-  	     :include-author t
+  	     :include-author nil
   	     :export sem-export-comment)
       
       (green-annotation :open-marker "{ag>" :close-marker "<ag}"
@@ -456,7 +472,7 @@ Export functions should take one argument, the backend as a symbol, and they are
   	     :help-echo "Green annotation. Right-click, s-click or s-o for menu."
   	     :accept-func sem-delete-editmark
   	     :reject-func sem-delete-editmark
-  	     :include-author t
+  	     :include-author nil
   	     :export sem-export-comment)
       
       (purple-annotation :open-marker "{ap>" :close-marker "<ap}"
@@ -466,7 +482,7 @@ Export functions should take one argument, the backend as a symbol, and they are
   	     :help-echo "Purple annotation. Right-click, s-click or s-o for menu."
   	     :accept-func sem-delete-editmark
   	     :reject-func sem-delete-editmark
-  	     :include-author t
+  	     :include-author nil
   	     :export sem-export-comment)
 
     (red-annotation :open-marker "{ap>" :close-marker "<ap}"
@@ -476,7 +492,7 @@ Export functions should take one argument, the backend as a symbol, and they are
        :help-echo "Red annotation. Right-click, s-click or s-o for menu."
        :accept-func sem-delete-editmark
        :reject-func sem-delete-editmark
-       :include-author t
+       :include-author nil
        :export sem-export-comment)
     
       (audio :open-marker "{a>" :close-marker "<a}"
