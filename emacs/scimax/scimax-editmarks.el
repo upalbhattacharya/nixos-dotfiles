@@ -103,7 +103,7 @@
 	     :help-echo "Comment. Right-click, s-click or s-o for menu."
 	     :accept-func sem-delete-editmark
 	     :reject-func sem-delete-editmark
-	     :include-author t
+	     :include-author nil
 	     :export sem-export-comment)
 
     (reply :open-marker "{r>" :close-marker "<r}"
@@ -113,7 +113,7 @@
 	   :help-echo "Reply. Right-click, s-click or s-o for menu."
 	   :accept-func sem-delete-editmark
 	   :reject-func sem-delete-editmark
-	   :include-author t
+	   :include-author nil
 	   :export sem-export-comment)
 
     (task :open-marker "{>*" :close-marker "*<}"
@@ -147,7 +147,8 @@
 
     (purple-highlight :open-marker "{hp>" :close-marker "<hp}"
 		    :marker-face (:background "#CBA6F7" :foreground "#1E1E2E"  :weight ultra-light)
-		    :face (:background "#CBA6F7" :foreground "#1E1E2E" )
+		    :face (:background "#CBA6F7" :foreground "#1E1E2E" :inherit unspecified)
+		    :face (org-link (:background "#CBA6F7" :foreground "#1E1E2E"))
 		    :keymap sem-editmark-content-map
 		    :help-echo "purple highlight. Right-click, s-click or s-o for menu.")
 
@@ -170,7 +171,7 @@
 	     :help-echo "Yellow annotation. Right-click, s-click or s-o for menu."
 	     :accept-func sem-delete-editmark
 	     :reject-func sem-delete-editmark
-	     :include-author t
+	     :include-author nil
 	     :export sem-export-comment)
     
     (blue-annotation :open-marker "{ab>" :close-marker "<ab}"
@@ -180,7 +181,7 @@
 	     :help-echo "Blue annotation. Right-click, s-click or s-o for menu."
 	     :accept-func sem-delete-editmark
 	     :reject-func sem-delete-editmark
-	     :include-author t
+	     :include-author nil
 	     :export sem-export-comment)
     
     (green-annotation :open-marker "{ag>" :close-marker "<ag}"
@@ -190,7 +191,7 @@
 	     :help-echo "Green annotation. Right-click, s-click or s-o for menu."
 	     :accept-func sem-delete-editmark
 	     :reject-func sem-delete-editmark
-	     :include-author t
+	     :include-author nil
 	     :export sem-export-comment)
     
     (purple-annotation :open-marker "{ap>" :close-marker "<ap}"
@@ -200,7 +201,7 @@
 	     :help-echo "Purple annotation. Right-click, s-click or s-o for menu."
 	     :accept-func sem-delete-editmark
 	     :reject-func sem-delete-editmark
-	     :include-author t
+	     :include-author nil
 	     :export sem-export-comment)
 
   (red-annotation :open-marker "{ap>" :close-marker "<ap}"
@@ -210,7 +211,7 @@
      :help-echo "Red annotation. Right-click, s-click or s-o for menu."
      :accept-func sem-delete-editmark
      :reject-func sem-delete-editmark
-     :include-author t
+     :include-author nil
      :export sem-export-comment)
   
     (audio :open-marker "{a>" :close-marker "<a}"

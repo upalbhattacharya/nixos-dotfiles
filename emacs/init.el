@@ -146,6 +146,7 @@
   :demand t
   :ensure nil
   :config
+  (setq enable-local-variables :all)
   (setq warning-minimum-level :error)
   (setq confirm-kill-emacs 'y-or-n-p)
   (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 200)
