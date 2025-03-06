@@ -60,10 +60,12 @@ CLOSED: [2022-09-30 Fri 13:40]
 
 
 
+
 This would require a more sophisticated parser. If you need this, you should probably look at a sexp based syntax, e.g. (@-insert "some text"), or a special block.
 
 ** DONE disable flyspell/check in at least the typo editmarks.
 CLOSED: [2023-05-30 Tue 14:50]
+
 
 
 
@@ -105,6 +107,7 @@ In flyspell, continue if not on an editmark."
 
 ** DONE Metadata in editmarks
    CLOSED: [2021-06-04 Fri 19:39]
+
 
 
 
@@ -1969,65 +1972,70 @@ Finally we define a minor mode for the list view.
  I never remember all the things that are possible. Hydra menus solve that, and here we provide a context aware hydra menu that inserts editmarks when you are not on one, and provides actions for editmarks when you are on one. I bind it to H-m.
 
  #+BEGIN_SRC emacs-lisp
-   (defhydra sem-insert (:color blue :hint nil :columns 3)
-     "Editmark insert"
-     ("a" (sem-insert 'audio) "audio")
-     ("v" (sem-insert 'video) "video")
-     ("m" (sem-insert 'comment) "comment")
-     ("r" (sem-insert 'reply) "reply")
-     ("i" (sem-insert 'insert) "insert")
-     ("d" (sem-insert 'delete) "delete")
-     ("f" (sem-insert-file-editmark) "file")
-     ("t" (sem-insert 'typo) "typo")
-     ("k" (sem-insert 'task) "task")
-     ("c" (insert "✓") "checkmark")
-     ("2" (sem-insert 'contact) "contact")
-     ("hb" (sem-insert 'blue-highlight) "blue")
-     ("hg" (sem-insert 'green-highlight) "green")
-     ("hy" (sem-insert 'yellow-highlight) "yellow")
-     ("hr" (sem-insert 'red-highlight) "red")
-     ("hp" (sem-insert 'purple-highlight) "purple")
-     ("n" sem-next-editmark "next")
-     ("p" sem-previous-editmark "previous")
-     ("g" sem-track-change-mode "toggle track changes")
-     ("l" sem-editmark-display "List all")
-     ("q" sem-jump-to-editmark "Jump to editmark")
-     ("V" sem-jump-to-visible-editmark "Jump to visible")
-     ("A" sem-action/body "action menu"))
+      (defhydra sem-insert (:color blue :hint nil :columns 3)
+        "Editmark insert"
+        ("s" (sem-insert 'audio) "audio")
+        ("v" (sem-insert 'video) "video")
+        ("m" (sem-insert 'comment) "comment")
+        ("r" (sem-insert 'reply) "reply")
+        ("i" (sem-insert 'insert) "insert")
+        ("d" (sem-insert 'delete) "delete")
+        ("f" (sem-insert-file-editmark) "file")
+        ("t" (sem-insert 'typo) "typo")
+        ("k" (sem-insert 'task) "task")
+        ("c" (insert "✓") "checkmark")
+        ("2" (sem-insert 'contact) "contact")
+        ("hb" (sem-insert 'blue-highlight) "blue")
+        ("hg" (sem-insert 'green-highlight) "green")
+        ("hy" (sem-insert 'yellow-highlight) "yellow")
+        ("hr" (sem-insert 'red-highlight) "red")
+        ("hp" (sem-insert 'purple-highlight) "purple")
+        ("ay" (sem-insert 'yellow-annotation) "yellow")
+        ("ab" (sem-insert 'blue-annotation) "blue")
+        ("ag" (sem-insert 'green-annotation) "green")
+        ("ar" (sem-insert 'red-annotation) "red")
+        ("ap" (sem-insert 'purple-annotation) "purple")
+        ("n" sem-next-editmark "next")
+        ("p" sem-previous-editmark "previous")
+        ("g" sem-track-change-mode "toggle track changes")
+        ("l" sem-editmark-display "List all")
+        ("q" sem-jump-to-editmark "Jump to editmark")
+        ("V" sem-jump-to-visible-editmark "Jump to visible")
+        ("A" sem-action/body "action menu"))
 
 
-   (defhydra sem-action (:color red :hint nil :columns 3)
-     "Editmark action"
-     ("a" sem-accept-editmark "accept")
-     ("A" sem-accept-and-next-editmark "accept and next")
-     ("C-a" sem-accept-all-editmarks "accept all")
-     ("r" sem-reject-editmark "reject")
-     ("R" sem-reject-and-next-editmark "reject and next")
-     ("C-r" sem-reject-all-editmarks "reject all")
-     ("c" sem-clear-editmark "clear")
-     ("C" sem-clear-and-next-editmark "clear and next")
-     ("C-c" sem-clear-all-editmarks "clear all")
-     ("d" sem-delete-editmark "delete")
-     ("D" sem-delete-and-next-editmark "delete and next")
-     ("C-d" sem-delete-all-editmarks "Delete all")
-     ("l" sem-editmark-display "List all")
-     ("n" sem-next-editmark "next")
-     ("p" sem-previous-editmark "previous")
-     ("4" sem-editmark-spellcheck-typo "spellcheck typo")
-     ("q" sem-jump-to-editmark "Jump to editmark")
-     ("v" sem-jump-to-visible-editmark "Jump to visible")
-     ("g" sem-track-change-mode "toggle track changes"))
+      (defhydra sem-action (:color red :hint nil :columns 3)
+        "Editmark action"
+        ("a" sem-accept-editmark "accept")
+        ("A" sem-accept-and-next-editmark "accept and next")
+        ("C-a" sem-accept-all-editmarks "accept all")
+        ("r" sem-reject-editmark "reject")
+        ("R" sem-reject-and-next-editmark "reject and next")
+        ("C-r" sem-reject-all-editmarks "reject all")
+        ("c" sem-clear-editmark "clear")
+        ("C" sem-clear-and-next-editmark "clear and next")
+        ("C-c" sem-clear-all-editmarks "clear all")
+        ("d" sem-delete-editmark "delete")
+        ("D" sem-delete-and-next-editmark "delete and next")
+        ("C-d" sem-delete-all-editmarks "Delete all")
+        ("l" sem-editmark-display "List all")
+        ("n" sem-next-editmark "next")
+        ("p" sem-previous-editmark "previous")
+        ("4" sem-editmark-spellcheck-typo "spellcheck typo")
+        ("q" sem-jump-to-editmark "Jump to editmark")
+        ("v" sem-jump-to-visible-editmark "Jump to visible")
+        ("g" sem-track-change-mode "toggle track changes"))
 
 
-   (defun sem-hydra ()
-     "Open the editmark hydras depending on context of point.
-   On an editmark open the action menu, otherwise the insert menu."
-     (interactive)
-     (if (get-text-property (point) 'sem-type)
-         (sem-action/body)
-       (sem-insert/body)))
+      (defun sem-hydra ()
+        "Open the editmark hydras depending on context of point.
+      On an editmark open the action menu, otherwise the insert menu."
+        (interactive)
+        (if (get-text-property (point) 'sem-type)
+            (sem-action/body)
+          (sem-insert/body)))
 
-(global-set-key (kbd "C-c M-v") 'sem-hydra)
+   (global-set-key (kbd "C-c M-v") 'sem-hydra)
  #+END_SRC
 
  #+RESULTS:
