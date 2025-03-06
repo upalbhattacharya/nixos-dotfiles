@@ -387,6 +387,7 @@
            :target (file+olp "Journal %<%Y>.org" ("%<%Y-%m>" "%<%Y-%m-%d>"))
            :unnarrowed t)))
   (setq org-roam-mode-sections (list #'org-roam-backlinks-section #'org-roam-reflinks-section))
+  (setq org-roam-completion-everywhere t)
   (setq org-roam-db-autosync-mode 1)
   (setq org-roam-db-update-on-save 1))
 
@@ -438,30 +439,30 @@
   (setq citar-org-roam-note-title-template "${title}")
   (setq citar-org-roam-capture-template-key "l"))
 
-(use-package corfu
-  :demand t
-  :ensure (:wait t :host github :repo "minad/corfu")
-  ;; Optional customizations
-  ;; :custom
-  ;; (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
-  ;; (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
-  ;; (corfu-quit-no-match nil)      ;; Never quit, even if there is no match
-  ;; (corfu-preview-current nil)    ;; Disable current candidate preview
-  ;; (corfu-preselect 'prompt)      ;; Preselect the prompt
-  ;; (corfu-on-exact-match nil)     ;; Configure handling of exact matches
+;; (use-package corfu
+;;   :demand t
+;;   :ensure (:wait t :host github :repo "minad/corfu")
+;;   ;; Optional customizations
+;;   ;; :custom
+;;   ;; (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
+;;   ;; (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
+;;   ;; (corfu-quit-no-match nil)      ;; Never quit, even if there is no match
+;;   ;; (corfu-preview-current nil)    ;; Disable current candidate preview
+;;   ;; (corfu-preselect 'prompt)      ;; Preselect the prompt
+;;   ;; (corfu-on-exact-match nil)     ;; Configure handling of exact matches
 
-  ;; Enable Corfu only for certain modes. See also `global-corfu-modes'.
-  ;; :hook ((prog-mode . corfu-mode)
-  ;;        (shell-mode . corfu-mode)
-  ;;        (eshell-mode . corfu-mode))
+;;   ;; Enable Corfu only for certain modes. See also `global-corfu-modes'.
+;;   ;; :hook ((prog-mode . corfu-mode)
+;;   ;;        (shell-mode . corfu-mode)
+;;   ;;        (eshell-mode . corfu-mode))
 
-  ;; Recommended: Enable Corfu globally.  This is recommended since Dabbrev can
-  ;; be used globally (M-/).  See also the customization variable
-  ;; `global-corfu-modes' to exclude certain modes.
-  :init
-  (global-corfu-mode)
-  :config
-  (setq corfu-auto-prefix 2))
+;;   ;; Recommended: Enable Corfu globally.  This is recommended since Dabbrev can
+;;   ;; be used globally (M-/).  See also the customization variable
+;;   ;; `global-corfu-modes' to exclude certain modes.
+;;   :init
+;;   (global-corfu-mode)
+;;   :config
+;;   (setq corfu-auto-prefix 2))
 
 (use-package git-auto-commit-mode
   :demand t
@@ -873,6 +874,14 @@
   (elfeed-org)
   (setq rmh-elfeed-org-files (list "~/org/RSS Feeds.org")))
 
+(use-package company
+  :demand t
+  :ensure (:wait t :host github :repo "company-mode/company-mode")
+  :init
+  (global-company-mode)
+  :config
+  (setq company-minimum-prefix-length 2))
+
 ;; Scimax
 (org-babel-load-file "~/.emacs.d/scimax/scimax-editmarks.org")
 (add-hook 'org-mode-hook 'sem-mode)
@@ -930,6 +939,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-preview ((t (:background "#6C7086" :foreground "#F5C2e7"))))
  '(org-agenda-structure ((t (:foreground "#f38ba8" :weight bold))))
  '(org-super-agenda-header ((t (:foreground "#94e2d5" :slant italic :weight light)))))
 ;;; Custom
