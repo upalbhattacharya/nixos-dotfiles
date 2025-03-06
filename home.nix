@@ -73,6 +73,12 @@ in
       pkgs.vivaldi
       pkgs.openvpn
       pkgs.ispell
+      pkgs.xdg.mime = {
+    enable = true;
+    defaultApplications = {
+      "application/pdf" = "sioyek.desktop";
+    };
+  };
     ];
 
     file = { };
