@@ -9,7 +9,7 @@
       "search_highlight_color" = "#f9e2af";
       "link_highlight_color" = "#89b4fa";
       "synctex_highlight_color" = "#a6e3a1";
-      "highlight_color_a" = "#f9e2af"
+      "highlight_color_a" = "#f9e2af";
       "highlight_color_b" = "#a6e3a1";
       "highlight_color_c" = "#89dceb";
       "highlight_color_d" = "#eba0ac";
