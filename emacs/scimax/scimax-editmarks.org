@@ -87,10 +87,12 @@ CLOSED: [2022-09-30 Fri 13:40]
 
 
 
+
 This would require a more sophisticated parser. If you need this, you should probably look at a sexp based syntax, e.g. (@-insert "some text"), or a special block.
 
 ** DONE disable flyspell/check in at least the typo editmarks.
 CLOSED: [2023-05-30 Tue 14:50]
+
 
 
 
@@ -159,6 +161,7 @@ In flyspell, continue if not on an editmark."
 
 ** DONE Metadata in editmarks
    CLOSED: [2021-06-04 Fri 19:39]
+
 
 
 
@@ -442,7 +445,7 @@ Export functions should take one argument, the backend as a symbol, and they are
 
         (comment :open-marker "{>~" :close-marker "~<}"
     	     :marker-face (:foreground "#A6ADC8" :weight ultra-light
-                                     :underline (:color "#A6AC8" :style line :position -10)
+                                     :underline (:color "#A6AC8" :style line :position -10))
     	     :face (:foreground "#A6ADC8" :weight bold :underline (:color "#A6AC8" :style line :position -10))
     	     :keymap sem-editmark-content-map
     	     :help-echo "Comment. Right-click, s-click or s-o for menu."
