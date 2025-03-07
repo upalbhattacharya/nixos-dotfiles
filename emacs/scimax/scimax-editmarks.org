@@ -88,10 +88,12 @@ CLOSED: [2022-09-30 Fri 13:40]
 
 
 
+
 This would require a more sophisticated parser. If you need this, you should probably look at a sexp based syntax, e.g. (@-insert "some text"), or a special block.
 
 ** DONE disable flyspell/check in at least the typo editmarks.
 CLOSED: [2023-05-30 Tue 14:50]
+
 
 
 
@@ -161,6 +163,7 @@ In flyspell, continue if not on an editmark."
 
 ** DONE Metadata in editmarks
    CLOSED: [2021-06-04 Fri 19:39]
+
 
 
 
