@@ -97,8 +97,8 @@
 	    :export sem-export-insert)
 
     (comment :open-marker "{>~" :close-marker "~<}"
-	     :marker-face (:background "#A6ADC8" :foreground "#1E1E2E" :weight ultra-light)
-	     :face (:foreground "#A6ADC8" :weight bold :underline (:color "#A6AC8" :style line :position -10))
+	     :marker-face (:foreground "#7F849C" :weight ultra-light)
+	     :face (:foreground "#7F849C" :weight light)
 	     :keymap sem-editmark-content-map
 	     :help-echo "Comment. Right-click, s-click or s-o for menu."
 	     :accept-func sem-delete-editmark
@@ -135,32 +135,37 @@
 
     (blue-highlight :open-marker "{bh>" :close-marker "<bh}"
 		    :marker-face (:background "#74C7EC" :foreground "#1E1E2E" :weight ultra-light)
-		    :face (:underline (:color "#74C7EC" :style line :position -10))
+		    ;; :face (:underline (:color "#74C7EC" :style line :position -10))
+            :face (:background "#74C7EC" :foreground "#1E1E2E")
 		    :keymap sem-editmark-content-map
 		    :help-echo "Blue highlight. Right-click, s-click or s-o for menu.")
 
     (green-highlight :open-marker "{hg>" :close-marker "<hg}"
 		     :marker-face (:background "#A6E3A1" :foreground "#1E1E2E"  :weight ultra-light)
-		     :face (:underline (:color "#A6E3A1" :style line :position -10))
+		     ;; :face (:underline (:color "#A6E3A1" :style line :position -10))
+             :face (:background "#A6E3A1" :foreground "#1E1E2E")
 		     :keymap sem-editmark-content-map
 		     :help-echo "green highlight. Right-click, s-click or s-o for menu.")
 
     (purple-highlight :open-marker "{hp>" :close-marker "<hp}"
 		    :marker-face (:background "#CBA6F7" :foreground "#1E1E2E"  :weight ultra-light)
-		    :face (:underline (:color "#CBA6F7" :style line :position -10))
+		    ;; :face (:underline (:color "#CBA6F7" :style line :position -10))
+		    :face (:background "#CBA6F7" :foreground "#1E1E2E")
   	      :keymap sem-editmark-content-map
 		    :help-echo "purple highlight. Right-click, s-click or s-o for menu.")
 
     (yellow-highlight :open-marker "{hy>" :close-marker "<hy}"
 		      :marker-face (:background "#F9E2AF" :foreground "#1E1E2E" :weight ultra-light)
-		      :face (:underline (:color "#F9E2AF" :style line :position -10))
+		      ;; :face (:underline (:color "#F9E2AF" :style line :position -10))
+              :face (:background "#F9E2AF" :foreground "#1E1E2E")
               :set-face-foreground ('org-link :foreground "#1E1E2E")
 		      :keymap sem-editmark-content-map
 		      :help-echo "yellow highlight. Right-click, s-click or s-o for menu.")
     
     (red-highlight :open-marker "{hr>" :close-marker "<hr}"
   	      :marker-face (:background "#F38BA8" :foreground "#1E1E2E" :weight ultra-light)
-  	      :face (:underline (:color "#F38BA8" :style line :position -10))
+  	      ;; :face (:underline (:color "#F38BA8" :style line :position -10))
+            :face (:background "#F38BA8" :foreground "#1E1E2E")
   	      :keymap sem-editmark-content-map
   	      :help-echo "red highlight. Right-click, s-click or s-o for menu.")
     
@@ -214,16 +219,16 @@
      :include-author nil
      :export sem-export-comment)
   
-    (audio :open-marker "{a>" :close-marker "<a}"
-	   :marker-face (:foreground "violet" :weight ultra-light)
-	   :face (:foreground "violet" :weight bold)
-	   :mouse-face highlight
-	   :keymap sem-editmark-audio-map
-	   :help-echo sem-audio-tooltip
-	   :accept-func sem-delete-editmark
-	   :reject-func sem-clear-editmark)
+     (audio :open-marker "{a>" :close-marker "<a}"
+	    :marker-face (:foreground "violet" :weight ultra-light)
+	    :face (:foreground "violet" :weight bold)
+	    :mouse-face highlight
+	    :keymap sem-editmark-audio-map
+	    :help-echo sem-audio-tooltip
+	    :accept-func sem-delete-editmark
+	    :reject-func sem-clear-editmark)
 
-    (video :open-marker "{v>"
+     (video :open-marker "{v>"
 	   :close-marker "<v}"
 	   :help-echo "A video editmark"
 	   :keymap sem-editmark-video-map
