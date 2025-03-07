@@ -73,10 +73,18 @@ CLOSED: [2022-09-30 Fri 13:40]
 
 
 
+
+
+
+
 This would require a more sophisticated parser. If you need this, you should probably look at a sexp based syntax, e.g. (@-insert "some text"), or a special block.
 
 ** DONE disable flyspell/check in at least the typo editmarks.
 CLOSED: [2023-05-30 Tue 14:50]
+
+
+
+
 
 
 
@@ -131,6 +139,10 @@ In flyspell, continue if not on an editmark."
 
 ** DONE Metadata in editmarks
    CLOSED: [2021-06-04 Fri 19:39]
+
+
+
+
 
 
 
@@ -437,25 +449,25 @@ Export functions should take one argument, the backend as a symbol, and they are
 
       (blue-highlight :open-marker "{bh>" :close-marker "<bh}"
   		    :marker-face (:background "#74C7EC" :foreground "#1E1E2E" :weight ultra-light)
-  		    :face (:background "#74C7EC" :foreground "#1E1E2E")
+  		    :face (:box (:line-width (1 . 2) :color "#74C7EC"))
   		    :keymap sem-editmark-content-map
   		    :help-echo "Blue highlight. Right-click, s-click or s-o for menu.")
 
       (green-highlight :open-marker "{hg>" :close-marker "<hg}"
   		     :marker-face (:background "#A6E3A1" :foreground "#1E1E2E"  :weight ultra-light)
-  		     :face (:background "#A6E3A1" :foreground "#1E1E2E")
+  		     :face (:box (:line-width (1 . 2) :color "#A6E3A1"))
   		     :keymap sem-editmark-content-map
   		     :help-echo "green highlight. Right-click, s-click or s-o for menu.")
 
       (purple-highlight :open-marker "{hp>" :close-marker "<hp}"
   		    :marker-face (:background "#CBA6F7" :foreground "#1E1E2E"  :weight ultra-light)
-  		    :face (:background "#CBA6F7" :foreground "#1E1E2E")
-  		    :keymap sem-editmark-content-map
+  		    :face (:box (:line-width (1 . 2) :color "#CBA6F7"))
+    	      :keymap sem-editmark-content-map
   		    :help-echo "purple highlight. Right-click, s-click or s-o for menu.")
 
       (yellow-highlight :open-marker "{hy>" :close-marker "<hy}"
   		      :marker-face (:background "#F9E2AF" :foreground "#1E1E2E" :weight ultra-light)
-  		      :face (:background "#F9E2AF" :foreground "#1E1E2E")
+  		      :face (:box (:line-width (1 . 2) :color "#F9E2AF"))
                 :set-face-foreground ('org-link :foreground "#1E1E2E")
   		      :keymap sem-editmark-content-map
   		      :help-echo "yellow highlight. Right-click, s-click or s-o for menu.")
