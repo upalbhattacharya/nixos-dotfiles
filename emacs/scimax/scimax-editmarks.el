@@ -98,7 +98,7 @@
 
     (comment :open-marker "{>~" :close-marker "~<}"
 	     :marker-face (:background "#A6ADC8" :foreground "#1E1E2E" :weight ultra-light)
-	     :face (:background "#A6ADC8" :foreground "#1E1E2E" :weight bold)
+	     :face (:foreground "#A6ADC8" :weight bold :underline (:color "#A6AC8" :style line :position -10))
 	     :keymap sem-editmark-content-map
 	     :help-echo "Comment. Right-click, s-click or s-o for menu."
 	     :accept-func sem-delete-editmark
@@ -135,32 +135,32 @@
 
     (blue-highlight :open-marker "{bh>" :close-marker "<bh}"
 		    :marker-face (:background "#74C7EC" :foreground "#1E1E2E" :weight ultra-light)
-		    :face (:background "#74C7EC" :foreground "#1E1E2E")
+		    :face (:underline (:color "#74C7EC" :style line :position -10))
 		    :keymap sem-editmark-content-map
 		    :help-echo "Blue highlight. Right-click, s-click or s-o for menu.")
 
     (green-highlight :open-marker "{hg>" :close-marker "<hg}"
 		     :marker-face (:background "#A6E3A1" :foreground "#1E1E2E"  :weight ultra-light)
-		     :face (:background "#A6E3A1" :foreground "#1E1E2E")
+		     :face (:underline (:color "#A6E3A1" :style line :position -10))
 		     :keymap sem-editmark-content-map
 		     :help-echo "green highlight. Right-click, s-click or s-o for menu.")
 
     (purple-highlight :open-marker "{hp>" :close-marker "<hp}"
 		    :marker-face (:background "#CBA6F7" :foreground "#1E1E2E"  :weight ultra-light)
-		    :face (:background "#CBA6F7" :foreground "#1E1E2E" :inherit unspecified)
-		    :face (org-link (:background "#CBA6F7" :foreground "#1E1E2E"))
-		    :keymap sem-editmark-content-map
+		    :face (:underline (:color "#CBA6F7" :style line :position -10))
+  	      :keymap sem-editmark-content-map
 		    :help-echo "purple highlight. Right-click, s-click or s-o for menu.")
 
     (yellow-highlight :open-marker "{hy>" :close-marker "<hy}"
 		      :marker-face (:background "#F9E2AF" :foreground "#1E1E2E" :weight ultra-light)
-		      :face (:background "#F9E2AF" :foreground "#1E1E2E")
+		      :face (:underline (:color "#F9E2AF" :style line :position -10))
+              :set-face-foreground ('org-link :foreground "#1E1E2E")
 		      :keymap sem-editmark-content-map
 		      :help-echo "yellow highlight. Right-click, s-click or s-o for menu.")
     
     (red-highlight :open-marker "{hr>" :close-marker "<hr}"
   	      :marker-face (:background "#F38BA8" :foreground "#1E1E2E" :weight ultra-light)
-  	      :face (:background "#F38BA8" :foreground "#1E1E2E")
+  	      :face (:underline (:color "#F38BA8" :style line :position -10))
   	      :keymap sem-editmark-content-map
   	      :help-echo "red highlight. Right-click, s-click or s-o for menu.")
     

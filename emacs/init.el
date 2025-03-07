@@ -152,7 +152,6 @@
   (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 200)
   (set-face-attribute 'fixed-pitch nil :font "Iosevka Nerd Font" :height 200)
   (set-face-attribute 'variable-pitch nil :font "Iosevka Nerd Font" :height 1.3)
-  (set-face-attribute 'link nil :foreground "unspecified")
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
@@ -946,6 +945,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(company-preview ((t (:background "#6C7086" :foreground "#F5C2e7"))))
+ '(link ((t (:foreground "#b4befe" :underline (:color foreground-color :style line :position -10) :weight medium))))
  '(org-agenda-structure ((t (:foreground "#f38ba8" :weight bold))))
  '(org-super-agenda-header ((t (:foreground "#94e2d5" :slant italic :weight light)))))
 ;;; Custom
