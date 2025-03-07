@@ -92,10 +92,12 @@ CLOSED: [2022-09-30 Fri 13:40]
 
 
 
+
 This would require a more sophisticated parser. If you need this, you should probably look at a sexp based syntax, e.g. (@-insert "some text"), or a special block.
 
 ** DONE disable flyspell/check in at least the typo editmarks.
 CLOSED: [2023-05-30 Tue 14:50]
+
 
 
 
@@ -169,6 +171,7 @@ In flyspell, continue if not on an editmark."
 
 ** DONE Metadata in editmarks
    CLOSED: [2021-06-04 Fri 19:39]
+
 
 
 
@@ -574,16 +577,16 @@ Export functions should take one argument, the backend as a symbol, and they are
        :include-author nil
        :export sem-export-comment)
     
-      (audio :open-marker "{a>" :close-marker "<a}"
-  	   :marker-face (:foreground "violet" :weight ultra-light)
-  	   :face (:foreground "violet" :weight bold)
-  	   :mouse-face highlight
-  	   :keymap sem-editmark-audio-map
-  	   :help-echo sem-audio-tooltip
-  	   :accept-func sem-delete-editmark
-  	   :reject-func sem-clear-editmark)
+       (audio :open-marker "{a>" :close-marker "<a}"
+  	    :marker-face (:foreground "violet" :weight ultra-light)
+  	    :face (:foreground "violet" :weight bold)
+  	    :mouse-face highlight
+  	    :keymap sem-editmark-audio-map
+  	    :help-echo sem-audio-tooltip
+  	    :accept-func sem-delete-editmark
+  	    :reject-func sem-clear-editmark)
 
-      (video :open-marker "{v>"
+       (video :open-marker "{v>"
   	   :close-marker "<v}"
   	   :help-echo "A video editmark"
   	   :keymap sem-editmark-video-map
