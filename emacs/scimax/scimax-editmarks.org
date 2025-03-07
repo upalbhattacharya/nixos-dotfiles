@@ -77,10 +77,12 @@ CLOSED: [2022-09-30 Fri 13:40]
 
 
 
+
 This would require a more sophisticated parser. If you need this, you should probably look at a sexp based syntax, e.g. (@-insert "some text"), or a special block.
 
 ** DONE disable flyspell/check in at least the typo editmarks.
 CLOSED: [2023-05-30 Tue 14:50]
+
 
 
 
@@ -139,6 +141,7 @@ In flyspell, continue if not on an editmark."
 
 ** DONE Metadata in editmarks
    CLOSED: [2021-06-04 Fri 19:39]
+
 
 
 
@@ -474,7 +477,7 @@ Export functions should take one argument, the backend as a symbol, and they are
       
       (red-highlight :open-marker "{hr>" :close-marker "<hr}"
     	      :marker-face (:background "#F38BA8" :foreground "#1E1E2E" :weight ultra-light)
-    	      :face (:background "#F38BA8" :foreground "#1E1E2E")
+    	      :face (:box (:line-width (1 . 2) :color "#F38BA8"))
     	      :keymap sem-editmark-content-map
     	      :help-echo "red highlight. Right-click, s-click or s-o for menu.")
       
