@@ -152,6 +152,7 @@
   (set-face-attribute 'default nil :font "Iosevka Nerd Font" :height 200)
   (set-face-attribute 'fixed-pitch nil :font "Iosevka Nerd Font" :height 200)
   (set-face-attribute 'variable-pitch nil :font "Iosevka Nerd Font" :height 1.3)
+  (set-face-attribute 'link nil :foreground 'unspecified)
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
   (tool-bar-mode -1)
