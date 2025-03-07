@@ -235,7 +235,7 @@
   (setq org-startup-folded 'overview)
   
   ;;org-cite
-  (setq org-cite-global-bibliography '("~/org/bibliography.bib"))
+  (setq org-cite-global-bibliography '("~/org/personal.bib"))
 
   ;; org-agenda
   (setq org-agenda-files 
@@ -370,7 +370,7 @@
           ("d" "default" entry "* ${title}\n:PROPERTIES:\n:HEAD:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Inbox\n:END:\n"
            :target (file "Inbox.org") :empty-lines 1)
 
-          ("p" "project" entry "* [%] ${title}\n:PROPERTIES:\n:HEAD:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Project\n:END:\n
+          ("p" "project" entry "* ${title}\n:PROPERTIES:\n:HEAD:\t${title}\n:ID:\t%(org-id-uuid)\n:CREATED:\t%U\n:CATEGORY: Project\n:END:\n
     [[org-ql-search:(and (todo) (not(done)) (level 2) (property \"HEAD\" \"${title}\" inherit))][org-ql-search: Pending Tasks]]"
            :target (file "Active.org") :empty-lines 1)
 
@@ -442,7 +442,7 @@
   :demand t
   :ensure (:wait t :host github :repo "emacs-citar/citar")
   :custom
-  (citar-bibliography '("~/org/bibliography.bib"))
+  (citar-bibliography '("~/org/personal.bib"))
   (citar-notes-paths '("~/org/Literature/"))
   (citar-file-note-extensions '("org"))
   (org-cite-insert-processor 'citar)
