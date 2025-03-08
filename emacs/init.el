@@ -368,8 +368,8 @@
   (defun org-roam-node-description-breadcrumb (node)
     (let ((level (org-roam-node-level node)))
       (concat
-       (when (> level 1) (concat " > " (string-join (org-roam-node-olp node) " > ")) )
-       (if (eq (level 0)) (org-roam-node-title node) (concat " > " (org-roam-node-title node)))
+       (when (> level 1) (concat (string-join (org-roam-node-olp node) " > ")) )
+       (if (eq level 1) (org-roam-node-title node) (concat " > " (org-roam-node-title node)))
        )))
   (setq org-roam-node-formatter #'org-roam-node-description-breadcrumb)
   (setq org-roam-node-display-template "${status:13} ${title:50} ${hierarchy:*}")
