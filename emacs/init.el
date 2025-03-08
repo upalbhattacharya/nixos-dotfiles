@@ -146,6 +146,11 @@
   :demand t
   :ensure nil
   :config
+  (defun org-link-describe (link desc)
+    (if (file-exists-p link)
+        desc
+      (read-string "Description: " desc)))
+  (setq org-link-make-description-function #'org-link-describe)
   (setq enable-local-variables :all)
   (setq warning-minimum-level :error)
   (setq confirm-kill-emacs 'y-or-n-p)
@@ -359,6 +364,14 @@
        (when (> level 0) (org-roam-node-file-title node))
        (when (> level 1) (concat " > " (string-join (org-roam-node-olp node) " > ")) ))
       ))
+
+  (defun org-roam-node-description-breadcrumb (node)
+    (let ((level (org-roam-node-level node)))
+      (concat
+       (when (> level 1) (concat " > " (string-join (org-roam-node-olp node) " > ")) )
+       (if (eq (level 0)) (org-roam-node-title node) (concat " > " (org-roam-node-title node)))
+       )))
+  (setq org-roam-node-formatter #'org-roam-node-description-breadcrumb)
   (setq org-roam-node-display-template "${status:13} ${title:50} ${hierarchy:*}")
   (setq org-roam-directory (file-truename "~/org/"))
   (setq org-roam-dailies-directory "~/org/Journal/")
