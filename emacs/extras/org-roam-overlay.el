@@ -96,11 +96,11 @@ overlay displaying the node's title is displayed."
   (if org-roam-breadcrumb-overlay-mode
       (progn
         (setq org-roam-title-overlay-mode nil)
-        (remove-hook 'after-save-hook #'org-roam-title-overlay-redisplay t)
+        (remove-hook 'post-command-hook #'org-roam-title-overlay-redisplay t)
         (org-roam-breadcrumb-overlay-enable)
-        (add-hook 'after-save-hook #'org-roam-breadcrumb-overlay-redisplay nil t))
+        (add-hook 'post-command-hook #'org-roam-breadcrumb-overlay-redisplay nil t))
     (org-roam-overlay-disable)
-    (remove-hook 'after-save-hook #'org-roam-breadcrumb-overlay-redisplay t)))
+    (remove-hook 'post-command-hook #'org-roam-breadcrumb-overlay-redisplay t)))
 
 (defun org-roam-title-overlay-make-link-overlay (link)
   "Create overlay for LINK."
@@ -138,11 +138,11 @@ overlay displaying the node's title is displayed."
   (if org-roam-title-overlay-mode
       (progn
         (setq org-roam-breadcrumb-overlay-mode nil)
-        (remove-hook 'after-save-hook #'org-roam-breadcrumb-overlay-redisplay t)
+        (remove-hook 'post-command-hook #'org-roam-breadcrumb-overlay-redisplay t)
         (org-roam-title-overlay-enable)
-        (add-hook 'after-save-hook #'org-roam-title-overlay-redisplay nil t))
+        (add-hook 'post-command-hook #'org-roam-title-overlay-redisplay nil t))
     (org-roam-overlay-disable)
-    (remove-hook 'after-save-hook #'org-roam-title-overlay-redisplay t)))
+    (remove-hook 'post-command-hook #'org-roam-title-overlay-redisplay t)))
 
 (provide 'org-roam-overlay)
 ;;; org-roam-overlay.el ends here
