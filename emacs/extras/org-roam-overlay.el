@@ -79,13 +79,13 @@
   (org-roam-db-map-links
    (list #'org-roam-breadcrumb-overlay-make-link-overlay)))
 
-(defun org-roam-breadcrumb-overlay-disable ()
+(defun org-roam-overlay-disable ()
   "Disable Org-roam overlays."
   (remove-overlays nil nil 'category 'org-roam))
 
 (defun org-roam-breadcrumb-overlay-redisplay ()
   "Redisplay Org-roam overlays."
-  (org-roam-breadcrumb-overlay-disable)
+  (org-roam-overlay-disable)
   (org-roam-breadcrumb-overlay-enable))
 
 (define-minor-mode org-roam-breadcrumb-overlay-mode
@@ -95,11 +95,11 @@ overlay displaying the node's title is displayed."
   :lighter " org-roam-breadcrumb-overlay"
   (if org-roam-breadcrumb-overlay-mode
       (progn
-        (org-roam-title-overlay-disable)
+        (setq org-roam-title-overlay-mode nil)
         (remove-hook 'after-save-hook #'org-roam-title-overlay-redisplay t)
         (org-roam-breadcrumb-overlay-enable)
         (add-hook 'after-save-hook #'org-roam-breadcrumb-overlay-redisplay nil t))
-    (org-roam-breadcrumb-overlay-disable)
+    (org-roam-overlay-disable)
     (remove-hook 'after-save-hook #'org-roam-breadcrumb-overlay-redisplay t)))
 
 (defun org-roam-title-overlay-make-link-overlay (link)
@@ -124,13 +124,10 @@ overlay displaying the node's title is displayed."
   (org-roam-db-map-links
    (list #'org-roam-title-overlay-make-link-overlay)))
 
-(defun org-roam-title-overlay-disable ()
-  "Disable Org-roam overlays."
-  (remove-overlays nil nil 'category 'org-roam))
 
 (defun org-roam-title-overlay-redisplay ()
   "Redisplay Org-roam overlays."
-  (org-roam-title-overlay-disable)
+  (org-roam-overlay-disable)
   (org-roam-title-overlay-enable))
 
 (define-minor-mode org-roam-title-overlay-mode
@@ -140,11 +137,11 @@ overlay displaying the node's title is displayed."
   :lighter " org-roam-title-overlay"
   (if org-roam-title-overlay-mode
       (progn
-        (org-roam-breadcrumb-overlay-disable)
+        (setq org-roam-breadcrumb-overlay-mode nil)
         (remove-hook 'after-save-hook #'org-roam-breadcrumb-overlay-redisplay t)
         (org-roam-title-overlay-enable)
         (add-hook 'after-save-hook #'org-roam-title-overlay-redisplay nil t))
-    (org-roam-title-overlay-disable)
+    (org-roam-overlay-disable)
     (remove-hook 'after-save-hook #'org-roam-title-overlay-redisplay t)))
 
 (provide 'org-roam-overlay)
