@@ -902,7 +902,7 @@
   (setq company-idle-delay 0.1))
 
 ;; Scimax
-(org-babel-load-file "~/.emacs.d/scimax/scimax-editmarks.org")
+(org-babel-load-file (expand-file-name (concat user-emacs-directory "scimax/" "scimax-editmarks.org")))
 (add-hook 'org-mode-hook 'sem-mode)
 
 (defun workboots/org-roam-rg-search ()
