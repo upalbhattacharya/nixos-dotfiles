@@ -427,11 +427,12 @@
                (direction . right)
                (window-width . 0.33)
                (window-height . fit-window-to-buffer)))
+(load-file (expand-file-name (concat user-emacs-directory "extras" "org-roam-overlay.el")))
 
-(use-package adaptive-wrap
-  :demand t
-  :ensure (:wait t :host github :repo "emacsmirror/adaptive-wrap" :branch "master")
-  :hook (org-mode . adaptive-wrap-prefix-mode))
+           (use-package adaptive-wrap
+             :demand t
+             :ensure (:wait t :host github :repo "emacsmirror/adaptive-wrap" :branch "master")
+             :hook (org-mode . adaptive-wrap-prefix-mode))
 
 (use-package avy
   :demand t
