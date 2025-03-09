@@ -35,9 +35,9 @@
 
 (defface org-roam-overlay
   '((((class color) (background light))
-     :background "#313244" :foreground "#B4BEFE :underline t")
+     :background "#313244" :foreground "#B4BEFE" :underline t)
     (((class color) (background dark))
-     :background "#313244" :foreground "#B4BEFE :underline t"))
+     :background "#313244" :foreground "#B4BEFE" :underline t))
   "Face for the Org-roam overlay."
   :group 'org-roam-faces)
 
@@ -51,6 +51,7 @@
 (defun org-roam-node-description-breadcrumb (node)
   (let ((level (org-roam-node-level node)))
     (concat
+     (concat (org-roam-node-file-title node) " > ")
      (when (> level 1) (concat (string-join (org-roam-node-olp node) " > ")) )
      (if (eq level 1) (org-roam-node-title node) (concat " > " (org-roam-node-title node)))
      )))
