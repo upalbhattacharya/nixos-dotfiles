@@ -436,7 +436,8 @@
                (window-width . 0.33)
                (window-height . fit-window-to-buffer)))
 (load-file (expand-file-name (concat user-emacs-directory "extras/" "org-roam-overlay.el")))
-(add-hook 'org-mode-hook 'org-roam-overlay-mode)
+;; (add-hook 'org-mode-hook 'org-roam-overlay-mode)
+(add-hook 'org-mode-hook 'org-roam-title-overlay-mode)
 
 (use-package adaptive-wrap
   :demand t
@@ -1176,6 +1177,14 @@ _k_: Insert Key
 ;; Kill present buffer
 (global-set-key (kbd "C-x M-k") 'kill-this-buffer)
 
+;; toggle between visibility of links
+(global-set-key
+ (kbd "C-x M-l")
+ (lambda ()
+   (interactive)
+   (if org-roam-title-overlay-mode
+       (org-roam-breadcrumb-overlay-mode)
+     (org-roam-title-overlay-mode))))
 ;; consult
 (define-key org-mode-map (kbd "C-x M-j") 'consult-org-heading)
 (put 'narrow-to-region 'disabled nil)
