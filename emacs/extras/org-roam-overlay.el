@@ -95,6 +95,8 @@ overlay displaying the node's title is displayed."
   :lighter " org-roam-breadcrumb-overlay"
   (if org-roam-breadcrumb-overlay-mode
       (progn
+        (org-roam-title-overlay-disable)
+        (remove-hook 'after-save-hook #'org-roam-title-overlay-redisplay t)
         (org-roam-breadcrumb-overlay-enable)
         (add-hook 'after-save-hook #'org-roam-breadcrumb-overlay-redisplay nil t))
     (org-roam-breadcrumb-overlay-disable)
@@ -130,6 +132,20 @@ overlay displaying the node's title is displayed."
   "Redisplay Org-roam overlays."
   (org-roam-title-overlay-disable)
   (org-roam-title-overlay-enable))
+
+(define-minor-mode org-roam-title-overlay-mode
+  "Overlays for Org-roam ID links.
+Org-roam overlay mode is a minor mode.  When enabled,
+overlay displaying the node's title is displayed."
+  :lighter " org-roam-title-overlay"
+  (if org-roam-title-overlay-mode
+      (progn
+        (org-roam-breadcrumb-overlay-disable)
+        (remove-hook 'after-save-hook #'org-roam-breadcrumb-overlay-redisplay t)
+        (org-roam-title-overlay-enable)
+        (add-hook 'after-save-hook #'org-roam-title-overlay-redisplay nil t))
+    (org-roam-title-overlay-disable)
+    (remove-hook 'after-save-hook #'org-roam-title-overlay-redisplay t)))
 
 (provide 'org-roam-overlay)
 ;;; org-roam-overlay.el ends here
