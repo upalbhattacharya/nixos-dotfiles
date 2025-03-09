@@ -48,26 +48,16 @@
     (while props (overlay-put o (pop props) (pop props)))
     o))
 
-(defvar breadcrumb t
-  "Whether the entire breadcrumb should be shown")
-
-(defun org-roam-overlay-toggle-overlay-style ()
-  "Toggle value of breadcrumb to change style of overlay"
-  (if (breadcrumb)
-      ((breadcrumb nil))
-    ((breadcrumb t))
-    (org-roam-overlay-redisplay)))
-
 (defun org-roam-node-description-breadcrumb (node)
   (let ((level (org-roam-node-level node)))
     (concat
-     (concat (org-roam-node-file-title node) " > ")
+     "(" (org-roam-node-category node) ") " (org-roam-node-file-title node) " > "
      (when (> level 1) (concat (string-join (org-roam-node-olp node) " > ")) )
      (if (eq level 1) (org-roam-node-title node) (concat " > " (org-roam-node-title node)))
      ))
   )
 
-(defun org-roam-overlay-make-link-overlay (link)
+(defun org-roam-breadcrumb-overlay-make-link-overlay (link)
   "Create overlay for LINK."
   (save-excursion
     (save-match-data
@@ -84,31 +74,62 @@
                                   (propertize (org-roam-node-description-breadcrumb node)
                                               'face 'org-roam-overlay))))))))
 
-(defun org-roam-overlay-enable ()
+(defun org-roam-breadcrumb-overlay-enable ()
   "Enable Org-roam overlays."
   (org-roam-db-map-links
-   (list #'org-roam-overlay-make-link-overlay)))
+   (list #'org-roam-breadcrumb-overlay-make-link-overlay)))
 
-(defun org-roam-overlay-disable ()
+(defun org-roam-breadcrumb-overlay-disable ()
   "Disable Org-roam overlays."
   (remove-overlays nil nil 'category 'org-roam))
 
-(defun org-roam-overlay-redisplay ()
+(defun org-roam-breadcrumb-overlay-redisplay ()
   "Redisplay Org-roam overlays."
-  (org-roam-overlay-disable)
-  (org-roam-overlay-enable))
+  (org-roam-breadcrumb-overlay-disable)
+  (org-roam-breadcrumb-overlay-enable))
 
-(define-minor-mode org-roam-overlay-mode
+(define-minor-mode org-roam-breadcrumb-overlay-mode
   "Overlays for Org-roam ID links.
 Org-roam overlay mode is a minor mode.  When enabled,
 overlay displaying the node's title is displayed."
-  :lighter " org-roam-overlay"
-  (if org-roam-overlay-mode
+  :lighter " org-roam-breadcrumb-overlay"
+  (if org-roam-breadcrumb-overlay-mode
       (progn
-        (org-roam-overlay-enable)
-        (add-hook 'after-save-hook #'org-roam-overlay-redisplay nil t))
-    (org-roam-overlay-disable)
-    (remove-hook 'after-save-hook #'org-roam-overlay-redisplay t)))
+        (org-roam-breadcrumb-overlay-enable)
+        (add-hook 'after-save-hook #'org-roam-breadcrumb-overlay-redisplay nil t))
+    (org-roam-breadcrumb-overlay-disable)
+    (remove-hook 'after-save-hook #'org-roam-breadcrumb-overlay-redisplay t)))
+
+(defun org-roam-title-overlay-make-link-overlay (link)
+  "Create overlay for LINK."
+  (save-excursion
+    (save-match-data
+      (let* ((type (org-element-property :type link))
+             (id (org-element-property :path link))
+             (beg (org-element-property :begin link))
+             (end (org-element-property :end link))
+             node)
+        (when (and (string-equal type "id")
+                   (setq node (org-roam-node-from-id id)))
+          (org-roam-overlay--make
+           beg end
+           'before-string (format "%s "
+                                  (propertize (org-roam-node-title node)
+                                              'face 'org-roam-overlay))))))))
+
+(defun org-roam-title-overlay-enable ()
+  "Enable Org-roam overlays."
+  (org-roam-db-map-links
+   (list #'org-roam-title-overlay-make-link-overlay)))
+
+(defun org-roam-title-overlay-disable ()
+  "Disable Org-roam overlays."
+  (remove-overlays nil nil 'category 'org-roam))
+
+(defun org-roam-title-overlay-redisplay ()
+  "Redisplay Org-roam overlays."
+  (org-roam-title-overlay-disable)
+  (org-roam-title-overlay-enable))
 
 (provide 'org-roam-overlay)
 ;;; org-roam-overlay.el ends here
