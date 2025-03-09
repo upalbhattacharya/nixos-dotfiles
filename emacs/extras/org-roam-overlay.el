@@ -51,7 +51,7 @@
 (defvar breadcrumb t
   "Whether the entire breadcrumb should be shown")
 
-(defun toggle-overlay-style ()
+(defun org-roam-overlay-toggle-overlay-style ()
   "Toggle value of breadcrumb to change style of overlay"
   (if (breadcrumb)
       ((breadcrumb nil))
@@ -60,14 +60,12 @@
 
 (defun org-roam-node-description-breadcrumb (node)
   (let ((level (org-roam-node-level node)))
-    (if (breadcrumb)
-        ((concat
-          (concat (org-roam-node-file-title node) " > ")
-          (when (> level 1) (concat (string-join (org-roam-node-olp node) " > ")) )
-          (if (eq level 1) (org-roam-node-title node) (concat " > " (org-roam-node-title node)))
-          ))
-      (org-roam-node-title node))))
-
+    (concat
+     (concat (org-roam-node-file-title node) " > ")
+     (when (> level 1) (concat (string-join (org-roam-node-olp node) " > ")) )
+     (if (eq level 1) (org-roam-node-title node) (concat " > " (org-roam-node-title node)))
+     ))
+  )
 
 (defun org-roam-overlay-make-link-overlay (link)
   "Create overlay for LINK."
