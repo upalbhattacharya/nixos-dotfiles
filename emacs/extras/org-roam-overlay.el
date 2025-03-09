@@ -35,9 +35,9 @@
 
 (defface org-roam-overlay
   '((((class color) (background light))
-     :background "#313244" :foreground "#B4BEFE")
+     :background "#313244" :foreground "#B4BEFE :underline t")
     (((class color) (background dark))
-     :background "#313244" :foreground "#B$BEFE"))
+     :background "#313244" :foreground "#B4BEFE :underline t"))
   "Face for the Org-roam overlay."
   :group 'org-roam-faces)
 
