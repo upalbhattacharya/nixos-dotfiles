@@ -48,13 +48,24 @@
     (while props (overlay-put o (pop props) (pop props)))
     o))
 
-(defun org-roam-node-description-breadcrumb (node)
-  (let ((level (org-roam-node-level node)))
-    (concat
-     (concat (org-roam-node-file-title node) " > ")
-     (when (> level 1) (concat (string-join (org-roam-node-olp node) " > ")) )
-     (if (eq level 1) (org-roam-node-title node) (concat " > " (org-roam-node-title node)))
-     )))
+(defvar breadcrumb t
+  "Whether the entire breadcrumb should be shown")
+
+(defun toggle-overlay-style ()
+  "Toggle value of breadcrumb to change style of overlay"
+  (if (breadcrumb)
+      ((breadcrumb nil))
+    ((breadcrumb t))
+    (org-roam-overlay-redisplay)))
+
+      (defun org-roam-node-description-breadcrumb (node)
+        (let ((level (org-roam-node-level node)))
+          (concat
+           (concat (org-roam-node-file-title node) " > ")
+           (when (> level 1) (concat (string-join (org-roam-node-olp node) " > ")) )
+           (if (eq level 1) (org-roam-node-title node) (concat " > " (org-roam-node-title node)))
+           )))
+
 
 (defun org-roam-overlay-make-link-overlay (link)
   "Create overlay for LINK."
@@ -62,17 +73,16 @@
     (save-match-data
       (let* ((type (org-element-property :type link))
              (id (org-element-property :path link))
-             (pos (org-element-property :end link))
-             (desc-p (org-element-property :contents-begin link))
+             (beg (org-element-property :begin link))
+             (end (org-element-property :end link))
              node)
         (when (and (string-equal type "id")
-                   (setq node (org-roam-node-from-id id))
-                   (not desc-p))
+                   (setq node (org-roam-node-from-id id)))
           (org-roam-overlay--make
-           pos pos
-           'after-string (format "%s "
-                                 (propertize (org-roam-node-description-breadcrumb node)
-                                             'face 'org-roam-overlay))))))))
+           beg end
+           'before-string (format "%s "
+                                  (propertize (org-roam-node-description-breadcrumb node)
+                                              'face 'org-roam-overlay))))))))
 
 (defun org-roam-overlay-enable ()
   "Enable Org-roam overlays."
