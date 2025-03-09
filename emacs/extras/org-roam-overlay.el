@@ -58,13 +58,15 @@
     ((breadcrumb t))
     (org-roam-overlay-redisplay)))
 
-      (defun org-roam-node-description-breadcrumb (node)
-        (let ((level (org-roam-node-level node)))
-          (concat
-           (concat (org-roam-node-file-title node) " > ")
-           (when (> level 1) (concat (string-join (org-roam-node-olp node) " > ")) )
-           (if (eq level 1) (org-roam-node-title node) (concat " > " (org-roam-node-title node)))
-           )))
+(defun org-roam-node-description-breadcrumb (node)
+  (let ((level (org-roam-node-level node)))
+    (if (breadcrumb)
+        ((concat
+          (concat (org-roam-node-file-title node) " > ")
+          (when (> level 1) (concat (string-join (org-roam-node-olp node) " > ")) )
+          (if (eq level 1) (org-roam-node-title node) (concat " > " (org-roam-node-title node)))
+          ))
+      (org-roam-node-title node))))
 
 
 (defun org-roam-overlay-make-link-overlay (link)
