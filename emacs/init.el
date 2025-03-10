@@ -988,44 +988,73 @@
  '(org-super-agenda-header ((t (:foreground "#94e2d5" :slant italic :weight light)))))
 ;;; Custom
 ;;;###autoload
- (defun unpackaged/org-fix-blank-lines (&optional prefix)
-   "Ensure that blank lines exist between headings and between headings and their contents.
+(defun unpackaged/org-fix-blank-lines (&optional prefix)
+  "Ensure that blank lines exist between headings and between headings and their contents.
  With prefix, operate on whole buffer. Ensures that blank lines
  exist after each headings's drawers."
-   (interactive "P")
-   (org-map-entries
-    (lambda ()
-      (org-with-wide-buffer
-       ;; `org-map-entries' narrows the buffer, which prevents us from seeing
-       ;; newlines before the current heading, so we do this part widened.
-       (while (not (looking-back "\n\n" nil))
-         ;; Insert blank lines before heading.
-         (insert "\n")))
-      (let ((end (org-entry-end-position)))
-        ;; Insert blank lines before entry content
-        (forward-line)
-        (while (and (org-at-planning-p) (< (point) (point-max)))
-          ;; Skip planning lines
-          (forward-line))
-        (while (re-search-forward org-drawer-regexp end t)
-          ;; Skip drawers. You might think that `org-at-drawer-p' would suffice, but
-          ;; for some reason it doesn't work correctly when operating on hidden text.
-          ;; This works, taken from `org-agenda-get-some-entry-text'.
-          (re-search-forward "^[ \t]*:END:.*\n?" end t)
-          (goto-char (match-end 0)))
-        (unless (or (= (point) (point-max)) (org-at-heading-p) (looking-at-p "\n"))
-          (insert "\n"))))
-    t
-    (if prefix
-        nil
-      'tree)))
- 
- (add-hook
-  'before-save-hook
-  (lambda ()
-    (if (eq major-mode 'org-mode) ; Org-mode
-        (let ((current-prefix-arg 4)) ; Emulate C-u
-          (call-interactively 'unpackaged/org-fix-blank-lines)))));;; Keybindings
+  (interactive "P")
+  (org-map-entries
+   (lambda ()
+     (org-with-wide-buffer
+      ;; `org-map-entries' narrows the buffer, which prevents us from seeing
+      ;; newlines before the current heading, so we do this part widened.
+      (while (not (looking-back "\n\n" nil))
+        ;; Insert blank lines before heading.
+        (insert "\n")))
+     (let ((end (org-entry-end-position)))
+       ;; Insert blank lines before entry content
+       (forward-line)
+       (while (and (org-at-planning-p) (< (point) (point-max)))
+         ;; Skip planning lines
+         (forward-line))
+       (while (re-search-forward org-drawer-regexp end t)
+         ;; Skip drawers. You might think that `org-at-drawer-p' would suffice, but
+         ;; for some reason it doesn't work correctly when operating on hidden text.
+         ;; This works, taken from `org-agenda-get-some-entry-text'.
+         (re-search-forward "^[ \t]*:END:.*\n?" end t)
+         (goto-char (match-end 0)))
+       (unless (or (= (point) (point-max)) (org-at-heading-p) (looking-at-p "\n"))
+         (insert "\n"))))
+   t
+   (if prefix
+       nil
+     'tree)))
+
+(add-hook
+ 'before-save-hook
+ (lambda ()
+   (if (eq major-mode 'org-mode) ; Org-mode
+       (let ((current-prefix-arg 4)) ; Emulate C-u
+         (call-interactively 'unpackaged/org-fix-blank-lines)))))
+
+(defun vimacs/org-narrow-to-subtree
+    ()
+  (interactive)
+  (let ((org-indirect-buffer-display 'current-window))
+    (if (not (boundp 'org-indirect-buffer-file-name))
+	    (let ((above-buffer (current-buffer))
+		      (org-filename (buffer-file-name)))
+	      (org-tree-to-indirect-buffer (1+ (org-current-level)))
+	      (setq-local org-indirect-buffer-file-name org-filename)
+	      (setq-local org-indirect-above-buffer above-buffer))
+	  (let ((above-buffer (current-buffer))
+	        (org-filename org-indirect-buffer-file-name))
+	    (org-tree-to-indirect-buffer (1+ (org-current-level)))
+	    (setq-local org-indirect-buffer-file-name org-filename)
+	    (setq-local org-indirect-above-buffer above-buffer)))))
+
+(defun vimacs/org-widen-from-subtree
+    ()
+  (interactive)
+  (let ((above-buffer org-indirect-above-buffer)
+	    (org-indirect-buffer-display 'current-window))
+    (kill-buffer)
+    (switch-to-buffer above-buffer)))
+
+(define-key org-mode-map (kbd "<C-x> n s") 'vimacs/org-narrow-to-subtree)
+(define-key org-mode-map (kbd "<C-x> n w") 'vimacs/org-widen-from-subtree)
+
+;;; Keybindings
 
 ;; General
 (global-set-key (kbd "C-c r") 'eval-buffer)
@@ -1185,8 +1214,8 @@ _k_: Insert Key
 (global-set-key (kbd "C-c M-z") 'org-fold-hide-block-toggle)
 
 ;; Narrow and widen
-(define-key org-mode-map (kbd "C-x n s") 'org-narrow-to-subtree)
-(define-key org-mode-map (kbd "C-x n w") 'widen)
+;; (define-key org-mode-map (kbd "C-x n s") 'org-narrow-to-subtree)
+;; (define-key org-mode-map (kbd "C-x n w") 'widen)
 
 ;; Kill present buffer
 (global-set-key (kbd "C-x M-k") 'kill-this-buffer)
