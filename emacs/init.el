@@ -315,8 +315,7 @@
   :hook (org-mode . visual-line-fill-column-mode)
   :hook (org-roam-mode . visual-line-fill-column-mode)
   :hook (minibuffer-setup . (lambda () (visual-line-fill-column-mode -1)
-                              (set-fill-column nil)
-                              (minibuffer-message "Hello!")))
+                              (set-fill-column 200)))
   :hook (minibuffer-exit . visual-line-fill-column-mode)
   :config
   (setq-default visual-fill-column-center-text t))
