@@ -210,12 +210,6 @@
   :config
   (global-evil-surround-mode 1))
 
-(use-package outline-indent
-  :demand t
-  :ensure (:wait t :host github :repo "jamescherti/outline-indent.el" :branch "main")
-  :config
-  (outline-indent-minor-mode))
-
 (use-package org
   :demand t
   :ensure nil
@@ -1210,3 +1204,13 @@ _k_: Insert Key
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
 (put 'list-timers 'disabled nil)
+
+(defgroup checkbox nil
+  "Quick manipulation of textual checkboxes."
+  :group 'convenience)
+
+(defcustom checkbox-states '("[ ]" "[-]" "[🔴]" "[🟡]" "[🟢]")
+  "Checkbox states to cycle between.
+First item will be the state for new checkboxes."
+  :group 'checkbox
+  :type '(repeat string))
