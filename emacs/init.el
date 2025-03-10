@@ -219,7 +219,9 @@
   :hook (org-mode . flyspell-mode)
   :hook (org-capture-mode . org-id-get-create)
   :hook (org-mode . (lambda nil
-                      (set-fill-column 78)))
+                      (set-fill-column 78)
+                      (auto-fill-mode)
+                      (display-fill-column-indicator-mode +1)))
   :config
   (define-key minibuffer-local-completion-map (kbd "?") nil)
   (setq org-cycle-include-plain-lists 'integrate)
@@ -309,16 +311,25 @@
   :demand t
   :ensure (:wait t :host github :repo "andras-simonyi/citeproc-el"))
 
-(use-package visual-fill-column
+;; (use-package visual-fill-column
+;;   :demand t
+;;   :ensure (:wait t :host "codeberg.org" :repo "joostkremers/visual-fill-column")
+;;   :hook (org-mode . visual-line-fill-column-mode)
+;;   :hook (org-roam-mode . visual-line-fill-column-mode)
+;;   :hook (minibuffer-setup . (lambda () (visual-line-fill-column-mode -1)
+;;                               (setq-local visual-fill-column-width (frame-width))))
+;;   ;; :hook (minibuffer-exit . visual-line-fill-column-mode)
+;;   :config
+;;   (setq visual-fill-column-enable-sensible-window-split t)
+;;   (setq-default visual-fill-column-center-text t)
+;;   (setq-default visual-fill-column-width 78))
+
+(use-package olivetti
   :demand t
-  :ensure (:wait t :host "codeberg.org" :repo "joostkremers/visual-fill-column")
-  :hook (org-mode . visual-line-fill-column-mode)
-  :hook (org-roam-mode . visual-line-fill-column-mode)
-  :hook (minibuffer-setup . (lambda () (visual-line-fill-column-mode -1)
-                              (set-fill-column 200)))
-  :hook (minibuffer-exit . visual-line-fill-column-mode)
+  :ensure (:wait t :host github :repo "rnkn/olivetti")
+  :hook (org-mode . olivetti-mode)
   :config
-  (setq-default visual-fill-column-center-text t))
+  (setq-default olivetti-body-width 80))
 
 ;; babel
 (org-babel-do-load-languages
