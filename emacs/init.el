@@ -1199,18 +1199,9 @@ _k_: Insert Key
    (if org-roam-title-overlay-mode
        (org-roam-breadcrumb-overlay-mode)
      (org-roam-title-overlay-mode))))
+
 ;; consult
 (define-key org-mode-map (kbd "C-x M-j") 'consult-org-heading)
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
 (put 'list-timers 'disabled nil)
-
-(defgroup checkbox nil
-  "Quick manipulation of textual checkboxes."
-  :group 'convenience)
-
-(defcustom checkbox-states '("[ ]" "[-]" "[🔴]" "[🟡]" "[🟢]")
-  "Checkbox states to cycle between.
-First item will be the state for new checkboxes."
-  :group 'checkbox
-  :type '(repeat string))
