@@ -209,15 +209,13 @@
 	     :include-author nil
 	     :export sem-export-comment)
 
-  (red-annotation :open-marker "{ap>" :close-marker "<ap}"
-	 :marker-face (:foreground "#F38BA8" :background "#1E1E2E" :weight ultra-light)
-	 :face (:foreground "#F38BA8" :background "#1E1E2E")
-     :keymap sem-editmark-content-map
-     :help-echo "Red annotation. Right-click, s-click or s-o for menu."
-     :accept-func sem-delete-editmark
-     :reject-func sem-delete-editmark
-     :include-author nil
-     :export sem-export-comment)
+  (red-annotation :open-marker "{ar>" :close-marker "<ar}" :marker-face
+	 (:foreground "#F38BA8" :background "#1E1E2E" :weight ultra-light) :face
+	 (:foreground "#F38BA8" :background "#1E1E2E") :keymap
+	 sem-editmark-content-map :help-echo "Red annotation. Right-click,
+	 s-click or s-o for menu."  :accept-func sem-delete-editmark
+	 :reject-func sem-delete-editmark :include-author nil :export
+	 sem-export-comment)
   
      (audio :open-marker "{a>" :close-marker "<a}"
 	    :marker-face (:foreground "violet" :weight ultra-light)

@@ -101,10 +101,12 @@ CLOSED: [2022-09-30 Fri 13:40]
 
 
 
+
 This would require a more sophisticated parser. If you need this, you should probably look at a sexp based syntax, e.g. (@-insert "some text"), or a special block.
 
 ** DONE disable flyspell/check in at least the typo editmarks.
 CLOSED: [2023-05-30 Tue 14:50]
+
 
 
 
@@ -187,6 +189,7 @@ In flyspell, continue if not on an editmark."
 
 ** DONE Metadata in editmarks
    CLOSED: [2021-06-04 Fri 19:39]
+
 
 
 
@@ -595,15 +598,13 @@ Export functions should take one argument, the backend as a symbol, and they are
   	     :include-author nil
   	     :export sem-export-comment)
 
-    (red-annotation :open-marker "{ap>" :close-marker "<ap}"
-  	 :marker-face (:foreground "#F38BA8" :background "#1E1E2E" :weight ultra-light)
-  	 :face (:foreground "#F38BA8" :background "#1E1E2E")
-       :keymap sem-editmark-content-map
-       :help-echo "Red annotation. Right-click, s-click or s-o for menu."
-       :accept-func sem-delete-editmark
-       :reject-func sem-delete-editmark
-       :include-author nil
-       :export sem-export-comment)
+    (red-annotation :open-marker "{ar>" :close-marker "<ar}" :marker-face
+  	 (:foreground "#F38BA8" :background "#1E1E2E" :weight ultra-light) :face
+  	 (:foreground "#F38BA8" :background "#1E1E2E") :keymap
+  	 sem-editmark-content-map :help-echo "Red annotation. Right-click,
+  	 s-click or s-o for menu."  :accept-func sem-delete-editmark
+  	 :reject-func sem-delete-editmark :include-author nil :export
+  	 sem-export-comment)
     
        (audio :open-marker "{a>" :close-marker "<a}"
   	    :marker-face (:foreground "violet" :weight ultra-light)
