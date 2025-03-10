@@ -314,7 +314,9 @@
   :ensure (:wait t :host "codeberg.org" :repo "joostkremers/visual-fill-column")
   :hook (org-mode . visual-line-fill-column-mode)
   :hook (org-roam-mode . visual-line-fill-column-mode)
-  :hook (minibuffer-setup . (lambda () (visual-line-fill-column-mode -1)))
+  :hook (minibuffer-setup . (lambda () (visual-line-fill-column-mode -1)
+                              (set-fill-column nil)
+                              (minibuffer-message "Hello!")))
   :hook (minibuffer-exit . visual-line-fill-column-mode)
   :config
   (setq-default visual-fill-column-center-text t))
