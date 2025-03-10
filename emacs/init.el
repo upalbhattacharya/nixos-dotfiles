@@ -278,15 +278,15 @@
            "DONE(d/!)"
            "ARCHIVED(a/!)")))
   (setq org-todo-keyword-faces
-        '(("TODO" . (:foreground "#f9e2af" :weight bold :underline t))
-          ("NEXT" . (:foreground "#f5c2e7" :weight bold :underline t))
-          ("TODAY" . (:foreground "#f2cdcd" :weight bold :underline t))
-          ("IN PROGRESS" . (:foreground "#89b4fa" :weight bold :underline t))
-          ("REVIEW" . (:foreground "#cba6f7" :weight bold :underline t))
-          ("LATER" . (:foreground "#b4befe" :weight bold :underline t))
-          ("READING" . (:foreground "#f5c2e7" :weight bold :underline t))
-          ("DONE" . (:foreground "#a6e3a1" :weight bold :underline t))
-          ("ARCHIVED" . (:foreground "#9399b2" :underline t)))))
+        '(("TODO" . (:background "#f9e2af" :foreground "#1E1E2E" :weight bold))
+          ("NEXT" . (:background "#f5c2e7" :foreground "#1E1E2E" :weight bold))
+          ("TODAY" . (:background "#f2cdcd" :foreground "#1E1E2E" :weight bold))
+          ("IN PROGRESS" . (:background "#89b4fa" :foreground "#1E1E2E" :weight bold))
+          ("REVIEW" . (:background "#cba6f7" :foreground "#1E1E2E" :weight bold))
+          ("LATER" . (:background "#b4befe" :foreground "#1E1E2E" :weight bold))
+          ("READING" . (:background "#f5c2e7" :foreground "#1E1E2E" :weight bold))
+          ("DONE" . (:background "#a6e3a1" :foreground "#1E1E2E" :weight bold))
+          ("ARCHIVED" . (:background "#9399b2" :underline t)))))
 
 (use-package transient
   :demand t
@@ -314,8 +314,10 @@
   :ensure (:wait t :host "codeberg.org" :repo "joostkremers/visual-fill-column")
   :hook (org-mode . visual-line-fill-column-mode)
   :hook (org-roam-mode . visual-line-fill-column-mode)
-  :config
-  (setq-default visual-fill-column-center-text t))
+  :hook (minibuffer-setup . lambda () (visual-line-fill-column-mode nil))
+  :hook (minibuffer-exit . visual-line-fill-column-mode))
+;; :config
+;; (setq-default visual-fill-column-center-text t))
 
 ;; babel
 (org-babel-do-load-languages
