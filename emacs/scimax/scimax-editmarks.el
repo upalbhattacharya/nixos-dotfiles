@@ -97,8 +97,8 @@
 	    :export sem-export-insert)
 
     (comment :open-marker "{>~" :close-marker "~<}"
-	     :marker-face (:foreground "#7F849C" :weight ultra-light)
-	     :face (:foreground "#7F849C" :weight light)
+	     :marker-face (:foreground "#FAB387" :weight ultra-light)
+	     :face (:foreground "#FAB387" :weight bold)
 	     :keymap sem-editmark-content-map
 	     :help-echo "Comment. Right-click, s-click or s-o for menu."
 	     :accept-func sem-delete-editmark

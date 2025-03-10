@@ -210,6 +210,12 @@
   :config
   (global-evil-surround-mode 1))
 
+(use-package outline-indent
+  :demand t
+  :ensure (:wait t :host github :repo "jamescherti/outline-indent.el" :branch "main")
+  :config
+  (outline-indent-minor-mode))
+
 (use-package org
   :demand t
   :ensure nil
@@ -329,7 +335,7 @@
   :ensure (:wait t :host github :repo "rnkn/olivetti")
   :hook (org-mode . olivetti-mode)
   :config
-  (setq-default olivetti-body-width 80))
+  (setq-default olivetti-body-width 90))
 
 ;; babel
 (org-babel-do-load-languages
