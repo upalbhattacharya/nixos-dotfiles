@@ -1050,8 +1050,11 @@
 	    (org-indirect-buffer-display 'current-window))
     (kill-buffer)
     (switch-to-buffer above-buffer)))
-(define-key org-mode-map (kbd "C-x M-n s") 'vimacs/org-narrow-to-subtree)
-(define-key org-mode-map (kbd "C-x M-n w") 'vimacs/org-widen-from-subtree)
+
+(keymap-unset org-mode-map "C-x n s")
+(keymap-unset org-mode-map "C-x n w")
+(define-key org-mode-map (kbd "C-x n s") 'vimacs/org-narrow-to-subtree)
+(define-key org-mode-map (kbd "C-x n w") 'vimacs/org-widen-from-subtree)
 
 ;;; Keybindings
 
