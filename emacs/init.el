@@ -925,6 +925,14 @@
   (setq company-minimum-prefix-length 2)
   (setq company-idle-delay 0.1))
 
+(use-package highlight-indent-guides
+  :demand t
+  :ensure (:wait t :host github :repo "DarthFennec/highlight-indent-guides")
+  :hook (text-mode . highlight-indent-guides-mode)
+  :config
+  (setq highlight-indent-guides-method 'column)
+  (setq highlight-indent-guides-responsive 'top))
+
 ;; Scimax
 (org-babel-load-file (expand-file-name (concat user-emacs-directory "scimax/" "scimax-editmarks.org")))
 (add-hook 'org-mode-hook 'sem-mode)
