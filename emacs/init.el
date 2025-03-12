@@ -136,6 +136,7 @@
                    dashboard company citar-org-roam catppuccin-theme
                    avy async annotate aggressive-indent))
  '(python-isort-extra-args nil)
+ '(truncate-partial-width-windows 77)
  '(vertico-sort-function nil))
 
 ;;; Use elpaca use-package
@@ -323,13 +324,6 @@
 ;;   (setq visual-fill-column-enable-sensible-window-split t)
 ;;   (setq-default visual-fill-column-center-text t)
 ;;   (setq-default visual-fill-column-width 78))
-
-(use-package olivetti
-  :demand t
-  :ensure (:wait t :host github :repo "rnkn/olivetti")
-  :hook (org-mode . olivetti-mode)
-  :config
-  (setq-default olivetti-body-width 90))
 
 ;; babel
 (org-babel-do-load-languages
