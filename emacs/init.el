@@ -89,7 +89,7 @@
              "you need to install the programs: latex and dvipng."
              :image-input-type "dvi" :image-output-type "png"
              :image-size-adjust (1.0 . 1.0) :latex-compiler
-             ("latex -interaction nonstopmode -output-directory %O %F")
+             ("latex -interaction nonstopmode -output-directory %o %F")
              :image-converter ("dvipng -D %D -T tight -o %O %F")
              :transparent-image-converter
              ("dvipng -D %D -T tight -bg Transparent -o %O %F"))
@@ -98,17 +98,17 @@
               "you need to install the programs: latex and dvisvgm."
               :image-input-type "dvi" :image-output-type "svg"
               :image-size-adjust (1.7 . 1.5) :latex-compiler
-              ("latex -interaction nonstopmode -output-directory %o %f")
+              ("latex -interaction nonstopmode -output-directory %o %F")
               :image-converter
-              ("dvisvgm %f --no-fonts --exact-bbox --scale=%S --output=%O"))
+              ("dvisvgm %F --no-fonts --exact-bbox --scale=%S --output=%O"))
      (imagemagick :programs ("latex" "convert") :description
                   "pdf > png" :message
                   "you need to install the programs: latex and imagemagick."
                   :image-input-type "pdf" :image-output-type "png"
                   :image-size-adjust (1.0 . 1.0) :latex-compiler
-                  ("pdflatex -interaction nonstopmode -output-directory %o %f")
+                  ("pdflatex -interaction nonstopmode -output-directory %o %F")
                   :image-converter
-                  ("convert -density %D -trim -antialias %f -quality 100 %O"))))
+                  ("convert -density %D -trim -antialias %F -quality 100 %O"))))
  '(org-priority-faces
    '((65 :foreground "#181825" :background "#f38ba8")
      (66 :foreground "#181825" :background "#f9e2af")
@@ -858,7 +858,8 @@
   :ensure (:wait t :host github :repo "WJCFerguson/textsize")
   :init (textsize-mode)
   :config
-  (setq textsize-default-points 18))
+  (setq textsize-default-points 26)
+  (setq textsize-monitor-size-thresholds '((0 . 0) (540 . 2))))
 
 (use-package python-mode
   :demand t
