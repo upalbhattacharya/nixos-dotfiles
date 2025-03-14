@@ -929,12 +929,6 @@
   (setq highlight-indent-guides-method 'column)
   (setq highlight-indent-guides-responsive 'top))
 
-(use-package math-preview
-  :demand t
-  :ensure (:wait t :host "codeberg.org" :repo "matsievskiysv/math-preview")
-  :custom (math-preview-command "/path/to/math-preview"))
-  
-
 ;; Scimax
 (org-babel-load-file (expand-file-name (concat user-emacs-directory "scimax/" "scimax-editmarks.org")))
 (add-hook 'org-mode-hook 'sem-mode)

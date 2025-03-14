@@ -60,7 +60,7 @@ in
       pkgs.poetry
       pkgs.python312Full
       pkgs.pandoc
-      pkgs.texliveMedium
+      pkgs.texliveFull
       pkgs.waydroid
       pkgs.lilypond
       pkgs.frescobaldi
