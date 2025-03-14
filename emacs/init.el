@@ -73,7 +73,7 @@
  '(org-agenda-todo-keyword-format "%-1s")
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
-   '(:foreground default :background default :scale 2.2 :html-foreground
+   '(:foreground default :background default :scale 1.5 :html-foreground
                  "Black" :html-background "Transparent" :html-scale
                  2.0 :matchers ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-indirect-buffer-display 'current-window)
@@ -244,6 +244,7 @@
   
   ;;org-cite
   (setq org-cite-global-bibliography '("~/org/personal.bib"))
+
 
   ;; org-agenda
   (setq org-agenda-files 
@@ -859,7 +860,7 @@
   :init (textsize-mode)
   :config
   (setq textsize-default-points 26)
-  (setq textsize-monitor-size-thresholds '((0 . 0) (540 . 2))))
+  (setq textsize-monitor-size-thresholds '((0 . 0) (540 . 2) (690 . -2))))
 
 (use-package python-mode
   :demand t
@@ -927,6 +928,12 @@
   :config
   (setq highlight-indent-guides-method 'column)
   (setq highlight-indent-guides-responsive 'top))
+
+(use-package math-preview
+  :demand t
+  :ensure (:wait t :host "codeberg.org" :repo "matsievskiysv/math-preview")
+  :custom (math-preview-command "/path/to/math-preview"))
+  
 
 ;; Scimax
 (org-babel-load-file (expand-file-name (concat user-emacs-directory "scimax/" "scimax-editmarks.org")))
