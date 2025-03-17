@@ -5,7 +5,7 @@
     config = {
       "background_color" = "#1e1e2e";
       "text_highlight_color" = "#f9e2af";
-      "visual_mark_color" = "#7f849c";
+      # "visual_mark_color" = "#7f849c";
       "search_highlight_color" = "#f9e2af";
       "link_highlight_color" = "#89b4fa";
       "synctex_highlight_color" = "#a6e3a1";

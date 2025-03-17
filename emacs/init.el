@@ -73,7 +73,7 @@
  '(org-agenda-todo-keyword-format "%-1s")
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
-   '(:foreground default :background default :scale 1.0 :html-foreground
+   '(:foreground default :background default :scale 1.5 :html-foreground
                  "Black" :html-background "Transparent" :html-scale
                  2.0 :matchers ("begin" "$1" "$" "$$" "\\(" "\\[")))
  '(org-indirect-buffer-display 'current-window)
