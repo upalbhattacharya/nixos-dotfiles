@@ -475,17 +475,22 @@
 
 (use-package biblio
   :demand t
-  :ensure (:wait t :host github :repo "cpitclaudel/biblio.el")
-  )
+  :ensure (:wait t :host github :repo "cpitclaudel/biblio.el"))
 
-
-(use-package git-auto-commit-mode
+(use-package ebib
   :demand t
-  :ensure (:wait t :host github :repo "ryuslash/git-auto-commit-mode")
-  :hook (after-save . git-auto-commit-mode)
+  :ensure (:wait t :host github :repo "joostkremers/ebib")
   :config
-  (setq gac-automatically-push-p t)
-  (git-auto-commit-mode 1))
+  (setq ebib-preload-bib-files '("~/References/main.bib"))
+
+
+  (use-package git-auto-commit-mode
+    :demand t
+    :ensure (:wait t :host github :repo "ryuslash/git-auto-commit-mode")
+    :hook (after-save . git-auto-commit-mode)
+    :config
+    (setq gac-automatically-push-p t)
+    (git-auto-commit-mode 1))
 
 (use-package git-gutter
   :demand t
