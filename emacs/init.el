@@ -499,6 +499,12 @@
   (citar-org-roam-mode))
 ;; (setq citar-org-roam-note-title-template "${title}")
 ;; (setq citar-org-roam-capture-template-key "l"))
+(use-package ebib
+  :demand t
+  :ensure (:wait t :host github :repo "joostkremers/ebib")
+  :config
+  (setq ebib-preload-bib-files '("~/References/main.bib"))
+  )
 
 (use-package git-auto-commit-mode
   :demand t
