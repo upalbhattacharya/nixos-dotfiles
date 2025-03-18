@@ -48,7 +48,7 @@ in
     };
     packages = [
       pkgs.localsend
-      pkgs.zotero
+      pkgs.zotero-beta
       pkgs.anki-bin
       pkgs.wl-clipboard-rs
       pkgs.ripgrep
