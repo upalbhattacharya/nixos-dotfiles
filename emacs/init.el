@@ -446,38 +446,13 @@
   :ensure (:wait t :host github :repo "axelf4/hotfuzz")
   :config (setq completion-styles '(hotfuzz)))
 
-(use-package org-ref
-  :demand t
-  :ensure (:wait t :host github :repo "jkitchin/org-ref")
-  :config
-  (setq bibtex-completion-bibliography "~/References/main.bib" )
-  (setq bibtex-completion-library-path "~/References/pdf/")
-  (setq biblio-download-directory "~/References/pdf/")
-  (advice-add #'completing-read-multiple :override #'consult-completing-read-multiple)
-  (require 'org-ref)
-  (require 'doi-utils)
-  )
-(use-package org-roam-bibtex
-  :demand t
-  :ensure (:wait t :host github :repo "org-roam/org-roam-bibtex")
-  :de
-  :config
-  (setq orb-note-actions-interface 'hydra)
-  (setq orb-preformat-keywords
-	    '("citekey" "title" "url" "author-or-editor" "keywords" "file")
-	    orb-process-file-keyword t
-	    orb-file-field-extensions '("pdf")
-	    )
-  (org-roam-bibtex-mode)
-  )
-
 (use-package citar
   :demand t
   :ensure (:wait t :host github :repo "emacs-citar/citar")
   :custom
   (citar-open-note-function 'orb-citar-edit-note)
-  (citar-bibliography '("~/References/main.bib"))
-  (citar-notes-paths '("~/org/Literature/"))
+  (citar-bibliography '("~/org/personal.bib"))
+  (citar-notes-paths '("~/Zotero Personal/storage/"))
   (citar-library-paths '("~/References/pdf/"))
   (citar-file-note-extensions '("org"))
   (org-cite-insert-processor 'citar)
@@ -493,18 +468,10 @@
   :after
   citar
   org-roam
-  :custom
-  (citar-org-roam-subdir nil)
   :config
-  (citar-org-roam-mode))
-;; (setq citar-org-roam-note-title-template "${title}")
-;; (setq citar-org-roam-capture-template-key "l"))
-(use-package ebib
-  :demand t
-  :ensure (:wait t :host github :repo "joostkremers/ebib")
-  :config
-  (setq ebib-preload-bib-files '("~/References/main.bib"))
-  )
+  (citar-org-roam-mode)
+  (setq citar-org-roam-note-title-template "${title}")
+  (setq citar-org-roam-capture-template-key "l"))
 
 (use-package git-auto-commit-mode
   :demand t
