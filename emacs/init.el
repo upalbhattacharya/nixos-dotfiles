@@ -475,7 +475,7 @@
 
 (use-package biblio
   :demand t
-  :ensure (:wait t :host github :repo "cpitclaudel/biblio.el"))
+  :ensure (:wait t: host github :repo "cpitlaudel/biblio.el"))
 
 (use-package ebib
   :demand t
@@ -483,6 +483,8 @@
   :config
   (setq ebib-preload-bib-files '("~/References/main.bib"))
   (setq ebib-bibtex-dialect 'biblatex))
+
+(load-file (expand-file-name (concat user-emacs-directory "extras/" "ebib-papers.el")))
 
 (use-package git-auto-commit-mode
   :demand t
