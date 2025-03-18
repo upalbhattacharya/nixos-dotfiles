@@ -452,8 +452,8 @@
   :custom
   (citar-open-note-function 'orb-citar-edit-note)
   (citar-bibliography '("~/org/personal.bib"))
-  (citar-notes-paths '("~/Zotero Personal/storage/"))
-  (citar-library-paths '("~/References/pdf/"))
+  (citar-library-paths '("~/Zotero Personal/storage/"))
+  (citar-note-paths '("~/org"))
   (citar-file-note-extensions '("org"))
   (org-cite-insert-processor 'citar)
   (org-cite-activate-processor 'citar)
