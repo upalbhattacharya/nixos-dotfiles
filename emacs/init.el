@@ -475,8 +475,10 @@
   :demand t
   :ensure (:wait t :host github :repo "emacs-citar/citar")
   :custom
+  (citar-open-note-function 'orb-citar-edit-note)
   (citar-bibliography '("~/References/main.bib"))
   (citar-notes-paths '("~/org/Literature/"))
+  (citar-library-paths '("~/References/pdf/"))
   (citar-file-note-extensions '("org"))
   (org-cite-insert-processor 'citar)
   (org-cite-activate-processor 'citar)
@@ -491,10 +493,12 @@
   :after
   citar
   org-roam
+  :custom
+  (citar-org-roam-subdir nil)
   :config
-  (citar-org-roam-mode)
-  (setq citar-org-roam-note-title-template "${title}")
-  (setq citar-org-roam-capture-template-key "l"))
+  (citar-org-roam-mode))
+;; (setq citar-org-roam-note-title-template "${title}")
+;; (setq citar-org-roam-capture-template-key "l"))
 
 (use-package git-auto-commit-mode
   :demand t
