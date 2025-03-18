@@ -43,6 +43,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(bibtex-autokey-titleword-case-convert-function 'capitalize)
+ '(bibtex-autokey-titleword-length 'infty)
+ '(bibtex-autokey-titleword-separator "")
+ '(bibtex-autokey-titlewords 3)
+ '(bibtex-autokey-year-length 4)
+ '(bibtex-autokey-year-title-separator "")
  '(calendar-date-style 'iso)
  '(citar-file-open-functions
    '(("html" . citar-file-open-external) (t . find-file)
@@ -475,15 +481,17 @@
 
 (use-package biblio
   :demand t
-  :ensure (:wait t: host github :repo "cpitlaudel/biblio.el"))
+  :ensure (:wait t :host github :repo "cpitlaudel/biblio.el")
+  :config
+  (setq biblio-download-directory "~/Downloads/"))
 
 (use-package ebib
   :demand t
   :ensure (:wait t :host github :repo "joostkremers/ebib")
   :config
   (setq ebib-preload-bib-files '("~/References/main.bib"))
-  (setq ebib-bibtex-dialect 'biblatex)
-  (setq )
+  (setq ebib-import-target-directory "~/References/pdf/")
+  (setq ebib-bibtex-dialect 'biblatex))
 
 (load-file (expand-file-name (concat user-emacs-directory "extras/" "ebib-papers.el")))
 
