@@ -457,7 +457,7 @@
   :ensure (:wait t :host github :repo "emacs-citar/citar")
   :custom
   (citar-open-note-function 'orb-citar-edit-note)
-  (citar-bibliography '("~/References/main.bib"))
+  (citar-bibliography '("~/References/main.bib" "~/References/slr-phd.bib"))
   (citar-library-paths '("~/References/pdf/"))
   (citar-note-paths '("~/org"))
   (citar-file-note-extensions '("org"))
@@ -489,7 +489,7 @@
   :demand t
   :ensure (:wait t :host github :repo "joostkremers/ebib")
   :config
-  (setq ebib-preload-bib-files '("~/References/main.bib"))
+  (setq ebib-preload-bib-files '("~/References/main.bib" "~/References/slr-phd.bib"))
   (setq ebib-import-target-directory "~/References/pdf/")
   (setq ebib-bibtex-dialect 'biblatex))
 
