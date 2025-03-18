@@ -446,11 +446,34 @@
   :ensure (:wait t :host github :repo "axelf4/hotfuzz")
   :config (setq completion-styles '(hotfuzz)))
 
+(use-package org-ref
+  :ensure t
+  :ensure (:wait t :host github :repo "jkitchin/org-ref")
+  :config
+  (setq bibtex-completion-bibliography "~/References/main.bib" )
+  (setq bibtex-completion-library-path "~/References/pdf/")
+  (setq biblio-download-directory "~/References/pdf/")
+  (advice-add #'completing-read-multiple :override #'consult-completing-read-multiple)
+  (require 'org-ref)
+  (require 'doi-utils)
+  )
+(use-package org-roam-bibtex
+  :ensure t
+  :config
+  (setq orb-note-actions-interface 'hydra)
+  (setq orb-preformat-keywords
+	    '("citekey" "title" "url" "author-or-editor" "keywords" "file")
+	    orb-process-file-keyword t
+	    orb-file-field-extensions '("pdf")
+	    )
+  (org-roam-bibtex-mode)
+  )
+
 (use-package citar
   :demand t
   :ensure (:wait t :host github :repo "emacs-citar/citar")
   :custom
-  (citar-bibliography '("~/org/personal.bib"))
+  (citar-bibliography '("~/References/main.bib"))
   (citar-notes-paths '("~/org/Literature/"))
   (citar-file-note-extensions '("org"))
   (org-cite-insert-processor 'citar)
