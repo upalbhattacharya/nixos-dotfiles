@@ -447,7 +447,7 @@
   :config (setq completion-styles '(hotfuzz)))
 
 (use-package org-ref
-  :ensure t
+  :demand t
   :ensure (:wait t :host github :repo "jkitchin/org-ref")
   :config
   (setq bibtex-completion-bibliography "~/References/main.bib" )
@@ -458,7 +458,9 @@
   (require 'doi-utils)
   )
 (use-package org-roam-bibtex
-  :ensure t
+  :demand t
+  :ensure (:wait t :host github :repo "org-roam/org-roam-bibtex")
+  :de
   :config
   (setq orb-note-actions-interface 'hydra)
   (setq orb-preformat-keywords
