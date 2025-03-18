@@ -482,16 +482,14 @@
   :ensure (:wait t :host github :repo "joostkremers/ebib")
   :config
   (setq ebib-preload-bib-files '("~/References/main.bib"))
-  (setq ebib-bibtex-dialect 'biblatex))
+  (setq ebib-bibtex-dialect 'biblatex)
+  (setq )
 
 (load-file (expand-file-name (concat user-emacs-directory "extras/" "ebib-papers.el")))
 
-(use-package ebib-biblio
-  :after (ebib biblio)
-  :bind (:map ebib-index-mode-map
-              ("B" . ebib-biblio-import-doi)
-              :map biblio-selection-mode-map
-              ("e" . ebib-biblio-selection-import)))
+(require 'ebib-biblio)
+(define-key ebib-index-mode-map (kbd "B") #'ebib-biblio-import-doi)
+(define-key biblio-selection-mode-map (kbd "e") #'ebib-biblio-selection-import)
 
 (use-package git-auto-commit-mode
   :demand t
