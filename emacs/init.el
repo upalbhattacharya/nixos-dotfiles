@@ -486,6 +486,13 @@
 
 (load-file (expand-file-name (concat user-emacs-directory "extras/" "ebib-papers.el")))
 
+(use-package ebib-biblio
+  :after (ebib biblio)
+  :bind (:map ebib-index-mode-map
+              ("B" . ebib-biblio-import-doi)
+              :map biblio-selection-mode-map
+              ("e" . ebib-biblio-selection-import)))
+
 (use-package git-auto-commit-mode
   :demand t
   :ensure (:wait t :host github :repo "ryuslash/git-auto-commit-mode")
