@@ -451,8 +451,8 @@
   :ensure (:wait t :host github :repo "emacs-citar/citar")
   :custom
   (citar-open-note-function 'orb-citar-edit-note)
-  (citar-bibliography '("~/org/personal.bib"))
-  (citar-library-paths '("~/Zotero Personal/storage/"))
+  (citar-bibliography '("~/References/main.bib"))
+  (citar-library-paths '("~/References/pdf/"))
   (citar-note-paths '("~/org"))
   (citar-file-note-extensions '("org"))
   (org-cite-insert-processor 'citar)
@@ -472,6 +472,12 @@
   (citar-org-roam-mode)
   (setq citar-org-roam-note-title-template "${title}")
   (setq citar-org-roam-capture-template-key "l"))
+
+(use-package biblio
+  :demand t
+  :ensure (:wait t :host github :repo "cpitclaudel/biblio.el")
+  )
+
 
 (use-package git-auto-commit-mode
   :demand t
