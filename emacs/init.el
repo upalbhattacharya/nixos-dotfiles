@@ -58,6 +58,7 @@
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901"
      default))
+ '(ebib-file-associations '(("pdf" . "sioyek %s") ("ps" . "gv")))
  '(elpaca-menu-functions
    '(elpaca-menu-lock-file elpaca-menu-extensions elpaca-menu-org
                            elpaca-menu-declarations elpaca-menu-melpa
@@ -457,7 +458,7 @@
   :ensure (:wait t :host github :repo "emacs-citar/citar")
   :custom
   (citar-open-note-function 'orb-citar-edit-note)
-  (citar-bibliography '("~/References/main.bib" "~/References/slr-phd.bib"))
+  (citar-bibliography '("~/References/main.bib"))
   (citar-library-paths '("~/References/pdf/"))
   (citar-note-paths '("~/org"))
   (citar-file-note-extensions '("org"))
@@ -489,7 +490,7 @@
   :demand t
   :ensure (:wait t :host github :repo "joostkremers/ebib")
   :config
-  (setq ebib-preload-bib-files '("~/References/main.bib" "~/References/slr-phd.bib"))
+  (setq ebib-preload-bib-files '("~/References/main.bib"))
   (setq ebib-import-target-directory "~/References/pdf/")
   (setq ebib-bibtex-dialect 'biblatex))
 
