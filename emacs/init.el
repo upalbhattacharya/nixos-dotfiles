@@ -43,7 +43,31 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(bibtex-autokey-name-change-strings
+   '(("\\(?:\\\\aa\\)" . "a") ("\\(?:\\\\AA\\)" . "A")
+     ("\\(?:\"a\\|\\\\\\(?:\"a\\|ae\\)\\)" . "ae")
+     ("\\(?:\"A\\|\\\\\\(?:\"A\\|AE\\)\\)" . "Ae")
+     ("\\(?:\\\\i\\)" . "i") ("\\(?:\\\\j\\)" . "j")
+     ("\\(?:\\\\l\\)" . "l") ("\\(?:\\\\L\\)" . "L")
+     ("\\(?:\"o\\|\\\\\\(?:\"o\\|oe?\\)\\)" . "oe")
+     ("\\(?:\"O\\|\\\\\\(?:\"O\\|OE?\\)\\)" . "Oe")
+     ("\\(?:\"s\\|\\\\\\(?:\"s\\|3\\)\\)" . "ss")
+     ("\\(?:\\\\?\"u\\)" . "ue") ("\\(?:\\\\?\"U\\)" . "Ue")
+     ("\\(?:\\\\['.=H`bcdtuv~^-]\\)" . "") ("~" . " ")
+     ("[ \11\12]*\\(?:\\\\\\)?[ \11\12]+" . " ") ("[`'\"{}#()]" . "")))
  '(bibtex-autokey-titleword-case-convert-function 'capitalize)
+ '(bibtex-autokey-titleword-change-strings
+   '(("\\(?:\\\\aa\\)" . "a") ("\\(?:\\\\AA\\)" . "A")
+     ("\\(?:\"a\\|\\\\\\(?:\"a\\|ae\\)\\)" . "ae")
+     ("\\(?:\"A\\|\\\\\\(?:\"A\\|AE\\)\\)" . "Ae")
+     ("\\(?:\\\\i\\)" . "i") ("\\(?:\\\\j\\)" . "j")
+     ("\\(?:\\\\l\\)" . "l") ("\\(?:\\\\L\\)" . "L")
+     ("\\(?:\"o\\|\\\\\\(?:\"o\\|oe?\\)\\)" . "oe")
+     ("\\(?:\"O\\|\\\\\\(?:\"O\\|OE?\\)\\)" . "Oe")
+     ("\\(?:\"s\\|\\\\\\(?:\"s\\|3\\)\\)" . "ss")
+     ("\\(?:\\\\?\"u\\)" . "ue") ("\\(?:\\\\?\"U\\)" . "Ue")
+     ("\\(?:\\\\['.=H`bcdtuv~^-]\\)" . "") ("~" . " ")
+     ("[ \11\12]*\\(?:\\\\\\)?[ \11\12]+" . " ") ("[`'\"{}#()]" . "")))
  '(bibtex-autokey-titleword-length 'infty)
  '(bibtex-autokey-titleword-separator "")
  '(bibtex-autokey-titlewords 3)
