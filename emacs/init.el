@@ -535,7 +535,7 @@
   (let* ((key (thing-at-point 'word))
          (bib-entry (ebib-get-entry key ebib--cur-db))
          (files (split-string (replace-regexp-in-string "[{}]" "" (cdr (assoc "file" bib-entry))) ";"))
-         (pdfs (seq-map (lambda (filename) (trim filename)) (seq-filter (lambda (filename) (string-equal "pdf" (file-name-extension filename))) files)))
+         (pdfs (seq-map (lambda (filename) (string-trim filename)) (seq-filter (lambda (filename) (string-equal "pdf" (file-name-extension filename))) files)))
          (pdf-length (length pdfs))
          (files-length (length files))
          )
@@ -544,18 +544,13 @@
                   (fullpath (expand-file-name filename "~/"))
                   (dirpath (file-name-directory fullpath)))
              (if (= pdf-length files-length)
-                 (message "%s" fullpath)
+                 (rename-file fullpath (concat dirpath key))
                (message "Other non-PDF files exist")
                )))
           ((> pdf-length 1) (message "More than one PDF file found. Please update manually."))
           (t (message "No file found. Nothing to do")))
     )
   )
-(defun my-thing ()
-  "print current word."
-  (interactive)
-  (message "%s" (ebib--cur-db)))
-
 (use-package git-auto-commit-mode
   :demand t
   :ensure (:wait t :host github :repo "ryuslash/git-auto-commit-mode")
