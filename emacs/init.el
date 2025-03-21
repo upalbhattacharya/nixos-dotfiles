@@ -534,7 +534,7 @@
   (interactive)
   (let* ((key (thing-at-point 'word))
          (bib-entry (ebib-get-entry key ebib--cur-db))
-         (files  (split-string (replace-regexp-in-string "[{}]" "" (cdr (assoc "file" bib-entry))) ";"))
+         (files (split-string (replace-regexp-in-string "[{}]" "" (cdr (assoc "file" bib-entry))) ";"))
          (pdfs (seq-filter (lambda (filename) (string-equal "pdf" (file-name-extension filename))) files))
          (pdf-length (length pdfs))
          (files-length (length files))
