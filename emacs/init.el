@@ -54,7 +54,8 @@
      ("\\(?:\"s\\|\\\\\\(?:\"s\\|3\\)\\)" . "ss")
      ("\\(?:\\\\?\"u\\)" . "ue") ("\\(?:\\\\?\"U\\)" . "Ue")
      ("\\(?:\\\\['.=H`bcdtuv~^-]\\)" . "") ("~" . " ")
-     ("[ \11\12]*\\(?:\\\\\\)?[ \11\12]+" . " ") ("[`'\"{}#()]" . "")))
+     ("[ \11\12]*\\(?:\\\\\\)?[ \11\12]+" . " ") ("[`'\"{}#()-]" . "")
+     ("á" . "a")))
  '(bibtex-autokey-titleword-case-convert-function 'capitalize)
  '(bibtex-autokey-titleword-change-strings
    '(("\\(?:\\\\aa\\)" . "a") ("\\(?:\\\\AA\\)" . "A")
@@ -67,10 +68,14 @@
      ("\\(?:\"s\\|\\\\\\(?:\"s\\|3\\)\\)" . "ss")
      ("\\(?:\\\\?\"u\\)" . "ue") ("\\(?:\\\\?\"U\\)" . "Ue")
      ("\\(?:\\\\['.=H`bcdtuv~^-]\\)" . "") ("~" . " ")
-     ("[ \11\12]*\\(?:\\\\\\)?[ \11\12]+" . " ") ("[`'\"{}#()]" . "")))
+     ("[ \11\12]*\\(?:\\\\\\)?[ \11\12]+" . " ") ("[`'\"{}#():]" . "")))
+ '(bibtex-autokey-titleword-ignore
+   '("A" "a" "An" "an" "On" "on" "The" "the" "Of" "of" "To" "to" "For"
+     "for" "And" "and" "From" "from" "Eine?" "Der" "Die" "Das"))
  '(bibtex-autokey-titleword-length 'infty)
  '(bibtex-autokey-titleword-separator "")
  '(bibtex-autokey-titlewords 3)
+ '(bibtex-autokey-titlewords-stretch 0)
  '(bibtex-autokey-year-length 4)
  '(bibtex-autokey-year-title-separator "")
  '(calendar-date-style 'iso)
@@ -83,6 +88,7 @@
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901"
      default))
  '(ebib-file-associations '(("pdf" . "sioyek %s") ("ps" . "gv")))
+ '(ebib-uniquify-keys t)
  '(elpaca-menu-functions
    '(elpaca-menu-lock-file elpaca-menu-extensions elpaca-menu-org
                            elpaca-menu-declarations elpaca-menu-melpa
@@ -523,6 +529,19 @@
 (require 'ebib-biblio)
 (define-key ebib-index-mode-map (kbd "B") #'ebib-biblio-import-doi)
 (define-key biblio-selection-mode-map (kbd "e") #'ebib-biblio-selection-import)
+
+(defun workboots/update-pdfs-filenames ()
+  (interactive)
+  (let ((key (thing-at-point 'word))
+        (ebib-db ebib--cur-db))
+    ;; (bib-entry (ebib-get-entry 'key 'ebib-db)))
+    (message 'ebib-db) 
+    )
+  )
+(defun my-thing ()
+  "print current word."
+  (interactive)
+  (message "%s" (ebib--cur-db)))
 
 (use-package git-auto-commit-mode
   :demand t
