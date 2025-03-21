@@ -545,6 +545,7 @@
                   (dirpath (file-name-directory )))
              (if (= pdf-length files-length)
                  (message "%s" fullpath)
+               (message "Other non-PDF files exist")
                )
              (message "Additional files exist")))
           ((> pdf-length 1) (message "More than one PDF file found. Please update manually."))
