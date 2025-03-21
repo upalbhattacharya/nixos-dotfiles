@@ -88,6 +88,7 @@
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901"
      default))
  '(ebib-file-associations '(("pdf" . "sioyek %s") ("ps" . "gv")))
+ '(ebib-layout 'index-only)
  '(ebib-uniquify-keys t)
  '(elpaca-menu-functions
    '(elpaca-menu-lock-file elpaca-menu-extensions elpaca-menu-org
@@ -547,9 +548,12 @@
                   (bibpath (file-relative-name newpath "~/"))
                   (sanspdf (string-join (seq-difference files pdfs) "; ")))
              (rename-file fullpath newpath t)
-             ;; (if (= pdf-length files-length)
-             ;; (ebib-set-field-value "file" (concat "{" bibpath "}") key ebib--cur-db 'overwrite)
-             (ebib-set-field-value "file" (concat "{" sanspdf ";" bibpath "}") key ebib--cur-db 'overwrite)
+             (if (= pdf-length files-length)
+                 (ebib-db-set-field-value "file" (concat "{" bibpath "}") key ebib--cur-db t)
+               (ebib-db-set-field-value "file" (concat "{" sanspdf ";" bibpath "}") key ebib--cur-db t))
+             (ebib-db-set-modified 'modified ebib--cur-db)
+             (ebib--save-database ebib--cur-db t)
+             (ebib--reload-database ebib--cur-db)
              ))
           ((> pdf-length 1) (message "More than one PDF file found. Please update manually."))
           (t (message "No file found. Nothing to do")))
