@@ -536,7 +536,7 @@
          (bib-entry (ebib-get-entry key ebib--cur-db))
          (files (assoc 'file bib-entry))
          )
-    (message "%s" (assoc 'file bib-entry) )
+    (message "%s" (assoc 'file bib-entry))
     )
   )
 (defun my-thing ()
