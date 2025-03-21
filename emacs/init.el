@@ -541,7 +541,7 @@
     (if (eq len 1)
         (message "test")
       (message "More than one pdf found. Check and update manually"))
-    (cond ((eq len 1) ())
+    (cond ((eq len 1) (message "Test"))
           ((> len 1) (message "More than one PDF file found. Please update manually."))
           (t (message "No file found. Nothing to do")))
     )
