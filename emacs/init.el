@@ -288,8 +288,7 @@
   (setq org-todo-keywords
         '((sequence
            "TODO(t)"
-           "NEXT(n/!)"
-           "TODAY(T/!)"
+           "ACTIVE(A/!)"
            "NOW(N/!)"
            "IN PROGRESS(p/!)"
            "REVIEW(r/!)"
@@ -300,8 +299,7 @@
            "ARCHIVED(a/!)")))
   (setq org-todo-keyword-faces
         '(("TODO" . (:background "#f9e2af" :foreground "#1E1E2E" :weight bold))
-          ("NEXT" . (:background "#f5c2e7" :foreground "#1E1E2E" :weight bold))
-          ("TODAY" . (:background "#f2cdcd" :foreground "#1E1E2E" :weight bold))
+          ("ACTIVE" . (:background "#f2cdcd" :foreground "#1E1E2E" :weight bold))
           ("NOW" . (:background "#f38ba8" :foreground "#1E1E2E" :weight bold))
           ("IN PROGRESS" . (:background "#89b4fa" :foreground "#1E1E2E" :weight bold))
           ("REVIEW" . (:background "#cba6f7" :foreground "#1E1E2E" :weight bold))
@@ -821,19 +819,19 @@
               (org-ql-block-header "Now")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
 
-            ;; Today
+            ;; Active
             (org-ql-block
              '(and
                (todo)
                (not (and
-                     (not (todo "TODAY"))
+                     (not (todo "ACTIVE"))
                      (not (deadline :on today))
                      (not (scheduled :on today))))
                (category "Project" "Area" "Inbox" "Resource" "Literature")
                (not (path "Archive"))
                (not (tags "IGNORE_AGENDA")))
              (
-              (org-ql-block-header "Today")
+              (org-ql-block-header "\nActive")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
             (org-ql-block
              '(and
