@@ -290,6 +290,7 @@
            "TODO(t)"
            "NEXT(n/!)"
            "TODAY(T/!)"
+           "NOW(N/!)"
            "IN PROGRESS(p/!)"
            "REVIEW(r/!)"
            "LATER(l/!)"
@@ -301,6 +302,7 @@
         '(("TODO" . (:background "#f9e2af" :foreground "#1E1E2E" :weight bold))
           ("NEXT" . (:background "#f5c2e7" :foreground "#1E1E2E" :weight bold))
           ("TODAY" . (:background "#f2cdcd" :foreground "#1E1E2E" :weight bold))
+          ("NOW" . (:background "#f2cdcd" :foreground "#1E1E2E" :weight bold))
           ("IN PROGRESS" . (:background "#89b4fa" :foreground "#1E1E2E" :weight bold))
           ("REVIEW" . (:background "#cba6f7" :foreground "#1E1E2E" :weight bold))
           ("LATER" . (:background "#b4befe" :foreground "#1E1E2E" :weight bold))
@@ -1124,7 +1126,7 @@
 (keymap-unset org-mode-map "C-x n s")
 (keymap-unset org-mode-map "C-x n w")
 (define-key org-mode-map (kbd "C-x n s") 'vimacs/org-narrow-to-subtree)
-(define-key org-mode-map (kbd "C-x n S") 'narrow-show-1-outline)
+(define-key org-mode-map (kbd "C-x n o") 'narrow-show-1-outline)
 (define-key org-mode-map (kbd "C-x n w") 'vimacs/org-widen-from-subtree)
 
 ;;; Keybindings
