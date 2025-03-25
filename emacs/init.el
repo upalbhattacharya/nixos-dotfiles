@@ -816,7 +816,7 @@
              '(and
                (todo)
                (not (and
-                     (not (todo "TODAY" "NOW"))
+                     (not (todo "TODAY"))
                      (not (deadline :on today))
                      (not (scheduled :on today))))
                (category "Project" "Area" "Inbox" "Resource" "Literature")
