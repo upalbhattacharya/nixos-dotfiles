@@ -811,6 +811,16 @@
             ))
           ("T" "Today View"
            (
+            (org-ql-block
+             '(and
+               (todo "NOW")
+               (category "Project" "Area" "Inbox" "Resource" "Literature")
+               (not (path "Archive"))
+               (not (tags "IGNORE_AGENDA")))
+             (
+              (org-ql-block-header "Now")
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
+
             ;; Today
             (org-ql-block
              '(and
