@@ -302,7 +302,7 @@
         '(("TODO" . (:background "#f9e2af" :foreground "#1E1E2E" :weight bold))
           ("NEXT" . (:background "#f5c2e7" :foreground "#1E1E2E" :weight bold))
           ("TODAY" . (:background "#f2cdcd" :foreground "#1E1E2E" :weight bold))
-          ("NOW" . (:background "#f2cdcd" :foreground "#1E1E2E" :weight bold))
+          ("NOW" . (:background "#f38ba8" :foreground "#1E1E2E" :weight bold))
           ("IN PROGRESS" . (:background "#89b4fa" :foreground "#1E1E2E" :weight bold))
           ("REVIEW" . (:background "#cba6f7" :foreground "#1E1E2E" :weight bold))
           ("LATER" . (:background "#b4befe" :foreground "#1E1E2E" :weight bold))
