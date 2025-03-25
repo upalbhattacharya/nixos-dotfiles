@@ -87,7 +87,7 @@
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901"
      default))
- '(ebib-file-associations '(("pdf" . "sioyek %s") ("ps" . "gv")))
+ '(ebib-file-associations '(("pdf" . "xdg-open %s") ("ps" . "gv")))
  '(ebib-layout 'index-only)
  '(ebib-uniquify-keys t)
  '(elpaca-menu-functions
@@ -218,6 +218,9 @@
   (evil-ex-define-cmd "wq" 'save-and-kill-this-buffer)
   (defun save-and-kill-this-buffer()(interactive)(save-buffer)(kill-current-buffer))
   )
+(defalias 'narrow-show-1-outline
+  (kmacro "C-x n s C-1 C-c <tab>"))
+
 (use-package evil-surround
   :demand t
   :ensure (:wait t :host github :repo "emacs-evil/evil-surround")
@@ -1121,6 +1124,7 @@
 (keymap-unset org-mode-map "C-x n s")
 (keymap-unset org-mode-map "C-x n w")
 (define-key org-mode-map (kbd "C-x n s") 'vimacs/org-narrow-to-subtree)
+(define-key org-mode-map (kbd "C-x n S") 'narrow-show-1-outline)
 (define-key org-mode-map (kbd "C-x n w") 'vimacs/org-widen-from-subtree)
 
 ;;; Keybindings
