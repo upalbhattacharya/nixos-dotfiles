@@ -108,6 +108,7 @@
    '((agenda habit-down time-up priority-down category-keep)
      (todo deadline-up category-keep priority-down)
      (tags priority-down category-keep) (search category-keep)))
+ '(org-agenda-sticky t)
  '(org-agenda-todo-keyword-format "%-1s")
  '(org-export-backends '(ascii html icalendar latex odt org))
  '(org-format-latex-options
@@ -833,6 +834,18 @@
              (
               (org-ql-block-header "\nActive")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
+
+            ;; Completed
+            (org-ql-block
+             '(and (done)
+                   (closed :on today)
+                   (category "Project" "Area" "Inbox" "Resource" "Literature")
+                   (not (tags "IGNORE_AGENDA")))
+             ((org-ql-block-header "\nCompleted Today")
+              (org-super-agenda-groups '((:auto-para "HEAD")))))
+            ))
+          ("R" "Reading View"
+           (
             (org-ql-block
              '(and
                (todo "READING")
@@ -841,14 +854,6 @@
                (not (tags "IGNORE_AGENDA")))
              (
               (org-ql-block-header "\nReading (Literature)")
-              (org-super-agenda-groups '((:auto-para "HEAD")))))
-            ;; Completed
-            (org-ql-block
-             '(and (done)
-                   (closed :on today)
-                   (category "Project" "Area" "Inbox" "Resource" "Literature")
-                   (not (tags "IGNORE_AGENDA")))
-             ((org-ql-block-header "\nCompleted Today")
               (org-super-agenda-groups '((:auto-para "HEAD")))))
             ))
           ("p" "PARA"
