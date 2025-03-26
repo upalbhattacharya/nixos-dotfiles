@@ -227,7 +227,6 @@ in
       pkgs.anki-bin
       pkgs.localsend
       pkgs.sioyek
-      pkgs.xdg
       pkgs.mpg
       pkgs.kitty
       pkgs.
@@ -293,6 +292,12 @@ in
         xdg-desktop-portal-wlr
         xdg-desktop-portal-gtk
       ];
+    };
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "application/pdf" = [ "sioyek.desktop" ];
+      };
     };
   };
 
