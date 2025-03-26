@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 let
@@ -13,7 +12,6 @@ let
     test $BAT_PCT -lt 15 && test $BAT_PCT -gt 5 && test $BAT_STA = "Discharging" && DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus" notify-send -u critical "Low Battery" "Would be wise to keep my charger nearby."
     test $BAT_PCT -lt 5 && test $BAT_STA = "Discharging" && DISPLAY=:0.0 DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus" notify-send -u critical "Low Battery" "Charge me or watch me die!"
   '';
-  system = "x86_64-linux";
 in
 {
   imports = [ ./hardware-configuration.nix ];
@@ -232,7 +230,7 @@ in
       pkgs.sioyek
       pkgs.mpv
       pkgs.kitty
-      inputs.zen-browser.packages.${system}.default
+      pkgs.firefox
 
       pkgs.protonvpn-cli_2
       pkgs.openvpn
