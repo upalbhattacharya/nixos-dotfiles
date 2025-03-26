@@ -17,7 +17,7 @@
       self,
       nixpkgs,
       # home-manager,
-      catppuccin,
+      # catppuccin,
       ...
     }@inputs:
     let
