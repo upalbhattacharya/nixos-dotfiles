@@ -220,7 +220,6 @@ in
       # Programs
       pkgs.discord
       pkgs.emacs30-pgtk
-      pkgs.vivaldi
       pkgs.frescobaldi
       pkgs.lilypond
       pkgs.plantuml
@@ -286,7 +285,7 @@ in
 
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
   };
 
