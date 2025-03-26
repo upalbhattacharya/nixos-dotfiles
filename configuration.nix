@@ -298,7 +298,7 @@ in
     #   defaultApplications = {
     #     "application/pdf" = [ "sioyek.desktop" ];
     #   };
-     };
+    # };
   };
 
   fonts = {
