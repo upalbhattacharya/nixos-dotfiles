@@ -227,7 +227,7 @@ in
       pkgs.anki-bin
       pkgs.localsend
       pkgs.sioyek
-      pkgs.mpg
+      pkgs.mpv
       pkgs.kitty
       pkgs.
 
@@ -298,7 +298,7 @@ in
     #   defaultApplications = {
     #     "application/pdf" = [ "sioyek.desktop" ];
     #   };
-    # };
+     };
   };
 
   fonts = {
