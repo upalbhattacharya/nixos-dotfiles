@@ -202,6 +202,7 @@ in
       pkgs.fzf
       pkgs.zip
       pkgs.unzip
+      pkgs.stow
 
       # Services
       pkgs.wpaperd
@@ -236,6 +237,7 @@ in
 
       # Shell
       pkgs.zsh
+      pkgs.zsh-syntax-highlighting
       pkgs.starship
     ];
   };

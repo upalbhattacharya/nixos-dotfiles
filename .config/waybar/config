@@ -1,0 +1,135 @@
+[
+  {
+    "backlight": {
+      "device": "acpi_video1",
+      "format": "{icon} {percent:3}%",
+      "format-icons": [
+        "󰃠"
+      ]
+    },
+    "battery": {
+      "format": "{icon} {capacity}%",
+      "format-icons": {
+        "charging": [
+          "󱐋"
+        ],
+        "default": [
+          "󰂁"
+        ],
+        "discharging": [
+          "󰂁"
+        ],
+        "full": [
+          ""
+        ],
+        "plugged": [
+          ""
+        ]
+      },
+      "interval": 5,
+      "states": {
+        "critical": 10,
+        "warning": 15
+      }
+    },
+    "cpu": {
+      "format": "{icon} {usage:3}%",
+      "format-icons": [
+        ""
+      ],
+      "interval": 10,
+      "tooltip": false
+    },
+    "custom/clock": {
+      "exec": "date '+%T'",
+      "format": "{} ",
+      "interval": 1
+    },
+    "custom/memory": {
+      "exec": "free -h | awk 'FNR == 2 {print $6}'",
+      "format": "{icon} {}",
+      "format-icons": [
+        ""
+      ],
+      "interval": 10
+    },
+    "custom/separator": {
+      "format": "|",
+      "interval": "once",
+      "tooltip": false
+    },
+    "fixed-center": false,
+    "height": 24,
+    "hyprland/window": {
+      "separate-outputs": true
+    },
+    "hyprland/workspaces": {
+      "all-outputs": false,
+      "disable-scroll": true,
+      "format": "{icon}"
+    },
+    "layer": "top",
+    "modules-center": [
+      "hyprland/window"
+    ],
+    "modules-left": [
+      "hyprland/workspaces"
+    ],
+    "modules-right": [
+      "tray",
+      "custom/separator",
+      "pulseaudio",
+      "custom/separator",
+      "custom/memory",
+      "custom/separator",
+      "cpu",
+      "custom/separator",
+      "temperature",
+      "custom/separator",
+      "battery",
+      "custom/separator",
+      "network",
+      "custom/separator",
+      "backlight",
+      "custom/separator",
+      "custom/clock"
+    ],
+    "network": {
+      "format-disconnected": "{icon} Disc",
+      "format-ethernet": "{icon}  eth",
+      "format-icons": {
+        "disconnected": [
+          "󰖪"
+        ],
+        "ethernet": [
+          "󰌗"
+        ],
+        "wifi": [
+          "󰖩"
+        ]
+      },
+      "format-wifi": "{icon} {signalStrength:3}%"
+    },
+    "position": "top",
+    "pulseaudio": {
+      "format": "{icon} {volume:3}%",
+      "format-icons": [
+        ""
+      ],
+      "format-muted": "{icon} MUTE"
+    },
+    "reload_style_on_change": true,
+    "temperature": {
+      "critical-threshold": 100,
+      "format": "{icon} {temperatureC}°C",
+      "format-icons": [
+        ""
+      ],
+      "interval": 2,
+      "thermal-zone": 0
+    },
+    "tray": {
+      "spacing": 10
+    }
+  }
+]

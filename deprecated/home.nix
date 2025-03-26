@@ -75,7 +75,6 @@ in
       pkgs.vivaldi
       pkgs.openvpn
       pkgs.ispell
-      inputs.zen-browser.packages."${system}".default
     ];
 
     file = { };

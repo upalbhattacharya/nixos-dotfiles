@@ -1,0 +1,20 @@
+\.git
+\.gitignore
+
+.+~          # emacs backup files
+\#.*\#       # emacs autosave files
+
+.*\.nix
+.*\.lock
+
+/emacs
+
+/assets
+
+/home
+
+/\.direnv
+/\.envrc
+
+/deprecated
+

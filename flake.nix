@@ -4,20 +4,11 @@
     nixpkgs = {
       url = "nixpkgs/nixos-unstable";
     };
-    # catppuccin = {
-    #   url = "github:catppuccin/nix";
-    # };
-    # home-manager = {
-    #   url = "github:nix-community/home-manager";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
   outputs =
     {
       self,
       nixpkgs,
-      # home-manager,
-      # catppuccin,
       ...
     }@inputs:
     let
@@ -32,32 +23,8 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./configuration.nix
-            # home-manager.nixosModules.home-manager
-            # {
-            #   home-manager.useGlobalPkgs = true;
-            #   home-manager.useUserPackages = true;
-            #   home-manager.users.workboots = {
-            #     imports = [
-            #       ./home.nix
-            #       catppuccin.homeManagerModules.catppuccin
-            #     ];
-            #   };
-            #   home-manager.extraSpecialArgs = {
-            #     inherit system;
-            #     inherit inputs;
-            #   };
-            # }
           ];
         };
       };
-      # homeConfigurations = {
-      # 	workboots = home-manager.lib.homeManagerConfiguration {
-      # 		inherit pkgs;
-      # 		modules = [
-      # 			./home.nix
-      #       			catppuccin.homeManagerModules.catppuccin
-      # 		];
-      # 	};
-      # };
     };
 }
