@@ -237,7 +237,6 @@ in
 
       # Shell
       pkgs.zsh
-      pkgs.zsh-syntax-highlighting
       pkgs.starship
     ];
   };
@@ -285,7 +284,11 @@ in
 
   system.stateVersion = "24.05"; # Did you read the comment?
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    syntaxHighlighting.enable = true;
+  };
 
   xdg = {
     portal = {
