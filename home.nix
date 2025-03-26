@@ -2,6 +2,8 @@
   config,
   pkgs,
   catppuccin,
+  system,
+  inputs,
   ...
 }:
 let
@@ -73,6 +75,7 @@ in
       pkgs.vivaldi
       pkgs.openvpn
       pkgs.ispell
+      inputs.zen-browser.packages."${system}".default
     ];
 
     file = { };
