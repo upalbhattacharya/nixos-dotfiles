@@ -207,7 +207,7 @@ in
       pkgs.wpaperd
       pkgs.hypridle
       pkgs.mako
-      syncthing
+      pkgs.syncthing
 
       # UI
       pkgs.kanshi
@@ -238,8 +238,7 @@ in
       # Shell
       pkgs.zsh
       pkgs.starship
-
-    ]
+    ];
   };
 
   # Enable users
