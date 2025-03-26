@@ -183,6 +183,63 @@ in
       "uinput"
     ];
     useDefaultShell = true;
+    packages = [
+
+      # Utilities
+      pkgs.wl-clipboard-rs
+      pkgs.ripgrep
+      pkgs.jq
+      pkgs.socat
+      pkgs.graphviz
+      pkgs.poetry
+      pkgs.python312Full
+      pkgs.pandoc
+      pkgs.texliveFull
+      pkgs.cmake
+      pkgs.libvterm
+      pkgs.libtool
+      pkgs.ispell
+      pkgs.fzf
+      pkgs.zip
+      pkgs.unzip
+
+      # Services
+      pkgs.wpaperd
+      pkgs.hypridle
+      pkgs.mako
+      syncthing
+
+      # UI
+      pkgs.kanshi
+      pkgs.fuzzel
+      pkgs.hyprlock
+      pkgs.hyprland
+      pkgs.waybar
+
+      # Programs
+      pkgs.discord
+      pkgs.emacs30-pgtk
+      pkgs.vivaldi
+      pkgs.frescobaldi
+      pkgs.lilypond
+      pkgs.plantuml
+      pkgs.zotero-beta
+      pkgs.anki-bin
+      pkgs.localsend
+      pkgs.sioyek
+      pkgs.xdg
+      pkgs.mpg
+      pkgs.kitty
+      pkgs.
+
+      pkgs.protonvpn-cli_2
+      pkgs.openvpn
+
+      # Shell
+      pkgs.zsh
+      pkgs.starship
+
+    ]
   };
 
   # Enable users
