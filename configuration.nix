@@ -293,12 +293,12 @@ in
         xdg-desktop-portal-gtk
       ];
     };
-    mimeApps = {
-      enable = true;
-      defaultApplications = {
-        "application/pdf" = [ "sioyek.desktop" ];
-      };
-    };
+    # mimeApps = {
+    #   enable = true;
+    #   defaultApplications = {
+    #     "application/pdf" = [ "sioyek.desktop" ];
+    #   };
+    # };
   };
 
   fonts = {
