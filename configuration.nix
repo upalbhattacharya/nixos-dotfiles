@@ -186,6 +186,7 @@ in
     packages = [
 
       # Utilities
+      pkgs.tree
       pkgs.wl-clipboard-rs
       pkgs.ripgrep
       pkgs.jq
