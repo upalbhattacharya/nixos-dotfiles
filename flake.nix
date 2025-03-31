@@ -12,6 +12,7 @@
     {
       self,
       nixpkgs,
+      zen-browser,
       ...
     }@inputs:
     let
