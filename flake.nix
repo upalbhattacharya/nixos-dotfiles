@@ -24,7 +24,10 @@
       nixosConfigurations = {
         nixos-workboots = lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit system;
+            inherit inputs;
+          };
           modules = [
             ./configuration.nix
           ];
