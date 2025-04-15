@@ -101,6 +101,17 @@
  '(ignored-local-variable-values '((org-confirm-babel-evaluate)))
  '(org-agenda-breadcrumbs-separator " -> ")
  '(org-agenda-dim-blocked-tasks nil)
+ '(org-agenda-files
+   '("/home/workboots/org/Journal/Journal 2024.org"
+     "/home/workboots/org/Journal/Journal 2025.org"
+     "/home/workboots/org/Active.org"
+     "/home/workboots/org/Archive.org"
+     "/home/workboots/org/Clock Report.org"
+     "/home/workboots/org/Inbox.org" "/home/workboots/org/Later.org"
+     "/home/workboots/org/Literature.org"
+     "/home/workboots/org/RSS Feeds.org"
+     "/home/workboots/org/Reminders.org"
+     "/home/workboots/org/Slip Box.org"))
  '(org-agenda-prefix-format
    '((agenda . " %i %-12:c%?-12t% s") (todo . " %i %-12:c")
      (tags . " %i %-12:c") (search . " %i %-12:c")))

@@ -232,9 +232,7 @@ in
       pkgs.sioyek
       pkgs.mpv
       pkgs.kitty
-      pkgs.firefox
       pkgs.vivaldi
-      inputs.zen-browser.packages."${system}".default
 
       pkgs.protonvpn-cli_2
       pkgs.openvpn

@@ -4,15 +4,11 @@
     nixpkgs = {
       url = "nixpkgs/nixos-unstable";
     };
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-    };
   };
   outputs =
     {
       self,
       nixpkgs,
-      zen-browser,
       ...
     }@inputs:
     let
