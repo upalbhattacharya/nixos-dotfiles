@@ -4,10 +4,10 @@ profile solo {
 
 profile home-utrecht {
   output "eDP-1" disable
-  output "LG Electronics LG ULTRAGEAR+ 406NTYT11186" enable mode 3840x2160@144.05Hz position 0,0 scale 1.500000
+  output "LG Electronics LG ULTRAGEAR+ 406NTYT11186" enable mode 3840x2160@60.00Hz position 0,0 scale 1.500000
 }
 
 profile home-freiburg {
   output "eDP-1" disable
-  output "LG Electronics LG ULTRAGEAR+ 405NTPC4L824" enable mode 3840x2160@144.05Hz position 0,0 scale 1.500000
+  output "LG Electronics LG ULTRAGEAR+ 405NTPC4L824" enable mode 3840x2160@60.00Hz position 0,0 scale 1.500000
 }
