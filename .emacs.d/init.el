@@ -319,6 +319,13 @@
           ("READING" . (:background "#f5c2e7" :foreground "#1E1E2E" :weight bold))
           ("DONE" . (:background "#a6e3a1" :foreground "#1E1E2E" :weight bold))
           ("ARCHIVED" . (:background "#9399b2" :underline t)))))
+(use-package markdown-mode
+  :demand t
+  :ensure nil
+  :hook (markdown-mode . (lambda nil
+                           (set-fill-column 78)
+                           (auto-fill-mode)
+                           (display-fill-column-indicator-mode +1))))
 
 (use-package transient
   :demand t
