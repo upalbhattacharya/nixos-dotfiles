@@ -741,6 +741,11 @@
                                          org-super-agenda-properties-inherit)))
   :header-form (string-trim (format "%s" key) "[:\r\t\n]+"))
 
+(use-package rec-mode
+  :demand t
+  :ensure (:wait t :host github :repo "emacsmirror/rec-mode")
+  :config
+  (setq rec-mode +1))
 
 (use-package org-ql
   :demand t

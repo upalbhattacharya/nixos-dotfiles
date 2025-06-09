@@ -258,6 +258,7 @@ in
     greetd.tuigreet
     pulsemixer
     networkmanagerapplet
+    recutils
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
