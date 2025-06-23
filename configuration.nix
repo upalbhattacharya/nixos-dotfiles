@@ -219,6 +219,7 @@ in
       pkgs.hyprlock
       pkgs.hyprland
       pkgs.waybar
+      pkgs.brightnessctl
 
       # Programs
       pkgs.discord
