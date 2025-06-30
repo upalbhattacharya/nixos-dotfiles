@@ -1176,10 +1176,10 @@
   "
 ^File Navigation^
 -----------------
-_a_: Active	      _r_: Literature     _q_: Quit
-_i_: Inbox        _l_: Later
-_s_: Scratchpad   _x_: Archive
-_w_: Work         _t_: Time Report
+_a_: Active         _r_: Literature     _q_: Quit
+_i_: Inbox          _l_: Later
+_s_: Scratchpad     _x_: Archive
+_w_: Work           _t_: Time Report
 "
   ("a" (lambda () (interactive) (find-file "~/org/Active.org")))
   ("i" (lambda () (interactive) (find-file "~/org/Inbox.org")))
