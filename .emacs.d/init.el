@@ -1180,7 +1180,6 @@ _a_: Active	      _r_: Literature     _q_: Quit
 _i_: Inbox        _l_: Later
 _s_: Scratchpad   _x_: Archive
 _w_: Work         _t_: Time Report
-
 "
   ("a" (lambda () (interactive) (find-file "~/org/Active.org")))
   ("i" (lambda () (interactive) (find-file "~/org/Inbox.org")))
@@ -1192,6 +1191,7 @@ _w_: Work         _t_: Time Report
   ("t" (lambda () (interactive) (find-file "~/org/Clock Report.org")))
   ("q" nil))
 (global-set-key (kbd "C-c M-o") 'hydra-open-file/body)
+
 ;; time-based
 (defhydra
   hydra-time
