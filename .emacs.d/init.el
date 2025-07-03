@@ -289,23 +289,19 @@
   (setq org-todo-keywords
         '((sequence
            "TODO(t)"
-           "ACTIVE(A/!)"
-           "NOW(N/!)"
+           "TODAY(T/!)"
            "IN PROGRESS(p/!)"
            "REVIEW(r/!)"
            "LATER(l/!)"
-           "READING(R/!)"
            "|"
            "DONE(d/!)"
            "ARCHIVED(a/!)")))
   (setq org-todo-keyword-faces
         '(("TODO" . (:background "#f9e2af" :foreground "#1E1E2E" :weight bold))
-          ("ACTIVE" . (:background "#f2cdcd" :foreground "#1E1E2E" :weight bold))
-          ("NOW" . (:background "#f38ba8" :foreground "#1E1E2E" :weight bold))
+          ("TODAY" . (:background "#f2cdcd" :foreground "#1E1E2E" :weight bold))
           ("IN PROGRESS" . (:background "#89b4fa" :foreground "#1E1E2E" :weight bold))
           ("REVIEW" . (:background "#cba6f7" :foreground "#1E1E2E" :weight bold))
           ("LATER" . (:background "#b4befe" :foreground "#1E1E2E" :weight bold))
-          ("READING" . (:background "#f5c2e7" :foreground "#1E1E2E" :weight bold))
           ("DONE" . (:background "#a6e3a1" :foreground "#1E1E2E" :weight bold))
           ("ARCHIVED" . (:background "#9399b2" :underline t)))))
 
@@ -931,7 +927,9 @@
 (use-package org-transclusion
   :demand t
   :ensure (:wait t :host github :repo "nobiot/org-transclusion")
-  :hook (org-mode . org-transclusion-mode))
+  :hook (org-mode . org-transclusion-mode)
+  :hook (kill-emacs . org-transclusion-remove-all)
+  :hook (kill-buffer . org-transclusion-remove-all))
 
 (use-package plantuml-mode
   :demand t
@@ -1254,9 +1252,9 @@ _w_: Refile                   _q_: Quit
 (defhydra hydra-org-transclusion (:color pink :hint nil :exit t) "
 ^org-transclusion^
 ------------------
-_a_: Add        _o_: Open
-_A_: Add all    _l_: Live commands
-_r_: Remove
+_a_: Add        _o_: Open Source 
+_A_: Add all    _g_: Refresh
+_r_: Remove     _l_: Live commands
 _R_: Remove all
 "
   ("a" org-transclusion-add)
@@ -1264,6 +1262,7 @@ _R_: Remove all
   ("r" org-transclusion-remove)
   ("R" org-transclusion-remove-all)
   ("o" org-transclusion-open-source)
+  ("g" org-transclusion-refresh)
   ("l" hydra-org-transclusion-live/body :exit t)
   ("q" nil))
 
