@@ -344,7 +344,6 @@
  'org-babel-load-languages
  '((emacs-lisp . t)
    (python . t)
-   (plantuml . t)
    ))
 
 (use-package org-contrib
@@ -930,13 +929,6 @@
   :hook (org-mode . org-transclusion-mode)
   :hook (kill-emacs . org-transclusion-remove-all)
   :hook (kill-buffer . org-transclusion-remove-all))
-
-(use-package plantuml-mode
-  :demand t
-  :ensure (:wait t :host github :repo "skuro/plantuml-mode")
-  :config
-  (setq org-plantuml-jar-path (expand-file-name "~/plantuml.jar"))
-  (setq plantuml-jar-path (expand-file-name "~/plantuml.jar")))
 
 (use-package textsize
   :demand t
