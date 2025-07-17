@@ -599,10 +599,6 @@
   :ensure (:wait t :host github :repo "emacsmirror/auctex")
   :config (setq TeX-parse-self t))
 
-(use-package lsp-latex
-  :demand t
-  :ensure (:wait t :host github :repo "ROCKTAKEY/lsp-latex"))
-
 (use-package envrc
   :demand t
   :ensure (:wait t :host github :repo "purcell/envrc")
@@ -621,7 +617,7 @@
   ( ;; replace XXX-mode with concrete major-mode(e. g. python-mode)
    (python-mode . lsp-deferred)
    (nix-mode . lsp-deferred)
-   (latex-mode . lsp-deferred)
+   (LaTeX-mode . lsp-deferred)
    ;; if you want which-key integration
    (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp-deferred
