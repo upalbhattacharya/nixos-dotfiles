@@ -1075,6 +1075,21 @@
   nil ;; function-list
   "Query Callout")
 
+;;; Answer
+(define-generic-mode callout-answer-mode
+  nil ;; comment-list
+  nil ;; keyword-list
+  ;; font-lock-list:
+  '(("^.*$"
+     ;; match-highlight:
+     (0 ;; subexpression
+      ;; facename:
+      `(face (:inherit default :foreground "#89dceb")
+             ))))
+  nil ;; auto-mode-list
+  nil ;; function-list
+  "Answer Callout")
+
 ;; Scimax
 (org-babel-load-file (expand-file-name (concat user-emacs-directory "scimax/" "scimax-editmarks.org")))
 (add-hook 'org-mode-hook 'sem-mode)
