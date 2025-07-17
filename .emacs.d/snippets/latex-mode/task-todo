@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: task-todo
+# key: <tt
+# --
+\todo[color=cat-latte-yellow!30,inline]{${text}}
+$0
