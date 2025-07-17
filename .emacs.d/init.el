@@ -596,8 +596,12 @@
 
 (use-package auctex
   :demand t
-  :ensure (:wait t :host github :repo "emacs-straight/auctex" :branch "master")
+  :ensure (:wait t :host github :repo "emacsmirror/auctex")
   :config (setq TeX-parse-self t))
+
+(use-package lsp-latex
+  :demand t
+  :ensure (:wait t :host github :repo "ROCKTAKEY/lsp-latex"))
 
 (use-package envrc
   :demand t
@@ -617,6 +621,7 @@
   ( ;; replace XXX-mode with concrete major-mode(e. g. python-mode)
    (python-mode . lsp-deferred)
    (nix-mode . lsp-deferred)
+   (latex-mode . lsp-deferred)
    ;; if you want which-key integration
    (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp-deferred
@@ -1024,7 +1029,7 @@
      ;; match-highlight:
      (0 ;; subexpression
       ;; facename:
-      `(face (:inherit default :foreground "#FAB387")
+      `(face (:inherit org-block :foreground "#FAB387")
              ))))
   nil ;; auto-mode-list
   nil ;; function-list
@@ -1039,7 +1044,7 @@
      ;; match-highlight:
      (0 ;; subexpression
       ;; facename:
-      `(face (:inherit default :foreground "#F38ba8")
+      `(face (:inherit org-block :foreground "#F38ba8")
              ))))
   nil ;; auto-mode-list
   nil ;; function-list
@@ -1054,7 +1059,7 @@
      ;; match-highlight:
      (0 ;; subexpression
       ;; facename:
-      `(face (:inherit default :foreground "#A6e3a1")
+      `(face (:inherit org-block :foreground "#A6e3a1")
              ))))
   nil ;; auto-mode-list
   nil ;; function-list
@@ -1069,7 +1074,7 @@
      ;; match-highlight:
      (0 ;; subexpression
       ;; facename:
-      `(face (:inherit default :foreground "#f9e2af")
+      `(face (:inherit org-block :foreground "#f9e2af")
              ))))
   nil ;; auto-mode-list
   nil ;; function-list
@@ -1084,7 +1089,7 @@
      ;; match-highlight:
      (0 ;; subexpression
       ;; facename:
-      `(face (:inherit default :foreground "#89dceb")
+      `(face (:inherit org-block :foreground "#89dceb")
              ))))
   nil ;; auto-mode-list
   nil ;; function-list
