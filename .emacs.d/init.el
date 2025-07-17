@@ -597,9 +597,14 @@
 (use-package auctex
   :demand t
   :ensure (:wait t :host github :repo "emacsmirror/auctex")
+  :hook (LaTeX-mode . (lambda nil
+                        (set-fill-column 78)
+                        (auto-fill-mode)
+                        (display-fill-column-indicator-mode +1)))
   :config
   (setq TeX-parse-self t)
   (setq TeX-auto-save t))
+(add-to-list 'auto-mode-alist '("\\.tex$" . LaTeX-mode))
 
 (use-package envrc
   :demand t
