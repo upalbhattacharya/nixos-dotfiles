@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: callout-author
+# key: <call-u
+# --
+
+\begin{upal}{$1}{$2}
+$0
+\end{upal}

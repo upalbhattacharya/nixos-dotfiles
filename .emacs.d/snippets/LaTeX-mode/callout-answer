@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: callout-answer
+# key: <call-a
+# --
+
+\begin{answer}{$1}{$2}
+$0
+\end{answer}

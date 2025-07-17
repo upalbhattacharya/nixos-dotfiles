@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: callout-gap
+# key: <call-g
+# --
+
+\begin{gap}{$1}{$2}
+$0
+\end{gap}
