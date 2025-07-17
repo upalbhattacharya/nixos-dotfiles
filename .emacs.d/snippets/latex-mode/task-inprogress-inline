@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: task-in-progress-inline
+# key: <tpi
+# --
+\todo[color=soulblue,inline]{$1}
+$0
