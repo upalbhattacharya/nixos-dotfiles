@@ -1016,7 +1016,7 @@
 
 ;; Custom Callouts
 ;;; Caution
-(define-generic-mode mypar-mode
+(define-generic-mode callout-caution-mode
   nil ;; comment-list
   nil ;; keyword-list
   ;; font-lock-list:
@@ -1024,19 +1024,11 @@
      ;; match-highlight:
      (0 ;; subexpression
       ;; facename:
-      `(face (:inherit default :foreground "orange" :height 1.5 :weight bold) ;; we use an anonymous face
+      `(face (:inherit default :foreground "green") ;; we use an anonymous face
              ))))
   nil ;; auto-mode-list
   nil ;; function-list
   "Formatting MYPAR blocks.")
-
-(defun org+-hack-org-fontification ()
-  "Make `wrap-prefix' and `line-prefix' text properties work in Org buffers."
-  (setq-local font-lock-extra-managed-props (cl-union
-                                             '(line-prefix wrap-prefix)
-                                             font-lock-extra-managed-props)))
-
-(add-hook 'org-mode-hook #'org+-hack-org-fontification)
 
 ;; Scimax
 (org-babel-load-file (expand-file-name (concat user-emacs-directory "scimax/" "scimax-editmarks.org")))
