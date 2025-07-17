@@ -1158,6 +1158,7 @@
  '(company-preview ((t (:background "#6C7086" :foreground "#F5C2e7"))))
  '(font-latex-sectioning-0-face ((t (:inherit org-level-1))))
  '(font-latex-sectioning-1-face ((t (:inherit org-level-2))))
+ '(font-latex-sectioning-2-face ((t (:inherit org-level-3))))
  '(link ((t (:background "#313244" :foreground "#B4BEFE" :underline t))))
  '(org-agenda-structure ((t (:foreground "#f38ba8" :weight bold))))
  '(org-super-agenda-header ((t (:foreground "#94e2d5" :slant italic :weight light)))))
