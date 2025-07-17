@@ -263,6 +263,8 @@
   (setq org-enforce-todo-dependencies t)
   (setq org-enforce-todo-checkbox-dependencies t)
   (setq org-startup-folded 'overview)
+  (setq org-src-fontify-natively t)
+  (setq org-src-preserve-indentation t)
   
   ;;org-cite
   (setq org-cite-global-bibliography '("~/org/personal.bib"))
@@ -309,6 +311,7 @@
           ("LATER" . (:background "#b4befe" :foreground "#1E1E2E" :weight bold))
           ("DONE" . (:background "#a6e3a1" :foreground "#1E1E2E" :weight bold))
           ("ARCHIVED" . (:background "#9399b2" :underline t)))))
+
 
 (use-package transient
   :demand t
@@ -1009,6 +1012,18 @@
   :config
   (setq highlight-indent-guides-method 'column)
   (setq highlight-indent-guides-responsive 'top))
+
+(use-package org-special-block-extras
+  :demand t
+  :ensure (:wait t :host github :repo "alhassy/org-special-block-extras")
+  :hook (org-mode . org-special-block-extras-mode))
+
+;; Custom faces
+(defface org-block-notes
+  '((t :foreground "#F2666C"
+       ))
+  "face notes block"
+  )
 
 ;; Scimax
 (org-babel-load-file (expand-file-name (concat user-emacs-directory "scimax/" "scimax-editmarks.org")))
