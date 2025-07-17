@@ -129,8 +129,7 @@
      (67 :foreground "#181825" :background "#f9e2af")
      (68 :foreground "#181825" :background "#a6e3a1")
      (69 :foreground "#181825" :background "#b4befe")
-     (70 :foreground "#181825" :background "#9399b2")
-     ))
+     (70 :foreground "#181825" :background "#9399b2")))
  '(org-priority-lowest 70)
  '(org-ql-search-directories-files-recursive t)
  '(org-ql-search-directories-files-regexp ".org$")
@@ -311,6 +310,7 @@
           ("LATER" . (:background "#b4befe" :foreground "#1E1E2E" :weight bold))
           ("DONE" . (:background "#a6e3a1" :foreground "#1E1E2E" :weight bold))
           ("ARCHIVED" . (:background "#9399b2" :underline t)))))
+
 
 
 (use-package transient
@@ -1156,6 +1156,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(company-preview ((t (:background "#6C7086" :foreground "#F5C2e7"))))
+ '(font-latex-sectioning-0-face ((t (:inherit org-level-1))))
+ '(font-latex-sectioning-1-face ((t (:inherit org-level-2))))
  '(link ((t (:background "#313244" :foreground "#B4BEFE" :underline t))))
  '(org-agenda-structure ((t (:foreground "#f38ba8" :weight bold))))
  '(org-super-agenda-header ((t (:foreground "#94e2d5" :slant italic :weight light)))))
