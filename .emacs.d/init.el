@@ -265,7 +265,6 @@
   (setq org-startup-folded 'overview)
   (setq org-src-fontify-natively t)
   (setq org-src-preserve-indentation t)
-  (setq org-fontify-quote-and-verse-blocks t)
   
   ;;org-cite
   (setq org-cite-global-bibliography '("~/org/personal.bib"))
@@ -1015,6 +1014,7 @@
   (setq highlight-indent-guides-responsive 'top))
 
 ;; Custom Callouts
+
 ;;; Caution
 (define-generic-mode callout-caution-mode
   nil ;; comment-list
@@ -1024,11 +1024,56 @@
      ;; match-highlight:
      (0 ;; subexpression
       ;; facename:
-      `(face (:inherit default :foreground "green") ;; we use an anonymous face
+      `(face (:inherit default :foreground "#FAB387")
              ))))
   nil ;; auto-mode-list
   nil ;; function-list
-  "Formatting MYPAR blocks.")
+  "Caution Callout")
+
+;;; Bad
+(define-generic-mode callout-bad-mode
+  nil ;; comment-list
+  nil ;; keyword-list
+  ;; font-lock-list:
+  '(("^.*$"
+     ;; match-highlight:
+     (0 ;; subexpression
+      ;; facename:
+      `(face (:inherit default :foreground "#F38ba8")
+             ))))
+  nil ;; auto-mode-list
+  nil ;; function-list
+  "Bad Callout")
+
+;;; Good
+(define-generic-mode callout-good-mode
+  nil ;; comment-list
+  nil ;; keyword-list
+  ;; font-lock-list:
+  '(("^.*$"
+     ;; match-highlight:
+     (0 ;; subexpression
+      ;; facename:
+      `(face (:inherit default :foreground "#A6e3a1")
+             ))))
+  nil ;; auto-mode-list
+  nil ;; function-list
+  "Good Callout")
+
+;;; Query
+(define-generic-mode callout-query-mode
+  nil ;; comment-list
+  nil ;; keyword-list
+  ;; font-lock-list:
+  '(("^.*$"
+     ;; match-highlight:
+     (0 ;; subexpression
+      ;; facename:
+      `(face (:inherit default :foreground "#f9e2af")
+             ))))
+  nil ;; auto-mode-list
+  nil ;; function-list
+  "Query Callout")
 
 ;; Scimax
 (org-babel-load-file (expand-file-name (concat user-emacs-directory "scimax/" "scimax-editmarks.org")))
