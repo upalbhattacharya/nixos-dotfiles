@@ -265,6 +265,7 @@
   (setq org-startup-folded 'overview)
   (setq org-src-fontify-natively t)
   (setq org-src-preserve-indentation t)
+  (setq org-fontify-quote-and-verse-blocks t)
   
   ;;org-cite
   (setq org-cite-global-bibliography '("~/org/personal.bib"))
@@ -1013,17 +1014,29 @@
   (setq highlight-indent-guides-method 'column)
   (setq highlight-indent-guides-responsive 'top))
 
-(use-package org-special-block-extras
-  :demand t
-  :ensure (:wait t :host github :repo "alhassy/org-special-block-extras")
-  :hook (org-mode . org-special-block-extras-mode))
+;; Custom Callouts
+;;; Caution
+(define-generic-mode mypar-mode
+  nil ;; comment-list
+  nil ;; keyword-list
+  ;; font-lock-list:
+  '(("^.*$"
+     ;; match-highlight:
+     (0 ;; subexpression
+      ;; facename:
+      `(face (:inherit default :foreground "orange" :height 1.5 :weight bold) ;; we use an anonymous face
+             ))))
+  nil ;; auto-mode-list
+  nil ;; function-list
+  "Formatting MYPAR blocks.")
 
-;; Custom faces
-(defface org-block-notes
-  '((t :foreground "#F2666C"
-       ))
-  "face notes block"
-  )
+(defun org+-hack-org-fontification ()
+  "Make `wrap-prefix' and `line-prefix' text properties work in Org buffers."
+  (setq-local font-lock-extra-managed-props (cl-union
+                                             '(line-prefix wrap-prefix)
+                                             font-lock-extra-managed-props)))
+
+(add-hook 'org-mode-hook #'org+-hack-org-fontification)
 
 ;; Scimax
 (org-babel-load-file (expand-file-name (concat user-emacs-directory "scimax/" "scimax-editmarks.org")))
