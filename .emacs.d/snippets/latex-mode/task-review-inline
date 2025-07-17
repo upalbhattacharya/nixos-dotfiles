@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: task-review-inline
+# key: <tri
+# --
+\todo[color=soulpurple,inline]{$1}
+$0

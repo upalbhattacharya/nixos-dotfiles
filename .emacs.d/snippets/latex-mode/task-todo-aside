@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: task-todo-aside
+# key: <tta
+# --
+\todo[color=soulyellow]{$1}
+$0

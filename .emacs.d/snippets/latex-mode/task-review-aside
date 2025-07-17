@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: task-review-aside
+# key: <tra
+# --
+\todo[color=soulpurple]{$1}
+$0

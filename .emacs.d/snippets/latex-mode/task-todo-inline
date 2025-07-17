@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: task-todo-inline
+# key: <tti
+# --
+\todo[color=soulyellow,inline]{$1}
+$0

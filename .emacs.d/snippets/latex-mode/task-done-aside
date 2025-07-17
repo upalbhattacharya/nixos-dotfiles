@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: task-done-aside
+# key: <tda
+# --
+\todo[color=soulgreen]{$1}
+$0

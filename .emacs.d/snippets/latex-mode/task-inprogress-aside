@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: task-in-progress-aside
+# key: <tpa
+# --
+\todo[color=soulblue]{$1}
+$0
