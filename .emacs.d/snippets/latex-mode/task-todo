@@ -2,5 +2,5 @@
 # name: task-todo
 # key: <tt
 # --
-\todo[color=cat-latte-yellow!30,inline]{${text}}
+\todo[color=cat-latte-yellow!30,inline]{$1}
 $0
