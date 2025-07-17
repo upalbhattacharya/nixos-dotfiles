@@ -1021,82 +1021,13 @@
   (setq highlight-indent-guides-method 'column)
   (setq highlight-indent-guides-responsive 'top))
 
-;; Custom Callouts
-
-;;; Caution
-(define-generic-mode callout-caution-mode
-  nil ;; comment-list
-  nil ;; keyword-list
-  ;; font-lock-list:
-  '(("^.*$"
-     ;; match-highlight:
-     (0 ;; subexpression
-      ;; facename:
-      `(face (:inherit org-block :foreground "#FAB387")
-             ))))
-  nil ;; auto-mode-list
-  nil ;; function-list
-  "Caution Callout")
-
-;;; Bad
-(define-generic-mode callout-bad-mode
-  nil ;; comment-list
-  nil ;; keyword-list
-  ;; font-lock-list:
-  '(("^.*$"
-     ;; match-highlight:
-     (0 ;; subexpression
-      ;; facename:
-      `(face (:inherit org-block :foreground "#F38ba8")
-             ))))
-  nil ;; auto-mode-list
-  nil ;; function-list
-  "Bad Callout")
-
-;;; Good
-(define-generic-mode callout-good-mode
-  nil ;; comment-list
-  nil ;; keyword-list
-  ;; font-lock-list:
-  '(("^.*$"
-     ;; match-highlight:
-     (0 ;; subexpression
-      ;; facename:
-      `(face (:inherit org-block :foreground "#A6e3a1")
-             ))))
-  nil ;; auto-mode-list
-  nil ;; function-list
-  "Good Callout")
-
-;;; Query
-(define-generic-mode callout-query-mode
-  nil ;; comment-list
-  nil ;; keyword-list
-  ;; font-lock-list:
-  '(("^.*$"
-     ;; match-highlight:
-     (0 ;; subexpression
-      ;; facename:
-      `(face (:inherit org-block :foreground "#f9e2af")
-             ))))
-  nil ;; auto-mode-list
-  nil ;; function-list
-  "Query Callout")
-
-;;; Answer
-(define-generic-mode callout-answer-mode
-  nil ;; comment-list
-  nil ;; keyword-list
-  ;; font-lock-list:
-  '(("^.*$"
-     ;; match-highlight:
-     (0 ;; subexpression
-      ;; facename:
-      `(face (:inherit org-block :foreground "#89dceb")
-             ))))
-  nil ;; auto-mode-list
-  nil ;; function-list
-  "Answer Callout")
+(use-package yasnippet
+  :demand t
+  :ensure (:wait t :host github :repo "joaotavora/yasnippet")
+  :config
+  (setq yas-global-mode +1)
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  )
 
 ;; Scimax
 (org-babel-load-file (expand-file-name (concat user-emacs-directory "scimax/" "scimax-editmarks.org")))
