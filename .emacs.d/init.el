@@ -338,7 +338,6 @@
           ("DONE" . "#a6e3a1")
           ("ARCHIVED" . "#9399b2"))))
 
-
 (use-package magit-todos
   :demand t
   :ensure (:wait t :host github :repo "alphapapa/magit-todos")
