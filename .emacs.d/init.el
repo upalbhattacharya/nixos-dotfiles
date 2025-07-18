@@ -530,6 +530,8 @@
   :config
   (setq ebib-preload-bib-files '("~/References/main.bib"))
   (setq ebib-import-target-directory "~/References/pdf/")
+  (setq ebib-notes-directory "~/References/notes/")
+  (setq ebib-notes-file-extension "tex")
   (setq ebib-bibtex-dialect 'biblatex))
 
 (load-file (expand-file-name (concat user-emacs-directory "extras/" "ebib-papers.el")))
