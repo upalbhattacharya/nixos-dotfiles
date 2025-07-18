@@ -300,7 +300,6 @@
   (setq org-todo-keywords
         '((sequence
            "TODO(t)"
-           "TODAY(T/!)"
            "IN PROGRESS(p/!)"
            "REVIEW(r/!)"
            "LATER(l/!)"
@@ -309,8 +308,8 @@
            "ARCHIVED(a/!)")))
   (setq org-todo-keyword-faces
         '(("TODO" . (:background "#f9e2af" :foreground "#1E1E2E" :weight bold))
-          ("TODAY" . (:background "#f2cdcd" :foreground "#1E1E2E" :weight bold))
-          ("IN PROGRESS" . (:background "#89b4fa" :foreground "#1E1E2E" :weight bold))
+          ("INPROGRESS" . (:background "#89b4fa" :foreground "#1E1E2E" :weight bold))
+          ("URGENT" . (:background "#fab387" :foreground "#1E1E2E" :weight bold))
           ("REVIEW" . (:background "#cba6f7" :foreground "#1E1E2E" :weight bold))
           ("LATER" . (:background "#b4befe" :foreground "#1E1E2E" :weight bold))
           ("DONE" . (:background "#a6e3a1" :foreground "#1E1E2E" :weight bold))
@@ -326,7 +325,26 @@
   :demand t
   :ensure (:wait t :host github :repo "magit/magit"))
 
-; TODO Fix later
+(use-package hl-todo
+  :demand t
+  :ensure (:wait t :host github :repo "tarsius/hl-todo")
+  :config
+  (setq hl-todo-keyword-faces
+        '(("TODO" . "#f9e2af")
+          ("INPROGRESS" . "#89b4fa")
+          ("URGENT" . "#fab387")
+          ("REVIEW" . "#cba6f7")
+          ("LATER" . "#b4befe")
+          ("DONE" . "#a6e3a1")
+          ("ARCHIVED" . "#9399b2"))))
+
+
+(use-package magit-todos
+  :demand t
+  :ensure (:wait t :host github :repo "alphapapa/magit-todos")
+  :after magit
+  :config (magit-todos-mode +1))
+
 (use-package peg
   :demand t
   :ensure (:wait t))
