@@ -89,6 +89,11 @@
      default))
  '(ebib-file-associations '(("pdf" . "xdg-open %s") ("ps" . "gv")))
  '(ebib-notes-show-note-method 'all)
+ '(ebib-notes-template-specifiers
+   '((75 . ebib-create-org-identifier) (84 . ebib-create-org-description)
+     (88 . ebib-create-org-title) (67 . ebib-create-org-cite)
+     (76 . ebib-create-org-link) (70 . ebib-create-org-file-link)
+     (68 . ebib-create-org-doi-link) (85 . ebib-create-org-url-link)))
  '(ebib-uniquify-keys t)
  '(elpaca-menu-functions
    '(elpaca-menu-lock-file elpaca-menu-extensions elpaca-menu-org
