@@ -528,11 +528,11 @@
   :demand t
   :ensure (:wait t :host github :repo "joostkremers/ebib")
   :config
-  (setq note-template (load (expand-file-name "References/litnote.tex" (getenv "HOME"))))
+  ;; (setq note-template (load (expand-file-name "References/litnote.tex" (getenv "HOME"))))
   (setq ebib-preload-bib-files '("~/References/main.bib"))
   (setq ebib-import-target-directory "~/References/pdf/")
   (setq ebib-notes-directory "~/References/notes/")
-  (setq ebib-notes-template (insert (format "%s" (expand-file-name "References/litnote.tex" (getenv "HOME")))))
+  (setq ebib-notes-template (insert-file-contents (expand-file-name "References/litnote.tex" (getenv "HOME"))))
   (setq ebib-notes-file-extension "tex")
   (setq ebib-bibtex-dialect 'biblatex))
 
