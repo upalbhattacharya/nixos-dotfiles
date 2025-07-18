@@ -603,7 +603,8 @@
                         (display-fill-column-indicator-mode +1)))
   :config
   (setq TeX-parse-self t)
-  (setq TeX-auto-save t))
+  (setq TeX-auto-save t)
+  (setq TeX-output-dir "aux"))
 (add-to-list 'auto-mode-alist '("\\.tex$" . LaTeX-mode))
 
 (use-package envrc
@@ -1371,3 +1372,5 @@ _k_: Insert Key
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
 (put 'list-timers 'disabled nil)
+(put 'LaTeX-narrow-to-environment 'disabled nil)
+(put 'TeX-narrow-to-group 'disabled nil)
