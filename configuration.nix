@@ -206,6 +206,7 @@ in
       pkgs.zip
       pkgs.unzip
       pkgs.stow
+      pkgs.rclone
 
       # Services
       pkgs.wpaperd
