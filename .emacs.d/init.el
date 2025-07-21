@@ -1060,6 +1060,7 @@
 (use-package pdf-tools
   :demand t
   :ensure (:wait t :host github :repo "vedang/pdf-tools")
+  :mode ("\\.pdf\\'" . pdf-view-mode)
   :config
   (pdf-tools-install)
   (setq pdf-view-use-scaling t)
