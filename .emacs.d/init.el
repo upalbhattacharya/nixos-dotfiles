@@ -1065,6 +1065,7 @@
   :demand t
   :ensure (:wait t :host github :repo "vedang/pdf-tools")
   :mode ("\\.pdf\\'" . pdf-view-mode)
+  :hook (pdf-view-mode (lambda() (display-line-numbers-mode -1)))
   :config
   (pdf-tools-install)
   (setq pdf-view-use-scaling t)
