@@ -300,7 +300,7 @@
   (setq org-todo-keywords
         '((sequence
            "TODO(t)"
-           "IN PROGRESS(p/!)"
+           "INPROGRESS(p/!)"
            "REVIEW(r/!)"
            "LATER(l/!)"
            "|"
@@ -629,6 +629,10 @@
                         (auto-fill-mode)
                         (display-fill-column-indicator-mode +1)))
   :config
+  (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+        TeX-source-correlate-start-server t)
+
+  (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
   (setq TeX-parse-self t)
   (setq TeX-auto-save t)
   (setq TeX-output-dir "aux"))
@@ -1065,6 +1069,32 @@
   (pdf-tools-install)
   (setq pdf-view-use-scaling t)
   )
+(defun toggle-window-split ()
+  (interactive)
+  (if (= (count-windows) 2)
+      (let* ((this-win-buffer (window-buffer))
+	         (next-win-buffer (window-buffer (next-window)))
+	         (this-win-edges (window-edges (selected-window)))
+	         (next-win-edges (window-edges (next-window)))
+	         (this-win-2nd (not (and (<= (car this-win-edges)
+					                     (car next-win-edges))
+				                     (<= (cadr this-win-edges)
+					                     (cadr next-win-edges)))))
+	         (splitter
+	          (if (= (car this-win-edges)
+		             (car (window-edges (next-window))))
+		          'split-window-horizontally
+		        'split-window-vertically)))
+	    (delete-other-windows)
+	    (let ((first-win (selected-window)))
+	      (funcall splitter)
+	      (if this-win-2nd (other-window 1))
+	      (set-window-buffer (selected-window) this-win-buffer)
+	      (set-window-buffer (next-window) next-win-buffer)
+	      (select-window first-win)
+	      (if this-win-2nd (other-window 1))))))
+
+(define-key ctl-x-4-map "t" 'toggle-window-split)
 
 ;; Scimax
 (org-babel-load-file (expand-file-name (concat user-emacs-directory "scimax/" "scimax-editmarks.org")))
