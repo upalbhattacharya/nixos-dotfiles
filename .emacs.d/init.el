@@ -87,7 +87,7 @@
  '(custom-safe-themes
    '("6e13ff2c27cf87f095db987bf30beca8697814b90cd837ef4edca18bdd381901"
      default))
- ;; '(ebib-file-associations '(("pdf" . "xdg-open %s") ("ps" . "gv")))
+ '(ebib-file-associations '(("pdf") ("ps" . "gv")))
  '(ebib-notes-show-note-method 'all)
  '(ebib-notes-template-specifiers
    '((75 . ebib-create-org-identifier) (84 . ebib-create-org-description)
@@ -1065,7 +1065,7 @@
   :demand t
   :ensure (:wait t :host github :repo "vedang/pdf-tools")
   :mode ("\\.pdf\\'" . pdf-view-mode)
-  :hook (pdf-view-mode (lambda() (display-line-numbers-mode -1)))
+  :hook (pdf-view-mode . (lambda () (display-line-numbers-mode -1)))
   :config
   (pdf-tools-install)
   (setq pdf-view-use-scaling t)
