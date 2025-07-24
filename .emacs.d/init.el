@@ -92,8 +92,8 @@
  '(ebib-notes-template-specifiers
    '((75 . ebib-create-org-identifier) (84 . ebib-create-org-description)
      (88 . ebib-create-org-title) (67 . ebib-create-org-cite)
-     (76 . ebib-create-org-link) (70 . ebib-create-org-file-link)
-     (68 . ebib-create-org-doi-link) (85 . ebib-create-org-url-link)))
+     (76 . ebib-create-org-link) (68 . ebib-create-org-doi-link)
+     (85 . ebib-create-org-url-link)))
  '(ebib-uniquify-keys t)
  '(elpaca-menu-functions
    '(elpaca-menu-lock-file elpaca-menu-extensions elpaca-menu-org
@@ -518,7 +518,7 @@
   :ensure (:wait t :host github :repo "emacs-citar/citar")
   :custom
   (citar-open-note-function 'orb-citar-edit-note)
-  (citar-bibliography '("~/References/main.bib"))
+  (citar-bibliography '("~/References/bibliography.bib"))
   (citar-library-paths '("~/References/pdf/"))
   (citar-note-paths '("~/org"))
   (citar-file-note-extensions '("org"))
@@ -549,12 +549,15 @@
 (use-package ebib
   :demand t
   :ensure (:wait t :host github :repo "joostkremers/ebib")
+  :hook (ebib-index-mode . (lambda () (evil-mode -1)))
+  :hook (ebib-entry-mode . (lambda () (evil-mode -1)))
+  :hook (ebib-multiline-mode . (lambda () (evil-mode -1)))
   :config
   (setq ebib-layout 'index-only)
-  (setq ebib-preload-bib-files '("~/References/main.bib"))
+  (setq ebib-preload-bib-files '("~/References/bibliography.bib"))
   (setq ebib-import-target-directory "~/References/pdf/")
   (setq ebib-notes-directory "~/References/notes/")
-  (setq ebib-notes-template (format "%s" (f-read-text "~/References/litnote.tex" 'utf-8)))
+  (setq ebib-notes-template (format "%s" (f-read-text "~/References/note_template/litnote.tex" 'utf-8)))
   (setq ebib-notes-file-extension "tex")
   (setq ebib-notes-show-note-method 'all)
   (setq ebib-bibtex-dialect 'biblatex))
