@@ -552,6 +552,8 @@
   :hook (ebib-index-mode . (lambda () (evil-mode -1)))
   :hook (ebib-entry-mode . (lambda () (evil-mode -1)))
   :hook (ebib-multiline-mode . (lambda () (evil-mode -1)))
+  :hook (ebib-strings-mode . (lambda () (evil-mode -1)))
+  :hook (ebib-log-mode . (lambda () (evil-mode -1)))
   :config
   (setq ebib-layout 'index-only)
   (setq ebib-preload-bib-files '("~/References/bibliography.bib"))
