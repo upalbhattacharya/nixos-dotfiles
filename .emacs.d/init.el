@@ -1264,19 +1264,9 @@
   "
 ^File Navigation^
 -----------------
-_a_: Active         _r_: Literature     _q_: Quit
-_i_: Inbox          _l_: Later
-_s_: Scratchpad     _x_: Archive
-_w_: Work           _t_: Time Report
+_i_: Inbox 	_q_: Quit
 "
-  ("a" (lambda () (interactive) (find-file "~/org/Active.org")))
   ("i" (lambda () (interactive) (find-file "~/org/Inbox.org")))
-  ("s" (lambda () (interactive) (find-file "~/org/Scratchpad.org")))
-  ("w" (lambda () (interactive) (find-file "~/org/Work.org")))
-  ("r" (lambda () (interactive) (find-file "~/org/Literature.org")))
-  ("l" (lambda () (interactive) (find-file "~/org/Later.org")))
-  ("x" (lambda () (interactive) (find-file "~/org/Archive.org")))
-  ("t" (lambda () (interactive) (find-file "~/org/Clock Report.org")))
   ("q" nil))
 (global-set-key (kbd "C-c M-o") 'hydra-open-file/body)
 
