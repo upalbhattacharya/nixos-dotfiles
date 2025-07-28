@@ -261,6 +261,7 @@ in
     pulsemixer
     networkmanagerapplet
     recutils
+    yt-dlp
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
