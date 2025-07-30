@@ -550,6 +550,7 @@
   :demand t
   :ensure (:wait t :host github :repo "joostkremers/ebib")
   :config
+  (setq ebib-reading-list-file "~/org/Reading List.org")
   (setq ebib-layout 'index-only)
   (setq ebib-preload-bib-files '("~/References/bibliography.bib"))
   (setq ebib-import-target-directory "~/References/pdf/")
