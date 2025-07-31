@@ -262,7 +262,8 @@ in
     networkmanagerapplet
     recutils
     yt-dlp
-    lollypop
+    strawberry
+    cmus
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
