@@ -235,6 +235,7 @@ in
       pkgs.mpv
       pkgs.kitty
       pkgs.vivaldi
+      pkgs.photoqt
 
       pkgs.protonvpn-cli_2
       pkgs.openvpn
