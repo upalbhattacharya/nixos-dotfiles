@@ -1071,6 +1071,10 @@
   (pdf-tools-install)
   (setq pdf-view-use-scaling t)
   )
+
+(setq treesit-language-source-alist
+      '((python "https://github.com/tree-sitter/tree-sitter-python")))
+
 (defun toggle-window-split ()
   (interactive)
   (if (= (count-windows) 2)
