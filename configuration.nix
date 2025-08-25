@@ -265,6 +265,7 @@ in
     yt-dlp
     strawberry
     cmus
+    musescore
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
