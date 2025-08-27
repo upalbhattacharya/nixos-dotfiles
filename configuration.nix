@@ -188,6 +188,7 @@ in
     packages = [
 
       # Utilities
+      pkgs.glibc
       pkgs.tree
       pkgs.wl-clipboard-rs
       pkgs.ripgrep
@@ -359,5 +360,9 @@ in
   };
   programs.npm = {
     enable = true;
+  };
+  programs.appimage = {
+    enable = true;
+    bootfmt = true;
   };
 }
