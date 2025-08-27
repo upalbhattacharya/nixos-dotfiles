@@ -363,6 +363,6 @@ in
   };
   programs.appimage = {
     enable = true;
-    bootfmt = true;
+    binfmt = true;
   };
 }
