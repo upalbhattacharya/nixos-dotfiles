@@ -167,9 +167,9 @@ in
   };
 
   # Lid Behaviour
-  services.logind = {
-    lidSwitchExternalPower = "ignore";
-    lidSwitch = "ignore";
+  services.logind.settings.Login = {
+    HandleLidSwitchExternalPower = "ignore";
+    HandleLidSwitch = "ignore";
   };
 
   # Users
@@ -196,7 +196,7 @@ in
       pkgs.socat
       pkgs.graphviz
       pkgs.poetry
-      pkgs.python312Full
+      pkgs.python314
       pkgs.pandoc
       pkgs.texliveFull
       pkgs.cmake
@@ -226,7 +226,6 @@ in
       # Programs
       pkgs.discord
       pkgs.emacs30-pgtk
-      pkgs.frescobaldi
       pkgs.lilypond
       pkgs.plantuml
       pkgs.zotero-beta
@@ -259,7 +258,7 @@ in
     git
     libnotify
     gcc
-    greetd.tuigreet
+    tuigreet
     pulsemixer
     networkmanagerapplet
     recutils
