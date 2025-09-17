@@ -236,6 +236,7 @@ in
       pkgs.kitty
       pkgs.vivaldi
       pkgs.photoqt
+      pkgs.calibre
 
       pkgs.protonvpn-cli_2
       pkgs.openvpn
