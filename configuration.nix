@@ -40,6 +40,7 @@ in
   networking.hostName = "nixos-workboots";
   networking.networkmanager.enable = true;
   networking.enableIPv6 = false;
+  networking.firewall.checkReversePath = false;
 
   # Timezone
   time.timeZone = "Europe/Amsterdam";
@@ -210,6 +211,8 @@ in
       pkgs.rclone
       pkgs.gnumake
       pkgs.librsvg
+      pkgs.protonvpn-gui
+      pkgs.wireguard-tools
 
       # Services
       pkgs.wpaperd
