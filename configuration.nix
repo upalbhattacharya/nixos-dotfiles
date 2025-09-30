@@ -211,8 +211,7 @@ in
       pkgs.rclone
       pkgs.gnumake
       pkgs.librsvg
-      pkgs.openvpn
-      pkgs.openresolv
+      pkgs.protonvpn-gui
 
       # Services
       pkgs.wpaperd
