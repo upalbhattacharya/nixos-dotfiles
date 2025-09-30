@@ -208,6 +208,8 @@ in
       pkgs.unzip
       pkgs.stow
       pkgs.rclone
+      pkgs.gnumake
+      pkgs.librsvg
 
       # Services
       pkgs.wpaperd
@@ -264,7 +266,6 @@ in
     networkmanagerapplet
     recutils
     yt-dlp
-    strawberry
     cmus
     musescore
   ];
