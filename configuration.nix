@@ -212,7 +212,7 @@ in
       pkgs.gnumake
       pkgs.librsvg
       pkgs.openvpn
-      pkgs.resolvconf
+      pkgs.openresolv
 
       # Services
       pkgs.wpaperd
