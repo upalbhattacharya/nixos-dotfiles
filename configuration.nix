@@ -173,6 +173,8 @@ in
     HandleLidSwitch = "ignore";
   };
 
+  services.udisks2.enable = true;
+
   # Users
 
   users.users.workboots = {
