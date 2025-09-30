@@ -211,8 +211,8 @@ in
       pkgs.rclone
       pkgs.gnumake
       pkgs.librsvg
-      pkgs.protonvpn-gui
-      pkgs.wireguard-tools
+      pkgs.openvpn
+      pkgs.resolvconf
 
       # Services
       pkgs.wpaperd
