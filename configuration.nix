@@ -1,4 +1,4 @@
-{
+
   config,
   lib,
   pkgs,
@@ -214,6 +214,7 @@ in
       pkgs.gnumake
       pkgs.librsvg
       pkgs.protonvpn-gui
+      # pkgs.gimp
 
       # Services
       pkgs.wpaperd
