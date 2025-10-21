@@ -317,6 +317,10 @@
           ("DONE" . (:background "#a6e3a1" :foreground "#1E1E2E" :weight bold))
           ("ARCHIVED" . (:background "#9399b2" :underline t)))))
 
+(use-package unfill
+  :demand t
+  :ensure (:wait t :host github :repo "purcell/unfill"))
+
 (use-package cond-let
   :demand t
   :ensure (:wait t :host github :repo "tarsius/cond-let"))
