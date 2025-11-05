@@ -531,10 +531,10 @@
   (citar-file-note-extensions '("org"))
   (org-cite-insert-processor 'citar)
   (org-cite-activate-processor 'citar)
-  (org-cite-follow-processor 'citar)
-  :hook
-  (LaTeX-mode . citar-capf-setup)
-  (org-mode . citar-capf-setup))
+  (org-cite-follow-processor 'citar))
+;; :hook
+;; (LaTeX-mode . citar-capf-setup)
+;; (org-mode . citar-capf-setup))
 
 (use-package citar-org-roam
   :demand t
