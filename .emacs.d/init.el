@@ -1,5 +1,4 @@
-                                        ; Bootstrap elpaca
-(defvar elpaca-installer-version 0.10)
+(defvar elpaca-installer-version 0.11)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
 (defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
 (defvar elpaca-repos-directory (expand-file-name "repos/" elpaca-directory))
@@ -553,6 +552,10 @@
   :ensure (:wait t :host github :repo "cpitlaudel/biblio.el")
   :config
   (setq biblio-download-directory "~/Downloads/"))
+
+(use-package seq
+  :ensure (:wait t)
+  :demand t)
 
 (use-package ebib
   :demand t
