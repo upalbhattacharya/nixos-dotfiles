@@ -89,6 +89,7 @@
  '(ebib-file-associations '(("pdf") ("ps" . "gv")))
  '(ebib-index-columns '(("Entry Key" 70 t) ("Year" 6 t) ("Title" 100 t)))
  '(ebib-layout 'full)
+ '(ebib-notes-name-transform-function 'format)
  '(ebib-notes-show-note-method 'all)
  '(ebib-notes-template-specifiers
    '((75 . ebib-create-org-identifier) (84 . ebib-create-org-description)
