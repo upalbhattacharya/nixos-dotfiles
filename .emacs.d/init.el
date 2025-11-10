@@ -567,7 +567,6 @@
   (setq ebib-import-target-directory "~/References/pdf/")
   (setq ebib-notes-directory "~/References/notes/")
   (setq ebib-notes-template (format "%s" (f-read-text "~/References/note_template/litnote.tex" 'utf-8)))
-  (setq ebib-notes-name-transform-function (concat "note_" ebib-name-transform-function))
   (setq ebib-notes-file-extension "tex")
   (setq ebib-notes-show-note-method 'all)
   (setq ebib-bibtex-dialect 'biblatex))
